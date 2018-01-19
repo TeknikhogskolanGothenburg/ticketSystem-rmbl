@@ -1,0 +1,8 @@
+- name: Architechture
+  href: architecture/
+  homepage: architecture/index.md
+- name: User stories
+  href: userstories/
+  homepage: userstories/index.md
+- name: Web API
+  href: webapi/

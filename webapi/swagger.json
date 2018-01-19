@@ -1,0 +1,54 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "An API which gives access to all parts of the ticket system",
+    "version": "1.0.0",
+    "title": "Ticket system api"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/ticket": {
+      "get": {
+	      "operationId": "ticket",
+        "summary": "Something",
+        "responses": {
+          "200": {
+            "description": "Ticket loaded"
+          }
+        }
+      }
+    },
+    "/ticket/{ticketId}": {
+      "get": {
+        "summary": "Get a ticket by ID from the system",
+        "description": "Returns a single ticket",
+	    	"operationId": "ticketId",
+        "produces": [
+          "application/pdf",
+          "text/html",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ticketId",
+            "in": "path",
+            "description": "ID of the ticket",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ticket loaded"
+          },
+          "404": {
+            "description": "Ticket not found"
+          }
+        }
+      }
+    }
+  }
+}
