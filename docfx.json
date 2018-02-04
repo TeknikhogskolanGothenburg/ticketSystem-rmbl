@@ -24,7 +24,7 @@
         "dest": "api"
       },
       {
-        "files": [ "articles/images/**"]
+        "files": [ "architecture/images/**"]
       }
     ],
     "overwrite": "specs/*.md",
