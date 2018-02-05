@@ -5,4 +5,8 @@
     <RootNamespace>TicketSystem.RestApiClient</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.2.1" />
+  </ItemGroup>
+
 </Project>
