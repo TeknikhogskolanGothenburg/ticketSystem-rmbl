@@ -29,7 +29,7 @@
     ],
     "overwrite": "specs/*.md",
     "globalMetadata": {
-      "_appTitle": "bla blaa",
+      "_appTitle": "Ticket system documentation",
       "_enableSearch": true
     },
     "dest": "_site"

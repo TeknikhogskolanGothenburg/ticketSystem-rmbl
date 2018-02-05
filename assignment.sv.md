@@ -30,6 +30,7 @@ Från SwaggerHub går det ladda ner boilerplate kod för båda klient och server
 använ mvc till skåpa ett rest api, basseret på swagger api
 skåpa biljet som pdf
 
+Inloging (VG):
 
 ## Container: E-handel (biljett shop)
 
