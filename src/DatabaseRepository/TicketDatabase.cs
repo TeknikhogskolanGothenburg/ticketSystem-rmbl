@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
-using DatabaseRepository.Model;
+using TicketSystem.DatabaseRepository.Model;
 
-namespace DatabaseRepository
+namespace TicketSystem.DatabaseRepository
 {
     public class TicketDatabase : ITicketDatabase
     {

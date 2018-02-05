@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PaymentProvider
+namespace TicketSystem.PaymentProvider
 {
     public class PaymentProvider : IPaymentProvider
     {

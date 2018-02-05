@@ -1,9 +1,7 @@
-﻿using DatabaseRepository.Model;
-using System;
+﻿using TicketSystem.DatabaseRepository.Model;
 using System.Collections.Generic;
-using System.Text;
 
-namespace DatabaseRepository
+namespace TicketSystem.DatabaseRepository
 {
     public interface ITicketDatabase
     {

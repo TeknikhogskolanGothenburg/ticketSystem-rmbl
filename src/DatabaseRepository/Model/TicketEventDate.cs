@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace DatabaseRepository.Model
+namespace TicketSystem.DatabaseRepository.Model
 {
     public class TicketEventDate
     {

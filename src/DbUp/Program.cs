@@ -1,8 +1,9 @@
-﻿using System;
+﻿using DbUp;
+using System;
 using System.Linq;
 using System.Reflection;
 
-namespace DbUp
+namespace TicketSystem.DbUp
 {
     class Program
     {

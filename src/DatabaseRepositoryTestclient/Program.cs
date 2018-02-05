@@ -1,7 +1,7 @@
-﻿using DatabaseRepository;
+﻿using TicketSystem.DatabaseRepository;
 using System;
 
-namespace DatabaseRepositoryTestclient
+namespace TicketSystem.DatabaseRepositoryTestclient
 {
     class Program
     {
