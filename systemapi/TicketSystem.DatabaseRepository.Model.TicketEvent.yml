@@ -1,36 +1,34 @@
 ### YamlMime:ManagedReference
 items:
-- uid: PaymentProvider.Payment
-  commentId: T:PaymentProvider.Payment
-  id: Payment
-  parent: PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model.TicketEvent
+  commentId: T:TicketSystem.DatabaseRepository.Model.TicketEvent
+  id: TicketEvent
+  parent: TicketSystem.DatabaseRepository.Model
   children:
-  - PaymentProvider.Payment.OrderReference
-  - PaymentProvider.Payment.PaymentReference
-  - PaymentProvider.Payment.PaymentStatus
-  - PaymentProvider.Payment.TotalAmount
-  - PaymentProvider.Payment.Valuta
+  - TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription
+  - TicketSystem.DatabaseRepository.Model.TicketEvent.EventName
+  - TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId
   langs:
   - csharp
   - vb
-  name: Payment
-  nameWithType: Payment
-  fullName: PaymentProvider.Payment
+  name: TicketEvent
+  nameWithType: TicketEvent
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent
   type: Class
   source:
     remote:
-      path: src/PaymentProvider/Payment.cs
+      path: src/DatabaseRepository/Model/TicketEvent.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: Payment
-    path: src/PaymentProvider/Payment.cs
-    startLine: 6
+    id: TicketEvent
+    path: src/DatabaseRepository/Model/TicketEvent.cs
+    startLine: 2
   assemblies:
-  - PaymentProvider
-  namespace: PaymentProvider
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: public class Payment
-    content.vb: Public Class Payment
+    content: public class TicketEvent
+    content.vb: Public Class TicketEvent
   inheritance:
   - System.Object
   inheritedMembers:
@@ -47,175 +45,105 @@ items:
   modifiers.vb:
   - Public
   - Class
-- uid: PaymentProvider.Payment.PaymentStatus
-  commentId: P:PaymentProvider.Payment.PaymentStatus
-  id: PaymentStatus
-  parent: PaymentProvider.Payment
+- uid: TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId
+  commentId: P:TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId
+  id: TicketEventId
+  parent: TicketSystem.DatabaseRepository.Model.TicketEvent
   langs:
   - csharp
   - vb
-  name: PaymentStatus
-  nameWithType: Payment.PaymentStatus
-  fullName: PaymentProvider.Payment.PaymentStatus
+  name: TicketEventId
+  nameWithType: TicketEvent.TicketEventId
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId
   type: Property
   source:
     remote:
-      path: src/PaymentProvider/Payment.cs
+      path: src/DatabaseRepository/Model/TicketEvent.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: PaymentStatus
-    path: src/PaymentProvider/Payment.cs
-    startLine: 8
+    id: TicketEventId
+    path: src/DatabaseRepository/Model/TicketEvent.cs
+    startLine: 4
   assemblies:
-  - PaymentProvider
-  namespace: PaymentProvider
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: public PaymentStatus PaymentStatus { get; set; }
+    content: public int TicketEventId { get; set; }
     parameters: []
     return:
-      type: PaymentProvider.PaymentStatus
-    content.vb: Public Property PaymentStatus As PaymentStatus
-  overload: PaymentProvider.Payment.PaymentStatus*
+      type: System.Int32
+    content.vb: Public Property TicketEventId As Integer
+  overload: TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId*
   modifiers.csharp:
   - public
   - get
   - set
   modifiers.vb:
   - Public
-- uid: PaymentProvider.Payment.TotalAmount
-  commentId: P:PaymentProvider.Payment.TotalAmount
-  id: TotalAmount
-  parent: PaymentProvider.Payment
+- uid: TicketSystem.DatabaseRepository.Model.TicketEvent.EventName
+  commentId: P:TicketSystem.DatabaseRepository.Model.TicketEvent.EventName
+  id: EventName
+  parent: TicketSystem.DatabaseRepository.Model.TicketEvent
   langs:
   - csharp
   - vb
-  name: TotalAmount
-  nameWithType: Payment.TotalAmount
-  fullName: PaymentProvider.Payment.TotalAmount
+  name: EventName
+  nameWithType: TicketEvent.EventName
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.EventName
   type: Property
   source:
     remote:
-      path: src/PaymentProvider/Payment.cs
+      path: src/DatabaseRepository/Model/TicketEvent.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: TotalAmount
-    path: src/PaymentProvider/Payment.cs
-    startLine: 9
+    id: EventName
+    path: src/DatabaseRepository/Model/TicketEvent.cs
+    startLine: 5
   assemblies:
-  - PaymentProvider
-  namespace: PaymentProvider
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: public decimal TotalAmount { get; set; }
-    parameters: []
-    return:
-      type: System.Decimal
-    content.vb: Public Property TotalAmount As Decimal
-  overload: PaymentProvider.Payment.TotalAmount*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: PaymentProvider.Payment.Valuta
-  commentId: P:PaymentProvider.Payment.Valuta
-  id: Valuta
-  parent: PaymentProvider.Payment
-  langs:
-  - csharp
-  - vb
-  name: Valuta
-  nameWithType: Payment.Valuta
-  fullName: PaymentProvider.Payment.Valuta
-  type: Property
-  source:
-    remote:
-      path: src/PaymentProvider/Payment.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: Valuta
-    path: src/PaymentProvider/Payment.cs
-    startLine: 10
-  assemblies:
-  - PaymentProvider
-  namespace: PaymentProvider
-  syntax:
-    content: public string Valuta { get; set; }
+    content: public string EventName { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Valuta As String
-  overload: PaymentProvider.Payment.Valuta*
+    content.vb: Public Property EventName As String
+  overload: TicketSystem.DatabaseRepository.Model.TicketEvent.EventName*
   modifiers.csharp:
   - public
   - get
   - set
   modifiers.vb:
   - Public
-- uid: PaymentProvider.Payment.PaymentReference
-  commentId: P:PaymentProvider.Payment.PaymentReference
-  id: PaymentReference
-  parent: PaymentProvider.Payment
+- uid: TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription
+  commentId: P:TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription
+  id: EventHtmlDescription
+  parent: TicketSystem.DatabaseRepository.Model.TicketEvent
   langs:
   - csharp
   - vb
-  name: PaymentReference
-  nameWithType: Payment.PaymentReference
-  fullName: PaymentProvider.Payment.PaymentReference
+  name: EventHtmlDescription
+  nameWithType: TicketEvent.EventHtmlDescription
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription
   type: Property
   source:
     remote:
-      path: src/PaymentProvider/Payment.cs
+      path: src/DatabaseRepository/Model/TicketEvent.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: PaymentReference
-    path: src/PaymentProvider/Payment.cs
-    startLine: 11
+    id: EventHtmlDescription
+    path: src/DatabaseRepository/Model/TicketEvent.cs
+    startLine: 6
   assemblies:
-  - PaymentProvider
-  namespace: PaymentProvider
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: public string PaymentReference { get; set; }
+    content: public string EventHtmlDescription { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property PaymentReference As String
-  overload: PaymentProvider.Payment.PaymentReference*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: PaymentProvider.Payment.OrderReference
-  commentId: P:PaymentProvider.Payment.OrderReference
-  id: OrderReference
-  parent: PaymentProvider.Payment
-  langs:
-  - csharp
-  - vb
-  name: OrderReference
-  nameWithType: Payment.OrderReference
-  fullName: PaymentProvider.Payment.OrderReference
-  type: Property
-  source:
-    remote:
-      path: src/PaymentProvider/Payment.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: OrderReference
-    path: src/PaymentProvider/Payment.cs
-    startLine: 12
-  assemblies:
-  - PaymentProvider
-  namespace: PaymentProvider
-  syntax:
-    content: public string OrderReference { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property OrderReference As String
-  overload: PaymentProvider.Payment.OrderReference*
+    content.vb: Public Property EventHtmlDescription As String
+  overload: TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription*
   modifiers.csharp:
   - public
   - get
@@ -223,12 +151,12 @@ items:
   modifiers.vb:
   - Public
 references:
-- uid: PaymentProvider
-  commentId: N:PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model
+  commentId: N:TicketSystem.DatabaseRepository.Model
   isExternal: false
-  name: PaymentProvider
-  nameWithType: PaymentProvider
-  fullName: PaymentProvider
+  name: TicketSystem.DatabaseRepository.Model
+  nameWithType: TicketSystem.DatabaseRepository.Model
+  fullName: TicketSystem.DatabaseRepository.Model
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -521,38 +449,25 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: PaymentProvider.Payment.PaymentStatus*
-  commentId: Overload:PaymentProvider.Payment.PaymentStatus
+- uid: TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId
   isExternal: false
-  name: PaymentStatus
-  nameWithType: Payment.PaymentStatus
-  fullName: PaymentProvider.Payment.PaymentStatus
-- uid: PaymentProvider.PaymentStatus
-  commentId: T:PaymentProvider.PaymentStatus
-  parent: PaymentProvider
-  isExternal: false
-  name: PaymentStatus
-  nameWithType: PaymentStatus
-  fullName: PaymentProvider.PaymentStatus
-- uid: PaymentProvider.Payment.TotalAmount*
-  commentId: Overload:PaymentProvider.Payment.TotalAmount
-  isExternal: false
-  name: TotalAmount
-  nameWithType: Payment.TotalAmount
-  fullName: PaymentProvider.Payment.TotalAmount
-- uid: System.Decimal
-  commentId: T:System.Decimal
+  name: TicketEventId
+  nameWithType: TicketEvent.TicketEventId
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId
+- uid: System.Int32
+  commentId: T:System.Int32
   parent: System
   isExternal: true
-  name: Decimal
-  nameWithType: Decimal
-  fullName: System.Decimal
-- uid: PaymentProvider.Payment.Valuta*
-  commentId: Overload:PaymentProvider.Payment.Valuta
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketSystem.DatabaseRepository.Model.TicketEvent.EventName*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.TicketEvent.EventName
   isExternal: false
-  name: Valuta
-  nameWithType: Payment.Valuta
-  fullName: PaymentProvider.Payment.Valuta
+  name: EventName
+  nameWithType: TicketEvent.EventName
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.EventName
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -560,15 +475,9 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
-- uid: PaymentProvider.Payment.PaymentReference*
-  commentId: Overload:PaymentProvider.Payment.PaymentReference
+- uid: TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription
   isExternal: false
-  name: PaymentReference
-  nameWithType: Payment.PaymentReference
-  fullName: PaymentProvider.Payment.PaymentReference
-- uid: PaymentProvider.Payment.OrderReference*
-  commentId: Overload:PaymentProvider.Payment.OrderReference
-  isExternal: false
-  name: OrderReference
-  nameWithType: Payment.OrderReference
-  fullName: PaymentProvider.Payment.OrderReference
+  name: EventHtmlDescription
+  nameWithType: TicketEvent.EventHtmlDescription
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription

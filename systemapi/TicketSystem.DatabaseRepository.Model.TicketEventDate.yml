@@ -1,36 +1,35 @@
 ### YamlMime:ManagedReference
 items:
-- uid: DatabaseRepository.Model.Venue
-  commentId: T:DatabaseRepository.Model.Venue
-  id: Venue
-  parent: DatabaseRepository.Model
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate
+  commentId: T:TicketSystem.DatabaseRepository.Model.TicketEventDate
+  id: TicketEventDate
+  parent: TicketSystem.DatabaseRepository.Model
   children:
-  - DatabaseRepository.Model.Venue.Address
-  - DatabaseRepository.Model.Venue.City
-  - DatabaseRepository.Model.Venue.Country
-  - DatabaseRepository.Model.Venue.VenueId
-  - DatabaseRepository.Model.Venue.VenueName
+  - TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime
+  - TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID
+  - TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID
+  - TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId
   langs:
   - csharp
   - vb
-  name: Venue
-  nameWithType: Venue
-  fullName: DatabaseRepository.Model.Venue
+  name: TicketEventDate
+  nameWithType: TicketEventDate
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate
   type: Class
   source:
     remote:
-      path: src/DatabaseRepository/Model/Venue.cs
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: Venue
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 6
+    id: TicketEventDate
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
+    startLine: 4
   assemblies:
   - DatabaseRepository
-  namespace: DatabaseRepository.Model
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: public class Venue
-    content.vb: Public Class Venue
+    content: public class TicketEventDate
+    content.vb: Public Class TicketEventDate
   inheritance:
   - System.Object
   inheritedMembers:
@@ -47,175 +46,140 @@ items:
   modifiers.vb:
   - Public
   - Class
-- uid: DatabaseRepository.Model.Venue.VenueId
-  commentId: P:DatabaseRepository.Model.Venue.VenueId
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID
+  commentId: P:TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID
+  id: TicketEventDateID
+  parent: TicketSystem.DatabaseRepository.Model.TicketEventDate
+  langs:
+  - csharp
+  - vb
+  name: TicketEventDateID
+  nameWithType: TicketEventDate.TicketEventDateID
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TicketEventDateID
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
+    startLine: 6
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public int TicketEventDateID { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TicketEventDateID As Integer
+  overload: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID
+  commentId: P:TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID
+  id: TicketEventID
+  parent: TicketSystem.DatabaseRepository.Model.TicketEventDate
+  langs:
+  - csharp
+  - vb
+  name: TicketEventID
+  nameWithType: TicketEventDate.TicketEventID
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TicketEventID
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
+    startLine: 7
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public int TicketEventID { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TicketEventID As Integer
+  overload: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId
+  commentId: P:TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId
   id: VenueId
-  parent: DatabaseRepository.Model.Venue
+  parent: TicketSystem.DatabaseRepository.Model.TicketEventDate
   langs:
   - csharp
   - vb
   name: VenueId
-  nameWithType: Venue.VenueId
-  fullName: DatabaseRepository.Model.Venue.VenueId
+  nameWithType: TicketEventDate.VenueId
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId
   type: Property
   source:
     remote:
-      path: src/DatabaseRepository/Model/Venue.cs
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: VenueId
-    path: src/DatabaseRepository/Model/Venue.cs
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 8
   assemblies:
   - DatabaseRepository
-  namespace: DatabaseRepository.Model
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
     content: public int VenueId { get; set; }
     parameters: []
     return:
       type: System.Int32
     content.vb: Public Property VenueId As Integer
-  overload: DatabaseRepository.Model.Venue.VenueId*
+  overload: TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId*
   modifiers.csharp:
   - public
   - get
   - set
   modifiers.vb:
   - Public
-- uid: DatabaseRepository.Model.Venue.VenueName
-  commentId: P:DatabaseRepository.Model.Venue.VenueName
-  id: VenueName
-  parent: DatabaseRepository.Model.Venue
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime
+  commentId: P:TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime
+  id: EventStartDateTime
+  parent: TicketSystem.DatabaseRepository.Model.TicketEventDate
   langs:
   - csharp
   - vb
-  name: VenueName
-  nameWithType: Venue.VenueName
-  fullName: DatabaseRepository.Model.Venue.VenueName
+  name: EventStartDateTime
+  nameWithType: TicketEventDate.EventStartDateTime
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime
   type: Property
   source:
     remote:
-      path: src/DatabaseRepository/Model/Venue.cs
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: VenueName
-    path: src/DatabaseRepository/Model/Venue.cs
+    id: EventStartDateTime
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 9
   assemblies:
   - DatabaseRepository
-  namespace: DatabaseRepository.Model
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: public string VenueName { get; set; }
+    content: public DateTime EventStartDateTime { get; set; }
     parameters: []
     return:
-      type: System.String
-    content.vb: Public Property VenueName As String
-  overload: DatabaseRepository.Model.Venue.VenueName*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: DatabaseRepository.Model.Venue.Address
-  commentId: P:DatabaseRepository.Model.Venue.Address
-  id: Address
-  parent: DatabaseRepository.Model.Venue
-  langs:
-  - csharp
-  - vb
-  name: Address
-  nameWithType: Venue.Address
-  fullName: DatabaseRepository.Model.Venue.Address
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/Venue.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: Address
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 10
-  assemblies:
-  - DatabaseRepository
-  namespace: DatabaseRepository.Model
-  syntax:
-    content: public string Address { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Address As String
-  overload: DatabaseRepository.Model.Venue.Address*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: DatabaseRepository.Model.Venue.City
-  commentId: P:DatabaseRepository.Model.Venue.City
-  id: City
-  parent: DatabaseRepository.Model.Venue
-  langs:
-  - csharp
-  - vb
-  name: City
-  nameWithType: Venue.City
-  fullName: DatabaseRepository.Model.Venue.City
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/Venue.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: City
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 11
-  assemblies:
-  - DatabaseRepository
-  namespace: DatabaseRepository.Model
-  syntax:
-    content: public string City { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property City As String
-  overload: DatabaseRepository.Model.Venue.City*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: DatabaseRepository.Model.Venue.Country
-  commentId: P:DatabaseRepository.Model.Venue.Country
-  id: Country
-  parent: DatabaseRepository.Model.Venue
-  langs:
-  - csharp
-  - vb
-  name: Country
-  nameWithType: Venue.Country
-  fullName: DatabaseRepository.Model.Venue.Country
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/Venue.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: Country
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 12
-  assemblies:
-  - DatabaseRepository
-  namespace: DatabaseRepository.Model
-  syntax:
-    content: public string Country { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Country As String
-  overload: DatabaseRepository.Model.Venue.Country*
+      type: System.DateTime
+    content.vb: Public Property EventStartDateTime As Date
+  overload: TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime*
   modifiers.csharp:
   - public
   - get
@@ -223,12 +187,12 @@ items:
   modifiers.vb:
   - Public
 references:
-- uid: DatabaseRepository.Model
-  commentId: N:DatabaseRepository.Model
+- uid: TicketSystem.DatabaseRepository.Model
+  commentId: N:TicketSystem.DatabaseRepository.Model
   isExternal: false
-  name: DatabaseRepository.Model
-  nameWithType: DatabaseRepository.Model
-  fullName: DatabaseRepository.Model
+  name: TicketSystem.DatabaseRepository.Model
+  nameWithType: TicketSystem.DatabaseRepository.Model
+  fullName: TicketSystem.DatabaseRepository.Model
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -521,12 +485,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: DatabaseRepository.Model.Venue.VenueId*
-  commentId: Overload:DatabaseRepository.Model.Venue.VenueId
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID
   isExternal: false
-  name: VenueId
-  nameWithType: Venue.VenueId
-  fullName: DatabaseRepository.Model.Venue.VenueId
+  name: TicketEventDateID
+  nameWithType: TicketEventDate.TicketEventDateID
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -534,34 +498,28 @@ references:
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
-- uid: DatabaseRepository.Model.Venue.VenueName*
-  commentId: Overload:DatabaseRepository.Model.Venue.VenueName
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID
   isExternal: false
-  name: VenueName
-  nameWithType: Venue.VenueName
-  fullName: DatabaseRepository.Model.Venue.VenueName
-- uid: System.String
-  commentId: T:System.String
+  name: TicketEventID
+  nameWithType: TicketEventDate.TicketEventID
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId
+  isExternal: false
+  name: VenueId
+  nameWithType: TicketEventDate.VenueId
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId
+- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime
+  isExternal: false
+  name: EventStartDateTime
+  nameWithType: TicketEventDate.EventStartDateTime
+  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime
+- uid: System.DateTime
+  commentId: T:System.DateTime
   parent: System
   isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
-- uid: DatabaseRepository.Model.Venue.Address*
-  commentId: Overload:DatabaseRepository.Model.Venue.Address
-  isExternal: false
-  name: Address
-  nameWithType: Venue.Address
-  fullName: DatabaseRepository.Model.Venue.Address
-- uid: DatabaseRepository.Model.Venue.City*
-  commentId: Overload:DatabaseRepository.Model.Venue.City
-  isExternal: false
-  name: City
-  nameWithType: Venue.City
-  fullName: DatabaseRepository.Model.Venue.City
-- uid: DatabaseRepository.Model.Venue.Country*
-  commentId: Overload:DatabaseRepository.Model.Venue.Country
-  isExternal: false
-  name: Country
-  nameWithType: Venue.Country
-  fullName: DatabaseRepository.Model.Venue.Country
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime

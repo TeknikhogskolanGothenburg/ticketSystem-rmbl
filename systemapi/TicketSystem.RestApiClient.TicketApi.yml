@@ -29,6 +29,7 @@ items:
     content: 'public class TicketApi : ITicketApi'
     content.vb: >-
       Public Class TicketApi
+
           Implements ITicketApi
   inheritance:
   - System.Object

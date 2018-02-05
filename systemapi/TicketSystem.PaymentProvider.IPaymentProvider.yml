@@ -1,17 +1,17 @@
 ### YamlMime:ManagedReference
 items:
-- uid: PaymentProvider.IPaymentProvider
-  commentId: T:PaymentProvider.IPaymentProvider
+- uid: TicketSystem.PaymentProvider.IPaymentProvider
+  commentId: T:TicketSystem.PaymentProvider.IPaymentProvider
   id: IPaymentProvider
-  parent: PaymentProvider
+  parent: TicketSystem.PaymentProvider
   children:
-  - PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+  - TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
   langs:
   - csharp
   - vb
   name: IPaymentProvider
   nameWithType: IPaymentProvider
-  fullName: PaymentProvider.IPaymentProvider
+  fullName: TicketSystem.PaymentProvider.IPaymentProvider
   type: Interface
   source:
     remote:
@@ -20,10 +20,10 @@ items:
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: IPaymentProvider
     path: src/PaymentProvider/IPaymentProvider.cs
-    startLine: 6
+    startLine: 2
   assemblies:
   - PaymentProvider
-  namespace: PaymentProvider
+  namespace: TicketSystem.PaymentProvider
   syntax:
     content: public interface IPaymentProvider
     content.vb: Public Interface IPaymentProvider
@@ -33,16 +33,16 @@ items:
   modifiers.vb:
   - Public
   - Interface
-- uid: PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-  commentId: M:PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+- uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+  commentId: M:TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
   id: Pay(System.Decimal,System.String,System.String)
-  parent: PaymentProvider.IPaymentProvider
+  parent: TicketSystem.PaymentProvider.IPaymentProvider
   langs:
   - csharp
   - vb
   name: Pay(Decimal, String, String)
   nameWithType: IPaymentProvider.Pay(Decimal, String, String)
-  fullName: PaymentProvider.IPaymentProvider.Pay(System.Decimal, System.String, System.String)
+  fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal, System.String, System.String)
   type: Method
   source:
     remote:
@@ -51,10 +51,10 @@ items:
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: Pay
     path: src/PaymentProvider/IPaymentProvider.cs
-    startLine: 15
+    startLine: 11
   assemblies:
   - PaymentProvider
-  namespace: PaymentProvider
+  namespace: TicketSystem.PaymentProvider
   summary: "\nPay an amount\n"
   example: []
   syntax:
@@ -70,23 +70,23 @@ items:
       type: System.String
       description: A string representing the order
     return:
-      type: PaymentProvider.Payment
+      type: TicketSystem.PaymentProvider.Payment
       description: A payment object, containging the status of the order
     content.vb: Function Pay(amountToPay As Decimal, valuta As String, orderReference As String) As Payment
-  overload: PaymentProvider.IPaymentProvider.Pay*
+  overload: TicketSystem.PaymentProvider.IPaymentProvider.Pay*
 references:
-- uid: PaymentProvider
-  commentId: N:PaymentProvider
+- uid: TicketSystem.PaymentProvider
+  commentId: N:TicketSystem.PaymentProvider
   isExternal: false
-  name: PaymentProvider
-  nameWithType: PaymentProvider
-  fullName: PaymentProvider
-- uid: PaymentProvider.IPaymentProvider.Pay*
-  commentId: Overload:PaymentProvider.IPaymentProvider.Pay
+  name: TicketSystem.PaymentProvider
+  nameWithType: TicketSystem.PaymentProvider
+  fullName: TicketSystem.PaymentProvider
+- uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay*
+  commentId: Overload:TicketSystem.PaymentProvider.IPaymentProvider.Pay
   isExternal: false
   name: Pay
   nameWithType: IPaymentProvider.Pay
-  fullName: PaymentProvider.IPaymentProvider.Pay
+  fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay
 - uid: System.Decimal
   commentId: T:System.Decimal
   parent: System
@@ -101,13 +101,13 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
-- uid: PaymentProvider.Payment
-  commentId: T:PaymentProvider.Payment
-  parent: PaymentProvider
+- uid: TicketSystem.PaymentProvider.Payment
+  commentId: T:TicketSystem.PaymentProvider.Payment
+  parent: TicketSystem.PaymentProvider
   isExternal: false
   name: Payment
   nameWithType: Payment
-  fullName: PaymentProvider.Payment
+  fullName: TicketSystem.PaymentProvider.Payment
 - uid: System
   commentId: N:System
   isExternal: false

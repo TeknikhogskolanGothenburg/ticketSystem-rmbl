@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketSystem.DatabaseRepository
+  commentId: N:TicketSystem.DatabaseRepository
+  id: TicketSystem.DatabaseRepository
+  children:
+  - TicketSystem.DatabaseRepository.ITicketDatabase
+  - TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: TicketSystem.DatabaseRepository
+  nameWithType: TicketSystem.DatabaseRepository
+  fullName: TicketSystem.DatabaseRepository
+  type: Namespace
+  assemblies:
+  - DatabaseRepository
+references:
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase
+  commentId: T:TicketSystem.DatabaseRepository.ITicketDatabase
+  parent: TicketSystem.DatabaseRepository
+  isExternal: false
+  name: ITicketDatabase
+  nameWithType: ITicketDatabase
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase
+- uid: TicketSystem.DatabaseRepository.TicketDatabase
+  commentId: T:TicketSystem.DatabaseRepository.TicketDatabase
+  isExternal: false
+  name: TicketDatabase
+  nameWithType: TicketDatabase
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase
+- uid: TicketSystem.DatabaseRepository
+  commentId: N:TicketSystem.DatabaseRepository
+  isExternal: false
+  name: TicketSystem.DatabaseRepository
+  nameWithType: TicketSystem.DatabaseRepository
+  fullName: TicketSystem.DatabaseRepository

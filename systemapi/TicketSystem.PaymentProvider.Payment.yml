@@ -1,39 +1,38 @@
 ### YamlMime:ManagedReference
 items:
-- uid: PaymentProvider.PaymentProvider
-  commentId: T:PaymentProvider.PaymentProvider
-  id: PaymentProvider
-  parent: PaymentProvider
+- uid: TicketSystem.PaymentProvider.Payment
+  commentId: T:TicketSystem.PaymentProvider.Payment
+  id: Payment
+  parent: TicketSystem.PaymentProvider
   children:
-  - PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
+  - TicketSystem.PaymentProvider.Payment.OrderReference
+  - TicketSystem.PaymentProvider.Payment.PaymentReference
+  - TicketSystem.PaymentProvider.Payment.PaymentStatus
+  - TicketSystem.PaymentProvider.Payment.TotalAmount
+  - TicketSystem.PaymentProvider.Payment.Valuta
   langs:
   - csharp
   - vb
-  name: PaymentProvider
-  nameWithType: PaymentProvider
-  fullName: PaymentProvider.PaymentProvider
+  name: Payment
+  nameWithType: Payment
+  fullName: TicketSystem.PaymentProvider.Payment
   type: Class
   source:
     remote:
-      path: src/PaymentProvider/PaymentProvider.cs
+      path: src/PaymentProvider/Payment.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: PaymentProvider
-    path: src/PaymentProvider/PaymentProvider.cs
-    startLine: 4
+    id: Payment
+    path: src/PaymentProvider/Payment.cs
+    startLine: 2
   assemblies:
   - PaymentProvider
-  namespace: PaymentProvider
+  namespace: TicketSystem.PaymentProvider
   syntax:
-    content: 'public class PaymentProvider : IPaymentProvider'
-    content.vb: >-
-      Public Class PaymentProvider
-
-          Implements IPaymentProvider
+    content: public class Payment
+    content.vb: Public Class Payment
   inheritance:
   - System.Object
-  implements:
-  - PaymentProvider.IPaymentProvider
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -48,60 +47,188 @@ items:
   modifiers.vb:
   - Public
   - Class
-- uid: PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
-  commentId: M:PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
-  id: Pay(System.Decimal,System.String,System.String)
-  parent: PaymentProvider.PaymentProvider
+- uid: TicketSystem.PaymentProvider.Payment.PaymentStatus
+  commentId: P:TicketSystem.PaymentProvider.Payment.PaymentStatus
+  id: PaymentStatus
+  parent: TicketSystem.PaymentProvider.Payment
   langs:
   - csharp
   - vb
-  name: Pay(Decimal, String, String)
-  nameWithType: PaymentProvider.Pay(Decimal, String, String)
-  fullName: PaymentProvider.PaymentProvider.Pay(System.Decimal, System.String, System.String)
-  type: Method
+  name: PaymentStatus
+  nameWithType: Payment.PaymentStatus
+  fullName: TicketSystem.PaymentProvider.Payment.PaymentStatus
+  type: Property
   source:
     remote:
-      path: src/PaymentProvider/PaymentProvider.cs
+      path: src/PaymentProvider/Payment.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: Pay
-    path: src/PaymentProvider/PaymentProvider.cs
-    startLine: 15
+    id: PaymentStatus
+    path: src/PaymentProvider/Payment.cs
+    startLine: 4
   assemblies:
   - PaymentProvider
-  namespace: PaymentProvider
-  summary: "\nSimulate a payment provider\nOne out of 20 payments results in an unknown error\nThree out of 20 payments results in payment rejected\n"
-  example: []
+  namespace: TicketSystem.PaymentProvider
   syntax:
-    content: public Payment Pay(decimal amountToPay, string valuta, string orderReference)
-    parameters:
-    - id: amountToPay
-      type: System.Decimal
-      description: The amount to pay
-    - id: valuta
-      type: System.String
-      description: A three letter code (following ISO 4217) represending the valuta of the amount
-    - id: orderReference
-      type: System.String
-      description: A Guid which is the internal reference of the payment system
+    content: public PaymentStatus PaymentStatus { get; set; }
+    parameters: []
     return:
-      type: PaymentProvider.Payment
-      description: A payment object, containging the status of the order
-    content.vb: Public Function Pay(amountToPay As Decimal, valuta As String, orderReference As String) As Payment
-  overload: PaymentProvider.PaymentProvider.Pay*
-  implements:
-  - PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+      type: TicketSystem.PaymentProvider.PaymentStatus
+    content.vb: Public Property PaymentStatus As PaymentStatus
+  overload: TicketSystem.PaymentProvider.Payment.PaymentStatus*
   modifiers.csharp:
   - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.PaymentProvider.Payment.TotalAmount
+  commentId: P:TicketSystem.PaymentProvider.Payment.TotalAmount
+  id: TotalAmount
+  parent: TicketSystem.PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: TotalAmount
+  nameWithType: Payment.TotalAmount
+  fullName: TicketSystem.PaymentProvider.Payment.TotalAmount
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TotalAmount
+    path: src/PaymentProvider/Payment.cs
+    startLine: 5
+  assemblies:
+  - PaymentProvider
+  namespace: TicketSystem.PaymentProvider
+  syntax:
+    content: public decimal TotalAmount { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property TotalAmount As Decimal
+  overload: TicketSystem.PaymentProvider.Payment.TotalAmount*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.PaymentProvider.Payment.Valuta
+  commentId: P:TicketSystem.PaymentProvider.Payment.Valuta
+  id: Valuta
+  parent: TicketSystem.PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: Valuta
+  nameWithType: Payment.Valuta
+  fullName: TicketSystem.PaymentProvider.Payment.Valuta
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: Valuta
+    path: src/PaymentProvider/Payment.cs
+    startLine: 6
+  assemblies:
+  - PaymentProvider
+  namespace: TicketSystem.PaymentProvider
+  syntax:
+    content: public string Valuta { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Valuta As String
+  overload: TicketSystem.PaymentProvider.Payment.Valuta*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.PaymentProvider.Payment.PaymentReference
+  commentId: P:TicketSystem.PaymentProvider.Payment.PaymentReference
+  id: PaymentReference
+  parent: TicketSystem.PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: PaymentReference
+  nameWithType: Payment.PaymentReference
+  fullName: TicketSystem.PaymentProvider.Payment.PaymentReference
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: PaymentReference
+    path: src/PaymentProvider/Payment.cs
+    startLine: 7
+  assemblies:
+  - PaymentProvider
+  namespace: TicketSystem.PaymentProvider
+  syntax:
+    content: public string PaymentReference { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PaymentReference As String
+  overload: TicketSystem.PaymentProvider.Payment.PaymentReference*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.PaymentProvider.Payment.OrderReference
+  commentId: P:TicketSystem.PaymentProvider.Payment.OrderReference
+  id: OrderReference
+  parent: TicketSystem.PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: OrderReference
+  nameWithType: Payment.OrderReference
+  fullName: TicketSystem.PaymentProvider.Payment.OrderReference
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: OrderReference
+    path: src/PaymentProvider/Payment.cs
+    startLine: 8
+  assemblies:
+  - PaymentProvider
+  namespace: TicketSystem.PaymentProvider
+  syntax:
+    content: public string OrderReference { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OrderReference As String
+  overload: TicketSystem.PaymentProvider.Payment.OrderReference*
+  modifiers.csharp:
+  - public
+  - get
+  - set
   modifiers.vb:
   - Public
 references:
-- uid: PaymentProvider
-  commentId: N:PaymentProvider
+- uid: TicketSystem.PaymentProvider
+  commentId: N:TicketSystem.PaymentProvider
   isExternal: false
-  name: PaymentProvider
-  nameWithType: PaymentProvider
-  fullName: PaymentProvider
+  name: TicketSystem.PaymentProvider
+  nameWithType: TicketSystem.PaymentProvider
+  fullName: TicketSystem.PaymentProvider
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -109,13 +236,6 @@ references:
   name: Object
   nameWithType: Object
   fullName: System.Object
-- uid: PaymentProvider.IPaymentProvider
-  commentId: T:PaymentProvider.IPaymentProvider
-  parent: PaymentProvider
-  isExternal: false
-  name: IPaymentProvider
-  nameWithType: IPaymentProvider
-  fullName: PaymentProvider.IPaymentProvider
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -401,83 +521,25 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: PaymentProvider.PaymentProvider.Pay*
-  commentId: Overload:PaymentProvider.PaymentProvider.Pay
+- uid: TicketSystem.PaymentProvider.Payment.PaymentStatus*
+  commentId: Overload:TicketSystem.PaymentProvider.Payment.PaymentStatus
   isExternal: false
-  name: Pay
-  nameWithType: PaymentProvider.Pay
-  fullName: PaymentProvider.PaymentProvider.Pay
-- uid: PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-  commentId: M:PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-  parent: PaymentProvider.IPaymentProvider
-  isExternal: true
-  name: Pay(Decimal, String, String)
-  nameWithType: IPaymentProvider.Pay(Decimal, String, String)
-  fullName: PaymentProvider.IPaymentProvider.Pay(System.Decimal, System.String, System.String)
-  spec.csharp:
-  - uid: PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-    name: Pay
-    nameWithType: IPaymentProvider.Pay
-    fullName: PaymentProvider.IPaymentProvider.Pay
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Decimal
-    name: Decimal
-    nameWithType: Decimal
-    fullName: System.Decimal
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-    name: Pay
-    nameWithType: IPaymentProvider.Pay
-    fullName: PaymentProvider.IPaymentProvider.Pay
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Decimal
-    name: Decimal
-    nameWithType: Decimal
-    fullName: System.Decimal
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
+  name: PaymentStatus
+  nameWithType: Payment.PaymentStatus
+  fullName: TicketSystem.PaymentProvider.Payment.PaymentStatus
+- uid: TicketSystem.PaymentProvider.PaymentStatus
+  commentId: T:TicketSystem.PaymentProvider.PaymentStatus
+  parent: TicketSystem.PaymentProvider
+  isExternal: false
+  name: PaymentStatus
+  nameWithType: PaymentStatus
+  fullName: TicketSystem.PaymentProvider.PaymentStatus
+- uid: TicketSystem.PaymentProvider.Payment.TotalAmount*
+  commentId: Overload:TicketSystem.PaymentProvider.Payment.TotalAmount
+  isExternal: false
+  name: TotalAmount
+  nameWithType: Payment.TotalAmount
+  fullName: TicketSystem.PaymentProvider.Payment.TotalAmount
 - uid: System.Decimal
   commentId: T:System.Decimal
   parent: System
@@ -485,6 +547,12 @@ references:
   name: Decimal
   nameWithType: Decimal
   fullName: System.Decimal
+- uid: TicketSystem.PaymentProvider.Payment.Valuta*
+  commentId: Overload:TicketSystem.PaymentProvider.Payment.Valuta
+  isExternal: false
+  name: Valuta
+  nameWithType: Payment.Valuta
+  fullName: TicketSystem.PaymentProvider.Payment.Valuta
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -492,10 +560,15 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
-- uid: PaymentProvider.Payment
-  commentId: T:PaymentProvider.Payment
-  parent: PaymentProvider
+- uid: TicketSystem.PaymentProvider.Payment.PaymentReference*
+  commentId: Overload:TicketSystem.PaymentProvider.Payment.PaymentReference
   isExternal: false
-  name: Payment
-  nameWithType: Payment
-  fullName: PaymentProvider.Payment
+  name: PaymentReference
+  nameWithType: Payment.PaymentReference
+  fullName: TicketSystem.PaymentProvider.Payment.PaymentReference
+- uid: TicketSystem.PaymentProvider.Payment.OrderReference*
+  commentId: Overload:TicketSystem.PaymentProvider.Payment.OrderReference
+  isExternal: false
+  name: OrderReference
+  nameWithType: Payment.OrderReference
+  fullName: TicketSystem.PaymentProvider.Payment.OrderReference

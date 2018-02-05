@@ -14,6 +14,10 @@ A github assignment is created and everybody will recive an invite to this, the 
 
 The repo is protected, so the only way to push to it is via pull requests. So make a fork of your teams project, and make pull requests from this, this will create some overhead, but will train the review process.
 
+## Docfx
+
+When the program is installed on your computer can you bring upp the documentation through the command ```docfx .\docfx.json --serve```
+
 # Prerequsists
 
 You will need the following:
@@ -22,6 +26,7 @@ You will need the following:
 * Visual Studio 2017 (Community edition is fine).
 * A git client ([Git](https://git-scm.com/), [GitHub](https://desktop.github.com/), [SourceTree](https://www.sourcetreeapp.com/)), there is also some git support in Visual Studio.
 * [DocFx](https://dotnet.github.io/docfx/index.html)
+* SQL Server (Express is fine)
 
 # License
 MIT License, see LICENSE file for the details.

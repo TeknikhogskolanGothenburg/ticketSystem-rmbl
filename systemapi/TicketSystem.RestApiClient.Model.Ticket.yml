@@ -20,7 +20,7 @@ items:
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: Ticket
     path: src/RestApiClient/Model/Ticket.cs
-    startLine: 6
+    startLine: 2
   assemblies:
   - RestApiClient
   namespace: TicketSystem.RestApiClient.Model
@@ -61,7 +61,7 @@ items:
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TicketId
     path: src/RestApiClient/Model/Ticket.cs
-    startLine: 8
+    startLine: 4
   assemblies:
   - RestApiClient
   namespace: TicketSystem.RestApiClient.Model

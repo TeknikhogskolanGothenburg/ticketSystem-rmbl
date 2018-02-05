@@ -1,37 +1,39 @@
 ### YamlMime:ManagedReference
 items:
-- uid: DatabaseRepository.Model.TicketEventDate
-  commentId: T:DatabaseRepository.Model.TicketEventDate
-  id: TicketEventDate
-  parent: DatabaseRepository.Model
+- uid: TicketSystem.PaymentProvider.PaymentProvider
+  commentId: T:TicketSystem.PaymentProvider.PaymentProvider
+  id: PaymentProvider
+  parent: TicketSystem.PaymentProvider
   children:
-  - DatabaseRepository.Model.TicketEventDate.EventStartDateTime
-  - DatabaseRepository.Model.TicketEventDate.TicketEventDateID
-  - DatabaseRepository.Model.TicketEventDate.TicketEventID
-  - DatabaseRepository.Model.TicketEventDate.VenueId
+  - TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
   langs:
   - csharp
   - vb
-  name: TicketEventDate
-  nameWithType: TicketEventDate
-  fullName: DatabaseRepository.Model.TicketEventDate
+  name: PaymentProvider
+  nameWithType: PaymentProvider
+  fullName: TicketSystem.PaymentProvider.PaymentProvider
   type: Class
   source:
     remote:
-      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      path: src/PaymentProvider/PaymentProvider.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: TicketEventDate
-    path: src/DatabaseRepository/Model/TicketEventDate.cs
-    startLine: 6
+    id: PaymentProvider
+    path: src/PaymentProvider/PaymentProvider.cs
+    startLine: 4
   assemblies:
-  - DatabaseRepository
-  namespace: DatabaseRepository.Model
+  - PaymentProvider
+  namespace: TicketSystem.PaymentProvider
   syntax:
-    content: public class TicketEventDate
-    content.vb: Public Class TicketEventDate
+    content: 'public class PaymentProvider : IPaymentProvider'
+    content.vb: >-
+      Public Class PaymentProvider
+
+          Implements IPaymentProvider
   inheritance:
   - System.Object
+  implements:
+  - TicketSystem.PaymentProvider.IPaymentProvider
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -46,153 +48,60 @@ items:
   modifiers.vb:
   - Public
   - Class
-- uid: DatabaseRepository.Model.TicketEventDate.TicketEventDateID
-  commentId: P:DatabaseRepository.Model.TicketEventDate.TicketEventDateID
-  id: TicketEventDateID
-  parent: DatabaseRepository.Model.TicketEventDate
+- uid: TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
+  commentId: M:TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
+  id: Pay(System.Decimal,System.String,System.String)
+  parent: TicketSystem.PaymentProvider.PaymentProvider
   langs:
   - csharp
   - vb
-  name: TicketEventDateID
-  nameWithType: TicketEventDate.TicketEventDateID
-  fullName: DatabaseRepository.Model.TicketEventDate.TicketEventDateID
-  type: Property
+  name: Pay(Decimal, String, String)
+  nameWithType: PaymentProvider.Pay(Decimal, String, String)
+  fullName: TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal, System.String, System.String)
+  type: Method
   source:
     remote:
-      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      path: src/PaymentProvider/PaymentProvider.cs
       branch: master
       repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: TicketEventDateID
-    path: src/DatabaseRepository/Model/TicketEventDate.cs
-    startLine: 8
+    id: Pay
+    path: src/PaymentProvider/PaymentProvider.cs
+    startLine: 15
   assemblies:
-  - DatabaseRepository
-  namespace: DatabaseRepository.Model
+  - PaymentProvider
+  namespace: TicketSystem.PaymentProvider
+  summary: "\nSimulate a payment provider\nOne out of 20 payments results in an unknown error\nThree out of 20 payments results in payment rejected\n"
+  example: []
   syntax:
-    content: public int TicketEventDateID { get; set; }
-    parameters: []
+    content: public Payment Pay(decimal amountToPay, string valuta, string orderReference)
+    parameters:
+    - id: amountToPay
+      type: System.Decimal
+      description: The amount to pay
+    - id: valuta
+      type: System.String
+      description: A three letter code (following ISO 4217) represending the valuta of the amount
+    - id: orderReference
+      type: System.String
+      description: A Guid which is the internal reference of the payment system
     return:
-      type: System.Int32
-    content.vb: Public Property TicketEventDateID As Integer
-  overload: DatabaseRepository.Model.TicketEventDate.TicketEventDateID*
+      type: TicketSystem.PaymentProvider.Payment
+      description: A payment object, containging the status of the order
+    content.vb: Public Function Pay(amountToPay As Decimal, valuta As String, orderReference As String) As Payment
+  overload: TicketSystem.PaymentProvider.PaymentProvider.Pay*
+  implements:
+  - TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
   modifiers.csharp:
   - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: DatabaseRepository.Model.TicketEventDate.TicketEventID
-  commentId: P:DatabaseRepository.Model.TicketEventDate.TicketEventID
-  id: TicketEventID
-  parent: DatabaseRepository.Model.TicketEventDate
-  langs:
-  - csharp
-  - vb
-  name: TicketEventID
-  nameWithType: TicketEventDate.TicketEventID
-  fullName: DatabaseRepository.Model.TicketEventDate.TicketEventID
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/TicketEventDate.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: TicketEventID
-    path: src/DatabaseRepository/Model/TicketEventDate.cs
-    startLine: 9
-  assemblies:
-  - DatabaseRepository
-  namespace: DatabaseRepository.Model
-  syntax:
-    content: public int TicketEventID { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property TicketEventID As Integer
-  overload: DatabaseRepository.Model.TicketEventDate.TicketEventID*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: DatabaseRepository.Model.TicketEventDate.VenueId
-  commentId: P:DatabaseRepository.Model.TicketEventDate.VenueId
-  id: VenueId
-  parent: DatabaseRepository.Model.TicketEventDate
-  langs:
-  - csharp
-  - vb
-  name: VenueId
-  nameWithType: TicketEventDate.VenueId
-  fullName: DatabaseRepository.Model.TicketEventDate.VenueId
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/TicketEventDate.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: VenueId
-    path: src/DatabaseRepository/Model/TicketEventDate.cs
-    startLine: 10
-  assemblies:
-  - DatabaseRepository
-  namespace: DatabaseRepository.Model
-  syntax:
-    content: public int VenueId { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property VenueId As Integer
-  overload: DatabaseRepository.Model.TicketEventDate.VenueId*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: DatabaseRepository.Model.TicketEventDate.EventStartDateTime
-  commentId: P:DatabaseRepository.Model.TicketEventDate.EventStartDateTime
-  id: EventStartDateTime
-  parent: DatabaseRepository.Model.TicketEventDate
-  langs:
-  - csharp
-  - vb
-  name: EventStartDateTime
-  nameWithType: TicketEventDate.EventStartDateTime
-  fullName: DatabaseRepository.Model.TicketEventDate.EventStartDateTime
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/TicketEventDate.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
-    id: EventStartDateTime
-    path: src/DatabaseRepository/Model/TicketEventDate.cs
-    startLine: 11
-  assemblies:
-  - DatabaseRepository
-  namespace: DatabaseRepository.Model
-  syntax:
-    content: public DateTime EventStartDateTime { get; set; }
-    parameters: []
-    return:
-      type: System.DateTime
-    content.vb: Public Property EventStartDateTime As Date
-  overload: DatabaseRepository.Model.TicketEventDate.EventStartDateTime*
-  modifiers.csharp:
-  - public
-  - get
-  - set
   modifiers.vb:
   - Public
 references:
-- uid: DatabaseRepository.Model
-  commentId: N:DatabaseRepository.Model
+- uid: TicketSystem.PaymentProvider
+  commentId: N:TicketSystem.PaymentProvider
   isExternal: false
-  name: DatabaseRepository.Model
-  nameWithType: DatabaseRepository.Model
-  fullName: DatabaseRepository.Model
+  name: TicketSystem.PaymentProvider
+  nameWithType: TicketSystem.PaymentProvider
+  fullName: TicketSystem.PaymentProvider
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -200,6 +109,13 @@ references:
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: TicketSystem.PaymentProvider.IPaymentProvider
+  commentId: T:TicketSystem.PaymentProvider.IPaymentProvider
+  parent: TicketSystem.PaymentProvider
+  isExternal: false
+  name: IPaymentProvider
+  nameWithType: IPaymentProvider
+  fullName: TicketSystem.PaymentProvider.IPaymentProvider
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -485,41 +401,101 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: DatabaseRepository.Model.TicketEventDate.TicketEventDateID*
-  commentId: Overload:DatabaseRepository.Model.TicketEventDate.TicketEventDateID
+- uid: TicketSystem.PaymentProvider.PaymentProvider.Pay*
+  commentId: Overload:TicketSystem.PaymentProvider.PaymentProvider.Pay
   isExternal: false
-  name: TicketEventDateID
-  nameWithType: TicketEventDate.TicketEventDateID
-  fullName: DatabaseRepository.Model.TicketEventDate.TicketEventDateID
-- uid: System.Int32
-  commentId: T:System.Int32
+  name: Pay
+  nameWithType: PaymentProvider.Pay
+  fullName: TicketSystem.PaymentProvider.PaymentProvider.Pay
+- uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+  commentId: M:TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+  parent: TicketSystem.PaymentProvider.IPaymentProvider
+  isExternal: true
+  name: Pay(Decimal, String, String)
+  nameWithType: IPaymentProvider.Pay(Decimal, String, String)
+  fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal, System.String, System.String)
+  spec.csharp:
+  - uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+    name: Pay
+    nameWithType: IPaymentProvider.Pay
+    fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+    name: Pay
+    nameWithType: IPaymentProvider.Pay
+    fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Decimal
+  commentId: T:System.Decimal
   parent: System
   isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
-- uid: DatabaseRepository.Model.TicketEventDate.TicketEventID*
-  commentId: Overload:DatabaseRepository.Model.TicketEventDate.TicketEventID
-  isExternal: false
-  name: TicketEventID
-  nameWithType: TicketEventDate.TicketEventID
-  fullName: DatabaseRepository.Model.TicketEventDate.TicketEventID
-- uid: DatabaseRepository.Model.TicketEventDate.VenueId*
-  commentId: Overload:DatabaseRepository.Model.TicketEventDate.VenueId
-  isExternal: false
-  name: VenueId
-  nameWithType: TicketEventDate.VenueId
-  fullName: DatabaseRepository.Model.TicketEventDate.VenueId
-- uid: DatabaseRepository.Model.TicketEventDate.EventStartDateTime*
-  commentId: Overload:DatabaseRepository.Model.TicketEventDate.EventStartDateTime
-  isExternal: false
-  name: EventStartDateTime
-  nameWithType: TicketEventDate.EventStartDateTime
-  fullName: DatabaseRepository.Model.TicketEventDate.EventStartDateTime
-- uid: System.DateTime
-  commentId: T:System.DateTime
+  name: Decimal
+  nameWithType: Decimal
+  fullName: System.Decimal
+- uid: System.String
+  commentId: T:System.String
   parent: System
   isExternal: true
-  name: DateTime
-  nameWithType: DateTime
-  fullName: System.DateTime
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: TicketSystem.PaymentProvider.Payment
+  commentId: T:TicketSystem.PaymentProvider.Payment
+  parent: TicketSystem.PaymentProvider
+  isExternal: false
+  name: Payment
+  nameWithType: Payment
+  fullName: TicketSystem.PaymentProvider.Payment

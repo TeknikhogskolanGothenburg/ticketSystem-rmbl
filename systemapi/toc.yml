@@ -1,30 +1,30 @@
 ### YamlMime:TableOfContent
-- uid: DatabaseRepository
-  name: DatabaseRepository
+- uid: TicketSystem.DatabaseRepository
+  name: TicketSystem.DatabaseRepository
   items:
-  - uid: DatabaseRepository.ITicketDatabase
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase
     name: ITicketDatabase
-  - uid: DatabaseRepository.TicketDatabase
+  - uid: TicketSystem.DatabaseRepository.TicketDatabase
     name: TicketDatabase
-- uid: DatabaseRepository.Model
-  name: DatabaseRepository.Model
+- uid: TicketSystem.DatabaseRepository.Model
+  name: TicketSystem.DatabaseRepository.Model
   items:
-  - uid: DatabaseRepository.Model.TicketEvent
+  - uid: TicketSystem.DatabaseRepository.Model.TicketEvent
     name: TicketEvent
-  - uid: DatabaseRepository.Model.TicketEventDate
+  - uid: TicketSystem.DatabaseRepository.Model.TicketEventDate
     name: TicketEventDate
-  - uid: DatabaseRepository.Model.Venue
+  - uid: TicketSystem.DatabaseRepository.Model.Venue
     name: Venue
-- uid: PaymentProvider
-  name: PaymentProvider
+- uid: TicketSystem.PaymentProvider
+  name: TicketSystem.PaymentProvider
   items:
-  - uid: PaymentProvider.IPaymentProvider
+  - uid: TicketSystem.PaymentProvider.IPaymentProvider
     name: IPaymentProvider
-  - uid: PaymentProvider.Payment
+  - uid: TicketSystem.PaymentProvider.Payment
     name: Payment
-  - uid: PaymentProvider.PaymentProvider
+  - uid: TicketSystem.PaymentProvider.PaymentProvider
     name: PaymentProvider
-  - uid: PaymentProvider.PaymentStatus
+  - uid: TicketSystem.PaymentProvider.PaymentStatus
     name: PaymentStatus
 - uid: TicketSystem.RestApiClient
   name: TicketSystem.RestApiClient
