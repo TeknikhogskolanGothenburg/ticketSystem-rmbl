@@ -15,3 +15,26 @@
     name: TicketEventDate
   - uid: DatabaseRepository.Model.Venue
     name: Venue
+- uid: PaymentProvider
+  name: PaymentProvider
+  items:
+  - uid: PaymentProvider.IPaymentProvider
+    name: IPaymentProvider
+  - uid: PaymentProvider.Payment
+    name: Payment
+  - uid: PaymentProvider.PaymentProvider
+    name: PaymentProvider
+  - uid: PaymentProvider.PaymentStatus
+    name: PaymentStatus
+- uid: TicketSystem.RestApiClient
+  name: TicketSystem.RestApiClient
+  items:
+  - uid: TicketSystem.RestApiClient.ITicketApi
+    name: ITicketApi
+  - uid: TicketSystem.RestApiClient.TicketApi
+    name: TicketApi
+- uid: TicketSystem.RestApiClient.Model
+  name: TicketSystem.RestApiClient.Model
+  items:
+  - uid: TicketSystem.RestApiClient.Model.Ticket
+    name: Ticket

@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketSystem.RestApiClient
+  commentId: N:TicketSystem.RestApiClient
+  id: TicketSystem.RestApiClient
+  children:
+  - TicketSystem.RestApiClient.ITicketApi
+  - TicketSystem.RestApiClient.TicketApi
+  langs:
+  - csharp
+  - vb
+  name: TicketSystem.RestApiClient
+  nameWithType: TicketSystem.RestApiClient
+  fullName: TicketSystem.RestApiClient
+  type: Namespace
+  assemblies:
+  - RestApiClient
+references:
+- uid: TicketSystem.RestApiClient.ITicketApi
+  commentId: T:TicketSystem.RestApiClient.ITicketApi
+  parent: TicketSystem.RestApiClient
+  isExternal: false
+  name: ITicketApi
+  nameWithType: ITicketApi
+  fullName: TicketSystem.RestApiClient.ITicketApi
+- uid: TicketSystem.RestApiClient.TicketApi
+  commentId: T:TicketSystem.RestApiClient.TicketApi
+  isExternal: false
+  name: TicketApi
+  nameWithType: TicketApi
+  fullName: TicketSystem.RestApiClient.TicketApi
+- uid: TicketSystem.RestApiClient
+  commentId: N:TicketSystem.RestApiClient
+  isExternal: false
+  name: TicketSystem.RestApiClient
+  nameWithType: TicketSystem.RestApiClient
+  fullName: TicketSystem.RestApiClient

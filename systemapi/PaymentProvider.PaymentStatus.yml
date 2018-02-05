@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: PaymentProvider.PaymentStatus
+  commentId: T:PaymentProvider.PaymentStatus
+  id: PaymentStatus
+  parent: PaymentProvider
+  children:
+  - PaymentProvider.PaymentStatus.PaymentApproved
+  - PaymentProvider.PaymentStatus.PaymentRejected
+  - PaymentProvider.PaymentStatus.UnknownError
+  langs:
+  - csharp
+  - vb
+  name: PaymentStatus
+  nameWithType: PaymentStatus
+  fullName: PaymentProvider.PaymentStatus
+  type: Enum
+  source:
+    remote:
+      path: src/PaymentProvider/PaymentStatus.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: PaymentStatus
+    path: src/PaymentProvider/PaymentStatus.cs
+    startLine: 6
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: public enum PaymentStatus
+    content.vb: Public Enum PaymentStatus
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: PaymentProvider.PaymentStatus.PaymentApproved
+  commentId: F:PaymentProvider.PaymentStatus.PaymentApproved
+  id: PaymentApproved
+  parent: PaymentProvider.PaymentStatus
+  langs:
+  - csharp
+  - vb
+  name: PaymentApproved
+  nameWithType: PaymentStatus.PaymentApproved
+  fullName: PaymentProvider.PaymentStatus.PaymentApproved
+  type: Field
+  source:
+    remote:
+      path: src/PaymentProvider/PaymentStatus.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: PaymentApproved
+    path: src/PaymentProvider/PaymentStatus.cs
+    startLine: 8
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: PaymentApproved = 0
+    return:
+      type: PaymentProvider.PaymentStatus
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PaymentProvider.PaymentStatus.PaymentRejected
+  commentId: F:PaymentProvider.PaymentStatus.PaymentRejected
+  id: PaymentRejected
+  parent: PaymentProvider.PaymentStatus
+  langs:
+  - csharp
+  - vb
+  name: PaymentRejected
+  nameWithType: PaymentStatus.PaymentRejected
+  fullName: PaymentProvider.PaymentStatus.PaymentRejected
+  type: Field
+  source:
+    remote:
+      path: src/PaymentProvider/PaymentStatus.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: PaymentRejected
+    path: src/PaymentProvider/PaymentStatus.cs
+    startLine: 9
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: PaymentRejected = 1
+    return:
+      type: PaymentProvider.PaymentStatus
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: PaymentProvider.PaymentStatus.UnknownError
+  commentId: F:PaymentProvider.PaymentStatus.UnknownError
+  id: UnknownError
+  parent: PaymentProvider.PaymentStatus
+  langs:
+  - csharp
+  - vb
+  name: UnknownError
+  nameWithType: PaymentStatus.UnknownError
+  fullName: PaymentProvider.PaymentStatus.UnknownError
+  type: Field
+  source:
+    remote:
+      path: src/PaymentProvider/PaymentStatus.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: UnknownError
+    path: src/PaymentProvider/PaymentStatus.cs
+    startLine: 10
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: UnknownError = 2
+    return:
+      type: PaymentProvider.PaymentStatus
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: PaymentProvider
+  commentId: N:PaymentProvider
+  isExternal: false
+  name: PaymentProvider
+  nameWithType: PaymentProvider
+  fullName: PaymentProvider
+- uid: PaymentProvider.PaymentStatus
+  commentId: T:PaymentProvider.PaymentStatus
+  parent: PaymentProvider
+  isExternal: false
+  name: PaymentStatus
+  nameWithType: PaymentStatus
+  fullName: PaymentProvider.PaymentStatus

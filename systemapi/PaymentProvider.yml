@@ -1,0 +1,53 @@
+### YamlMime:ManagedReference
+items:
+- uid: PaymentProvider
+  commentId: N:PaymentProvider
+  id: PaymentProvider
+  children:
+  - PaymentProvider.IPaymentProvider
+  - PaymentProvider.Payment
+  - PaymentProvider.PaymentProvider
+  - PaymentProvider.PaymentStatus
+  langs:
+  - csharp
+  - vb
+  name: PaymentProvider
+  nameWithType: PaymentProvider
+  fullName: PaymentProvider
+  type: Namespace
+  assemblies:
+  - PaymentProvider
+references:
+- uid: PaymentProvider.IPaymentProvider
+  commentId: T:PaymentProvider.IPaymentProvider
+  parent: PaymentProvider
+  isExternal: false
+  name: IPaymentProvider
+  nameWithType: IPaymentProvider
+  fullName: PaymentProvider.IPaymentProvider
+- uid: PaymentProvider.Payment
+  commentId: T:PaymentProvider.Payment
+  parent: PaymentProvider
+  isExternal: false
+  name: Payment
+  nameWithType: Payment
+  fullName: PaymentProvider.Payment
+- uid: PaymentProvider.PaymentProvider
+  commentId: T:PaymentProvider.PaymentProvider
+  isExternal: false
+  name: PaymentProvider
+  nameWithType: PaymentProvider
+  fullName: PaymentProvider.PaymentProvider
+- uid: PaymentProvider.PaymentStatus
+  commentId: T:PaymentProvider.PaymentStatus
+  parent: PaymentProvider
+  isExternal: false
+  name: PaymentStatus
+  nameWithType: PaymentStatus
+  fullName: PaymentProvider.PaymentStatus
+- uid: PaymentProvider
+  commentId: N:PaymentProvider
+  isExternal: false
+  name: PaymentProvider
+  nameWithType: PaymentProvider
+  fullName: PaymentProvider

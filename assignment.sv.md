@@ -8,6 +8,10 @@ Sista chans for att få med kod är Måndag den 19:e kl 20:00 CET.
 
 # Containers
 
+Systemet består av fyra containers (se [arkitektur dokumentet](http://localhost:8080/architecture/index.html) i docfx), varja container har en solution fil i *src*-mappen.
+
+Det är endast grundläggande delar som har implementeras, så det är mycket sannolikt att alla containers på något sätt måste refactoreres, ändras eller utökas. Och ni får ändra och fixa pärcis som ni kännar.
+
 ## Container: Database
 
 All data skall spara i SQL databas, och där finns som en del av projeket en simpel databas model, se denna i docfx avsnittet om [arkitektur](http://localhost:8080/architecture/index.html#database).
@@ -16,6 +20,12 @@ I mappen *src* finns en visual studio solution kallat database.sln, denna inneh�
 
 ## Container: REST API
 
+Backoffice och e-handel kommunikera endast med REST API, det betyder att REST APIet sköter kommunikation med databasen och betalleventöra.
+
+Ett API är ett kontrakt som är emellan server och klient, det betyder att man måste ha en bra dokumentation av APIet, kontraktet finns på [SwaggerHub](https://app.swaggerhub.com/apis/Distancify6/TicketSystem/1.0.0), och även i eran docfx-dokumentation i mappen [webapi](http://localhost:8080/webapi/swagger.html).
+
+Från SwaggerHub går det ladda ner boilerplate kod för båda klient och server, detta kan vara en hjälp även om koden kan vara litet svår att läsa.
+
 ## Container: Backoffice 
 använ mvc till skåpa ett rest api, basseret på swagger api
 skåpa biljet som pdf
@@ -23,12 +33,14 @@ skåpa biljet som pdf
 
 ## Container: E-handel (biljett shop)
 
-
+Asyknon del (VG): Visar hur många som är inne på ett event just nu, och när senasta biljett köptes, och vilka events som är populära just nu
 
 # Dokumentatonsdel
 user stories
 usecase diagram
 diagram som viser hur olika dela hänger i hop
+opdaterat system diagrammer
+
 
 # Tips / Hints
 Försök att unvika att någon är syssellösa
@@ -39,7 +51,7 @@ Om ni sittar på distans taffas med video en gång per dag (via [skype](https://
 
 Använn Github aktivt: Issues, Pull requets, Projects. Det gör det enklare för alla hänga med på alla förandringer och ideer.
 
-
+Forsög att att följa SOLID så långt det går.
 
 # Betygskrav
 ## G
@@ -55,10 +67,10 @@ Använn Github aktivt: Issues, Pull requets, Projects. Det gör det enklare för
 * Båda det administrativtagräsnitt och användergränsitt måste vara tillgängeligt på svenska och engelska
 
 ## VG
-* Cake (kan med fördel konfigureras som det första)
-* AppVoyage
+* Cake build script (kan med fördel konfigureras som det första)
+* AppVoyage (kan med fördel konfigureras efter cake scriptet så att ni kan få in status på github)
 * Deployat till Azure och demo körs därifrån
-* Multi använder backoffice
+* Multi använder backoffice med inlogning som bygger på 
 * Regex använns till input validering dom ställen vart det gir mening
-* SOLID
 * Logging i Azure
+* Asynkron del, implemntard med React och SignalR

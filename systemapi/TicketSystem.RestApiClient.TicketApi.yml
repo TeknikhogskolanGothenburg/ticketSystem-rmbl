@@ -1,0 +1,614 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketSystem.RestApiClient.TicketApi
+  commentId: T:TicketSystem.RestApiClient.TicketApi
+  id: TicketApi
+  parent: TicketSystem.RestApiClient
+  children:
+  - TicketSystem.RestApiClient.TicketApi.TicketGet
+  - TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: TicketApi
+  nameWithType: TicketApi
+  fullName: TicketSystem.RestApiClient.TicketApi
+  type: Class
+  source:
+    remote:
+      path: src/RestApiClient/TicketApi.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TicketApi
+    path: src/RestApiClient/TicketApi.cs
+    startLine: 7
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient
+  syntax:
+    content: 'public class TicketApi : ITicketApi'
+    content.vb: >-
+      Public Class TicketApi
+          Implements ITicketApi
+  inheritance:
+  - System.Object
+  implements:
+  - TicketSystem.RestApiClient.ITicketApi
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: TicketSystem.RestApiClient.TicketApi.TicketGet
+  commentId: M:TicketSystem.RestApiClient.TicketApi.TicketGet
+  id: TicketGet
+  parent: TicketSystem.RestApiClient.TicketApi
+  langs:
+  - csharp
+  - vb
+  name: TicketGet()
+  nameWithType: TicketApi.TicketGet()
+  fullName: TicketSystem.RestApiClient.TicketApi.TicketGet()
+  type: Method
+  source:
+    remote:
+      path: src/RestApiClient/TicketApi.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TicketGet
+    path: src/RestApiClient/TicketApi.cs
+    startLine: 11
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient
+  syntax:
+    content: public List<Ticket> TicketGet()
+    return:
+      type: System.Collections.Generic.List{TicketSystem.RestApiClient.Model.Ticket}
+    content.vb: Public Function TicketGet As List(Of Ticket)
+  overload: TicketSystem.RestApiClient.TicketApi.TicketGet*
+  implements:
+  - TicketSystem.RestApiClient.ITicketApi.TicketGet
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet(System.Int32)
+  commentId: M:TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet(System.Int32)
+  id: TicketTicketIdGet(System.Int32)
+  parent: TicketSystem.RestApiClient.TicketApi
+  langs:
+  - csharp
+  - vb
+  name: TicketTicketIdGet(Int32)
+  nameWithType: TicketApi.TicketTicketIdGet(Int32)
+  fullName: TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/RestApiClient/TicketApi.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TicketTicketIdGet
+    path: src/RestApiClient/TicketApi.cs
+    startLine: 19
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient
+  syntax:
+    content: public Ticket TicketTicketIdGet(int ticketId)
+    parameters:
+    - id: ticketId
+      type: System.Int32
+    return:
+      type: TicketSystem.RestApiClient.Model.Ticket
+    content.vb: Public Function TicketTicketIdGet(ticketId As Integer) As Ticket
+  overload: TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet*
+  implements:
+  - TicketSystem.RestApiClient.ITicketApi.TicketTicketIdGet(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: TicketSystem.RestApiClient
+  commentId: N:TicketSystem.RestApiClient
+  isExternal: false
+  name: TicketSystem.RestApiClient
+  nameWithType: TicketSystem.RestApiClient
+  fullName: TicketSystem.RestApiClient
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: TicketSystem.RestApiClient.ITicketApi
+  commentId: T:TicketSystem.RestApiClient.ITicketApi
+  parent: TicketSystem.RestApiClient
+  isExternal: false
+  name: ITicketApi
+  nameWithType: ITicketApi
+  fullName: TicketSystem.RestApiClient.ITicketApi
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TicketSystem.RestApiClient.TicketApi.TicketGet*
+  commentId: Overload:TicketSystem.RestApiClient.TicketApi.TicketGet
+  isExternal: false
+  name: TicketGet
+  nameWithType: TicketApi.TicketGet
+  fullName: TicketSystem.RestApiClient.TicketApi.TicketGet
+- uid: TicketSystem.RestApiClient.ITicketApi.TicketGet
+  commentId: M:TicketSystem.RestApiClient.ITicketApi.TicketGet
+  parent: TicketSystem.RestApiClient.ITicketApi
+  isExternal: false
+  name: TicketGet()
+  nameWithType: ITicketApi.TicketGet()
+  fullName: TicketSystem.RestApiClient.ITicketApi.TicketGet()
+  spec.csharp:
+  - uid: TicketSystem.RestApiClient.ITicketApi.TicketGet
+    name: TicketGet
+    nameWithType: ITicketApi.TicketGet
+    fullName: TicketSystem.RestApiClient.ITicketApi.TicketGet
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.RestApiClient.ITicketApi.TicketGet
+    name: TicketGet
+    nameWithType: ITicketApi.TicketGet
+    fullName: TicketSystem.RestApiClient.ITicketApi.TicketGet
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{TicketSystem.RestApiClient.Model.Ticket}
+  commentId: T:System.Collections.Generic.List{TicketSystem.RestApiClient.Model.Ticket}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Ticket>
+  nameWithType: List<Ticket>
+  fullName: System.Collections.Generic.List<TicketSystem.RestApiClient.Model.Ticket>
+  nameWithType.vb: List(Of Ticket)
+  fullName.vb: System.Collections.Generic.List(Of TicketSystem.RestApiClient.Model.Ticket)
+  name.vb: List(Of Ticket)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: TicketSystem.RestApiClient.Model.Ticket
+    name: Ticket
+    nameWithType: Ticket
+    fullName: TicketSystem.RestApiClient.Model.Ticket
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: TicketSystem.RestApiClient.Model.Ticket
+    name: Ticket
+    nameWithType: Ticket
+    fullName: TicketSystem.RestApiClient.Model.Ticket
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet*
+  commentId: Overload:TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet
+  isExternal: false
+  name: TicketTicketIdGet
+  nameWithType: TicketApi.TicketTicketIdGet
+  fullName: TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet
+- uid: TicketSystem.RestApiClient.ITicketApi.TicketTicketIdGet(System.Int32)
+  commentId: M:TicketSystem.RestApiClient.ITicketApi.TicketTicketIdGet(System.Int32)
+  parent: TicketSystem.RestApiClient.ITicketApi
+  isExternal: true
+  name: TicketTicketIdGet(Int32)
+  nameWithType: ITicketApi.TicketTicketIdGet(Int32)
+  fullName: TicketSystem.RestApiClient.ITicketApi.TicketTicketIdGet(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.RestApiClient.ITicketApi.TicketTicketIdGet(System.Int32)
+    name: TicketTicketIdGet
+    nameWithType: ITicketApi.TicketTicketIdGet
+    fullName: TicketSystem.RestApiClient.ITicketApi.TicketTicketIdGet
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.RestApiClient.ITicketApi.TicketTicketIdGet(System.Int32)
+    name: TicketTicketIdGet
+    nameWithType: ITicketApi.TicketTicketIdGet
+    fullName: TicketSystem.RestApiClient.ITicketApi.TicketTicketIdGet
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketSystem.RestApiClient.Model.Ticket
+  commentId: T:TicketSystem.RestApiClient.Model.Ticket
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: Ticket
+  nameWithType: Ticket
+  fullName: TicketSystem.RestApiClient.Model.Ticket
+- uid: TicketSystem.RestApiClient.Model
+  commentId: N:TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: TicketSystem.RestApiClient.Model
+  nameWithType: TicketSystem.RestApiClient.Model
+  fullName: TicketSystem.RestApiClient.Model

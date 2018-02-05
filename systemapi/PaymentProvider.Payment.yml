@@ -1,0 +1,574 @@
+### YamlMime:ManagedReference
+items:
+- uid: PaymentProvider.Payment
+  commentId: T:PaymentProvider.Payment
+  id: Payment
+  parent: PaymentProvider
+  children:
+  - PaymentProvider.Payment.OrderReference
+  - PaymentProvider.Payment.PaymentReference
+  - PaymentProvider.Payment.PaymentStatus
+  - PaymentProvider.Payment.TotalAmount
+  - PaymentProvider.Payment.Valuta
+  langs:
+  - csharp
+  - vb
+  name: Payment
+  nameWithType: Payment
+  fullName: PaymentProvider.Payment
+  type: Class
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: Payment
+    path: src/PaymentProvider/Payment.cs
+    startLine: 6
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: public class Payment
+    content.vb: Public Class Payment
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: PaymentProvider.Payment.PaymentStatus
+  commentId: P:PaymentProvider.Payment.PaymentStatus
+  id: PaymentStatus
+  parent: PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: PaymentStatus
+  nameWithType: Payment.PaymentStatus
+  fullName: PaymentProvider.Payment.PaymentStatus
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: PaymentStatus
+    path: src/PaymentProvider/Payment.cs
+    startLine: 8
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: public PaymentStatus PaymentStatus { get; set; }
+    parameters: []
+    return:
+      type: PaymentProvider.PaymentStatus
+    content.vb: Public Property PaymentStatus As PaymentStatus
+  overload: PaymentProvider.Payment.PaymentStatus*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: PaymentProvider.Payment.TotalAmount
+  commentId: P:PaymentProvider.Payment.TotalAmount
+  id: TotalAmount
+  parent: PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: TotalAmount
+  nameWithType: Payment.TotalAmount
+  fullName: PaymentProvider.Payment.TotalAmount
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TotalAmount
+    path: src/PaymentProvider/Payment.cs
+    startLine: 9
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: public decimal TotalAmount { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property TotalAmount As Decimal
+  overload: PaymentProvider.Payment.TotalAmount*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: PaymentProvider.Payment.Valuta
+  commentId: P:PaymentProvider.Payment.Valuta
+  id: Valuta
+  parent: PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: Valuta
+  nameWithType: Payment.Valuta
+  fullName: PaymentProvider.Payment.Valuta
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: Valuta
+    path: src/PaymentProvider/Payment.cs
+    startLine: 10
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: public string Valuta { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Valuta As String
+  overload: PaymentProvider.Payment.Valuta*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: PaymentProvider.Payment.PaymentReference
+  commentId: P:PaymentProvider.Payment.PaymentReference
+  id: PaymentReference
+  parent: PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: PaymentReference
+  nameWithType: Payment.PaymentReference
+  fullName: PaymentProvider.Payment.PaymentReference
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: PaymentReference
+    path: src/PaymentProvider/Payment.cs
+    startLine: 11
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: public string PaymentReference { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PaymentReference As String
+  overload: PaymentProvider.Payment.PaymentReference*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: PaymentProvider.Payment.OrderReference
+  commentId: P:PaymentProvider.Payment.OrderReference
+  id: OrderReference
+  parent: PaymentProvider.Payment
+  langs:
+  - csharp
+  - vb
+  name: OrderReference
+  nameWithType: Payment.OrderReference
+  fullName: PaymentProvider.Payment.OrderReference
+  type: Property
+  source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: OrderReference
+    path: src/PaymentProvider/Payment.cs
+    startLine: 12
+  assemblies:
+  - PaymentProvider
+  namespace: PaymentProvider
+  syntax:
+    content: public string OrderReference { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OrderReference As String
+  overload: PaymentProvider.Payment.OrderReference*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: PaymentProvider
+  commentId: N:PaymentProvider
+  isExternal: false
+  name: PaymentProvider
+  nameWithType: PaymentProvider
+  fullName: PaymentProvider
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PaymentProvider.Payment.PaymentStatus*
+  commentId: Overload:PaymentProvider.Payment.PaymentStatus
+  isExternal: false
+  name: PaymentStatus
+  nameWithType: Payment.PaymentStatus
+  fullName: PaymentProvider.Payment.PaymentStatus
+- uid: PaymentProvider.PaymentStatus
+  commentId: T:PaymentProvider.PaymentStatus
+  parent: PaymentProvider
+  isExternal: false
+  name: PaymentStatus
+  nameWithType: PaymentStatus
+  fullName: PaymentProvider.PaymentStatus
+- uid: PaymentProvider.Payment.TotalAmount*
+  commentId: Overload:PaymentProvider.Payment.TotalAmount
+  isExternal: false
+  name: TotalAmount
+  nameWithType: Payment.TotalAmount
+  fullName: PaymentProvider.Payment.TotalAmount
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  name: Decimal
+  nameWithType: Decimal
+  fullName: System.Decimal
+- uid: PaymentProvider.Payment.Valuta*
+  commentId: Overload:PaymentProvider.Payment.Valuta
+  isExternal: false
+  name: Valuta
+  nameWithType: Payment.Valuta
+  fullName: PaymentProvider.Payment.Valuta
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: PaymentProvider.Payment.PaymentReference*
+  commentId: Overload:PaymentProvider.Payment.PaymentReference
+  isExternal: false
+  name: PaymentReference
+  nameWithType: Payment.PaymentReference
+  fullName: PaymentProvider.Payment.PaymentReference
+- uid: PaymentProvider.Payment.OrderReference*
+  commentId: Overload:PaymentProvider.Payment.OrderReference
+  isExternal: false
+  name: OrderReference
+  nameWithType: Payment.OrderReference
+  fullName: PaymentProvider.Payment.OrderReference
