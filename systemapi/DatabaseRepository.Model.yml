@@ -1,0 +1,45 @@
+### YamlMime:ManagedReference
+items:
+- uid: DatabaseRepository.Model
+  commentId: N:DatabaseRepository.Model
+  id: DatabaseRepository.Model
+  children:
+  - DatabaseRepository.Model.TicketEvent
+  - DatabaseRepository.Model.TicketEventDate
+  - DatabaseRepository.Model.Venue
+  langs:
+  - csharp
+  - vb
+  name: DatabaseRepository.Model
+  nameWithType: DatabaseRepository.Model
+  fullName: DatabaseRepository.Model
+  type: Namespace
+  assemblies:
+  - DatabaseRepository
+references:
+- uid: DatabaseRepository.Model.TicketEvent
+  commentId: T:DatabaseRepository.Model.TicketEvent
+  parent: DatabaseRepository.Model
+  isExternal: false
+  name: TicketEvent
+  nameWithType: TicketEvent
+  fullName: DatabaseRepository.Model.TicketEvent
+- uid: DatabaseRepository.Model.TicketEventDate
+  commentId: T:DatabaseRepository.Model.TicketEventDate
+  isExternal: false
+  name: TicketEventDate
+  nameWithType: TicketEventDate
+  fullName: DatabaseRepository.Model.TicketEventDate
+- uid: DatabaseRepository.Model.Venue
+  commentId: T:DatabaseRepository.Model.Venue
+  parent: DatabaseRepository.Model
+  isExternal: false
+  name: Venue
+  nameWithType: Venue
+  fullName: DatabaseRepository.Model.Venue
+- uid: DatabaseRepository.Model
+  commentId: N:DatabaseRepository.Model
+  isExternal: false
+  name: DatabaseRepository.Model
+  nameWithType: DatabaseRepository.Model
+  fullName: DatabaseRepository.Model

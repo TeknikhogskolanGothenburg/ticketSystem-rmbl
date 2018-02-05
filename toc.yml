@@ -6,5 +6,7 @@
   homepage: userstories/index.md
 - name: Web API
   href: webapi/
+- name: System API
+  href: systemapi/
 - name: Assigment (sv)
   href: assignment.sv.md

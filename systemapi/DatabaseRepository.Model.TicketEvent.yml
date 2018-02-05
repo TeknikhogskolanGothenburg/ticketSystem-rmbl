@@ -1,0 +1,483 @@
+### YamlMime:ManagedReference
+items:
+- uid: DatabaseRepository.Model.TicketEvent
+  commentId: T:DatabaseRepository.Model.TicketEvent
+  id: TicketEvent
+  parent: DatabaseRepository.Model
+  children:
+  - DatabaseRepository.Model.TicketEvent.EventHtmlDescription
+  - DatabaseRepository.Model.TicketEvent.EventName
+  - DatabaseRepository.Model.TicketEvent.TicketEventId
+  langs:
+  - csharp
+  - vb
+  name: TicketEvent
+  nameWithType: TicketEvent
+  fullName: DatabaseRepository.Model.TicketEvent
+  type: Class
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEvent.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TicketEvent
+    path: src/DatabaseRepository/Model/TicketEvent.cs
+    startLine: 6
+  assemblies:
+  - DatabaseRepository
+  namespace: DatabaseRepository.Model
+  syntax:
+    content: public class TicketEvent
+    content.vb: Public Class TicketEvent
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: DatabaseRepository.Model.TicketEvent.TicketEventId
+  commentId: P:DatabaseRepository.Model.TicketEvent.TicketEventId
+  id: TicketEventId
+  parent: DatabaseRepository.Model.TicketEvent
+  langs:
+  - csharp
+  - vb
+  name: TicketEventId
+  nameWithType: TicketEvent.TicketEventId
+  fullName: DatabaseRepository.Model.TicketEvent.TicketEventId
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEvent.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: TicketEventId
+    path: src/DatabaseRepository/Model/TicketEvent.cs
+    startLine: 8
+  assemblies:
+  - DatabaseRepository
+  namespace: DatabaseRepository.Model
+  syntax:
+    content: public int TicketEventId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TicketEventId As Integer
+  overload: DatabaseRepository.Model.TicketEvent.TicketEventId*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: DatabaseRepository.Model.TicketEvent.EventName
+  commentId: P:DatabaseRepository.Model.TicketEvent.EventName
+  id: EventName
+  parent: DatabaseRepository.Model.TicketEvent
+  langs:
+  - csharp
+  - vb
+  name: EventName
+  nameWithType: TicketEvent.EventName
+  fullName: DatabaseRepository.Model.TicketEvent.EventName
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEvent.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: EventName
+    path: src/DatabaseRepository/Model/TicketEvent.cs
+    startLine: 9
+  assemblies:
+  - DatabaseRepository
+  namespace: DatabaseRepository.Model
+  syntax:
+    content: public string EventName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EventName As String
+  overload: DatabaseRepository.Model.TicketEvent.EventName*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: DatabaseRepository.Model.TicketEvent.EventHtmlDescription
+  commentId: P:DatabaseRepository.Model.TicketEvent.EventHtmlDescription
+  id: EventHtmlDescription
+  parent: DatabaseRepository.Model.TicketEvent
+  langs:
+  - csharp
+  - vb
+  name: EventHtmlDescription
+  nameWithType: TicketEvent.EventHtmlDescription
+  fullName: DatabaseRepository.Model.TicketEvent.EventHtmlDescription
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEvent.cs
+      branch: master
+      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+    id: EventHtmlDescription
+    path: src/DatabaseRepository/Model/TicketEvent.cs
+    startLine: 10
+  assemblies:
+  - DatabaseRepository
+  namespace: DatabaseRepository.Model
+  syntax:
+    content: public string EventHtmlDescription { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EventHtmlDescription As String
+  overload: DatabaseRepository.Model.TicketEvent.EventHtmlDescription*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: DatabaseRepository.Model
+  commentId: N:DatabaseRepository.Model
+  isExternal: false
+  name: DatabaseRepository.Model
+  nameWithType: DatabaseRepository.Model
+  fullName: DatabaseRepository.Model
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DatabaseRepository.Model.TicketEvent.TicketEventId*
+  commentId: Overload:DatabaseRepository.Model.TicketEvent.TicketEventId
+  isExternal: false
+  name: TicketEventId
+  nameWithType: TicketEvent.TicketEventId
+  fullName: DatabaseRepository.Model.TicketEvent.TicketEventId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: DatabaseRepository.Model.TicketEvent.EventName*
+  commentId: Overload:DatabaseRepository.Model.TicketEvent.EventName
+  isExternal: false
+  name: EventName
+  nameWithType: TicketEvent.EventName
+  fullName: DatabaseRepository.Model.TicketEvent.EventName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: DatabaseRepository.Model.TicketEvent.EventHtmlDescription*
+  commentId: Overload:DatabaseRepository.Model.TicketEvent.EventHtmlDescription
+  isExternal: false
+  name: EventHtmlDescription
+  nameWithType: TicketEvent.EventHtmlDescription
+  fullName: DatabaseRepository.Model.TicketEvent.EventHtmlDescription

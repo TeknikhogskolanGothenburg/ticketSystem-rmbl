@@ -3,18 +3,18 @@
     {
       "src": [
         {
-          "files": [ "**/*.sln" ],
+          "files": [ "*.sln" ],
           "exclude": [ "**/bin/**", "**/obj/**" ],
           "src": "src"
         }
       ],
-      "dest": "obj/api"
+      "dest": "systemapi"
     }
   ],
   "build": {
     "content": [
       {
-        "files": [ "architecture/**/*.md", "userstories/**/*.md", "*.md", "toc.yml", "webapi/**", "src/API_Specification/**" ]
+        "files": [ "architecture/**/*.md", "userstories/**/*.md", "*.md", "toc.yml", "webapi/**", "systemapi/**"  ]
       }
     ],
     "resource": [
