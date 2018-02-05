@@ -1,1 +1,3 @@
-Put the source code for your .NET solution and projects here
+Here you find one solution for each container in the system.
+
+Open the solution, and add projects in this folder.
