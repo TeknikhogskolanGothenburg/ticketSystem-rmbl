@@ -10,3 +10,7 @@
 # Container diagram
 
 <img src="images/container.png" />
+
+# Database
+
+<img src="images/database_diagram.png" />
