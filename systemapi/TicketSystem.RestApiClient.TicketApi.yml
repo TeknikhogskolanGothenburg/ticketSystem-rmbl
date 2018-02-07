@@ -15,12 +15,8 @@ items:
   fullName: TicketSystem.RestApiClient.TicketApi
   type: Class
   source:
-    remote:
-      path: src/RestApiClient/TicketApi.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TicketApi
-    path: src/RestApiClient/TicketApi.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\TicketApi.cs
     startLine: 7
   assemblies:
   - RestApiClient
@@ -61,12 +57,8 @@ items:
   fullName: TicketSystem.RestApiClient.TicketApi.TicketGet()
   type: Method
   source:
-    remote:
-      path: src/RestApiClient/TicketApi.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TicketGet
-    path: src/RestApiClient/TicketApi.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\TicketApi.cs
     startLine: 11
   assemblies:
   - RestApiClient
@@ -95,12 +87,8 @@ items:
   fullName: TicketSystem.RestApiClient.TicketApi.TicketTicketIdGet(System.Int32)
   type: Method
   source:
-    remote:
-      path: src/RestApiClient/TicketApi.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TicketTicketIdGet
-    path: src/RestApiClient/TicketApi.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\TicketApi.cs
     startLine: 19
   assemblies:
   - RestApiClient
