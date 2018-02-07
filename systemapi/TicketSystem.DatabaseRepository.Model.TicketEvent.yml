@@ -16,12 +16,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEvent
   type: Class
   source:
-    remote:
-      path: src/DatabaseRepository/Model/TicketEvent.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TicketEvent
-    path: src/DatabaseRepository/Model/TicketEvent.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEvent.cs
     startLine: 2
   assemblies:
   - DatabaseRepository
@@ -57,12 +53,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.TicketEventId
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/TicketEvent.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TicketEventId
-    path: src/DatabaseRepository/Model/TicketEvent.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEvent.cs
     startLine: 4
   assemblies:
   - DatabaseRepository
@@ -92,12 +84,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.EventName
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/TicketEvent.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: EventName
-    path: src/DatabaseRepository/Model/TicketEvent.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEvent.cs
     startLine: 5
   assemblies:
   - DatabaseRepository
@@ -127,12 +115,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEvent.EventHtmlDescription
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/TicketEvent.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: EventHtmlDescription
-    path: src/DatabaseRepository/Model/TicketEvent.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEvent.cs
     startLine: 6
   assemblies:
   - DatabaseRepository

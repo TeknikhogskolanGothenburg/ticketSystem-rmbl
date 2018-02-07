@@ -18,12 +18,8 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment
   type: Class
   source:
-    remote:
-      path: src/PaymentProvider/Payment.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: Payment
-    path: src/PaymentProvider/Payment.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
     startLine: 2
   assemblies:
   - PaymentProvider
@@ -59,12 +55,8 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.PaymentStatus
   type: Property
   source:
-    remote:
-      path: src/PaymentProvider/Payment.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: PaymentStatus
-    path: src/PaymentProvider/Payment.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
     startLine: 4
   assemblies:
   - PaymentProvider
@@ -94,12 +86,8 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.TotalAmount
   type: Property
   source:
-    remote:
-      path: src/PaymentProvider/Payment.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TotalAmount
-    path: src/PaymentProvider/Payment.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
     startLine: 5
   assemblies:
   - PaymentProvider
@@ -129,12 +117,8 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.Valuta
   type: Property
   source:
-    remote:
-      path: src/PaymentProvider/Payment.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: Valuta
-    path: src/PaymentProvider/Payment.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
     startLine: 6
   assemblies:
   - PaymentProvider
@@ -164,12 +148,8 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.PaymentReference
   type: Property
   source:
-    remote:
-      path: src/PaymentProvider/Payment.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: PaymentReference
-    path: src/PaymentProvider/Payment.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
     startLine: 7
   assemblies:
   - PaymentProvider
@@ -199,12 +179,8 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.OrderReference
   type: Property
   source:
-    remote:
-      path: src/PaymentProvider/Payment.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: OrderReference
-    path: src/PaymentProvider/Payment.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
     startLine: 8
   assemblies:
   - PaymentProvider

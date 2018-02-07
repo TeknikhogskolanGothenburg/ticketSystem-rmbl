@@ -14,12 +14,8 @@ items:
   fullName: TicketSystem.RestApiClient.Model.Ticket
   type: Class
   source:
-    remote:
-      path: src/RestApiClient/Model/Ticket.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: Ticket
-    path: src/RestApiClient/Model/Ticket.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Ticket.cs
     startLine: 2
   assemblies:
   - RestApiClient
@@ -55,12 +51,8 @@ items:
   fullName: TicketSystem.RestApiClient.Model.Ticket.TicketId
   type: Property
   source:
-    remote:
-      path: src/RestApiClient/Model/Ticket.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TicketId
-    path: src/RestApiClient/Model/Ticket.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Ticket.cs
     startLine: 4
   assemblies:
   - RestApiClient

@@ -16,12 +16,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase
   type: Class
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: TicketDatabase
-    path: src/DatabaseRepository/TicketDatabase.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
     startLine: 9
   assemblies:
   - DatabaseRepository
@@ -30,7 +26,6 @@ items:
     content: 'public class TicketDatabase : ITicketDatabase'
     content.vb: >-
       Public Class TicketDatabase
-
           Implements ITicketDatabase
   inheritance:
   - System.Object
@@ -62,12 +57,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.EventAdd(System.String, System.String)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: EventAdd
-    path: src/DatabaseRepository/TicketDatabase.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
     startLine: 11
   assemblies:
   - DatabaseRepository
@@ -101,12 +92,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.VenueAdd(System.String, System.String, System.String, System.String)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: VenueAdd
-    path: src/DatabaseRepository/TicketDatabase.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
     startLine: 23
   assemblies:
   - DatabaseRepository
@@ -144,12 +131,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.VenuesFind(System.String)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
     id: VenuesFind
-    path: src/DatabaseRepository/TicketDatabase.cs
+    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
     startLine: 35
   assemblies:
   - DatabaseRepository
