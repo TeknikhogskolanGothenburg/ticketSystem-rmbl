@@ -4,9 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TicketShop.Models;
+using BackOffice.Models;
+using TicketSystem.RestApiClient.Model;
 
-namespace TicketShop.Controllers
+namespace BackOffice.Controllers
 {
     public class HomeController : Controller
     {
@@ -15,25 +16,26 @@ namespace TicketShop.Controllers
             return View();
         }
 
-        public IActionResult Booking([FromBody] string fromCity, [FromBody] string destionationCity, [FromBody] string Date)
+        public IActionResult Login([FromBody] User user)
         {
             return null;
         }
 
-
-
-        public IActionResult About()
+        public IActionResult Users()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            return null;
         }
 
-        public IActionResult Contact()
+        [HttpGet("{userId}")]
+        public IActionResult Bookings(int? userId)
         {
-            ViewData["Message"] = "Your contact page.";
+            return null;
+        }
 
-            return View();
+        [HttpGet("{id}")]
+        public IActionResult Booking(int? id)
+        {
+            return null;
         }
 
         public IActionResult Error()
