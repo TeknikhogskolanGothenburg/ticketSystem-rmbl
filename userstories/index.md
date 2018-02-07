@@ -1,4 +1,4 @@
-# User stories
+# User Stories
 
 Use this template when writing the user stories:
 
