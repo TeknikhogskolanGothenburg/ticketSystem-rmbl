@@ -6,22 +6,46 @@ namespace TicketSystem.DatabaseRepository
     public interface ITicketDatabase
     {
         /// <summary>
-        /// Add a new Event to the database
+        /// Add a new User to the database
         /// </summary>
-        /// <param name="name">Name of the event</param>
-        /// <param name="description">A desription of the event, html markup of the event is allowed</param>
-        /// <returns>An object representing the newly created TicketEvent</returns>
-        TicketEvent EventAdd(string name, string description);
+        /// <param name="firstName">First name of the User</param>
+        /// <param name="LastName">Last name of the User</param>
+        /// <param name="password">SAH256 hashed password of the user</param>
+        /// <param name="salt">password salt, should this be here?</param>
+        /// <param name="city">Users city of residence</param>
+        /// <param name="address">Users address</param>
+        /// <param name="grade">Access level of the user {1: Normal customer, 2: Admin, 3: Sensei}</param>
+        /// <returns>An object representing the newly created User</returns>
+        User UserAdd(string firstName, string LastName, string password, string salt, string city, string address, int grade);
 
         /// <summary>
-        /// Add a new venue to the database
+        /// locates one, all or subcategory of users
         /// </summary>
-        /// <param name="name">Name of the venue</param>
-        /// <param name="address">Physical address of the venue</param>
-        /// <param name="city">City part of the adress</param>
-        /// <param name="country">Country part of the adress</param>
-        /// <returns>An object representing the newly created Venue</returns>
-        Venue VenueAdd(string name, string address, string city, string country);
+        /// <param name="query">value that db querry tries to match</param>
+        /// <returns>An object List representing the users matching the search querry</returns>
+        List<User> UserFind(string query);
+
+
+        /// <summary>
+        /// Updates a user in the database
+        /// </summary>
+        /// <param name="firstName">user property to be written, never ignored</param>
+        /// <param name="lastName">user property to be written, never ignored</param>
+        /// <param name="password">user property to be written, null allowed - ignored</param>
+        /// <param name="salt">user property to be written, ignored if password is null</param>
+        /// <param name="city">user property to be written, never ignored</param>
+        /// <param name="address">user property to be written, never ignored</param>
+        /// <param name="grade">user property to be written, never ignored</param>
+        /// <param name="id">value that db querry tries to match, never ignored</param>
+        /// <returns>void</returns>
+        User UserModify(string firstName, string lastName, string password, string salt, string city, string address, int grade, string id);
+
+        /// <summary>
+        /// Deletes a user from the database
+        /// </summary>
+        /// <param name="id">value that db querry tries to match for removal</param>
+        /// <returns>a bool indicating whether the delete command was successful</returns>
+        bool UserDelete(string id);
 
 
         /// <summary>
@@ -29,6 +53,6 @@ namespace TicketSystem.DatabaseRepository
         /// </summary>
         /// <param name="query">A text which is user i looking for in the venues</param>
         /// <returns>A list of venus matching the query</returns>
-        List<Venue> VenuesFind(string query);
+        //List<Venue> VenuesFind(string query);
     }
 }

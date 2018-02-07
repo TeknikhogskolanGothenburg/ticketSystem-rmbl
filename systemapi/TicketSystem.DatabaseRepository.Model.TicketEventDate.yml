@@ -17,8 +17,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate
   type: Class
   source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketEventDate
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEventDate.cs
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 4
   assemblies:
   - DatabaseRepository
@@ -54,8 +58,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventDateID
   type: Property
   source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketEventDateID
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEventDate.cs
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 6
   assemblies:
   - DatabaseRepository
@@ -85,8 +93,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.TicketEventID
   type: Property
   source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketEventID
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEventDate.cs
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 7
   assemblies:
   - DatabaseRepository
@@ -116,8 +128,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.VenueId
   type: Property
   source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: VenueId
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEventDate.cs
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 8
   assemblies:
   - DatabaseRepository
@@ -147,8 +163,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate.EventStartDateTime
   type: Property
   source:
+    remote:
+      path: src/DatabaseRepository/Model/TicketEventDate.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: EventStartDateTime
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\TicketEventDate.cs
+    path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 9
   assemblies:
   - DatabaseRepository

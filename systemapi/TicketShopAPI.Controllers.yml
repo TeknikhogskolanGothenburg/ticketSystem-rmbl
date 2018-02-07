@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShopAPI.Controllers
+  commentId: N:TicketShopAPI.Controllers
+  id: TicketShopAPI.Controllers
+  children:
+  - TicketShopAPI.Controllers.AdminController
+  - TicketShopAPI.Controllers.TicketController
+  langs:
+  - csharp
+  - vb
+  name: TicketShopAPI.Controllers
+  nameWithType: TicketShopAPI.Controllers
+  fullName: TicketShopAPI.Controllers
+  type: Namespace
+  assemblies:
+  - TicketShopAPI
+references:
+- uid: TicketShopAPI.Controllers.AdminController
+  commentId: T:TicketShopAPI.Controllers.AdminController
+  isExternal: false
+  name: AdminController
+  nameWithType: AdminController
+  fullName: TicketShopAPI.Controllers.AdminController
+- uid: TicketShopAPI.Controllers.TicketController
+  commentId: T:TicketShopAPI.Controllers.TicketController
+  isExternal: false
+  name: TicketController
+  nameWithType: TicketController
+  fullName: TicketShopAPI.Controllers.TicketController

@@ -16,8 +16,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.ITicketDatabase
   type: Interface
   source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: ITicketDatabase
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\ITicketDatabase.cs
+    path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 5
   assemblies:
   - DatabaseRepository
@@ -43,8 +47,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd(System.String, System.String)
   type: Method
   source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: EventAdd
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\ITicketDatabase.cs
+    path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 13
   assemblies:
   - DatabaseRepository
@@ -77,8 +85,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd(System.String, System.String, System.String, System.String)
   type: Method
   source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: VenueAdd
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\ITicketDatabase.cs
+    path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 23
   assemblies:
   - DatabaseRepository
@@ -117,8 +129,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind(System.String)
   type: Method
   source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: VenuesFind
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\ITicketDatabase.cs
+    path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 31
   assemblies:
   - DatabaseRepository

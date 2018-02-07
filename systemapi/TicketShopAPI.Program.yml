@@ -1,36 +1,33 @@
 ### YamlMime:ManagedReference
 items:
-- uid: TicketSystem.DatabaseRepository.Model.Venue
-  commentId: T:TicketSystem.DatabaseRepository.Model.Venue
-  id: Venue
-  parent: TicketSystem.DatabaseRepository.Model
+- uid: TicketShopAPI.Program
+  commentId: T:TicketShopAPI.Program
+  id: Program
+  parent: TicketShopAPI
   children:
-  - TicketSystem.DatabaseRepository.Model.Venue.Address
-  - TicketSystem.DatabaseRepository.Model.Venue.City
-  - TicketSystem.DatabaseRepository.Model.Venue.Country
-  - TicketSystem.DatabaseRepository.Model.Venue.VenueId
-  - TicketSystem.DatabaseRepository.Model.Venue.VenueName
+  - TicketShopAPI.Program.BuildWebHost(System.String[])
+  - TicketShopAPI.Program.Main(System.String[])
   langs:
   - csharp
   - vb
-  name: Venue
-  nameWithType: Venue
-  fullName: TicketSystem.DatabaseRepository.Model.Venue
+  name: Program
+  nameWithType: Program
+  fullName: TicketShopAPI.Program
   type: Class
   source:
     remote:
-      path: src/DatabaseRepository/Model/Venue.cs
+      path: src/TicketShopAPI/Program.cs
       branch: mattias
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: Venue
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 2
+    id: Program
+    path: src/TicketShopAPI/Program.cs
+    startLine: 12
   assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository.Model
+  - TicketShopAPI
+  namespace: TicketShopAPI
   syntax:
-    content: public class Venue
-    content.vb: Public Class Venue
+    content: public class Program
+    content.vb: Public Class Program
   inheritance:
   - System.Object
   inheritedMembers:
@@ -47,188 +44,91 @@ items:
   modifiers.vb:
   - Public
   - Class
-- uid: TicketSystem.DatabaseRepository.Model.Venue.VenueId
-  commentId: P:TicketSystem.DatabaseRepository.Model.Venue.VenueId
-  id: VenueId
-  parent: TicketSystem.DatabaseRepository.Model.Venue
+- uid: TicketShopAPI.Program.Main(System.String[])
+  commentId: M:TicketShopAPI.Program.Main(System.String[])
+  id: Main(System.String[])
+  parent: TicketShopAPI.Program
   langs:
   - csharp
   - vb
-  name: VenueId
-  nameWithType: Venue.VenueId
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.VenueId
-  type: Property
+  name: Main(String[])
+  nameWithType: Program.Main(String[])
+  fullName: TicketShopAPI.Program.Main(System.String[])
+  type: Method
   source:
     remote:
-      path: src/DatabaseRepository/Model/Venue.cs
+      path: src/TicketShopAPI/Program.cs
       branch: mattias
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: VenueId
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 4
+    id: Main
+    path: src/TicketShopAPI/Program.cs
+    startLine: 14
   assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository.Model
+  - TicketShopAPI
+  namespace: TicketShopAPI
   syntax:
-    content: public int VenueId { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property VenueId As Integer
-  overload: TicketSystem.DatabaseRepository.Model.Venue.VenueId*
+    content: public static void Main(string[] args)
+    parameters:
+    - id: args
+      type: System.String[]
+    content.vb: Public Shared Sub Main(args As String())
+  overload: TicketShopAPI.Program.Main*
+  nameWithType.vb: Program.Main(String())
   modifiers.csharp:
   - public
-  - get
-  - set
+  - static
   modifiers.vb:
   - Public
-- uid: TicketSystem.DatabaseRepository.Model.Venue.VenueName
-  commentId: P:TicketSystem.DatabaseRepository.Model.Venue.VenueName
-  id: VenueName
-  parent: TicketSystem.DatabaseRepository.Model.Venue
+  - Shared
+  fullName.vb: TicketShopAPI.Program.Main(System.String())
+  name.vb: Main(String())
+- uid: TicketShopAPI.Program.BuildWebHost(System.String[])
+  commentId: M:TicketShopAPI.Program.BuildWebHost(System.String[])
+  id: BuildWebHost(System.String[])
+  parent: TicketShopAPI.Program
   langs:
   - csharp
   - vb
-  name: VenueName
-  nameWithType: Venue.VenueName
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.VenueName
-  type: Property
+  name: BuildWebHost(String[])
+  nameWithType: Program.BuildWebHost(String[])
+  fullName: TicketShopAPI.Program.BuildWebHost(System.String[])
+  type: Method
   source:
     remote:
-      path: src/DatabaseRepository/Model/Venue.cs
+      path: src/TicketShopAPI/Program.cs
       branch: mattias
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: VenueName
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 5
+    id: BuildWebHost
+    path: src/TicketShopAPI/Program.cs
+    startLine: 19
   assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository.Model
+  - TicketShopAPI
+  namespace: TicketShopAPI
   syntax:
-    content: public string VenueName { get; set; }
-    parameters: []
+    content: public static IWebHost BuildWebHost(string[] args)
+    parameters:
+    - id: args
+      type: System.String[]
     return:
-      type: System.String
-    content.vb: Public Property VenueName As String
-  overload: TicketSystem.DatabaseRepository.Model.Venue.VenueName*
+      type: Microsoft.AspNetCore.Hosting.IWebHost
+    content.vb: Public Shared Function BuildWebHost(args As String()) As IWebHost
+  overload: TicketShopAPI.Program.BuildWebHost*
+  nameWithType.vb: Program.BuildWebHost(String())
   modifiers.csharp:
   - public
-  - get
-  - set
+  - static
   modifiers.vb:
   - Public
-- uid: TicketSystem.DatabaseRepository.Model.Venue.Address
-  commentId: P:TicketSystem.DatabaseRepository.Model.Venue.Address
-  id: Address
-  parent: TicketSystem.DatabaseRepository.Model.Venue
-  langs:
-  - csharp
-  - vb
-  name: Address
-  nameWithType: Venue.Address
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.Address
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/Venue.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: Address
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 6
-  assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository.Model
-  syntax:
-    content: public string Address { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Address As String
-  overload: TicketSystem.DatabaseRepository.Model.Venue.Address*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: TicketSystem.DatabaseRepository.Model.Venue.City
-  commentId: P:TicketSystem.DatabaseRepository.Model.Venue.City
-  id: City
-  parent: TicketSystem.DatabaseRepository.Model.Venue
-  langs:
-  - csharp
-  - vb
-  name: City
-  nameWithType: Venue.City
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.City
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/Venue.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: City
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 7
-  assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository.Model
-  syntax:
-    content: public string City { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property City As String
-  overload: TicketSystem.DatabaseRepository.Model.Venue.City*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: TicketSystem.DatabaseRepository.Model.Venue.Country
-  commentId: P:TicketSystem.DatabaseRepository.Model.Venue.Country
-  id: Country
-  parent: TicketSystem.DatabaseRepository.Model.Venue
-  langs:
-  - csharp
-  - vb
-  name: Country
-  nameWithType: Venue.Country
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.Country
-  type: Property
-  source:
-    remote:
-      path: src/DatabaseRepository/Model/Venue.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: Country
-    path: src/DatabaseRepository/Model/Venue.cs
-    startLine: 8
-  assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository.Model
-  syntax:
-    content: public string Country { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Country As String
-  overload: TicketSystem.DatabaseRepository.Model.Venue.Country*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
+  - Shared
+  fullName.vb: TicketShopAPI.Program.BuildWebHost(System.String())
+  name.vb: BuildWebHost(String())
 references:
-- uid: TicketSystem.DatabaseRepository.Model
-  commentId: N:TicketSystem.DatabaseRepository.Model
+- uid: TicketShopAPI
+  commentId: N:TicketShopAPI
   isExternal: false
-  name: TicketSystem.DatabaseRepository.Model
-  nameWithType: TicketSystem.DatabaseRepository.Model
-  fullName: TicketSystem.DatabaseRepository.Model
+  name: TicketShopAPI
+  nameWithType: TicketShopAPI
+  fullName: TicketShopAPI
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -521,47 +421,53 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: TicketSystem.DatabaseRepository.Model.Venue.VenueId*
-  commentId: Overload:TicketSystem.DatabaseRepository.Model.Venue.VenueId
+- uid: TicketShopAPI.Program.Main*
+  commentId: Overload:TicketShopAPI.Program.Main
   isExternal: false
-  name: VenueId
-  nameWithType: Venue.VenueId
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.VenueId
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
+  name: Main
+  nameWithType: Program.Main
+  fullName: TicketShopAPI.Program.Main
+- uid: System.String[]
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: TicketShopAPI.Program.BuildWebHost*
+  commentId: Overload:TicketShopAPI.Program.BuildWebHost
+  isExternal: false
+  name: BuildWebHost
+  nameWithType: Program.BuildWebHost
+  fullName: TicketShopAPI.Program.BuildWebHost
+- uid: Microsoft.AspNetCore.Hosting.IWebHost
+  commentId: T:Microsoft.AspNetCore.Hosting.IWebHost
+  parent: Microsoft.AspNetCore.Hosting
   isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
-- uid: TicketSystem.DatabaseRepository.Model.Venue.VenueName*
-  commentId: Overload:TicketSystem.DatabaseRepository.Model.Venue.VenueName
+  name: IWebHost
+  nameWithType: IWebHost
+  fullName: Microsoft.AspNetCore.Hosting.IWebHost
+- uid: Microsoft.AspNetCore.Hosting
+  commentId: N:Microsoft.AspNetCore.Hosting
   isExternal: false
-  name: VenueName
-  nameWithType: Venue.VenueName
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.VenueName
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
-- uid: TicketSystem.DatabaseRepository.Model.Venue.Address*
-  commentId: Overload:TicketSystem.DatabaseRepository.Model.Venue.Address
-  isExternal: false
-  name: Address
-  nameWithType: Venue.Address
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.Address
-- uid: TicketSystem.DatabaseRepository.Model.Venue.City*
-  commentId: Overload:TicketSystem.DatabaseRepository.Model.Venue.City
-  isExternal: false
-  name: City
-  nameWithType: Venue.City
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.City
-- uid: TicketSystem.DatabaseRepository.Model.Venue.Country*
-  commentId: Overload:TicketSystem.DatabaseRepository.Model.Venue.Country
-  isExternal: false
-  name: Country
-  nameWithType: Venue.Country
-  fullName: TicketSystem.DatabaseRepository.Model.Venue.Country
+  name: Microsoft.AspNetCore.Hosting
+  nameWithType: Microsoft.AspNetCore.Hosting
+  fullName: Microsoft.AspNetCore.Hosting

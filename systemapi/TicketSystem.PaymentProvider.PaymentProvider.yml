@@ -14,8 +14,12 @@ items:
   fullName: TicketSystem.PaymentProvider.PaymentProvider
   type: Class
   source:
+    remote:
+      path: src/PaymentProvider/PaymentProvider.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentProvider
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\PaymentProvider.cs
+    path: src/PaymentProvider/PaymentProvider.cs
     startLine: 4
   assemblies:
   - PaymentProvider
@@ -55,8 +59,12 @@ items:
   fullName: TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal, System.String, System.String)
   type: Method
   source:
+    remote:
+      path: src/PaymentProvider/PaymentProvider.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Pay
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\PaymentProvider.cs
+    path: src/PaymentProvider/PaymentProvider.cs
     startLine: 15
   assemblies:
   - PaymentProvider

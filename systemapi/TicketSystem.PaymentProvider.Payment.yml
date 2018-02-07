@@ -18,8 +18,12 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment
   type: Class
   source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Payment
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
+    path: src/PaymentProvider/Payment.cs
     startLine: 2
   assemblies:
   - PaymentProvider
@@ -55,8 +59,12 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.PaymentStatus
   type: Property
   source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentStatus
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
+    path: src/PaymentProvider/Payment.cs
     startLine: 4
   assemblies:
   - PaymentProvider
@@ -86,8 +94,12 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.TotalAmount
   type: Property
   source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TotalAmount
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
+    path: src/PaymentProvider/Payment.cs
     startLine: 5
   assemblies:
   - PaymentProvider
@@ -117,8 +129,12 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.Valuta
   type: Property
   source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Valuta
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
+    path: src/PaymentProvider/Payment.cs
     startLine: 6
   assemblies:
   - PaymentProvider
@@ -148,8 +164,12 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.PaymentReference
   type: Property
   source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentReference
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
+    path: src/PaymentProvider/Payment.cs
     startLine: 7
   assemblies:
   - PaymentProvider
@@ -179,8 +199,12 @@ items:
   fullName: TicketSystem.PaymentProvider.Payment.OrderReference
   type: Property
   source:
+    remote:
+      path: src/PaymentProvider/Payment.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: OrderReference
-    path: C:\Users\matti\OneDrive\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\Payment.cs
+    path: src/PaymentProvider/Payment.cs
     startLine: 8
   assemblies:
   - PaymentProvider
