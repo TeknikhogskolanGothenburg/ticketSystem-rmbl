@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace TicketSystem.DatabaseRepository
 {
     public interface ITicketDatabase
-    {3
+    {
         /// <summary>
         /// Add a new User to the database
         /// </summary>
