@@ -15,6 +15,21 @@ namespace TicketShopAPI.Controllers
     [Route("api/User")]
     public class UserController : Controller
     {
+        public UserController()
+        {
+            
+            string raw = Request.Headers["Authorization"];
+            string[] ApiData =  raw.Split(':');
+
+            string ApiKey = ApiData[0];
+            string ApiSecret = ApiData[1];
+
+
+
+
+            TicketDatabase ticketDb = new TicketDatabase();
+            //ticketDb.ApiKeyFindFind();
+        }
         // GET: api/User
         /// <summary>
         /// querries database for all users
@@ -25,9 +40,9 @@ namespace TicketShopAPI.Controllers
         /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
         [HttpGet]
         public IEnumerable<string> Get()
-        {
+        {            
             List<User> allusers = new List<User>();
-            if (IsAuthorised("NotSureYet"))
+            if (IsAuthorised(Request.Query["ApiKey"]))
             {
                 TicketDatabase ticketDb = new TicketDatabase();
                 allusers = ticketDb.UserFind("");
