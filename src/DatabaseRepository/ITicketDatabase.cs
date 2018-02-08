@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace TicketSystem.DatabaseRepository
 {
     public interface ITicketDatabase
-    {
+    {3
         /// <summary>
         /// Add a new User to the database
         /// </summary>
@@ -24,7 +24,6 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="query">value that db querry tries to match</param>
         /// <returns>An object List representing the users matching the search querry</returns>
         List<User> UserFind(string query);
-
 
         /// <summary>
         /// Updates a user in the database
@@ -46,7 +45,6 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="id">value that db querry tries to match for removal</param>
         /// <returns>a bool indicating whether the delete command was successful</returns>
         bool UserDelete(string id);
-
 
         /// <summary>
         /// Find all venus matching the query

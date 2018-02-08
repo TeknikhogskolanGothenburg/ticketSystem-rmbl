@@ -14,12 +14,8 @@ items:
   fullName: TicketSystem.PaymentProvider.IPaymentProvider
   type: Interface
   source:
-    remote:
-      path: src/PaymentProvider/IPaymentProvider.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: IPaymentProvider
-    path: src/PaymentProvider/IPaymentProvider.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\IPaymentProvider.cs
     startLine: 2
   assemblies:
   - PaymentProvider
@@ -45,12 +41,8 @@ items:
   fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal, System.String, System.String)
   type: Method
   source:
-    remote:
-      path: src/PaymentProvider/IPaymentProvider.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Pay
-    path: src/PaymentProvider/IPaymentProvider.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\IPaymentProvider.cs
     startLine: 11
   assemblies:
   - PaymentProvider
@@ -88,15 +80,11 @@ references:
   nameWithType: IPaymentProvider.Pay
   fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay
 - uid: System.Decimal
-  commentId: T:System.Decimal
-  parent: System
   isExternal: true
   name: Decimal
   nameWithType: Decimal
   fullName: System.Decimal
 - uid: System.String
-  commentId: T:System.String
-  parent: System
   isExternal: true
   name: String
   nameWithType: String
@@ -108,9 +96,3 @@ references:
   name: Payment
   nameWithType: Payment
   fullName: TicketSystem.PaymentProvider.Payment
-- uid: System
-  commentId: N:System
-  isExternal: false
-  name: System
-  nameWithType: System
-  fullName: System

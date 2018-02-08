@@ -1,18 +1,4 @@
 ### YamlMime:TableOfContent
-- uid: TicketShopAPI
-  name: TicketShopAPI
-  items:
-  - uid: TicketShopAPI.Program
-    name: Program
-  - uid: TicketShopAPI.Startup
-    name: Startup
-- uid: TicketShopAPI.Controllers
-  name: TicketShopAPI.Controllers
-  items:
-  - uid: TicketShopAPI.Controllers.AdminController
-    name: AdminController
-  - uid: TicketShopAPI.Controllers.TicketController
-    name: TicketController
 - uid: TicketSystem.DatabaseRepository
   name: TicketSystem.DatabaseRepository
   items:
