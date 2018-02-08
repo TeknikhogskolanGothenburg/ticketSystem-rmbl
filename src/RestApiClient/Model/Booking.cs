@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TicketShop.Models
+namespace TicketSystem.RestApiClient.Model
 {
     public class Booking
     {
