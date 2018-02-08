@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TicketShop.Models;
+using TicketSystem.RestApiClient.Model;
 
 namespace TicketShop.Controllers
 {
@@ -15,12 +16,46 @@ namespace TicketShop.Controllers
             return View();
         }
 
-        public IActionResult Booking([FromBody] string fromCity, [FromBody] string destionationCity, [FromBody] string Date)
+        [HttpPost]
+        public IActionResult Login([FromBody] User user)
         {
             return null;
         }
 
+        [HttpPost]
+        public IActionResult NewBooking([FromBody] Booking booking)
+        {
+            return null;
+        }
 
+        [HttpPost]
+        public IActionResult CheckOut([FromBody] Booking booking)
+        {
+            return null;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Booking(int? id)
+        {
+            return null;
+        }
+
+        [HttpPost("{id}")]
+        public IActionResult EditBooking(int? id, [FromBody] Booking booking)
+        {
+            return null;
+        }
+
+        public IActionResult Profile()
+        {
+            return null;
+        }
+
+        [HttpPost]
+        public IActionResult Settings([FromBody] User user)
+        {
+            return null;
+        }
 
         public IActionResult About()
         {

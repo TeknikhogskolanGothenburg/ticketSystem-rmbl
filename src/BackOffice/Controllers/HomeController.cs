@@ -16,12 +16,31 @@ namespace BackOffice.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult Login([FromBody] User user)
         {
             return null;
         }
 
         public IActionResult Users()
+        {
+            return null;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult User(int? id)
+        {
+            return null;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult EditUser(int? id)
+        {
+            return null;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult RemoveUser(int? id)
         {
             return null;
         }
@@ -34,6 +53,40 @@ namespace BackOffice.Controllers
 
         [HttpGet("{id}")]
         public IActionResult Booking(int? id)
+        {
+            return null;
+        }
+
+        [HttpPost("{id}")]
+        public IActionResult EditBooking(int? id, [FromBody] Booking booking)
+        {
+            return null;
+        }
+
+        [HttpPost("{id}")]
+        public IActionResult RemoveBooking(int? id, [FromBody] Booking booking)
+        {
+            return null;
+        }
+
+        public IActionResult Flights()
+        {
+            return null;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Flight(int? id)
+        {
+            return null;
+        }
+
+        public IActionResult Franshieses()
+        {
+            return null;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Franshies(int? id)
         {
             return null;
         }
