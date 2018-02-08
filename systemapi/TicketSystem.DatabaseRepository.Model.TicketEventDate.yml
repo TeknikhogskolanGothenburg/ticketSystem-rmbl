@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEventDate.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketEventDate
     path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 4
@@ -60,8 +60,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEventDate.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketEventDateID
     path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 6
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEventDate.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketEventID
     path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 7
@@ -130,8 +130,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEventDate.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: VenueId
     path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 8
@@ -165,8 +165,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEventDate.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: EventStartDateTime
     path: src/DatabaseRepository/Model/TicketEventDate.cs
     startLine: 9

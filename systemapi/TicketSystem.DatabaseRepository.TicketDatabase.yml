@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/TicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketDatabase
     path: src/DatabaseRepository/TicketDatabase.cs
     startLine: 9
@@ -30,7 +30,6 @@ items:
     content: 'public class TicketDatabase : ITicketDatabase'
     content.vb: >-
       Public Class TicketDatabase
-
           Implements ITicketDatabase
   inheritance:
   - System.Object
@@ -64,8 +63,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/TicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: EventAdd
     path: src/DatabaseRepository/TicketDatabase.cs
     startLine: 11
@@ -103,8 +102,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/TicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: VenueAdd
     path: src/DatabaseRepository/TicketDatabase.cs
     startLine: 23
@@ -146,8 +145,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/TicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: VenuesFind
     path: src/DatabaseRepository/TicketDatabase.cs
     startLine: 35

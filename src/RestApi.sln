@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseRepository", "DatabaseRepository\DatabaseRepository.csproj", "{B32B9919-BFF2-48C0-945C-01D2945BD57B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentProvider", "PaymentProvider\PaymentProvider.csproj", "{57C5E6A3-A743-48A6-BE15-A581F201A15C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentProvider", "PaymentProvider\PaymentProvider.csproj", "{57C5E6A3-A743-48A6-BE15-A581F201A15C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketShopAPI", "TicketShopAPI\TicketShopAPI.csproj", "{8A6E00E3-DC18-40E4-81A9-7E02FF7EA2F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{57C5E6A3-A743-48A6-BE15-A581F201A15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57C5E6A3-A743-48A6-BE15-A581F201A15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57C5E6A3-A743-48A6-BE15-A581F201A15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A6E00E3-DC18-40E4-81A9-7E02FF7EA2F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A6E00E3-DC18-40E4-81A9-7E02FF7EA2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A6E00E3-DC18-40E4-81A9-7E02FF7EA2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A6E00E3-DC18-40E4-81A9-7E02FF7EA2F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

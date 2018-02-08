@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/PaymentProvider/PaymentProvider.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentProvider
     path: src/PaymentProvider/PaymentProvider.cs
     startLine: 4
@@ -28,7 +28,6 @@ items:
     content: 'public class PaymentProvider : IPaymentProvider'
     content.vb: >-
       Public Class PaymentProvider
-
           Implements IPaymentProvider
   inheritance:
   - System.Object
@@ -62,8 +61,8 @@ items:
   source:
     remote:
       path: src/PaymentProvider/PaymentProvider.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Pay
     path: src/PaymentProvider/PaymentProvider.cs
     startLine: 15

@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/ITicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: ITicketDatabase
     path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 5
@@ -49,8 +49,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/ITicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: EventAdd
     path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 13
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/ITicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: VenueAdd
     path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 23
@@ -131,8 +131,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/ITicketDatabase.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: VenuesFind
     path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 31

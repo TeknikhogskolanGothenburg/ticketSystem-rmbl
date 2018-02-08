@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/PaymentProvider/PaymentStatus.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentStatus
     path: src/PaymentProvider/PaymentStatus.cs
     startLine: 2
@@ -49,8 +49,8 @@ items:
   source:
     remote:
       path: src/PaymentProvider/PaymentStatus.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentApproved
     path: src/PaymentProvider/PaymentStatus.cs
     startLine: 4
@@ -81,8 +81,8 @@ items:
   source:
     remote:
       path: src/PaymentProvider/PaymentStatus.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentRejected
     path: src/PaymentProvider/PaymentStatus.cs
     startLine: 5
@@ -113,8 +113,8 @@ items:
   source:
     remote:
       path: src/PaymentProvider/PaymentStatus.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: UnknownError
     path: src/PaymentProvider/PaymentStatus.cs
     startLine: 6

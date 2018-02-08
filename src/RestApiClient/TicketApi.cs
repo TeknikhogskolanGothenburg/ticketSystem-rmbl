@@ -8,7 +8,7 @@ namespace TicketSystem.RestApiClient
     public class TicketApi : ITicketApi
     {
         // Implemented using RestSharp: http://restsharp.org/
-
+            
         public List<Ticket> TicketGet()
         {
             var client = new RestClient("http://localhost:18001/");

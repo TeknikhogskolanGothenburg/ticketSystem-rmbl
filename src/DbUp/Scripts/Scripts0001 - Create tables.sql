@@ -1,52 +1,81 @@
-CREATE TABLE TicketEvents (
-    TicketEventID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    EventName varchar(255),
-	EventHtmlDescription VARCHAR(MAX)
-	/* image */
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS AirPorts;
+DROP TABLE IF EXISTS Flights;
+DROP TABLE IF EXISTS JourneyFlightSeats;
+DROP TABLE IF EXISTS Journeys;
+DROP TABLE IF EXISTS Tickets;
+DROP TABLE IF EXISTS TicketsToTransactions;
+DROP TABLE IF EXISTS Transactions;
+DROP TABLE IF EXISTS Franchises;
+DROP TABLE IF EXISTS ApiKeys;
+
+CREATE TABLE Users(
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	Password VARCHAR(255),
+	Salt VARCHAR(255),
+	FirstName VARCHAR(255),
+	LastName VARCHAR(255),
+	City VARCHAR(255),
+	Address VARCHAR(255),
+	Grade TINYINT NOT NULL DEFAULT(1)
 );
 
-CREATE TABLE Venues (
-    VenueID int NOT NULL IDENTITY(1,1)  PRIMARY KEY,
-    VenueName varchar(255),
-    Address varchar(255),
-    City varchar(255),
-	Country VARCHAR(255)
+CREATE TABLE AirPorts(
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	Name VARCHAR(255),
+	Country VARCHAR(255),
+    UTCOffset DECIMAL(4,2)
 );
 
-
-CREATE TABLE TicketEventDates (
-    TicketEventDateID INT NOT NULL IDENTITY(1,1)  PRIMARY KEY,
-	TicketEventID INT FOREIGN KEY REFERENCES TicketEvents(TicketEventID),
-	VenueId INT FOREIGN KEY REFERENCES Venues(VenueID),
-    EventStartDateTime DATETIME
+CREATE TABLE Flights(
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	DepatureDate DATETIME,
+	DeparturePort INT FOREIGN KEY REFERENCES AirPorts(AirPortID),
+	ArrivalDate DATETIME,
+	ArrivalPort INT FOREIGN KEY REFERENCES AirPorts(AirPortID)
 );
 
-
-
-
-CREATE TABLE SeatsAtEventDate (
-    SeatID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	TicketEventDateID INT  FOREIGN KEY REFERENCES TicketEventDates(TicketEventDateID)
+CREATE TABLE TicketFlightSeats(
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	FlightID INT FOREIGN KEY REFERENCES Flights(ID),
 );
 
-CREATE TABLE Tickets (
-    TicketID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	SeatID INT FOREIGN KEY REFERENCES SeatsAtEventDate(SeatID)
+--CREATE TABLE JourneyFlightSeats(
+--	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+--	FlightID INT FOREIGN KEY REFERENCES Flights(FlightID)
+--);
+
+--CREATE TABLE Journeys(
+--	SeatID INT FOREIGN KEY REFERENCES JourneyFlightSeats(ID),
+--	TicketID INT FOREIGN KEY REFERENCES Tickets(ID),
+--	primary key (SeatID, TicketID)
+--);
+
+CREATE TABLE Tickets(
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	SeatID INT FOREIGN KEY REFERENCES TicketFlightSeats(ID),
+	UserID INT FOREIGN KEY REFERENCES Users(ID),
+	BookAt INT FOREIGN KEY REFERENCES Franchises(ID)
 );
 
-CREATE TABLE TicketTransactions (
-    TransactionID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    BuyerLastName varchar(255),
-    BuyerFirstName varchar(255),
-    BuyerAddress varchar(255),
-    BuyerCity varchar(255),
-	PaymentStatus varchar(255),
-	PaymentReferenceId varchar(255)
-);
-
-CREATE TABLE TicketsToTransactions (
-    TicketID INT  NOT NULL   FOREIGN KEY REFERENCES Tickets(TicketID),
-	TransactionID INT  NOT NULL   FOREIGN KEY REFERENCES TicketTransactions(TransactionID),
+CREATE TABLE TicketsToTransactions(
+	TicketID INT NOT NULL FOREIGN KEY REFERENCES Tickets(TicketID),
+	TransactionID INT NOT NULL FOREIGN KEY REFERENCES Transactions(ID),
 	primary key (TicketID, TransactionID)
 );
 
+CREATE TABLE Transactions(
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,	
+	PaymentStatus VARCHAR(255),
+	PaymentReferenceId VARCHAR(255)
+);
+
+CREATE TABLE ApiKeys(
+  KeyValue VARCHAR(50) NOT NULL PRIMARY KEY,
+  FranchiseID INT FOREIGN KEY REFERENCES Franchises(ID)
+);
+
+CREATE TABLE Franchises(
+  ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  Name VARCHAR(50) NOT NULL
+);

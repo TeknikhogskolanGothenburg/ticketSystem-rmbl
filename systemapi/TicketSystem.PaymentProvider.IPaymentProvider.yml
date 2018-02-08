@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/PaymentProvider/IPaymentProvider.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: IPaymentProvider
     path: src/PaymentProvider/IPaymentProvider.cs
     startLine: 2
@@ -47,8 +47,8 @@ items:
   source:
     remote:
       path: src/PaymentProvider/IPaymentProvider.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Pay
     path: src/PaymentProvider/IPaymentProvider.cs
     startLine: 11

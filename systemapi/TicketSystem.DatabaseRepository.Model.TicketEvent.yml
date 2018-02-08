@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEvent.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketEvent
     path: src/DatabaseRepository/Model/TicketEvent.cs
     startLine: 2
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEvent.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketEventId
     path: src/DatabaseRepository/Model/TicketEvent.cs
     startLine: 4
@@ -94,8 +94,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEvent.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: EventName
     path: src/DatabaseRepository/Model/TicketEvent.cs
     startLine: 5
@@ -129,8 +129,8 @@ items:
   source:
     remote:
       path: src/DatabaseRepository/Model/TicketEvent.cs
-      branch: master
-      repo: https://github.com/skjohansen/AssignmentTicketSystem.git
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: EventHtmlDescription
     path: src/DatabaseRepository/Model/TicketEvent.cs
     startLine: 6
