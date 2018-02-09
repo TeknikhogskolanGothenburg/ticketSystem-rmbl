@@ -10,31 +10,40 @@ namespace TicketSystem.DatabaseRepository
 {
     public class TicketDatabase : ITicketDatabase
     {
-        public User UserAdd(string firstName, string lastName, string password, string salt, string city, string address, int grade)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                var data = new { @firstName = firstName, @lastName = lastName, @password = password, @salt = salt, @city = city, @address = address, @grade = grade };
-                connection.Query("INSERT INTO Users(FirstName , LastName, Password, Salt, City, Address, Grade) values(@firstName, @lastName, @password @salt @city, @address, @grade)", data);
-                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('TicketEvents') AS Current_Identity").First();
-                return connection.Query<User>("SELECT * FROM Users WHERE ID=@Id", new { Id = addedEventQuery }).First();
-            }
-        }
-
         public List<User> UserFind(string query)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                // problem, how do we get users where id=1 but not all users where grade=1 ? better code needed
-                return connection.Query<User>("SELECT * FROM Users WHERE ID like '%" + query + "%' OR FirstName '%" + query + "%' OR LastName like '%" + query + "%' OR Password like '%" + query + "%' OR Salt like '%" + query + "%' OR City like '%" + query + "%' OR Address like '%" + query + "%' OR Grade like '%" + query + "%'").ToList();
+                return connection.Query<User>("SELECT * FROM Users WHERE ID like '%" + query + "%' OR FirstName like '%" + query + "%' OR LastName like '%" + query + "%' OR City like '%" + query + "%' OR Address like '%" + query + "%'").ToList();
             }
         }
 
-        public User UserModify(string firstName, string lastName, string password, string salt, string city, string address, int grade, string id)
+        public List<User> UserGroupFind(string query, string grade)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<User>("SELECT * FROM Users WHERE (ID like '%" + query + "%' OR FirstName like '%" + query + "%' OR LastName like '%" + query + "%' OR City like '%" + query + "%' OR Address like '%" + query + "%') AND ID = @grade").ToList();
+            }
+        }
+
+        public User UserAdd(string username, string password, string email, string firstName, string lastName, string city, string zipCode, string address, int grade)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var data = new { @username = username, @password = password, @email = email, @firstName = firstName, @lastName = lastName, @city = city, zipCode = zipCode, @address = address, @grade = grade };
+                connection.Query("INSERT INTO Users(Username, Password, Email, FirstName , LastName, City, ZipCode, Address, Grade) values(@username, @password, @email, @firstName, @lastName, @city, @zipCode, @address, @grade)", data);
+                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Users') AS Current_Identity").First();
+                return connection.Query<User>("SELECT * FROM Users WHERE ID=@Id", new { Id = addedEventQuery }).First();
+            }
+        }
+
+        public User UserModify(int id, string username, string password, string email, string firstName, string lastName, string city, string zipCode, string address, int grade)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
@@ -42,16 +51,16 @@ namespace TicketSystem.DatabaseRepository
                 connection.Open();
                 if (password != null)
                 {
-                    var data = new { @firstName = firstName, @lastName = lastName, @password = password, @salt = salt, @city = city, @address = address, @grade = grade, @id = id };
-                    connection.Query("UPDATE Users SET FirstName=@firstName, LastName=@lastName, Password=@password Salt=@salt City=@city, Address=@address, Grade=@grade", data);
+                    var data = new { @id = id, @username = username, @password = password, @email = email, @firstName = firstName, @lastName = lastName, @city = city, zipCode = zipCode, @address = address, @grade = grade };
+                    connection.Query("UPDATE Users SET Username=@username, Password=@password, Email=@email, FirstName=@firstName, LastName=@lastName, City=@city, ZipCode=@zipCode, Address=@address, Grade=@grade WHERE ID =@id", data);
                 }
                 else
                 {
-                    var data = new { @firstName = firstName, @lastName = lastName, @city = city, @address = address, @grade = grade, @id = id };
-                    connection.Query("UPDATE Users SET FirstName=@firstName, LastName=@lastName, City=@city, Address=@address, Grade=@grade WHERE ID = @id", data);
+                    var data = new { @id = id, @username = username, @email = email, @firstName = firstName, @lastName = lastName, @city = city, zipCode = zipCode, @address = address, @grade = grade };
+                    connection.Query("UPDATE Users SET Username=@username, Email=@email, FirstName=@firstName, LastName=@lastName, City=@city, ZipCode=@zipCode, Address=@address, Grade=@grade WHERE ID = @id", data);
                 }
                 var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('TicketEvents') AS Current_Identity").First();
-                return connection.Query<User>("SELECT * FROM Users WHERE ID=@Id", new { Id = addedEventQuery }).First();                
+                return connection.Query<User>("SELECT * FROM Tickets WHERE ID=@Id", new { Id = addedEventQuery }).First();
             }
         }
 
@@ -64,6 +73,56 @@ namespace TicketSystem.DatabaseRepository
                 SqlCommand command = new SqlCommand(Qry, connection);
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
+        }
+
+        public List<Ticket> TicketFind(string id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID like '%" + id + "%'").ToList();
+            }
+        }
+
+        public Ticket TicketAdd(int seatId, int userId, int bookAt)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                connection.Query("INSERT INTO Tickets(SeatID, UserID, BookAt) values(@seatId, @userId, @bookAt)", new { seatId, userId, bookAt });
+                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Tickets') AS Current_Identity").First();
+                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID=@Id", new { Id = addedEventQuery }).First();
+            }
+        }
+
+        public Ticket TicketModify(int id, int seatId, int userId, int bookAt)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                connection.Query("UPDATE Users SET SeatID=@seatId, UserID=@userId, BookAt=@bookAt WHERE ID = @id", new { id, seatId, userId, bookAt});
+                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Tickets') AS Current_Identity").First();
+                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID=@Id", new { Id = addedEventQuery }).First();
+            }
+        }
+
+        public bool TicketDelete(string id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                string Qry = String.Format("DELETE FROM Tickets Where ID={0}", id);
+                SqlCommand command = new SqlCommand(Qry, connection);
+                return Convert.ToBoolean(command.ExecuteNonQuery());
+            }
+        }
+
+        public Transaction TransactionAdd(string paymentStatus, string paymentReferenceId)
+        {
+
         }
     }
 }
