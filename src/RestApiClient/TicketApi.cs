@@ -8,10 +8,10 @@ namespace TicketSystem.RestApiClient
     public class TicketApi : ITicketApi
     {
         // Implemented using RestSharp: http://restsharp.org/
-
+            
         public List<Ticket> TicketGet()
         {
-            var client = new RestClient("http://localhost:18001/");
+            var client = new RestClient("https://rmbl-flightticketapi.azurewebsites.net");
             var request = new RestRequest("ticket", Method.GET);
             var response = client.Execute<List<Ticket>>(request);
             return response.Data;
@@ -19,7 +19,7 @@ namespace TicketSystem.RestApiClient
 
         public Ticket TicketTicketIdGet(int ticketId)
         {
-            var client = new RestClient("http://localhost:18001/");
+            var client = new RestClient("https://rmbl-flightticketapi.azurewebsites.net");
             var request = new RestRequest("ticket/{id}", Method.GET);
             request.AddUrlSegment("id", ticketId);
             var response = client.Execute<Ticket>(request);
