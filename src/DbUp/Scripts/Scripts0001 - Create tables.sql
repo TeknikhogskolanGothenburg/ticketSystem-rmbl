@@ -13,9 +13,9 @@ CREATE TABLE Users(
 	Username VARCHAR(50) ,
 	Password VARCHAR(255),
 	Epost VARCHAR(255),
-	FirstName VARCHAR(255),
-	LastName VARCHAR(255),
-	City VARCHAR(255),
+	FirstName VARCHAR(50),
+	LastName VARCHAR(50),
+	City VARCHAR(50),
 	ZipCode VARCHAR(25),
 	Address VARCHAR(255),
 	Grade TINYINT NOT NULL DEFAULT(1)
@@ -29,8 +29,8 @@ CREATE TABLE Franchises(
 
 CREATE TABLE AirPorts(
 	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	Name VARCHAR(255),
-	Country VARCHAR(255),
+	Name VARCHAR(50),
+	Country VARCHAR(50),
 	UTCOffset DECIMAL(4,2)
 );
 
@@ -67,18 +67,12 @@ CREATE TABLE TicketsToTransactions(
 );
 
 CREATE TABLE ApiKeys(
-<<<<<<< HEAD
 	KeyValue VARCHAR(50) NOT NULL PRIMARY KEY,
 	FranchiseID INT FOREIGN KEY REFERENCES Franchises(ID),
 	Secret VARCHAR(50) NOT NULL,
-=======
-  KeyValue VARCHAR(50) NOT NULL PRIMARY KEY,
-  Secret VARCHAR(50) NOT NULL,
-  FranchiseID INT FOREIGN KEY REFERENCES Franchises(ID)
 );
 
 CREATE TABLE Franchises(
   ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
   Name VARCHAR(50) NOT NULL
->>>>>>> origin/master
 );
