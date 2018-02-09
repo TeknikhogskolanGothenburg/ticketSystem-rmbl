@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using TicketSystem.DatabaseRepository;
 using TicketSystem.DatabaseRepository.Model;
 using Newtonsoft.Json;
+using TicketSystem.PaymentProvider;
 
 namespace TicketShopAPI.Controllers
 {
@@ -90,26 +91,54 @@ namespace TicketShopAPI.Controllers
         /// </summary>
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="ticket">new ticket to be added to database</param>
+        /// <param name="payment">payment information to be processed as a condition to get ticket</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
+        /// <returns>void | StatusCode: 402 PaymentRequired</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 409 Conflict</returns>
         // POST: api/Ticket
         [HttpPost]
-        public void Post([FromBody]Ticket ticket)
+        public void Post([FromBody]Ticket ticket, Payment payment)
         {
             if (security.IsAuthorised("NotSureYet"))
-            {
+            {                
                 if (ticket == null)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return;
+                }
+                else if (payment == null)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.PaymentRequired;
+                    return;
                 }
                 TicketDatabase ticketDb = new TicketDatabase();
-                ticketDb.TicketAdd(ticket.SeatID, ticket.UserID, ticket.BookAt);
+                //is the seat already taken?
+                foreach(Ticket t in ticketDb.TicketFind(""))
+                {
+                    if (t.FlightID == ticket.FlightID && t.SeatNumber == ticket.SeatNumber)
+                    {
+                        Response.StatusCode = (int)HttpStatusCode.Conflict;
+                        return;
+                    }
+                }
+                PaymentProvider paymentProvider = new PaymentProvider();
+                Payment paymentAttempt = paymentProvider.Pay(payment.TotalAmount, payment.Valuta, payment.OrderReference);
+                if (paymentAttempt.PaymentStatus == PaymentStatus.PaymentRejected || paymentAttempt.PaymentStatus == PaymentStatus.UnknownError)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.PaymentRequired;
+                    return;
+                }
+                Transaction newTrasaction = ticketDb.TransactionAdd(paymentAttempt.PaymentStatus.ToString(), paymentAttempt.PaymentReference);
+                Ticket newTicket = ticketDb.TicketAdd(ticket.FlightID, ticket.SeatNumber, ticket.UserID, ticket.BookAt);
+                ticketDb.TicketToTransactionAdd(newTicket.ID, newTrasaction.ID);
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
-            }
+                return;
+            }            
         }
 
         /// <summary>
@@ -133,7 +162,7 @@ namespace TicketShopAPI.Controllers
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 }
                 TicketDatabase ticketDb = new TicketDatabase();
-                Ticket updatedTicket = ticketDb.TicketModify(id, ticket.SeatID, ticket.UserID, ticket.BookAt);
+                Ticket updatedTicket = ticketDb.TicketModify(id, ticket.UserID, ticket.FlightID, ticket.SeatNumber, ticket.BookAt);
                 if (updatedTicket == null)
                 {
                     Response.StatusCode = (int)HttpStatusCode.NotFound;

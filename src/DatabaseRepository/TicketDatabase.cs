@@ -85,25 +85,25 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public Ticket TicketAdd(int seatId, int userId, int bookAt)
+        public Ticket TicketAdd(int userId, int flightId, int seatNumber, int bookAt)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                connection.Query("INSERT INTO Tickets(SeatID, UserID, BookAt) values(@seatId, @userId, @bookAt)", new { seatId, userId, bookAt });
+                connection.Query("INSERT INTO Tickets(UserID, FlightID, SeatNumber, BookAt) values(@userId, @flightId, @seatNumber, @bookAt)", new { userId, flightId, seatNumber, bookAt });
                 var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Tickets') AS Current_Identity").First();
                 return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID=@Id", new { Id = addedEventQuery }).First();
             }
         }
 
-        public Ticket TicketModify(int id, int seatId, int userId, int bookAt)
+        public Ticket TicketModify(int id, int userId, int flightId, int seatNumber, int bookAt)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                connection.Query("UPDATE Users SET SeatID=@seatId, UserID=@userId, BookAt=@bookAt WHERE ID = @id", new { id, seatId, userId, bookAt});
+                connection.Query("UPDATE Users SET UserID=@userId, FlightID=@flightId, SeatNumber=@seatNumber BookAt=@bookAt WHERE ID = @id", new { id, userId, flightId, seatNumber, bookAt });
                 var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Tickets') AS Current_Identity").First();
                 return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID=@Id", new { Id = addedEventQuery }).First();
             }
@@ -122,7 +122,25 @@ namespace TicketSystem.DatabaseRepository
 
         public Transaction TransactionAdd(string paymentStatus, string paymentReferenceId)
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                connection.Query("INSERT INTO Transactions(PaymentStatus, PaymentReferenceId ) values(@paymentStatus, @paymentReferenceId)", new { paymentStatus, paymentReferenceId });
+                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Transactions') AS Current_Identity").First();
+                return connection.Query<Transaction>("SELECT * FROM Transactions WHERE ID=@Id", new { Id = addedEventQuery }).First();
+            }
+        }
 
+        public bool TicketToTransactionAdd(int ticketId, int transactionId)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                string Qry = String.Format("INSERT INTO TicketsToTransactions (TicketID, TransactionID) VALUES (@ticketId, @transaction)", ticketId, transactionId);
+                SqlCommand command = new SqlCommand(Qry, connection);
+                return Convert.ToBoolean(command.ExecuteNonQuery());
+            }
         }
     }
 }
