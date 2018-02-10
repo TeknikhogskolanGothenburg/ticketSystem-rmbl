@@ -1,25 +1,134 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html {
+    min-height: 100%;
+    -webkit-box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+body {
+    background-image: url("wallhaven-372450.jpg");
+    background-repeat: no-repeat;
+    background-position-y: -1215px;
+    background-attachment: fixed;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.WelcomeLetters {
+    z-index: 300;
+    position: absolute;
+    font-family: initial !important;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+    .WelcomeLetters .TitleC {
+        color: #fff;
+        margin-top: 220px;
+    }
+
+        .WelcomeLetters .TitleC h1 {
+            padding-top: 10px;
+        }
+
+    .WelcomeLetters .text-muted {
+        font-size: 55% !important;
+        color: #fff !important;
+        margin-left: -20px;
+    }
+
+#Middle-M {
+    font-size: 130%;
 }
+
+.WelcomeStart {
+    min-width: 100%;
+    margin-top: 10px;
+}
+
+.booking-form {
+    float: right;
+    width: 500px;
+    height: 300px;
+    background-color: #eaeaea;
+    margin-top: 30px;
+    margin-right: -180px;
+    padding: 10px;
+    z-index: 12;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.32);
+}
+
+    .booking-form .from, .booking-form .to {
+        display: block;
+        width: 90px;
+        height: 90px;
+        background-color: #94b6ba;
+        font-size: 60px;
+        color: #fff;
+    }
+
+        .booking-form .from span {
+            transform: rotate(-20deg);
+            padding-left: 10px;
+            padding-right: -25px;
+        }
+
+        .booking-form .to span {
+            transform: rotate(20deg);
+            padding-left: 10px;
+            padding-right: -25px;
+        }
+
+.HomeCity, .CityDest {
+    width: 120px;
+    float: right;
+    margin-top: -60px;
+}
+
+.dateGo, .dateHome {
+    width: 220px;
+    height: 80px;
+    background-color: #6498a0;
+    font-size: 60px;
+    color: #fff;
+}
+
+    .dateGo span, .dateHome span {
+        position: relative;
+        float: right;
+        top: 5px;
+        right: 10px;
+    }
+
+@media screen and (max-width: 992px) {
+    .booking-form {
+        width: 95%;
+        margin: 10px;
+        margin-right: 15px;
+    }
+
+        .booking-form .from, .booking-form .to {
+            width: 70px;
+            height: 70px;
+        }
+
+            .booking-form .from span {
+                position: relative;
+                bottom: 15px;
+                font-size: 50px;
+            }
+
+            .booking-form .to span {
+                position: relative;
+                bottom: 15px;
+                font-size: 50px;
+            }
+
+    .dateGo, .dateHome {
+        width: 200px;
+    }
+}
+
+/*# sourceMappingURL=style.css.map */
+
+
+
+
 
 /* QR code generator */
 #qrCode {
