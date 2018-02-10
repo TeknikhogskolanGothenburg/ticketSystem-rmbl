@@ -1,0 +1,103 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketSystem.DatabaseRepository.ISecurity
+  commentId: T:TicketSystem.DatabaseRepository.ISecurity
+  id: ISecurity
+  parent: TicketSystem.DatabaseRepository
+  children:
+  - TicketSystem.DatabaseRepository.ISecurity.IsAuthorised(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ISecurity
+  nameWithType: ISecurity
+  fullName: TicketSystem.DatabaseRepository.ISecurity
+  type: Interface
+  source:
+    remote:
+      path: src/DatabaseRepository/ISecurity.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: ISecurity
+    path: src/DatabaseRepository/ISecurity.cs
+    startLine: 6
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public interface ISecurity
+    content.vb: Public Interface ISecurity
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: TicketSystem.DatabaseRepository.ISecurity.IsAuthorised(System.String)
+  commentId: M:TicketSystem.DatabaseRepository.ISecurity.IsAuthorised(System.String)
+  id: IsAuthorised(System.String)
+  parent: TicketSystem.DatabaseRepository.ISecurity
+  langs:
+  - csharp
+  - vb
+  name: IsAuthorised(String)
+  nameWithType: ISecurity.IsAuthorised(String)
+  fullName: TicketSystem.DatabaseRepository.ISecurity.IsAuthorised(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/DatabaseRepository/ISecurity.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: IsAuthorised
+    path: src/DatabaseRepository/ISecurity.cs
+    startLine: 27
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  summary: "\nchecks credetials of user\n"
+  example: []
+  syntax:
+    content: bool IsAuthorised(string credentials)
+    parameters:
+    - id: credentials
+      type: System.String
+      description: variable to be evaluated
+    return:
+      type: System.Boolean
+      description: 'bool indicating validity of credentials '
+    content.vb: Function IsAuthorised(credentials As String) As Boolean
+  overload: TicketSystem.DatabaseRepository.ISecurity.IsAuthorised*
+references:
+- uid: TicketSystem.DatabaseRepository
+  commentId: N:TicketSystem.DatabaseRepository
+  isExternal: false
+  name: TicketSystem.DatabaseRepository
+  nameWithType: TicketSystem.DatabaseRepository
+  fullName: TicketSystem.DatabaseRepository
+- uid: TicketSystem.DatabaseRepository.ISecurity.IsAuthorised*
+  commentId: Overload:TicketSystem.DatabaseRepository.ISecurity.IsAuthorised
+  isExternal: false
+  name: IsAuthorised
+  nameWithType: ISecurity.IsAuthorised
+  fullName: TicketSystem.DatabaseRepository.ISecurity.IsAuthorised
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System

@@ -9,7 +9,7 @@ namespace TicketSystem.DbUp
     {
         static int Main(string[] args)
         {
-            var connectionString =  args.FirstOrDefault()  ?? "Server=(local)\\SqlExpress; Database=TicketSystem; Trusted_connection=true";
+            var connectionString =  args.FirstOrDefault()  ?? "Server=DESKTOP-BF3AEHT; Database=TicketSystem; Trusted_connection=true";
 
             EnsureDatabase.For.SqlDatabase(connectionString);
 

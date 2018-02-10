@@ -31,7 +31,6 @@ namespace TicketShopAPI.Controllers
 
 
 
-        // GET: api/User
         /// <summary>
         /// querries database for all users
         /// </summary>
@@ -39,6 +38,7 @@ namespace TicketShopAPI.Controllers
         /// <returns> all registered customers as json</returns>
         /// <returns> no users registered | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        // GET: api/User
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -65,7 +65,6 @@ namespace TicketShopAPI.Controllers
             }
         }
 
-        // GET: api/User/5
         /// <summary>
         /// querries database for users matching a condition
         /// </summary>
@@ -75,6 +74,7 @@ namespace TicketShopAPI.Controllers
         /// <returns> all matching customers as json | StatusCode: 200 Ok</returns>
         /// <returns> no such user registered | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        // GET: api/User/5
         [HttpGet("{id}", Name = "Get")]
         public IEnumerable<string> Get(int id)
         {
@@ -107,7 +107,6 @@ namespace TicketShopAPI.Controllers
             }
         }
 
-        // POST: api/User
         /// <summary>
         /// Adds a new user to the database
         /// </summary>
@@ -116,6 +115,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        // POST: api/User
         [HttpPost]
         public void Post([FromBody]User user)
         {
@@ -140,7 +140,6 @@ namespace TicketShopAPI.Controllers
 
         }
 
-        // PUT: api/User/5
         /// <summary>
         /// updates a user based on id
         /// </summary>
@@ -152,6 +151,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 404 NotFound</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
         // NOTE: Make sure 'user' class has complete parameter values, only password can be skipped by sending null
+        // PUT: api/User/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]User user)
         {
@@ -185,7 +185,6 @@ namespace TicketShopAPI.Controllers
             }
         }
 
-        // DELETE: api/ApiWithActions/5
         /// <summary>
         /// deletes a user based on id
         /// </summary>
@@ -194,6 +193,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

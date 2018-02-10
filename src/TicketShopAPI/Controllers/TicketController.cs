@@ -9,6 +9,7 @@ using TicketSystem.DatabaseRepository;
 using TicketSystem.DatabaseRepository.Model;
 using Newtonsoft.Json;
 using TicketSystem.PaymentProvider;
+using Newtonsoft.Json.Linq;
 
 namespace TicketShopAPI.Controllers
 {
@@ -60,7 +61,7 @@ namespace TicketShopAPI.Controllers
         /// <returns> that ticket does not exsist | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
         // GET: api/Ticket/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public string Get(int id)
         {
             Ticket ticket = new Ticket();
@@ -99,23 +100,15 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 409 Conflict</returns>
         // POST: api/Ticket
         [HttpPost]
-        public void Post([FromBody]Ticket ticket, Payment payment)
+        public void Post([FromBody]JObject data)
         {
             if (security.IsAuthorised("NotSureYet"))
-            {                
-                if (ticket == null)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return;
-                }
-                else if (payment == null)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.PaymentRequired;
-                    return;
-                }
+            {
+                Ticket ticket = data["Ticket"].ToObject<Ticket>();
+                Payment payment = data["payment"].ToObject<Payment>();
                 TicketDatabase ticketDb = new TicketDatabase();
                 //is the seat already taken?
-                foreach(Ticket t in ticketDb.TicketFind(""))
+                foreach (Ticket t in ticketDb.TicketFind(""))
                 {
                     if (t.FlightID == ticket.FlightID && t.SeatNumber == ticket.SeatNumber)
                     {
@@ -123,6 +116,7 @@ namespace TicketShopAPI.Controllers
                         return;
                     }
                 }
+                
                 PaymentProvider paymentProvider = new PaymentProvider();
                 Payment paymentAttempt = paymentProvider.Pay(payment.TotalAmount, payment.Valuta, payment.OrderReference);
                 if (paymentAttempt.PaymentStatus == PaymentStatus.PaymentRejected || paymentAttempt.PaymentStatus == PaymentStatus.UnknownError)
@@ -130,15 +124,22 @@ namespace TicketShopAPI.Controllers
                     Response.StatusCode = (int)HttpStatusCode.PaymentRequired;
                     return;
                 }
-                Transaction newTrasaction = ticketDb.TransactionAdd(paymentAttempt.PaymentStatus.ToString(), paymentAttempt.PaymentReference);
-                Ticket newTicket = ticketDb.TicketAdd(ticket.FlightID, ticket.SeatNumber, ticket.UserID, ticket.BookAt);
-                ticketDb.TicketToTransactionAdd(newTicket.ID, newTrasaction.ID);
+                try
+                {
+                    Transaction newTrasaction = ticketDb.TransactionAdd(paymentAttempt.PaymentStatus.ToString(), paymentAttempt.PaymentReference);
+                    Ticket newTicket = ticketDb.TicketAdd(ticket.FlightID, ticket.SeatNumber, ticket.UserID, ticket.BookAt);
+                    ticketDb.TicketToTransactionAdd(newTicket.ID, newTrasaction.ID);
+                }
+                catch
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                }
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
                 return;
-            }            
+            }
         }
 
         /// <summary>
@@ -174,7 +175,6 @@ namespace TicketShopAPI.Controllers
             }
         }
 
-        // DELETE: api/ApiWithActions/5
         /// <summary>
         /// deletes a ticket based on id
         /// </summary>
@@ -183,6 +183,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

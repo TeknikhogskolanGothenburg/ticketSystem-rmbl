@@ -4,8 +4,8 @@ items:
   commentId: N:TicketShopAPI.Controllers
   id: TicketShopAPI.Controllers
   children:
-  - TicketShopAPI.Controllers.AdminController
   - TicketShopAPI.Controllers.TicketController
+  - TicketShopAPI.Controllers.UserController
   langs:
   - csharp
   - vb
@@ -16,15 +16,15 @@ items:
   assemblies:
   - TicketShopAPI
 references:
-- uid: TicketShopAPI.Controllers.AdminController
-  commentId: T:TicketShopAPI.Controllers.AdminController
-  isExternal: false
-  name: AdminController
-  nameWithType: AdminController
-  fullName: TicketShopAPI.Controllers.AdminController
 - uid: TicketShopAPI.Controllers.TicketController
   commentId: T:TicketShopAPI.Controllers.TicketController
   isExternal: false
   name: TicketController
   nameWithType: TicketController
   fullName: TicketShopAPI.Controllers.TicketController
+- uid: TicketShopAPI.Controllers.UserController
+  commentId: T:TicketShopAPI.Controllers.UserController
+  isExternal: false
+  name: UserController
+  nameWithType: UserController
+  fullName: TicketShopAPI.Controllers.UserController
