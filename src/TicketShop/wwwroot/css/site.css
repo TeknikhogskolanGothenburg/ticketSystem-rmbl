@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("wallhaven-372450.jpg");
+    background-image: url("../images/wallhaven-372450.jpg");
     background-repeat: no-repeat;
     background-position-y: -1215px;
     background-attachment: fixed;
@@ -69,7 +69,7 @@ body {
         }
 
         .booking-form .to span {
-            transform: rotate(20deg);
+            transform: rotate(12deg);
             padding-left: 10px;
             padding-right: -25px;
         }
