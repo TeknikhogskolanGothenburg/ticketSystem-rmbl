@@ -17,9 +17,19 @@ namespace BackOffice.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login([FromBody] User user)
+        public IActionResult Login(Login login)
         {
-            return null;
+            if (login != null)
+            {
+
+            }
+
+            return View(login);
+        }
+
+        public IActionResult Login()
+        {
+            return View(new Login());
         }
 
         public IActionResult Users()
@@ -28,7 +38,7 @@ namespace BackOffice.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult User(int? id)
+        public IActionResult ViewUser(int? id)
         {
             return null;
         }
