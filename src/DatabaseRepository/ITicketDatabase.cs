@@ -13,14 +13,6 @@ namespace TicketSystem.DatabaseRepository
         List<User> UserFind(string query);
 
         /// <summary>
-        /// locates one, all or subcategory of users of a specific type
-        /// </summary>
-        /// <param name="query">value that db querry tries to match</param>
-        /// <param name="grade">the grade of user, 1:customer 2:administrator 3:sensei</param>
-        /// <returns>An object List representing the users matching the search querry</returns>
-        List<User> UserGroupFind(string query, string grade);
-
-        /// <summary>
         /// Add a new User to the database
         /// </summary>
         /// <param name="firstName">First name of the User</param>

@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using TicketSystem.DatabaseRepository;
 using TicketSystem.DatabaseRepository.Model;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 namespace TicketShopAPI.Controllers
 {
@@ -16,20 +18,6 @@ namespace TicketShopAPI.Controllers
     public class UserController : Controller
     {
         private Security security = new Security();
-        public UserController()
-        {
-            // --- authorisation code ---
-            //string raw = Request.Headers["Authorization"];
-            //string[] ApiData =  raw.Split(':');
-
-            //string ApiKey = ApiData[0];
-            //string ApiSecret = ApiData[1];
-
-            //TicketDatabase ticketDb = new TicketDatabase();
-            //ticketDb.ApiKeyFindFind();
-        }
-
-
 
         /// <summary>
         /// querries database for all users
@@ -82,14 +70,7 @@ namespace TicketShopAPI.Controllers
             if (security.IsAuthorised("NotSureYet"))
             {
                 TicketDatabase ticketDb = new TicketDatabase();
-                if (Request.Query.ContainsKey("grade"))
-                {
-                    users = ticketDb.UserGroupFind(id.ToString(), Request.Query["grade"]);
-                }
-                else
-                {
-                    users = ticketDb.UserFind(id.ToString());
-                }
+                users = ticketDb.UserFind(id.ToString());
             }
             else
             {
@@ -117,10 +98,11 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
         // POST: api/User
         [HttpPost]
-        public void Post([FromBody]User user)
+        public void Post([FromBody]JObject data)
         {
             if (security.IsAuthorised("NotSureYet"))
             {
+                User user = data["User"].ToObject<User>();
                 if (user == null)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -131,7 +113,14 @@ namespace TicketShopAPI.Controllers
                 string encryptedPassword = "placeholder";
 
                 TicketDatabase ticketDb = new TicketDatabase();
-                ticketDb.UserAdd(user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
+                try
+                {
+                    ticketDb.UserAdd(user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
+                }
+                catch
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                }
             }
             else
             {
@@ -144,22 +133,28 @@ namespace TicketShopAPI.Controllers
         /// updates a user based on id
         /// </summary>
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
-        /// <param name="user">user data used to update</param>
+        /// <param name="data">user data used to update</param>
         /// <param name="id">id of user to be updated</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 404 NotFound</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
-        // NOTE: Make sure 'user' class has complete parameter values, only password can be skipped by sending null
+        // NOTE: Make sure 'user' class has complete property values, only password can be skipped by sending null
         // PUT: api/User/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]User user)
+        public void Put(int id, [FromBody]JObject data)
         {
             if (security.IsAuthorised("NotSureYet"))
             {
-                if (user == null)
+                User user;
+                try
+                {
+                    user = data["User"].ToObject<User>();
+                }
+                catch
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return;
                 }
 
                 // --- new passord code here ---
@@ -173,10 +168,13 @@ namespace TicketShopAPI.Controllers
                 {
                     encryptedPassword = null;
                 }
-                User updatedUser = ticketDb.UserModify(id, user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
-                if (updatedUser == null)
+                try
                 {
-                    Response.StatusCode = (int)HttpStatusCode.NotFound;
+                    ticketDb.UserModify(id, user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
+                }
+                catch
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 }
             }
             else

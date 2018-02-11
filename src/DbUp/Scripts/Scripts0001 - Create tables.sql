@@ -11,7 +11,7 @@ CREATE TABLE Users(
 	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	Username VARCHAR(50) ,
 	Password VARCHAR(255),
-	Epost VARCHAR(255),
+	Email VARCHAR(255),
 	FirstName VARCHAR(50),
 	LastName VARCHAR(50),
 	City VARCHAR(50),
@@ -41,7 +41,7 @@ CREATE TABLE Transactions(
 
 CREATE TABLE Flights(
 	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	DepatureDate DATETIME,
+	DepartureDate DATETIME,
 	DeparturePort INT FOREIGN KEY REFERENCES AirPorts(ID),
 	ArrivalDate DATETIME,
 	ArrivalPort INT FOREIGN KEY REFERENCES AirPorts(ID),
@@ -90,31 +90,31 @@ INSERT INTO Franchises (Name) VALUES ('Seatguru');
 INSERT INTO Franchises (Name) VALUES ('Hotwire');
 INSERT INTO Franchises (Name) VALUES ('Expedia');
 
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-03 12:32', 1,'2018-05-04 02:15', 4, 120);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-04 09:10', 1,'2018-05-04 17:40', 5, 200);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-03 14:05', 2,'2018-05-03 18:10', 3, 120);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-04 06:00', 2,'2018-05-04 21:55', 8, 200);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-03 03:10', 3,'2018-05-03 15:50', 7, 120);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-04 12:32', 3,'2018-05-04 20:32', 2, 200);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-03 12:32', 4,'2018-05-03 20:32', 1, 120);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-04 12:32', 4,'2018-05-04 20:32', 5, 200);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-03 12:32', 5,'2018-05-03 20:32', 6, 120);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-04 12:32', 5,'2018-05-04 20:32', 7, 200);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-03 12:32', 6,'2018-05-03 20:32', 8, 120);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-04 12:32', 6,'2018-05-04 20:32', 9, 200);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-03 12:32', 7,'2018-05-03 20:32', 9, 120);
-INSERT INTO Flights (DepatureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
+INSERT INTO Flights (DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) 
 			 VALUES ('2018-05-04 12:32', 7,'2018-05-04 20:32', 10, 200);

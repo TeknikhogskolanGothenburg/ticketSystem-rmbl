@@ -16,17 +16,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<User>("SELECT * FROM Users WHERE ID like '%" + query + "%' OR FirstName like '%" + query + "%' OR LastName like '%" + query + "%' OR City like '%" + query + "%' OR Address like '%" + query + "%'").ToList();
-            }
-        }
-
-        public List<User> UserGroupFind(string query, string grade)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                return connection.Query<User>("SELECT * FROM Users WHERE (ID like '%" + query + "%' OR FirstName like '%" + query + "%' OR LastName like '%" + query + "%' OR City like '%" + query + "%' OR Address like '%" + query + "%') AND ID = @grade").ToList();
+                return connection.Query<User>("SELECT * FROM Users WHERE ID like '%" + query + "%'").ToList();
             }
         }
 
@@ -59,8 +49,7 @@ namespace TicketSystem.DatabaseRepository
                     var data = new { @id = id, @username = username, @email = email, @firstName = firstName, @lastName = lastName, @city = city, zipCode = zipCode, @address = address, @grade = grade };
                     connection.Query("UPDATE Users SET Username=@username, Email=@email, FirstName=@firstName, LastName=@lastName, City=@city, ZipCode=@zipCode, Address=@address, Grade=@grade WHERE ID = @id", data);
                 }
-                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('TicketEvents') AS Current_Identity").First();
-                return connection.Query<User>("SELECT * FROM Tickets WHERE ID=@Id", new { Id = addedEventQuery }).First();
+                return connection.Query<User>("SELECT * FROM Users WHERE ID=@Id", new { Id = id }).First();
             }
         }
 
@@ -69,8 +58,10 @@ namespace TicketSystem.DatabaseRepository
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
-                string Qry = String.Format("DELETE FROM Users Where ID={0}", id);
+                string Qry = "DELETE FROM Users Where ID=@id";
                 SqlCommand command = new SqlCommand(Qry, connection);
+                command.Parameters.Add(new SqlParameter("@id", id));
+                command.Connection.Open();
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
         }
@@ -114,8 +105,10 @@ namespace TicketSystem.DatabaseRepository
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
-                string Qry = String.Format("DELETE FROM Tickets Where ID={0}", id);
+                string Qry = "DELETE FROM Tickets Where ID=@id";
                 SqlCommand command = new SqlCommand(Qry, connection);
+                command.Parameters.Add(new SqlParameter("@id", id));
+                command.Connection.Open();
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
         }
@@ -132,14 +125,41 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public bool TicketToTransactionAdd(int ticketId, int transactionId)
+        public object TicketToTransactionAdd(int ticketId, int transactionId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
-                string Qry = String.Format("INSERT INTO TicketsToTransactions (TicketID, TransactionID) VALUES (@ticketId, @transaction)", ticketId, transactionId);
+                string Qry = "INSERT INTO TicketsToTransactions (TicketID, TransactionID) VALUES (@ticketId, @transactionId)";
                 SqlCommand command = new SqlCommand(Qry, connection);
-                return Convert.ToBoolean(command.ExecuteNonQuery());
+                command.Parameters.AddRange(new SqlParameter[] {
+                    new SqlParameter("@ticketId",ticketId),
+                    new SqlParameter("@transactionId",transactionId)});
+                command.Connection.Open();
+                return command.ExecuteScalar();
+            }
+        }
+
+        public List<Flight> FlightFind(string query)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<Flight>("SELECT * FROM Users WHERE ID like '%" + query + "%' OR FirstName like '%" + query + "%' OR LastName like '%" + query + "%' OR City like '%" + query + "%' OR Address like '%" + query + "%'").ToList();
+            }
+        }
+
+        public Ticket FlightAdd(string depatureDate, int departurePort, string arrivalDate, int arrivalPort, int seats)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var data = new { @depa };
+                connection.Query("INSERT INTO Users(Username, Password, Email, FirstName , LastName, City, ZipCode, Address, Grade) values(@username, @password, @email, @firstName, @lastName, @city, @zipCode, @address, @grade)", data);
+                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Users') AS Current_Identity").First();
+                return connection.Query<Flight>("SELECT * FROM Users WHERE ID=@Id", new { Id = addedEventQuery }).First();
             }
         }
     }

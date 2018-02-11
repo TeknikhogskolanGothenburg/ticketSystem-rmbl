@@ -25,7 +25,7 @@ namespace TicketShopAPI.Controllers
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> all tickets as json | StatusCode: 200 OK</returns>
         /// <returns> there are no tickts | StatusCode: 204 NoContent</returns>
-        /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/Ticket
         [HttpGet]
         public IEnumerable<string> Get()
@@ -38,7 +38,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
             if (allTickets.Count != 0)
@@ -59,14 +59,14 @@ namespace TicketShopAPI.Controllers
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> ticket as json | StatusCode: 200 OK</returns>
         /// <returns> that ticket does not exsist | StatusCode: 204 NoContent</returns>
-        /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/Ticket/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            Ticket ticket = new Ticket();
             if (security.IsAuthorised("NotSureYet"))
             {
+                Ticket ticket = new Ticket();
                 TicketDatabase ticketDb = new TicketDatabase();
                 List<Ticket> queryResult = ticketDb.TicketFind(id.ToString());
                 if (queryResult.Count > 0)
@@ -82,7 +82,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return "access denied";
             }
         }
@@ -91,20 +91,28 @@ namespace TicketShopAPI.Controllers
         /// Adds a new ticket to the database
         /// </summary>
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
-        /// <param name="ticket">new ticket to be added to database</param>
-        /// <param name="payment">payment information to be processed as a condition to get ticket</param>
+        /// <param name="data">data used to process purchase of a ticket</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 402 PaymentRequired</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         /// <returns>void | StatusCode: 409 Conflict</returns>
         // POST: api/Ticket
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            if (security.IsAuthorised(Request.Headers["Authorization"]))
             {
-                Ticket ticket = data["Ticket"].ToObject<Ticket>();
+                Ticket ticket;
+                try
+                {
+                    ticket = data["Ticket"].ToObject<Ticket>();
+                }
+                catch
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return;
+                }
                 Payment payment = data["payment"].ToObject<Payment>();
                 TicketDatabase ticketDb = new TicketDatabase();
                 //is the seat already taken?
@@ -116,9 +124,10 @@ namespace TicketShopAPI.Controllers
                         return;
                     }
                 }
-                
+
                 PaymentProvider paymentProvider = new PaymentProvider();
                 Payment paymentAttempt = paymentProvider.Pay(payment.TotalAmount, payment.Valuta, payment.OrderReference);
+                Transaction newTransaction = ticketDb.TransactionAdd(paymentAttempt.PaymentStatus.ToString(), paymentAttempt.PaymentReference);
                 if (paymentAttempt.PaymentStatus == PaymentStatus.PaymentRejected || paymentAttempt.PaymentStatus == PaymentStatus.UnknownError)
                 {
                     Response.StatusCode = (int)HttpStatusCode.PaymentRequired;
@@ -126,9 +135,8 @@ namespace TicketShopAPI.Controllers
                 }
                 try
                 {
-                    Transaction newTrasaction = ticketDb.TransactionAdd(paymentAttempt.PaymentStatus.ToString(), paymentAttempt.PaymentReference);
-                    Ticket newTicket = ticketDb.TicketAdd(ticket.FlightID, ticket.SeatNumber, ticket.UserID, ticket.BookAt);
-                    ticketDb.TicketToTransactionAdd(newTicket.ID, newTrasaction.ID);
+                    Ticket newTicket = ticketDb.TicketAdd(ticket.UserID, ticket.FlightID, ticket.SeatNumber, ticket.BookAt);
+                    ticketDb.TicketToTransactionAdd(newTicket.ID, newTransaction.ID);
                 }
                 catch
                 {
@@ -137,7 +145,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return;
             }
         }
@@ -151,7 +159,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 404 NotFound</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // PUT: api/Ticket/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Ticket ticket)
@@ -171,7 +179,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
 
@@ -182,7 +190,7 @@ namespace TicketShopAPI.Controllers
         /// <param name="id">id of ticket to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
@@ -198,7 +206,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
     }

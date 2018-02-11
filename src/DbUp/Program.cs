@@ -36,6 +36,7 @@ namespace TicketSystem.DbUp
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Success!");
             Console.ResetColor();
+            Console.ReadKey();
             return 0;
         }
     }
