@@ -5,14 +5,14 @@
 }
 
 body {
-    background-image: url("wallhaven-372450.jpg");
+    background-image: url("../images/wallhaven-372450.jpg");
     background-repeat: no-repeat;
     background-position-y: -1215px;
     background-attachment: fixed
 }
 
 .custom-container {
-    height: 1000px;
+    min-height: 100%;
     min-width: 100%;
     margin-top: 2%;
     display: grid;
