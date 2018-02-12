@@ -2,26 +2,23 @@
     min-width: 100%;
     min-height: 100%;
     -webkit-box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5)
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 body {
     background-image: url("../images/wallhaven-372450.jpg");
     background-repeat: no-repeat;
     background-position-y: -1215px;
-    background-attachment: fixed
+    background-attachment: fixed;
 }
 
 .custom-container {
-<<<<<<< HEAD
     grid-template-columns: 5% auto 5%;
     grid-template-rows: 300px 300px auto;
-=======
->>>>>>> origin/Zilver
     min-height: 100%;
     min-width: 100%;
     margin-top: 2%;
-    display: grid
+    display: grid;
 }
 
 .TitleC {
@@ -32,17 +29,17 @@ body {
     z-index: 300;
     text-align: center;
     font-family: initial !important;
-    color: #fff
+    color: #fff;
 }
 
 .text-muted {
     font-size: 55% !important;
     color: #fff !important;
-    margin-left: -20px
+    margin-left: -20px;
 }
 
 #Middle-M {
-    font-size: 130%
+    font-size: 130%;
 }
 
 .booking-form {
@@ -54,9 +51,10 @@ body {
     width: 500px;
     height: 300px;
     background-color: #eaeaea;
+    margin: auto;
     padding: 10px;
     z-index: 12;
-    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.32)
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.32);
 }
 
     .booking-form .from, .booking-form .to {
@@ -65,25 +63,25 @@ body {
         height: 90px;
         background-color: #94b6ba;
         font-size: 60px;
-        color: #fff
+        color: #fff;
     }
 
         .booking-form .from span {
             transform: rotate(-20deg);
             padding-left: 10px;
-            padding-right: -25px
+            padding-right: -25px;
         }
 
         .booking-form .to span {
             transform: rotate(20deg);
             padding-left: 10px;
-            padding-right: -25px
+            padding-right: -25px;
         }
 
 .HomeCity, .CityDest {
     width: 120px;
     float: right;
-    margin-top: -60px
+    margin-top: -60px;
 }
 
 .dateGo, .dateHome {
@@ -91,63 +89,63 @@ body {
     height: 80px;
     background-color: #6498a0;
     font-size: 60px;
-    color: #fff
+    color: #fff;
 }
 
     .dateGo span, .dateHome span {
         position: relative;
         float: right;
         top: 5px;
-        right: 10px
+        right: 10px;
     }
 
 @media screen and (max-width: 992px) {
     .booking-form {
         width: 95%;
         margin: 10px;
-        margin-right: 15px
+        margin-right: 15px;
     }
 
     .from, .to {
         width: 100px !important;
-        height: 100px !important
+        height: 100px !important;
     }
 
         .from .from span, .to .from span {
             position: relative;
             bottom: 15px;
-            font-size: 50px
+            font-size: 50px;
         }
 
         .from .to span, .to .to span {
             position: relative;
             bottom: 15px;
-            font-size: 50px
+            font-size: 50px;
         }
 
     .dateGo, .dateHome {
-        width: 300px
+        width: 300px;
     }
 
     .HomeCity, .CityDest {
         width: 200px;
         height: 80px !important;
-        margin-top: -90px
+        margin-top: -90px;
     }
 
     #SecondCol {
-        padding-left: 65px
+        padding-left: 65px;
     }
 
     #LastForms .form-control {
-        height: 80px !important
+        height: 80px !important;
     }
 }
 
 @media (min-width: 576px) {
     .custom-container {
         grid-template-columns: 5% auto 5%;
-        grid-template-rows: 300px 300px auto
+        grid-template-rows: 300px 300px auto;
     }
 
     .booking-form {
@@ -155,33 +153,34 @@ body {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 2;
-        grid-row-end: 2
+        grid-row-end: 2;
     }
 
     .TitleC {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 1;
-        grid-row-end: 1
+        grid-row-end: 1;
     }
 }
 
 @media (min-width: 768px) {
     .booking-form {
-        background-color: #7940e2
+        background-color: #7940e2;
     }
 }
 
 @media screen and (min-width: 992px) {
     .booking-form {
-        background-color: #dbf61b
+        background-color: #dbf61b;
+        margin: auto;
     }
 }
 
 @media screen and (min-width: 1200px) {
     .custom-container {
         grid-template-columns: 5% 500px auto 500px 5%;
-        grid-tempelate-rows: 300px 300px auto
+        grid-tempelate-rows: 300px 300px auto;
     }
 
     .booking-form {
@@ -189,14 +188,14 @@ body {
         grid-column-start: 4;
         grid-column-end: 4;
         grid-row-start: 1;
-        grid-row-end: 1
+        grid-row-end: 1;
     }
 
     .TitleC {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 2;
-        grid-row-end: 2
+        grid-row-end: 2;
     }
 }
 
