@@ -10,12 +10,20 @@ namespace BackOffice.Controllers
 {
     public class FlightsController : Controller
     {
-
+        /// <summary>
+        /// List of Flights
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Index()
         {
             return null;
         }
 
+        /// <summary>
+        /// View a flight
+        /// </summary>
+        /// <param name="id">Flight index</param>
+        /// <returns>View</returns>
         [HttpGet("{id}")]
         public IActionResult View(int? id)
         {
