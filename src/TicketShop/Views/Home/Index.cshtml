@@ -10,9 +10,13 @@
           <div class="from"><span class="fa fa-plane"></span>
         </div>
           <select name="" id="" class="HomeCity form-control">
-            <option value="">Madrid</option>
-            <option value="">Venice</option>
-            <option value="">Monaco</option>
+              @{ 
+                  foreach(KeyValuePair<int, string> x in Model.Response)
+                  {
+                      <option value="@x.Value">@x.Value</option>
+
+                  }
+              }
         </select>
         </div>
         <div class="col">
