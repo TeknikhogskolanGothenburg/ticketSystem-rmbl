@@ -191,14 +191,14 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/User/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
             if (security.IsAuthorised("NotSureYet"))
             {
                 TicketDatabase ticketDb = new TicketDatabase();
-                bool deleteSuccessful = ticketDb.UserDelete(id.ToString());
+                bool deleteSuccessful = ticketDb.UserDelete(id);
                 if (!deleteSuccessful)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;

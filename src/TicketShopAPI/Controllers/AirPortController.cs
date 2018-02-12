@@ -14,70 +14,71 @@ using Newtonsoft.Json.Linq;
 namespace TicketShopAPI.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Ticket")]
-    public class TicketController : Controller
+    [Route("api/AirPort")]
+    public class AirPortController : Controller
     {
         private Security security = new Security();
 
         /// <summary>
-        /// querries database for all tickets
+        /// querries database for all AirPorts
         /// </summary>
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
-        /// <returns> all tickets as json | StatusCode: 200 OK</returns>
-        /// <returns> there are no tickts | StatusCode: 204 NoContent</returns>
+        /// <returns> all AirPorts as json | StatusCode: 200 OK</returns>
+        /// <returns> there are no AirPorts | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
-        // GET: api/Ticket
+        // GET: api/AirPort
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            List<Ticket> allTickets = new List<Ticket>();
+            List<AirPort> allAirPorts = new List<AirPort>();
             if (security.IsAuthorised("NotSureYet"))
             {
                 TicketDatabase ticketDb = new TicketDatabase();
-                allTickets = ticketDb.TicketFind("");
+                allAirPorts = ticketDb.AirPortFind("");
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
-            if (allTickets.Count != 0)
+            if (allAirPorts.Count != 0)
             {
 
-                return allTickets.Select(u => JsonConvert.SerializeObject(u));
+                return allAirPorts.Select(u => JsonConvert.SerializeObject(u));
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.NoContent;
-                return new string[] { "there are no tickts" };
+                return new string[] { "there are no AirPorts" };
             }
         }
 
+
         /// <summary>
-        /// querries database for ticket by id
+        /// querries database for AirPort by id
         /// </summary>
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> ticket as json | StatusCode: 200 OK</returns>
-        /// <returns> that ticket does not exsist | StatusCode: 204 NoContent</returns>
+        /// <returns> that AirPort does not exsist | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
-        // GET: api/Ticket/5
+        // GET: api/AirPort/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             if (security.IsAuthorised("NotSureYet"))
             {
-                Ticket ticket = new Ticket();
+                AirPort AirPort = new AirPort();
                 TicketDatabase ticketDb = new TicketDatabase();
-                List<Ticket> queryResult = ticketDb.TicketFind(id.ToString());
+                List<AirPort> queryResult = ticketDb.AirPortFind(id.ToString());
                 if (queryResult.Count > 0)
                 {
-                    ticket = queryResult[0];
-                    return JsonConvert.SerializeObject(ticket);
+                    AirPort = queryResult[0];
+                    return JsonConvert.SerializeObject(AirPort);
                 }
                 else
                 {
                     Response.StatusCode = (int)HttpStatusCode.NoContent;
-                    return "that ticket does not exsist";
+                    return "that AirPort does not exsist";
                 }
             }
             else
@@ -88,55 +89,36 @@ namespace TicketShopAPI.Controllers
         }
 
         /// <summary>
-        /// Adds a new ticket to the database
+        /// Adds a new AirPort to the database
         /// </summary>
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
-        /// <param name="data">data used to process purchase of a ticket</param>
+        /// <param name="data">new AirPort data to be added to database</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
-        /// <returns>void | StatusCode: 402 PaymentRequired</returns>
         /// <returns>void | StatusCode: 407 Unauthorized</returns>
         /// <returns>void | StatusCode: 409 Conflict</returns>
-        // POST: api/Ticket
+        // POST: api/AirPort
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
             if (security.IsAuthorised(Request.Headers["Authorization"]))
             {
-                Ticket ticket;
+                AirPort AirPort;
                 try
                 {
-                    ticket = data["Ticket"].ToObject<Ticket>();
+                    AirPort = data["AirPort"].ToObject<AirPort>();
                 }
                 catch
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     return;
                 }
-                Payment payment = data["payment"].ToObject<Payment>();
-                TicketDatabase ticketDb = new TicketDatabase();
-                //is the seat already taken?
-                foreach (Ticket t in ticketDb.TicketFind(""))
-                {
-                    if (t.FlightID == ticket.FlightID && t.SeatNumber == ticket.SeatNumber)
-                    {
-                        Response.StatusCode = (int)HttpStatusCode.Conflict;
-                        return;
-                    }
-                }
 
-                PaymentProvider paymentProvider = new PaymentProvider();
-                Payment paymentAttempt = paymentProvider.Pay(payment.TotalAmount, payment.Valuta, payment.OrderReference);
-                Transaction newTransaction = ticketDb.TransactionAdd(paymentAttempt.PaymentStatus.ToString(), paymentAttempt.PaymentReference);
-                if (paymentAttempt.PaymentStatus == PaymentStatus.PaymentRejected || paymentAttempt.PaymentStatus == PaymentStatus.UnknownError)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.PaymentRequired;
-                    return;
-                }
+                TicketDatabase ticketDb = new TicketDatabase();
+
                 try
                 {
-                    Ticket newTicket = ticketDb.TicketAdd(ticket.UserID, ticket.FlightID, ticket.SeatNumber, ticket.BookAt);
-                    ticketDb.TicketToTransactionAdd(newTicket.ID, newTransaction.ID);
+                    AirPort newAirPort = ticketDb.AirPortAdd(AirPort.Name, AirPort.Country, AirPort.UTCOffset);
                 }
                 catch
                 {
@@ -151,59 +133,38 @@ namespace TicketShopAPI.Controllers
         }
 
         /// <summary>
-        /// updates a user based on id
+        /// updates a AirPort based on id
         /// </summary>
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
-        /// <param name="ticket">ticket data used to update</param>
-        /// <param name="id">id of ticket to be updated</param>
+        /// <param name="data">AirPort data used to update</param>
+        /// <param name="id">id of AirPort to be updated</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 404 NotFound</returns>
-        /// <returns>void | StatusCode: 407 Unauthorized</returns>
-        // PUT: api/Ticket/5
+        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        // PUT: api/AirPort/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Ticket ticket)
+        public void Put(int id, [FromBody]JObject data)
         {
             if (security.IsAuthorised("NotSureYet"))
             {
-                if (ticket == null)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                }
-                TicketDatabase ticketDb = new TicketDatabase();
-                Ticket updatedTicket = ticketDb.TicketModify(id, ticket.UserID, ticket.FlightID, ticket.SeatNumber, ticket.BookAt);
-                if (updatedTicket == null)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.NotFound;
-                }
-            }
-            else
-            {
-                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-            }
-        }
-
-        /// <summary>
-        /// deletes a ticket based on id
-        /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
-        /// <param name="id">id of ticket to be deleted</param>
-        /// <returns>void | StatusCode: 200 Ok</returns>
-        /// <returns>void | StatusCode: 400 BadRequest</returns>
-        /// <returns>void | StatusCode: 407 Unauthorized</returns>
-        /// <returns>void | StatusCode: 501 NotImplemented</returns>
-        // DELETE: api/Ticket/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {            
-            Response.StatusCode = (int)HttpStatusCode.NotImplemented;
-            return;
-            if (security.IsAuthorised("NotSureYet"))
-            {
-                TicketDatabase ticketDb = new TicketDatabase();
+                AirPort AirPort;
                 try
                 {
-                    ticketDb.TicketDelete(id);
+                    AirPort = data["AirPort"].ToObject<AirPort>();
+                }
+                catch
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return;
+                }
+
+
+                TicketDatabase ticketDb = new TicketDatabase();
+
+                try
+                {
+                    ticketDb.AirPortModify(id, AirPort.Name, AirPort.Country, AirPort.UTCOffset);
                 }
                 catch
                 {
@@ -212,7 +173,34 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+            }
+        }
+
+        /// <summary>
+        /// deletes an airport based on id
+        /// </summary>
+        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+        /// <param name="id">id of airport to be deleted</param>
+        /// <returns>void | StatusCode: 200 Ok</returns>
+        /// <returns>void | StatusCode: 400 BadRequest</returns>
+        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        // DELETE: api/AirPort/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            if (security.IsAuthorised("NotSureYet"))
+            {
+                TicketDatabase ticketDb = new TicketDatabase();
+                bool deleteSuccessful = ticketDb.AirPortDelete(id);
+                if (!deleteSuccessful)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                }
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
             }
         }
     }

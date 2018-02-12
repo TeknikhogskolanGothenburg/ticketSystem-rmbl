@@ -29,7 +29,7 @@ namespace TicketShopAPI.Controllers
         // GET: api/Flight
         [HttpGet]
         public IEnumerable<string> Get()
-        {            
+        {
             List<Flight> allFlights = new List<Flight>();
             if (security.IsAuthorised("NotSureYet"))
             {
@@ -119,7 +119,7 @@ namespace TicketShopAPI.Controllers
 
                 try
                 {
-                    Flight newFlight = ticketDb.FlightAdd();
+                    Flight newFlight = ticketDb.FlightAdd(flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
                 }
                 catch
                 {
@@ -132,17 +132,77 @@ namespace TicketShopAPI.Controllers
                 return;
             }
         }
-        
+
+        /// <summary>
+        /// updates a Flight based on id
+        /// </summary>
+        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+        /// <param name="data">flight data used to update</param>
+        /// <param name="id">id of flight to be updated</param>
+        /// <returns>void | StatusCode: 200 Ok</returns>
+        /// <returns>void | StatusCode: 400 BadRequest</returns>
+        /// <returns>void | StatusCode: 404 NotFound</returns>
+        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
         // PUT: api/Flight/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]JObject data)
         {
+            if (security.IsAuthorised("NotSureYet"))
+            {
+                Flight flight;
+                try
+                {
+                    flight = data["Flight"].ToObject<Flight>();
+                }
+                catch
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return;
+                }
+
+
+                TicketDatabase ticketDb = new TicketDatabase();
+
+                try
+                {
+                    ticketDb.FlightModify(id, flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
+                }
+                catch
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                }
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+            }
         }
-        
-        // DELETE: api/ApiWithActions/5
+
+        /// <summary>
+        /// deletes a flight based on id
+        /// </summary>
+        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+        /// <param name="id">id of flight to be deleted</param>
+        /// <returns>void | StatusCode: 200 Ok</returns>
+        /// <returns>void | StatusCode: 400 BadRequest</returns>
+        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        // DELETE: api/Flight/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            if (security.IsAuthorised("NotSureYet"))
+            {
+                TicketDatabase ticketDb = new TicketDatabase();
+                bool deleteSuccessful = ticketDb.FlightDelete(id);
+                if (!deleteSuccessful)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                }
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+            }
         }
     }
 }

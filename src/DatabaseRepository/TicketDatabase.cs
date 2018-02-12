@@ -53,7 +53,7 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public bool UserDelete(string id)
+        public bool UserDelete(int id)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
@@ -66,13 +66,13 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public List<Ticket> TicketFind(string id)
+        public List<Ticket> TicketFind(string query)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID like '%" + id + "%'").ToList();
+                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID like '%" + query + "%'").ToList();
             }
         }
 
@@ -100,15 +100,19 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public bool TicketDelete(string id)
+        public bool TicketDelete(int id)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
-                string Qry = "DELETE FROM Tickets Where ID=@id";
+                string Qry = "DELETE FROM TicketsToTransactions Where TicketID=@id";
                 SqlCommand command = new SqlCommand(Qry, connection);
                 command.Parameters.Add(new SqlParameter("@id", id));
                 command.Connection.Open();
+                command.ExecuteNonQuery();
+
+                Qry = "DELETE FROM Tickets Where ID=@id";
+                command.Parameters.Add(new SqlParameter("@id", id));
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
         }
@@ -125,7 +129,7 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public object TicketToTransactionAdd(int ticketId, int transactionId)
+        public bool TicketToTransactionAdd(int ticketId, int transactionId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
@@ -136,7 +140,7 @@ namespace TicketSystem.DatabaseRepository
                     new SqlParameter("@ticketId",ticketId),
                     new SqlParameter("@transactionId",transactionId)});
                 command.Connection.Open();
-                return command.ExecuteScalar();
+                return Convert.ToBoolean(command.ExecuteNonQuery());
             }
         }
 
@@ -146,20 +150,93 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Flight>("SELECT * FROM Users WHERE ID like '%" + query + "%' OR FirstName like '%" + query + "%' OR LastName like '%" + query + "%' OR City like '%" + query + "%' OR Address like '%" + query + "%'").ToList();
+                return connection.Query<Flight>("SELECT * FROM Flights WHERE ID like '%" + query + "%'").ToList();
             }
         }
 
-        public Ticket FlightAdd(string depatureDate, int departurePort, string arrivalDate, int arrivalPort, int seats)
+        public Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var data = new { @depa };
-                connection.Query("INSERT INTO Users(Username, Password, Email, FirstName , LastName, City, ZipCode, Address, Grade) values(@username, @password, @email, @firstName, @lastName, @city, @zipCode, @address, @grade)", data);
-                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Users') AS Current_Identity").First();
-                return connection.Query<Flight>("SELECT * FROM Users WHERE ID=@Id", new { Id = addedEventQuery }).First();
+                var data = new { @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats };
+                connection.Query("INSERT INTO Flights(DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) values(@departureDate, @departurePort, @arrivalDate, @arrivalPort, @seats)", data);
+                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Flights') AS Current_Identity").First();
+                return connection.Query<Flight>("SELECT * FROM Flights WHERE ID=@Id", new { Id = addedEventQuery }).First();
+            }
+        }
+
+        public Flight FlightModify(int id, DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var data = new { id, @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats };
+                connection.Query("UPDATE Flights SET DepatureDate=@departureDate, DeparturePort=@departurePort, ArrivalDate=@arrivalDate, ArrivalPort=@arrivalPort, Seats=@seats WHERE ID = @id", data);
+                return connection.Query<Flight>("SELECT * FROM Flights WHERE ID=@Id", new { Id = id }).First();
+            }
+        }
+
+        public bool FlightDelete(int id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                string Qry = "DELETE FROM Flights Where ID=@id";
+                SqlCommand command = new SqlCommand(Qry, connection);
+                command.Parameters.Add(new SqlParameter("@id", id));
+                command.Connection.Open();
+                return Convert.ToBoolean(command.ExecuteNonQuery());
+            }
+        }
+
+        public List<AirPort> AirPortFind(string query)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<AirPort>("SELECT * FROM AirPorts WHERE ID like '%" + query + "%'").ToList();
+            }
+        }
+
+        public AirPort AirPortAdd(string name, string country, double utcOffset)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var data = new { name, country, utcOffset};
+                connection.Query("INSERT INTO AirPorts (Name, Country, UTCOffset) VALUES (@name, @country, @utcOffset)", data);
+                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('AirPorts') AS Current_Identity").First();
+                return connection.Query<AirPort>("SELECT * FROM AirPorts WHERE ID=@Id", new { Id = addedEventQuery }).First();
+            }
+        }
+
+        public AirPort AirPortModify(int id, string name, string country, double utcOffset)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var data = new { id, name, country, utcOffset };
+                connection.Query("UPDATE AirPorts SET Name=@name, Country=@country, UTCOffset=@utcOffset WHERE ID = @id", data);
+                return connection.Query<AirPort>("SELECT * FROM AirPorts WHERE ID=@Id", new { Id = id }).First();
+            }
+        }
+
+        public bool AirPortDelete(int id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                string Qry = "DELETE FROM AirPorts Where ID=@id";
+                SqlCommand command = new SqlCommand(Qry, connection);
+                command.Parameters.Add(new SqlParameter("@id", id));
+                command.Connection.Open();
+                return Convert.ToBoolean(command.ExecuteNonQuery());
             }
         }
     }

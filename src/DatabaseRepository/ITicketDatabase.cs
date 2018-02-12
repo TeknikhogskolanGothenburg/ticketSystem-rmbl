@@ -45,6 +45,6 @@ namespace TicketSystem.DatabaseRepository
         /// </summary>
         /// <param name="id">value that db querry tries to match for removal</param>
         /// <returns>a bool indicating whether the delete command was successful</returns>
-        bool UserDelete(string id);     
+        bool UserDelete(int id);     
     }
 }
