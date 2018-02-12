@@ -24,7 +24,7 @@ namespace TicketSystem.RestApiClient
         /// <param name="newApiSecret">Api secret</param>
         /// <param name="newSessionId">Session user id</param>
         /// <param name="newSessionSecret">Session secret key</param>
-        public TicketApi(string newApiKey, string newApiSecret, int newSessionId, string newSessionSecret)
+        public TicketApi(string newApiKey, string newApiSecret, int newSessionId = 0, string newSessionSecret = null)
         {
             apiKey = newApiKey;
             apiSecret = newApiSecret;
@@ -88,6 +88,24 @@ namespace TicketSystem.RestApiClient
             {
                 throw new Exception(string.Format("Payment fail, recheck your payment details!"));
             }
+        }
+
+        /// <summary>
+        /// Login user
+        /// </summary>
+        /// <param name="login">Login object with login information</param>
+        /// <returns>Session information object</returns>
+        public SessionInfo PostLoginIn(Login login)
+        {
+            RestRequest request = new RestRequest("Ticket/", Method.POST);
+            RestClient client = PrepareRequest(ref request);
+            request.AddJsonBody(login);
+
+            IRestResponse<SessionInfo> response = client.Execute<SessionInfo>(request);
+
+            AnalysResponse(response.StatusCode, "Login", "user", login.Username);
+
+            return response.Data;
         }
 
         /// <summary>
