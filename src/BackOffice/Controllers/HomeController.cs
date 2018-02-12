@@ -11,11 +11,29 @@ namespace BackOffice.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Back office start page
+        /// </summary>
+        /// <returns>Start page view</returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Login page without post
+        /// </summary>
+        /// <returns>Login view</returns>
+        public IActionResult Login()
+        {
+            return View(new Login());
+        }
+
+        /// <summary>
+        /// Login with post, try to login through WebApi
+        /// </summary>
+        /// <param name="login">Login information</param>
+        /// <returns>Login view or redirect</returns>
         [HttpPost]
         public IActionResult Login(Login login)
         {
@@ -25,80 +43,6 @@ namespace BackOffice.Controllers
             }
 
             return View(login);
-        }
-
-        public IActionResult Login()
-        {
-            return View(new Login());
-        }
-
-        public IActionResult Users()
-        {
-            return null;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult ViewUser(int? id)
-        {
-            return null;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult EditUser(int? id)
-        {
-            return null;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult RemoveUser(int? id)
-        {
-            return null;
-        }
-
-        [HttpGet("{userId}")]
-        public IActionResult Bookings(int? userId)
-        {
-            return null;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Booking(int? id)
-        {
-            return null;
-        }
-
-        [HttpPost("{id}")]
-        public IActionResult EditBooking(int? id, [FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        [HttpPost("{id}")]
-        public IActionResult RemoveBooking(int? id, [FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        public IActionResult Flights()
-        {
-            return null;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Flight(int? id)
-        {
-            return null;
-        }
-
-        public IActionResult Franshieses()
-        {
-            return null;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Franshies(int? id)
-        {
-            return null;
         }
 
         public IActionResult Error()
