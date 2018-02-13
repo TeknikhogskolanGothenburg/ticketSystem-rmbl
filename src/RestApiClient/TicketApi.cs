@@ -2,13 +2,10 @@
 using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.Net.Http;
-=======
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
->>>>>>> Chibi
 using TicketSystem.RestApiClient.Model;
 
 namespace TicketSystem.RestApiClient
@@ -19,18 +16,6 @@ namespace TicketSystem.RestApiClient
         private string apiSecret;
         private int sessionId;
         private string sessionSecret;
-
-        // Implemented using RestSharp: http://restsharp.org/
-<<<<<<< HEAD
-            
-        public List<Ticket> TicketGet()
-        {
-            var client = new RestClient("https://rmbl.database.windows.net");
-            client.Authenticator = new HttpBasicAuthenticator("rmblA", "QAwsedrf123@@");
-
-            var request = new RestRequest("Ticket", Method.GET);
-            var response = client.Execute<List<Ticket>>(request);
-=======
 
         /// <summary>
         /// Constructor which get api key and secret
@@ -61,7 +46,7 @@ namespace TicketSystem.RestApiClient
 
             AnalysResponse(response.StatusCode, "Get", "Tickets", "from user id " + userId);
 
->>>>>>> Chibi
+
             return response.Data;
         }
 
@@ -72,13 +57,9 @@ namespace TicketSystem.RestApiClient
         /// <returns>Ticket object</returns>
         public Ticket GetTicketById(int ticketId)
         {
-<<<<<<< HEAD
-            var client = new RestClient("https://rmbl.database.windows.net");
-            var request = new RestRequest("ticket/{id}", Method.GET);
-=======
             RestRequest request = new RestRequest("ticket/{id}", Method.GET);
             RestClient client = PrepareRequest(ref request);
->>>>>>> Chibi
+
             request.AddUrlSegment("id", ticketId);
             IRestResponse<Ticket> response = client.Execute<Ticket>(request);
 
