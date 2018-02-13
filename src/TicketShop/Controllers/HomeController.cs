@@ -28,7 +28,6 @@ namespace TicketShop.Controllers
                 builder.InitialCatalog = "RMBL-SERVER";
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
-                    //Console.WriteLine("Opening the port");
                     connection.Open();
                     StringBuilder sb = new StringBuilder();
                     sb.Append("SELECT ID, Name FROM AirPorts");
@@ -52,7 +51,6 @@ namespace TicketShop.Controllers
                 model.Response.Add(1, e.ToString());
             }
             return View("Index", model);
-            //return View("Index", model);
         }
 
         [HttpPost]

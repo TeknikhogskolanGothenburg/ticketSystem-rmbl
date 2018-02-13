@@ -31,7 +31,7 @@ namespace RMBL_FlightService.Controllers
                     //Console.WriteLine("Opening the port");
                     connection.Open();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT * FROM Test");
+                    sb.Append("SELECT * FROM AirPorts");
                     String sql = sb.ToString();
 
                     using (SqlCommand command = new SqlCommand(sql, connection))

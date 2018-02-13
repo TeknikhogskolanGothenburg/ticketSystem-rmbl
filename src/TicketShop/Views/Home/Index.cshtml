@@ -13,7 +13,11 @@
               @{ 
                   foreach(KeyValuePair<int, string> x in Model.Response)
                   {
-                      <option value="@x.Value">@x.Value</option>
+                      //<option value="@x.Value">@x.Value</option>
+                      if(@x.Value == "Venecia")
+                      {
+                          <option>@x.Value</option>
+                      }
 
                   }
               }

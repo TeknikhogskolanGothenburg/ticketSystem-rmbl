@@ -1,10 +1,11 @@
 ﻿html {
     min-height: 100%;
+    min-width: 100%;
     -webkit-box-shadow: inset 0 0 45px rgba(0, 0, 0, .5);
     box-shadow: inset 0 0 30px rgba(0, 0, 0, .5);
 }
 body {
-    background-color: #407b84;
+    background-color: #721c24;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -13,28 +14,24 @@ body {
     padding-right: 15px;
 }
 
-.navbar {
-    margin-bottom: 25px;
+.custom-container {
+    min-height: 100%;
+    min-width: 100%;
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: 300px 50%;
+    display: grid;
 }
 
-btn-default a {
-    color: #fff!important;
+.card {
+    margin: auto;
+    grid-column-start: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
 }
 
-.bg-dark {
-    background-color: #ad0078 !important;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.btn-danger{
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: -5px;
 }
