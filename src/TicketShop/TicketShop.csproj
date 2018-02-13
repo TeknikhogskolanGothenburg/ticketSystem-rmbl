@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="jQuery.UI.Combined" Version="1.12.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="bootstrap" Version="4.0.0" />
   </ItemGroup>
