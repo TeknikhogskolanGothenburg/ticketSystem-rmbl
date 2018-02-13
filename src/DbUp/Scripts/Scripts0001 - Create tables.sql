@@ -1,5 +1,9 @@
 DROP TABLE IF EXISTS ApiKeys;
 DROP TABLE IF EXISTS TicketsToTransactions;
+<<<<<<< HEAD
+=======
+DROP TABLE IF EXISTS Sessions;
+>>>>>>> Chibi
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Flights;
 DROP TABLE IF EXISTS AirPorts;
@@ -34,7 +38,11 @@ CREATE TABLE AirPorts(
 );
 
 CREATE TABLE Transactions(
+<<<<<<< HEAD
 	ID INT PRIMARY KEY IDENTITY,
+=======
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+>>>>>>> Chibi
 	PaymentStatus VARCHAR(255),
 	PaymentReferenceId VARCHAR(255)
 );
@@ -45,7 +53,8 @@ CREATE TABLE Flights(
 	DeparturePort INT FOREIGN KEY REFERENCES AirPorts(ID),
 	ArrivalDate DATETIME,
 	ArrivalPort INT FOREIGN KEY REFERENCES AirPorts(ID),
-	Seats INT NOT NULL
+	Seats INT NOT NULL,
+	Price INT NOT NULL
 );
 
 CREATE TABLE Tickets(
@@ -65,5 +74,16 @@ CREATE TABLE TicketsToTransactions(
 CREATE TABLE ApiKeys(
 	KeyValue VARCHAR(50) NOT NULL PRIMARY KEY,
 	FranchiseID INT FOREIGN KEY REFERENCES Franchises(ID),
-	Secret VARCHAR(50) NOT NULL,
+	Secret VARCHAR(50) NOT NULL
 );
+<<<<<<< HEAD
+=======
+
+CREATE TABLE Sessions(
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	UserID INT FOREIGN KEY REFERENCES Users(ID),
+	Secret VARCHAR(50) NOT NULL,
+	Active TINYINT(1) NOT NULL DEFAULT(1),
+	Created DateTime
+);
+>>>>>>> Chibi

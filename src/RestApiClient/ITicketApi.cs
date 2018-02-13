@@ -6,16 +6,16 @@ namespace TicketSystem.RestApiClient
     public interface ITicketApi
     {
         /// <summary>
-        /// Get all tickets in the system 
+        /// Get all tickets, from one user
         /// </summary>
-        /// <returns></returns>
-        List<Ticket> TicketGet();
+        /// <returns>List with Ticket objects</returns>
+        List<Ticket> GetTickets(int userId);
 
         /// <summary>
         /// Get a ticket by ID from the system Returns a single ticket
         /// </summary>
         /// <param name="ticketId">ID of the ticket</param>
-        /// <returns></returns>
-        Ticket TicketTicketIdGet(int ticketId);
+        /// <returns>Ticket object</returns>
+        Ticket GetTicketById(int ticketId);
     }
 }
