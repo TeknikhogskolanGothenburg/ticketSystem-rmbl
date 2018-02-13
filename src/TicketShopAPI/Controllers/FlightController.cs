@@ -18,6 +18,7 @@ namespace TicketShopAPI.Controllers
     public class FlightController : Controller
     {
         private Security security = new Security();
+        private TicketDatabase TicketDb = new TicketDatabase();
 
         /// <summary>
         /// querries database for all flights
@@ -33,8 +34,7 @@ namespace TicketShopAPI.Controllers
             List<Flight> allFlights = new List<Flight>();
             if (security.IsAuthorised("NotSureYet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
-                allFlights = ticketDb.FlightFind("");
+                allFlights = TicketDb.FlightFind("");
             }
             else
             {
@@ -68,8 +68,7 @@ namespace TicketShopAPI.Controllers
             if (security.IsAuthorised("NotSureYet"))
             {
                 Flight flight = new Flight();
-                TicketDatabase ticketDb = new TicketDatabase();
-                List<Flight> queryResult = ticketDb.FlightFind(id.ToString());
+                List<Flight> queryResult = TicketDb.FlightFind(id.ToString());
                 if (queryResult.Count > 0)
                 {
                     flight = queryResult[0];
@@ -88,6 +87,12 @@ namespace TicketShopAPI.Controllers
             }
         }
 
+        [HttpGet("{id}/AvaliableSeats")]
+        public List<int> GetAvaliableSeats(int id)
+        {
+            return TicketDb.AvaliableSeatsFind(id);
+        }
+
         /// <summary>
         /// Adds a new Flight to the database
         /// </summary>
@@ -98,7 +103,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 402 PaymentRequired</returns>
         /// <returns>void | StatusCode: 407 Unauthorized</returns>
         /// <returns>void | StatusCode: 409 Conflict</returns>
-        // POST: api/Flight
+            // POST: api/Flight
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
@@ -115,11 +120,9 @@ namespace TicketShopAPI.Controllers
                     return;
                 }
 
-                TicketDatabase ticketDb = new TicketDatabase();
-
                 try
                 {
-                    Flight newFlight = ticketDb.FlightAdd(flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
+                    Flight newFlight = TicketDb.FlightAdd(flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
                 }
                 catch
                 {
@@ -160,12 +163,9 @@ namespace TicketShopAPI.Controllers
                     return;
                 }
 
-
-                TicketDatabase ticketDb = new TicketDatabase();
-
                 try
                 {
-                    ticketDb.FlightModify(id, flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
+                    TicketDb.FlightModify(id, flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
                 }
                 catch
                 {
@@ -192,8 +192,7 @@ namespace TicketShopAPI.Controllers
         {
             if (security.IsAuthorised("NotSureYet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
-                bool deleteSuccessful = ticketDb.FlightDelete(id);
+                bool deleteSuccessful = TicketDb.FlightDelete(id);
                 if (!deleteSuccessful)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;

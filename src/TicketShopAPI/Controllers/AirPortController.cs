@@ -18,6 +18,7 @@ namespace TicketShopAPI.Controllers
     public class AirPortController : Controller
     {
         private Security security = new Security();
+        private TicketDatabase TicketDb = new TicketDatabase();
 
         /// <summary>
         /// querries database for all AirPorts
@@ -33,8 +34,7 @@ namespace TicketShopAPI.Controllers
             List<AirPort> allAirPorts = new List<AirPort>();
             if (security.IsAuthorised("NotSureYet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
-                allAirPorts = ticketDb.AirPortFind("");
+                allAirPorts = TicketDb.AirPortFind("");
             }
             else
             {
@@ -68,8 +68,7 @@ namespace TicketShopAPI.Controllers
             if (security.IsAuthorised("NotSureYet"))
             {
                 AirPort AirPort = new AirPort();
-                TicketDatabase ticketDb = new TicketDatabase();
-                List<AirPort> queryResult = ticketDb.AirPortFind(id.ToString());
+                List<AirPort> queryResult = TicketDb.AirPortFind(id.ToString());
                 if (queryResult.Count > 0)
                 {
                     AirPort = queryResult[0];
@@ -86,6 +85,19 @@ namespace TicketShopAPI.Controllers
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return "access denied";
             }
+        }
+
+        [HttpGet("{id}/DepartureFlight")]
+        public IEnumerable<string> GetDepartureFlight(int id)
+        {
+            
+            return new List<string>();
+        }
+
+        [HttpGet("{id}/ArrivalFlight")]
+        public string GetArrivalFligth(int id)
+        {
+            return "";
         }
 
         /// <summary>
@@ -114,11 +126,9 @@ namespace TicketShopAPI.Controllers
                     return;
                 }
 
-                TicketDatabase ticketDb = new TicketDatabase();
-
                 try
                 {
-                    AirPort newAirPort = ticketDb.AirPortAdd(AirPort.Name, AirPort.Country, AirPort.UTCOffset);
+                    AirPort newAirPort = TicketDb.AirPortAdd(AirPort.Name, AirPort.Country, AirPort.UTCOffset);
                 }
                 catch
                 {
@@ -159,12 +169,9 @@ namespace TicketShopAPI.Controllers
                     return;
                 }
 
-
-                TicketDatabase ticketDb = new TicketDatabase();
-
                 try
                 {
-                    ticketDb.AirPortModify(id, AirPort.Name, AirPort.Country, AirPort.UTCOffset);
+                    TicketDb.AirPortModify(id, AirPort.Name, AirPort.Country, AirPort.UTCOffset);
                 }
                 catch
                 {
@@ -191,8 +198,7 @@ namespace TicketShopAPI.Controllers
         {
             if (security.IsAuthorised("NotSureYet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
-                bool deleteSuccessful = ticketDb.AirPortDelete(id);
+                bool deleteSuccessful = TicketDb.AirPortDelete(id);
                 if (!deleteSuccessful)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;

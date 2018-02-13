@@ -18,6 +18,7 @@ namespace TicketShopAPI.Controllers
     public class UserController : Controller
     {
         private Security security = new Security();
+        private TicketDatabase TicketDb = new TicketDatabase();
 
         /// <summary>
         /// querries database for all users
@@ -33,8 +34,7 @@ namespace TicketShopAPI.Controllers
             List<User> allusers = new List<User>();
             if (security.IsAuthorised("NotSureyet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
-                allusers = ticketDb.UserFind("");
+                allusers = TicketDb.UserFind("");
             }
             else
             {
@@ -63,14 +63,13 @@ namespace TicketShopAPI.Controllers
         /// <returns> no such user registered | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
         // GET: api/User/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public IEnumerable<string> Get(int id)
         {
             List<User> users = new List<User>();
             if (security.IsAuthorised("NotSureYet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
-                users = ticketDb.UserFind(id.ToString());
+                users = TicketDb.UserFind(id.ToString());
             }
             else
             {
@@ -88,6 +87,12 @@ namespace TicketShopAPI.Controllers
             }
         }
 
+        [HttpGet("{id}/Ticket")]
+        public IEnumerable<string> GetUserTicket(int id)
+        {
+            return new string[] { "", "" };
+        }
+
         /// <summary>
         /// Adds a new user to the database
         /// </summary>
@@ -96,7 +101,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
-        // POST: api/User
+            // POST: api/User
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
@@ -112,10 +117,9 @@ namespace TicketShopAPI.Controllers
 
                 string encryptedPassword = "placeholder";
 
-                TicketDatabase ticketDb = new TicketDatabase();
                 try
                 {
-                    ticketDb.UserAdd(user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
+                    TicketDb.UserAdd(user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
                 }
                 catch
                 {
@@ -161,7 +165,6 @@ namespace TicketShopAPI.Controllers
                 //string newSalt = security.GenerateSalt();
                 //string encryptedPassword = security.GenerateSHA256Hash(user.Password, newSalt);
 
-                TicketDatabase ticketDb = new TicketDatabase();
                 string encryptedPassword = "temporary placeholder";
 
                 if (user.Password == null)
@@ -170,7 +173,7 @@ namespace TicketShopAPI.Controllers
                 }
                 try
                 {
-                    ticketDb.UserModify(id, user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
+                    TicketDb.UserModify(id, user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
                 }
                 catch
                 {
@@ -197,8 +200,7 @@ namespace TicketShopAPI.Controllers
         {
             if (security.IsAuthorised("NotSureYet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
-                bool deleteSuccessful = ticketDb.UserDelete(id);
+                bool deleteSuccessful = TicketDb.UserDelete(id);
                 if (!deleteSuccessful)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;

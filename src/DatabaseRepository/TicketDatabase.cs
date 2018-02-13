@@ -239,5 +239,46 @@ namespace TicketSystem.DatabaseRepository
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
         }
+
+        public List<Flight> AirportDeparturesFind(int portId)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<Flight>("SELECT Flight.ID, DeparturDate, DeparturePort, ArrivalDate, ArrivalPort, Seats FROM AirPorts JOIN Flight ON Airports.ID=Flight.Departureport WHERE AirPort.ID=@portId").ToList();
+            }
+        }
+
+        public List<Flight> AirportArrivalsFind(int portId)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<Flight>("SELECT Flight.ID, DeparturDate, DeparturePort, ArrivalDate, ArrivalPort, Seats FROM AirPorts JOIN Flight ON Airports.ID=Flight.ArrivalPort WHERE AirPort.ID=@portId").ToList();
+            }
+        }
+
+        public List<int> AvaliableSeatsFind(int flightId)
+        {
+            List<int> occupiedSeats = new List<int>();
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                occupiedSeats = connection.Query<int>("SELECT SeatNumber FROM Tickets JOIN Flights ON Flights.ID=FlightID").ToList();                
+            }
+            int seats = FlightFind(flightId.ToString())[0].Seats;
+            List<int> avaliableSeats = new List<int>();
+            for (int i = 1; i <= seats; i++)
+            {
+                if (!occupiedSeats.Contains(i))
+                {
+                    avaliableSeats.Add(i);
+                }
+            }
+            return avaliableSeats;
+        }
     }
 }

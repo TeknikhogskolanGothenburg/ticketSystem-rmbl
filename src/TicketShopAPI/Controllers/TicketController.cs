@@ -18,6 +18,7 @@ namespace TicketShopAPI.Controllers
     public class TicketController : Controller
     {
         private Security security = new Security();
+        private TicketDatabase TicketDb = new TicketDatabase();
 
         /// <summary>
         /// querries database for all tickets
@@ -33,8 +34,7 @@ namespace TicketShopAPI.Controllers
             List<Ticket> allTickets = new List<Ticket>();
             if (security.IsAuthorised("NotSureYet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
-                allTickets = ticketDb.TicketFind("");
+                allTickets = TicketDb.TicketFind("");
             }
             else
             {
@@ -67,8 +67,7 @@ namespace TicketShopAPI.Controllers
             if (security.IsAuthorised("NotSureYet"))
             {
                 Ticket ticket = new Ticket();
-                TicketDatabase ticketDb = new TicketDatabase();
-                List<Ticket> queryResult = ticketDb.TicketFind(id.ToString());
+                List<Ticket> queryResult = TicketDb.TicketFind(id.ToString());
                 if (queryResult.Count > 0)
                 {
                     ticket = queryResult[0];
@@ -114,9 +113,8 @@ namespace TicketShopAPI.Controllers
                     return;
                 }
                 Payment payment = data["payment"].ToObject<Payment>();
-                TicketDatabase ticketDb = new TicketDatabase();
                 //is the seat already taken?
-                foreach (Ticket t in ticketDb.TicketFind(""))
+                foreach (Ticket t in TicketDb.TicketFind(""))
                 {
                     if (t.FlightID == ticket.FlightID && t.SeatNumber == ticket.SeatNumber)
                     {
@@ -127,7 +125,7 @@ namespace TicketShopAPI.Controllers
 
                 PaymentProvider paymentProvider = new PaymentProvider();
                 Payment paymentAttempt = paymentProvider.Pay(payment.TotalAmount, payment.Valuta, payment.OrderReference);
-                Transaction newTransaction = ticketDb.TransactionAdd(paymentAttempt.PaymentStatus.ToString(), paymentAttempt.PaymentReference);
+                Transaction newTransaction = TicketDb.TransactionAdd(paymentAttempt.PaymentStatus.ToString(), paymentAttempt.PaymentReference);
                 if (paymentAttempt.PaymentStatus == PaymentStatus.PaymentRejected || paymentAttempt.PaymentStatus == PaymentStatus.UnknownError)
                 {
                     Response.StatusCode = (int)HttpStatusCode.PaymentRequired;
@@ -135,8 +133,8 @@ namespace TicketShopAPI.Controllers
                 }
                 try
                 {
-                    Ticket newTicket = ticketDb.TicketAdd(ticket.UserID, ticket.FlightID, ticket.SeatNumber, ticket.BookAt);
-                    ticketDb.TicketToTransactionAdd(newTicket.ID, newTransaction.ID);
+                    Ticket newTicket = TicketDb.TicketAdd(ticket.UserID, ticket.FlightID, ticket.SeatNumber, ticket.BookAt);
+                    TicketDb.TicketToTransactionAdd(newTicket.ID, newTransaction.ID);
                 }
                 catch
                 {
@@ -170,8 +168,7 @@ namespace TicketShopAPI.Controllers
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 }
-                TicketDatabase ticketDb = new TicketDatabase();
-                Ticket updatedTicket = ticketDb.TicketModify(id, ticket.UserID, ticket.FlightID, ticket.SeatNumber, ticket.BookAt);
+                Ticket updatedTicket = TicketDb.TicketModify(id, ticket.UserID, ticket.FlightID, ticket.SeatNumber, ticket.BookAt);
                 if (updatedTicket == null)
                 {
                     Response.StatusCode = (int)HttpStatusCode.NotFound;
@@ -200,10 +197,9 @@ namespace TicketShopAPI.Controllers
             return;
             if (security.IsAuthorised("NotSureYet"))
             {
-                TicketDatabase ticketDb = new TicketDatabase();
                 try
                 {
-                    ticketDb.TicketDelete(id);
+                    TicketDb.TicketDelete(id);
                 }
                 catch
                 {
