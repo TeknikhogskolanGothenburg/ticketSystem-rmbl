@@ -1,9 +1,6 @@
 DROP TABLE IF EXISTS ApiKeys;
 DROP TABLE IF EXISTS TicketsToTransactions;
-<<<<<<< HEAD
-=======
 DROP TABLE IF EXISTS Sessions;
->>>>>>> Chibi
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Flights;
 DROP TABLE IF EXISTS AirPorts;
@@ -21,7 +18,8 @@ CREATE TABLE Users(
 	City VARCHAR(50),
 	ZipCode VARCHAR(25),
 	Address VARCHAR(255),
-	Grade TINYINT NOT NULL DEFAULT(1)
+	Grade TINYINT NOT NULL DEFAULT(1),
+	DeletedUser TINYINT(1) NOT NULL DEFAULT(0),
 	CONSTRAINT AK_Username UNIQUE(Username)
 );
 
@@ -38,11 +36,8 @@ CREATE TABLE AirPorts(
 );
 
 CREATE TABLE Transactions(
-<<<<<<< HEAD
 	ID INT PRIMARY KEY IDENTITY,
-=======
 	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
->>>>>>> Chibi
 	PaymentStatus VARCHAR(255),
 	PaymentReferenceId VARCHAR(255)
 );
@@ -76,14 +71,11 @@ CREATE TABLE ApiKeys(
 	FranchiseID INT FOREIGN KEY REFERENCES Franchises(ID),
 	Secret VARCHAR(50) NOT NULL
 );
-<<<<<<< HEAD
-=======
 
 CREATE TABLE Sessions(
-	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	ID INT PRIMARY KEY IDENTITY,
 	UserID INT FOREIGN KEY REFERENCES Users(ID),
 	Secret VARCHAR(50) NOT NULL,
 	Active TINYINT(1) NOT NULL DEFAULT(1),
 	Created DateTime
 );
->>>>>>> Chibi
