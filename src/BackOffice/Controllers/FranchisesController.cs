@@ -9,14 +9,14 @@ using TicketSystem.RestApiClient.Model;
 
 namespace BackOffice.Controllers
 {
-    public class FranshiesesController : Controller
+    public class FranchisesController : Controller
     {
         private TicketApi ticketApi;
 
         /// <summary>
         /// Default constructor, prepare api
         /// </summary>
-        public FranshiesesController()
+        public FranchisesController()
         {
             ApiInformation api = new ApiInformation();
 
@@ -31,7 +31,7 @@ namespace BackOffice.Controllers
         }
 
         /// <summary>
-        /// List of existing franshieses
+        /// List of existing franchises
         /// </summary>
         /// <returns>View</returns>
         public IActionResult Index()
@@ -40,9 +40,9 @@ namespace BackOffice.Controllers
         }
 
         /// <summary>
-        /// View a franshies
+        /// View a franchise
         /// </summary>
-        /// <param name="id">Franshies index</param>
+        /// <param name="id">Franchise index</param>
         /// <returns>View</returns>
         [HttpGet("{id}")]
         public IActionResult View(int? id)
