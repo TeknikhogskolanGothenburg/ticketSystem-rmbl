@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiClient", "RestApiClient\RestApiClient.csproj", "{89F216FB-2EC3-4635-83C4-15386501FC7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackOffice", "BackOffice\BackOffice.csproj", "{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackOffice", "BackOffice\BackOffice.csproj", "{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationLibrary", "AuthenticationLibrary\AuthenticationLibrary.csproj", "{CF6CE314-1C61-4494-A683-524002D18F83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6CE314-1C61-4494-A683-524002D18F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6CE314-1C61-4494-A683-524002D18F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6CE314-1C61-4494-A683-524002D18F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6CE314-1C61-4494-A683-524002D18F83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
