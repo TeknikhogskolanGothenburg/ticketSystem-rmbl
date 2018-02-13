@@ -1,12 +1,10 @@
 ﻿using RestSharp;
-using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Net;
-using System.Security.Cryptography;
 using System.Text;
 using TicketSystem.RestApiClient.Model;
+using AuthenticationLibrary;
 
 namespace TicketSystem.RestApiClient
 {
@@ -16,6 +14,8 @@ namespace TicketSystem.RestApiClient
         private string apiSecret;
         private int sessionId;
         private string sessionSecret;
+
+        // Implemented using RestSharp: http://restsharp.org/
 
         /// <summary>
         /// Constructor which get api key and secret
@@ -46,7 +46,6 @@ namespace TicketSystem.RestApiClient
 
             AnalysResponse(response.StatusCode, "Get", "Tickets", "from user id " + userId);
 
-
             return response.Data;
         }
 
@@ -59,7 +58,6 @@ namespace TicketSystem.RestApiClient
         {
             RestRequest request = new RestRequest("ticket/{id}", Method.GET);
             RestClient client = PrepareRequest(ref request);
-
             request.AddUrlSegment("id", ticketId);
             IRestResponse<Ticket> response = client.Execute<Ticket>(request);
 
@@ -200,16 +198,12 @@ namespace TicketSystem.RestApiClient
             RestClient client = new RestClient("https://rmbl-flightticketapi.azurewebsites.net");
 
             string timestamp = DateTime.Now.ToString("r");
-            string hashApiSecretTimestamp = HashMessageByKey(apiSecret, timestamp);
-
-            request.AddHeader("Authentication", apiKey + ":" + hashApiSecretTimestamp);
             request.AddHeader("Timestamp", timestamp);
+            request.AddHeader("Authentication", Authentication.AuthenticationHeader(apiKey, apiSecret, timestamp));
 
             if (sessionId != 0)
             {
-                string hashSessionSecretTimestamp = HashMessageByKey(sessionSecret, timestamp);
-
-                request.AddHeader("User-Authentication", sessionId + ":" + hashSessionSecretTimestamp);
+                request.AddHeader("User-Authentication", Authentication.UserAuthenticationHeader(sessionId, sessionSecret, timestamp));
             }
 
             return client;
@@ -238,20 +232,6 @@ namespace TicketSystem.RestApiClient
                 case HttpStatusCode.NoContent:
                     throw new NullReferenceException(string.Format("{0} {1} is not found", toWhat, withId));
             }
-        }
-
-        private string HashMessageByKey(string apiSecret, string message)
-        {
-            var key = Encoding.UTF8.GetBytes(apiSecret.ToUpper());
-            string hashString;
-
-            using (var hmac = new HMACSHA256(key))
-            {
-                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
-                hashString = Convert.ToBase64String(hash);
-            }
-
-            return hashString;
         }
     }
 }
