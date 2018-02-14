@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AuthenticationLibrary\AuthenticationLibrary.csproj" />
     <ProjectReference Include="..\DatabaseRepository\DatabaseRepository.csproj" />
     <ProjectReference Include="..\PaymentProvider\PaymentProvider.csproj" />
   </ItemGroup>
