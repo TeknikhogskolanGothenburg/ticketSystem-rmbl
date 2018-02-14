@@ -33,30 +33,21 @@ namespace BackOffice.Controllers
         }
 
         /// <summary>
-        /// Back office start page
-        /// </summary>
-        /// <returns>Start page view</returns>
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// Login page without post
+        /// Index and login page without post
         /// </summary>
         /// <returns>Login view</returns>
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View(new Login());
         }
 
         /// <summary>
-        /// Login with post, try to login through WebApi
+        /// Index and login with post, try to login through WebApi
         /// </summary>
         /// <param name="login">Login information</param>
         /// <returns>Login view or redirect</returns>
         [HttpPost]
-        public IActionResult Login(Login login)
+        public IActionResult Index(Login login)
         {
             if (login != null && ModelState.IsValid)
             {
@@ -76,6 +67,11 @@ namespace BackOffice.Controllers
             }
 
             return View(login);
+        }
+
+        public IActionResult AddFlight()
+        {
+            return View(new Flight());
         }
 
         public IActionResult Error()

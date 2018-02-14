@@ -39,7 +39,7 @@ namespace AuthenticationLibrary
         /// <param name="hashKey">Hash key string</param>
         /// <param name="message">What to hash</param>
         /// <returns>Hashed string</returns>
-        private static string HashMessageByKey(string hashKey, string message)
+        public static string HashMessageByKey(string hashKey, string message)
         {
             byte[] key = Encoding.UTF8.GetBytes(hashKey.ToUpper());
             string hashString;
@@ -51,6 +51,20 @@ namespace AuthenticationLibrary
             }
 
             return hashString;
+        }
+
+        /// <summary>
+        /// Verify hash message from key is the same as new hash of same message 
+        /// </summary>
+        /// <param name="hashKey">Hash key string</param>
+        /// <param name="message">What was hashed</param>
+        /// <param name="hashMessage">Hashed string</param>
+        /// <returns>Validation result</returns>
+        public static bool VerifyHashMessageByKey(string hashKey, string message, string hashMessage)
+        {
+            string compareHash = HashMessageByKey(hashKey, message);
+
+            return (compareHash == hashMessage);
         }
     }
 }

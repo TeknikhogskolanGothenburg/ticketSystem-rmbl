@@ -33,18 +33,44 @@ namespace TicketSystem.RestApiClient
         }
 
         /// <summary>
+        /// Add flight
+        /// </summary>
+        /// <param name="flight">Flight object to send as Json</param>
+        public int PostFlight(Flight flight)
+        {
+            RestRequest request = new RestRequest("api/Flight/", Method.POST);
+            RestClient client = PrepareRequest(ref request);
+            request.AddJsonBody(flight);
+
+            IRestResponse response = client.Execute(request);
+
+            List<Parameter> headers = AnalysResponse(response, "Add", "new flight");
+
+            Parameter RedirectId = headers.Find(h => h.Name == "RedirectId");
+
+            int id;
+
+            if (int.TryParse(RedirectId.Value.ToString(), out id))
+            {
+                return id;
+            }
+
+            throw new Exception("Api response incorrect, report to site ");
+        }
+
+        /// <summary>
         /// Get all tickets, from one user
         /// </summary>
         /// <returns>List with Ticket objects</returns>
         public List<Ticket> GetTicketsByUser(int userId)
         {
-            RestRequest request = new RestRequest("api/User/tickets/{id}", Method.GET);
+            RestRequest request = new RestRequest("api/User/{id}/ticket", Method.GET);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", userId);
 
             IRestResponse<List<Ticket>> response = client.Execute<List<Ticket>>(request);
 
-            AnalysResponse(response.StatusCode, "Get", "Tickets", "from user id " + userId);
+            AnalysResponse(response, "Get", "Tickets", "from user id " + userId);
 
             return response.Data;
         }
@@ -56,12 +82,12 @@ namespace TicketSystem.RestApiClient
         /// <returns>Ticket object</returns>
         public Ticket GetTicketById(int ticketId)
         {
-            RestRequest request = new RestRequest("ticket/{id}", Method.GET);
+            RestRequest request = new RestRequest("api/Ticket/{id}", Method.GET);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", ticketId);
             IRestResponse<Ticket> response = client.Execute<Ticket>(request);
 
-            AnalysResponse(response.StatusCode, "Get", "Ticket", "with id " + ticketId);
+            AnalysResponse(response, "Get", "Ticket", "with id " + ticketId);
 
             return response.Data;
         }
@@ -72,13 +98,13 @@ namespace TicketSystem.RestApiClient
         /// <param name="booking">Booking object to send as Json</param>
         public void PostTicket(Booking booking)
         {
-            RestRequest request = new RestRequest("Ticket/", Method.POST);
+            RestRequest request = new RestRequest("api/Ticket/", Method.POST);
             RestClient client = PrepareRequest(ref request);
             request.AddJsonBody(booking);
 
             IRestResponse response = client.Execute(request);
 
-            AnalysResponse(response.StatusCode, "Buy", "new ticket");
+            AnalysResponse(response, "Buy", "new ticket");
 
             if(response.StatusCode == HttpStatusCode.Conflict)
             {
@@ -97,13 +123,13 @@ namespace TicketSystem.RestApiClient
         /// <returns>Session information object</returns>
         public SessionInfo PostLoginIn(Login login)
         {
-            RestRequest request = new RestRequest("Ticket/", Method.POST);
+            RestRequest request = new RestRequest("api/User/Login", Method.POST);
             RestClient client = PrepareRequest(ref request);
             request.AddJsonBody(login);
 
             IRestResponse<SessionInfo> response = client.Execute<SessionInfo>(request);
 
-            AnalysResponse(response.StatusCode, "Login", "user", login.Username);
+            AnalysResponse(response, "Login", "user", login.Username);
 
             return response.Data;
         }
@@ -114,12 +140,12 @@ namespace TicketSystem.RestApiClient
         /// <returns>List of users</returns>
         public List<User> GetUsers()
         {
-            RestRequest request = new RestRequest("Users/", Method.GET);
+            RestRequest request = new RestRequest("api/User/", Method.GET);
             RestClient client = PrepareRequest(ref request);
 
             IRestResponse<List<User>> response = client.Execute<List<User>>(request);
 
-            AnalysResponse(response.StatusCode, "Get", "users");
+            AnalysResponse(response, "Get", "users");
 
             return response.Data;
         }
@@ -131,13 +157,13 @@ namespace TicketSystem.RestApiClient
         /// <returns>User object</returns>
         public User GetUser(int userId)
         {
-            RestRequest request = new RestRequest("Users/{id}", Method.GET);
+            RestRequest request = new RestRequest("api/User/{id}", Method.GET);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", userId);
 
             IRestResponse<User> response = client.Execute<User>(request);
 
-            AnalysResponse(response.StatusCode, "Get", "user", "with id" + userId);
+            AnalysResponse(response, "Get", "user", "with id" + userId);
 
             return response.Data;
         }
@@ -146,15 +172,16 @@ namespace TicketSystem.RestApiClient
         /// Change user
         /// </summary>
         /// <param name="userId">User index</param>
-        public void PutUser(int userId)
+        /// <param name="user">User object to replace old one</param>
+        public void PutUser(int userId, User user)
         {
-            RestRequest request = new RestRequest("Users/{id}", Method.PUT);
+            RestRequest request = new RestRequest("api/User/{id}", Method.PUT);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", userId);
 
             IRestResponse response = client.Execute(request);
 
-            AnalysResponse(response.StatusCode, "Edit", "user", "with id" + userId);
+            AnalysResponse(response, "Edit", "user", "with id" + userId);
         }
 
         /// <summary>
@@ -163,13 +190,13 @@ namespace TicketSystem.RestApiClient
         /// <param name="userId">User index</param>
         public void DeleteUser(int userId)
         {
-            RestRequest request = new RestRequest("Users/{id}", Method.DELETE);
+            RestRequest request = new RestRequest("api/User/{id}", Method.DELETE);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", userId);
 
             IRestResponse response = client.Execute(request);
 
-            AnalysResponse(response.StatusCode, "Delete", "user", "with id" + userId);
+            AnalysResponse(response, "Delete", "user", "with id" + userId);
         }
 
         /// <summary>
@@ -183,7 +210,7 @@ namespace TicketSystem.RestApiClient
             RestClient client = PrepareRequest(ref request);
             IRestResponse<User> response = client.Execute<User>(request);
 
-            AnalysResponse(response.StatusCode, "add", "new user");
+            AnalysResponse(response, "add", "new user");
 
             return response.Data;
         }
@@ -212,13 +239,13 @@ namespace TicketSystem.RestApiClient
         /// <summary>
         /// Analys response status code
         /// </summary>
-        /// <param name="statusCode">Response status code</param>
+        /// <param name="response">Response status code</param>
         /// <param name="toDo">What did request ask todo</param>
         /// <param name="toWhat">What did request ask to do that to</param>
         /// <param name="withId">Did request ask to do that to a specfic index? Then specify that to</param>
-        private void AnalysResponse(HttpStatusCode statusCode, string toDo, string toWhat, string withId = null)
+        private List<Parameter> AnalysResponse(IRestResponse response, string toDo, string toWhat, string withId = null)
         {
-            switch (statusCode)
+            switch (response.StatusCode)
             {
                 case HttpStatusCode.Unauthorized:
                     throw new UnauthorizedAccessException(string.Format("Unauthorized {0} {1} {2}", toDo, toWhat, withId));
@@ -232,6 +259,12 @@ namespace TicketSystem.RestApiClient
                 case HttpStatusCode.NoContent:
                     throw new NullReferenceException(string.Format("{0} {1} is not found", toWhat, withId));
             }
+
+            List<Parameter> headers = new List<Parameter>(response.Headers);
+
+
+
+            return headers;
         }
     }
 }
