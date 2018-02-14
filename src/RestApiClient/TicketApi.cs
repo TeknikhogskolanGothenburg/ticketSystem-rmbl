@@ -36,9 +36,9 @@ namespace TicketSystem.RestApiClient
         /// Get all tickets, from one user
         /// </summary>
         /// <returns>List with Ticket objects</returns>
-        public List<Ticket> GetTickets(int userId)
+        public List<Ticket> GetTicketsByUser(int userId)
         {
-            RestRequest request = new RestRequest("tickets/{id}", Method.GET);
+            RestRequest request = new RestRequest("api/User/tickets/{id}", Method.GET);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", userId);
 

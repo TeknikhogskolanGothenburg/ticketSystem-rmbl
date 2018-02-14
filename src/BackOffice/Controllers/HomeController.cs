@@ -22,7 +22,7 @@ namespace BackOffice.Controllers
         {
             ApiInformation api = new ApiInformation();
 
-            if (TempData["Userid"] != null)
+            if ((TempData != null) && TempData["Userid"] != null)
             {
                 ticketApi = new TicketApi(api.Key, api.Secret, (int)TempData["SessionId"], (string)TempData["SessionSecret"]);
             }
