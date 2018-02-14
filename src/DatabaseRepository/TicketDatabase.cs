@@ -152,29 +152,7 @@ namespace TicketSystem.DatabaseRepository
                 command.Connection.Open();
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
-        }
-
-        public void FranchiseAdd(string name)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand("INSERT INTO Franchise VALUES('@name')", connection);
-                command.ExecuteNonQuery();
-                
-            }
-        }
-
-        public void ApiKeyAdd(string key, string secret)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand("INSERT INTO ApiKeys(KeyValue, Secret) VALUES(@key, @secret)", connection);
-                command.ExecuteNonQuery();
-
-            }
-        }
+        }      
 
         public List<Flight> FlightFind(string query)
         {

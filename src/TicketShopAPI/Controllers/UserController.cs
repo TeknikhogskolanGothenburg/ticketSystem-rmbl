@@ -31,20 +31,21 @@ namespace TicketShopAPI.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            string apiKey = Request.Headers["Authorization"];
-            if (security.IsAuthorised("NotSureyet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 List<User> allusers = new List<User>();
                 allusers = TicketDb.UserFind("");
                 if (allusers.Count != 0)
                 {
-
                     return allusers.Select(u => JsonConvert.SerializeObject(u));
                 }
                 else
                 {
                     Response.StatusCode = (int)HttpStatusCode.NoContent;
-                    return new string[] { "no users registered" };
+                    return new string[] { "no users registered" };                    
                 }
             }
             else
@@ -52,7 +53,6 @@ namespace TicketShopAPI.Controllers
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
-
         }
 
         /// <summary>
@@ -68,25 +68,29 @@ namespace TicketShopAPI.Controllers
         [HttpGet("{id}")]
         public IEnumerable<string> Get(int id)
         {
-            List<User> users = new List<User>();
-            if (security.IsAuthorised("NotSureYet"))
+            
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
+                List<User> users = new List<User>();
                 users = TicketDb.UserFind(id.ToString());
+                if (users.Count != 0)
+                {
+                    return users.Select(u => JsonConvert.SerializeObject(u));
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NoContent;
+                    return new string[] { "no such user registered" };
+                }
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
                 return new string[] { "access denied" };
-            }
-            if (users.Count != 0)
-            {
-                return users.Select(u => JsonConvert.SerializeObject(u));
-            }
-            else
-            {
-                Response.StatusCode = (int)HttpStatusCode.NoContent;
-                return new string[] { "no such user registered" };
-            }
+            }            
         }
 
         [HttpGet("{id}/Ticket")]

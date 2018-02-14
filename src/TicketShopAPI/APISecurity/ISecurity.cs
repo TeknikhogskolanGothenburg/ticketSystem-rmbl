@@ -27,7 +27,7 @@ namespace TicketShopAPI.APISecurity
         /// </summary>
         /// <param name="credentials">variable to be evaluated</param>
         /// <returns>bool indicating validity of credentials </returns>
-        bool IsAuthorised(string credentials);
+        bool IsAuthorised(string apiKeyData, string sessionData, int grade);
         
     }
 }
