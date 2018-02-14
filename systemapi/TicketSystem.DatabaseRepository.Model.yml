@@ -4,9 +4,9 @@ items:
   commentId: N:TicketSystem.DatabaseRepository.Model
   id: TicketSystem.DatabaseRepository.Model
   children:
-  - TicketSystem.DatabaseRepository.Model.TicketEvent
-  - TicketSystem.DatabaseRepository.Model.TicketEventDate
-  - TicketSystem.DatabaseRepository.Model.Venue
+  - TicketSystem.DatabaseRepository.Model.Ticket
+  - TicketSystem.DatabaseRepository.Model.Transaction
+  - TicketSystem.DatabaseRepository.Model.User
   langs:
   - csharp
   - vb
@@ -17,26 +17,27 @@ items:
   assemblies:
   - DatabaseRepository
 references:
-- uid: TicketSystem.DatabaseRepository.Model.TicketEvent
-  commentId: T:TicketSystem.DatabaseRepository.Model.TicketEvent
+- uid: TicketSystem.DatabaseRepository.Model.Ticket
+  commentId: T:TicketSystem.DatabaseRepository.Model.Ticket
   parent: TicketSystem.DatabaseRepository.Model
   isExternal: false
-  name: TicketEvent
-  nameWithType: TicketEvent
-  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent
-- uid: TicketSystem.DatabaseRepository.Model.TicketEventDate
-  commentId: T:TicketSystem.DatabaseRepository.Model.TicketEventDate
-  isExternal: false
-  name: TicketEventDate
-  nameWithType: TicketEventDate
-  fullName: TicketSystem.DatabaseRepository.Model.TicketEventDate
-- uid: TicketSystem.DatabaseRepository.Model.Venue
-  commentId: T:TicketSystem.DatabaseRepository.Model.Venue
+  name: Ticket
+  nameWithType: Ticket
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket
+- uid: TicketSystem.DatabaseRepository.Model.Transaction
+  commentId: T:TicketSystem.DatabaseRepository.Model.Transaction
   parent: TicketSystem.DatabaseRepository.Model
   isExternal: false
-  name: Venue
-  nameWithType: Venue
-  fullName: TicketSystem.DatabaseRepository.Model.Venue
+  name: Transaction
+  nameWithType: Transaction
+  fullName: TicketSystem.DatabaseRepository.Model.Transaction
+- uid: TicketSystem.DatabaseRepository.Model.User
+  commentId: T:TicketSystem.DatabaseRepository.Model.User
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: User
+  nameWithType: User
+  fullName: TicketSystem.DatabaseRepository.Model.User
 - uid: TicketSystem.DatabaseRepository.Model
   commentId: N:TicketSystem.DatabaseRepository.Model
   isExternal: false

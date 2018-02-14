@@ -1,39 +1,36 @@
 ### YamlMime:ManagedReference
 items:
-- uid: TicketSystem.PaymentProvider.PaymentProvider
-  commentId: T:TicketSystem.PaymentProvider.PaymentProvider
-  id: PaymentProvider
-  parent: TicketSystem.PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model.Transaction
+  commentId: T:TicketSystem.DatabaseRepository.Model.Transaction
+  id: Transaction
+  parent: TicketSystem.DatabaseRepository.Model
   children:
-  - TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
+  - TicketSystem.DatabaseRepository.Model.Transaction.ID
+  - TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId
+  - TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus
   langs:
   - csharp
   - vb
-  name: PaymentProvider
-  nameWithType: PaymentProvider
-  fullName: TicketSystem.PaymentProvider.PaymentProvider
+  name: Transaction
+  nameWithType: Transaction
+  fullName: TicketSystem.DatabaseRepository.Model.Transaction
   type: Class
   source:
     remote:
-      path: src/PaymentProvider/PaymentProvider.cs
+      path: src/DatabaseRepository/Model/Transaction.cs
       branch: mattias
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: PaymentProvider
-    path: src/PaymentProvider/PaymentProvider.cs
-    startLine: 4
+    id: Transaction
+    path: src/DatabaseRepository/Model/Transaction.cs
+    startLine: 6
   assemblies:
-  - PaymentProvider
-  namespace: TicketSystem.PaymentProvider
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: 'public class PaymentProvider : IPaymentProvider'
-    content.vb: >-
-      Public Class PaymentProvider
-
-          Implements IPaymentProvider
+    content: public class Transaction
+    content.vb: Public Class Transaction
   inheritance:
   - System.Object
-  implements:
-  - TicketSystem.PaymentProvider.IPaymentProvider
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -48,60 +45,118 @@ items:
   modifiers.vb:
   - Public
   - Class
-- uid: TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
-  commentId: M:TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
-  id: Pay(System.Decimal,System.String,System.String)
-  parent: TicketSystem.PaymentProvider.PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model.Transaction.ID
+  commentId: P:TicketSystem.DatabaseRepository.Model.Transaction.ID
+  id: ID
+  parent: TicketSystem.DatabaseRepository.Model.Transaction
   langs:
   - csharp
   - vb
-  name: Pay(Decimal, String, String)
-  nameWithType: PaymentProvider.Pay(Decimal, String, String)
-  fullName: TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal, System.String, System.String)
-  type: Method
+  name: ID
+  nameWithType: Transaction.ID
+  fullName: TicketSystem.DatabaseRepository.Model.Transaction.ID
+  type: Property
   source:
     remote:
-      path: src/PaymentProvider/PaymentProvider.cs
+      path: src/DatabaseRepository/Model/Transaction.cs
       branch: mattias
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: Pay
-    path: src/PaymentProvider/PaymentProvider.cs
-    startLine: 15
+    id: ID
+    path: src/DatabaseRepository/Model/Transaction.cs
+    startLine: 8
   assemblies:
-  - PaymentProvider
-  namespace: TicketSystem.PaymentProvider
-  summary: "\nSimulate a payment provider\nOne out of 20 payments results in an unknown error\nThree out of 20 payments results in payment rejected\n"
-  example: []
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: public Payment Pay(decimal amountToPay, string valuta, string orderReference)
-    parameters:
-    - id: amountToPay
-      type: System.Decimal
-      description: The amount to pay
-    - id: valuta
-      type: System.String
-      description: A three letter code (following ISO 4217) represending the valuta of the amount
-    - id: orderReference
-      type: System.String
-      description: A Guid which is the internal reference of the payment system
+    content: public int ID { get; set; }
+    parameters: []
     return:
-      type: TicketSystem.PaymentProvider.Payment
-      description: A payment object, containging the status of the order
-    content.vb: Public Function Pay(amountToPay As Decimal, valuta As String, orderReference As String) As Payment
-  overload: TicketSystem.PaymentProvider.PaymentProvider.Pay*
-  implements:
-  - TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+      type: System.Int32
+    content.vb: Public Property ID As Integer
+  overload: TicketSystem.DatabaseRepository.Model.Transaction.ID*
   modifiers.csharp:
   - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus
+  commentId: P:TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus
+  id: PaymentStatus
+  parent: TicketSystem.DatabaseRepository.Model.Transaction
+  langs:
+  - csharp
+  - vb
+  name: PaymentStatus
+  nameWithType: Transaction.PaymentStatus
+  fullName: TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/Transaction.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: PaymentStatus
+    path: src/DatabaseRepository/Model/Transaction.cs
+    startLine: 9
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public string PaymentStatus { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PaymentStatus As String
+  overload: TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId
+  commentId: P:TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId
+  id: PaymentReferenceId
+  parent: TicketSystem.DatabaseRepository.Model.Transaction
+  langs:
+  - csharp
+  - vb
+  name: PaymentReferenceId
+  nameWithType: Transaction.PaymentReferenceId
+  fullName: TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/Transaction.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: PaymentReferenceId
+    path: src/DatabaseRepository/Model/Transaction.cs
+    startLine: 10
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public string PaymentReferenceId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PaymentReferenceId As String
+  overload: TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId*
+  modifiers.csharp:
+  - public
+  - get
+  - set
   modifiers.vb:
   - Public
 references:
-- uid: TicketSystem.PaymentProvider
-  commentId: N:TicketSystem.PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model
+  commentId: N:TicketSystem.DatabaseRepository.Model
   isExternal: false
-  name: TicketSystem.PaymentProvider
-  nameWithType: TicketSystem.PaymentProvider
-  fullName: TicketSystem.PaymentProvider
+  name: TicketSystem.DatabaseRepository.Model
+  nameWithType: TicketSystem.DatabaseRepository.Model
+  fullName: TicketSystem.DatabaseRepository.Model
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -109,13 +164,6 @@ references:
   name: Object
   nameWithType: Object
   fullName: System.Object
-- uid: TicketSystem.PaymentProvider.IPaymentProvider
-  commentId: T:TicketSystem.PaymentProvider.IPaymentProvider
-  parent: TicketSystem.PaymentProvider
-  isExternal: false
-  name: IPaymentProvider
-  nameWithType: IPaymentProvider
-  fullName: TicketSystem.PaymentProvider.IPaymentProvider
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -401,90 +449,25 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: TicketSystem.PaymentProvider.PaymentProvider.Pay*
-  commentId: Overload:TicketSystem.PaymentProvider.PaymentProvider.Pay
+- uid: TicketSystem.DatabaseRepository.Model.Transaction.ID*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.Transaction.ID
   isExternal: false
-  name: Pay
-  nameWithType: PaymentProvider.Pay
-  fullName: TicketSystem.PaymentProvider.PaymentProvider.Pay
-- uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-  commentId: M:TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-  parent: TicketSystem.PaymentProvider.IPaymentProvider
-  isExternal: true
-  name: Pay(Decimal, String, String)
-  nameWithType: IPaymentProvider.Pay(Decimal, String, String)
-  fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal, System.String, System.String)
-  spec.csharp:
-  - uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-    name: Pay
-    nameWithType: IPaymentProvider.Pay
-    fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Decimal
-    name: Decimal
-    nameWithType: Decimal
-    fullName: System.Decimal
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-    name: Pay
-    nameWithType: IPaymentProvider.Pay
-    fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Decimal
-    name: Decimal
-    nameWithType: Decimal
-    fullName: System.Decimal
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Decimal
-  commentId: T:System.Decimal
+  name: ID
+  nameWithType: Transaction.ID
+  fullName: TicketSystem.DatabaseRepository.Model.Transaction.ID
+- uid: System.Int32
+  commentId: T:System.Int32
   parent: System
   isExternal: true
-  name: Decimal
-  nameWithType: Decimal
-  fullName: System.Decimal
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus
+  isExternal: false
+  name: PaymentStatus
+  nameWithType: Transaction.PaymentStatus
+  fullName: TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -492,10 +475,9 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
-- uid: TicketSystem.PaymentProvider.Payment
-  commentId: T:TicketSystem.PaymentProvider.Payment
-  parent: TicketSystem.PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId
   isExternal: false
-  name: Payment
-  nameWithType: Payment
-  fullName: TicketSystem.PaymentProvider.Payment
+  name: PaymentReferenceId
+  nameWithType: Transaction.PaymentReferenceId
+  fullName: TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId

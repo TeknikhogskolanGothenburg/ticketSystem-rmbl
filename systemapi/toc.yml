@@ -1,20 +1,38 @@
 ### YamlMime:TableOfContent
+- uid: TicketShopAPI
+  name: TicketShopAPI
+  items:
+  - uid: TicketShopAPI.Program
+    name: Program
+  - uid: TicketShopAPI.Startup
+    name: Startup
+- uid: TicketShopAPI.Controllers
+  name: TicketShopAPI.Controllers
+  items:
+  - uid: TicketShopAPI.Controllers.TicketController
+    name: TicketController
+  - uid: TicketShopAPI.Controllers.UserController
+    name: UserController
 - uid: TicketSystem.DatabaseRepository
   name: TicketSystem.DatabaseRepository
   items:
+  - uid: TicketSystem.DatabaseRepository.ISecurity
+    name: ISecurity
   - uid: TicketSystem.DatabaseRepository.ITicketDatabase
     name: ITicketDatabase
+  - uid: TicketSystem.DatabaseRepository.Security
+    name: Security
   - uid: TicketSystem.DatabaseRepository.TicketDatabase
     name: TicketDatabase
 - uid: TicketSystem.DatabaseRepository.Model
   name: TicketSystem.DatabaseRepository.Model
   items:
-  - uid: TicketSystem.DatabaseRepository.Model.TicketEvent
-    name: TicketEvent
-  - uid: TicketSystem.DatabaseRepository.Model.TicketEventDate
-    name: TicketEventDate
-  - uid: TicketSystem.DatabaseRepository.Model.Venue
-    name: Venue
+  - uid: TicketSystem.DatabaseRepository.Model.Ticket
+    name: Ticket
+  - uid: TicketSystem.DatabaseRepository.Model.Transaction
+    name: Transaction
+  - uid: TicketSystem.DatabaseRepository.Model.User
+    name: User
 - uid: TicketSystem.PaymentProvider
   name: TicketSystem.PaymentProvider
   items:

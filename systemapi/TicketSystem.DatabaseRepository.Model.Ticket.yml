@@ -1,39 +1,38 @@
 ### YamlMime:ManagedReference
 items:
-- uid: TicketSystem.PaymentProvider.PaymentProvider
-  commentId: T:TicketSystem.PaymentProvider.PaymentProvider
-  id: PaymentProvider
-  parent: TicketSystem.PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model.Ticket
+  commentId: T:TicketSystem.DatabaseRepository.Model.Ticket
+  id: Ticket
+  parent: TicketSystem.DatabaseRepository.Model
   children:
-  - TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
+  - TicketSystem.DatabaseRepository.Model.Ticket.BookAt
+  - TicketSystem.DatabaseRepository.Model.Ticket.FlightID
+  - TicketSystem.DatabaseRepository.Model.Ticket.ID
+  - TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber
+  - TicketSystem.DatabaseRepository.Model.Ticket.UserID
   langs:
   - csharp
   - vb
-  name: PaymentProvider
-  nameWithType: PaymentProvider
-  fullName: TicketSystem.PaymentProvider.PaymentProvider
+  name: Ticket
+  nameWithType: Ticket
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket
   type: Class
   source:
     remote:
-      path: src/PaymentProvider/PaymentProvider.cs
+      path: src/DatabaseRepository/Model/Ticket.cs
       branch: mattias
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: PaymentProvider
-    path: src/PaymentProvider/PaymentProvider.cs
-    startLine: 4
+    id: Ticket
+    path: src/DatabaseRepository/Model/Ticket.cs
+    startLine: 6
   assemblies:
-  - PaymentProvider
-  namespace: TicketSystem.PaymentProvider
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: 'public class PaymentProvider : IPaymentProvider'
-    content.vb: >-
-      Public Class PaymentProvider
-
-          Implements IPaymentProvider
+    content: public class Ticket
+    content.vb: Public Class Ticket
   inheritance:
   - System.Object
-  implements:
-  - TicketSystem.PaymentProvider.IPaymentProvider
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -48,60 +47,188 @@ items:
   modifiers.vb:
   - Public
   - Class
-- uid: TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
-  commentId: M:TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal,System.String,System.String)
-  id: Pay(System.Decimal,System.String,System.String)
-  parent: TicketSystem.PaymentProvider.PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.ID
+  commentId: P:TicketSystem.DatabaseRepository.Model.Ticket.ID
+  id: ID
+  parent: TicketSystem.DatabaseRepository.Model.Ticket
   langs:
   - csharp
   - vb
-  name: Pay(Decimal, String, String)
-  nameWithType: PaymentProvider.Pay(Decimal, String, String)
-  fullName: TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal, System.String, System.String)
-  type: Method
+  name: ID
+  nameWithType: Ticket.ID
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.ID
+  type: Property
   source:
     remote:
-      path: src/PaymentProvider/PaymentProvider.cs
+      path: src/DatabaseRepository/Model/Ticket.cs
       branch: mattias
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: Pay
-    path: src/PaymentProvider/PaymentProvider.cs
-    startLine: 15
+    id: ID
+    path: src/DatabaseRepository/Model/Ticket.cs
+    startLine: 8
   assemblies:
-  - PaymentProvider
-  namespace: TicketSystem.PaymentProvider
-  summary: "\nSimulate a payment provider\nOne out of 20 payments results in an unknown error\nThree out of 20 payments results in payment rejected\n"
-  example: []
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
   syntax:
-    content: public Payment Pay(decimal amountToPay, string valuta, string orderReference)
-    parameters:
-    - id: amountToPay
-      type: System.Decimal
-      description: The amount to pay
-    - id: valuta
-      type: System.String
-      description: A three letter code (following ISO 4217) represending the valuta of the amount
-    - id: orderReference
-      type: System.String
-      description: A Guid which is the internal reference of the payment system
+    content: public int ID { get; set; }
+    parameters: []
     return:
-      type: TicketSystem.PaymentProvider.Payment
-      description: A payment object, containging the status of the order
-    content.vb: Public Function Pay(amountToPay As Decimal, valuta As String, orderReference As String) As Payment
-  overload: TicketSystem.PaymentProvider.PaymentProvider.Pay*
-  implements:
-  - TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
+      type: System.Int32
+    content.vb: Public Property ID As Integer
+  overload: TicketSystem.DatabaseRepository.Model.Ticket.ID*
   modifiers.csharp:
   - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.UserID
+  commentId: P:TicketSystem.DatabaseRepository.Model.Ticket.UserID
+  id: UserID
+  parent: TicketSystem.DatabaseRepository.Model.Ticket
+  langs:
+  - csharp
+  - vb
+  name: UserID
+  nameWithType: Ticket.UserID
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.UserID
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/Ticket.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: UserID
+    path: src/DatabaseRepository/Model/Ticket.cs
+    startLine: 9
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public int UserID { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UserID As Integer
+  overload: TicketSystem.DatabaseRepository.Model.Ticket.UserID*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.FlightID
+  commentId: P:TicketSystem.DatabaseRepository.Model.Ticket.FlightID
+  id: FlightID
+  parent: TicketSystem.DatabaseRepository.Model.Ticket
+  langs:
+  - csharp
+  - vb
+  name: FlightID
+  nameWithType: Ticket.FlightID
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.FlightID
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/Ticket.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: FlightID
+    path: src/DatabaseRepository/Model/Ticket.cs
+    startLine: 10
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public int FlightID { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FlightID As Integer
+  overload: TicketSystem.DatabaseRepository.Model.Ticket.FlightID*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber
+  commentId: P:TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber
+  id: SeatNumber
+  parent: TicketSystem.DatabaseRepository.Model.Ticket
+  langs:
+  - csharp
+  - vb
+  name: SeatNumber
+  nameWithType: Ticket.SeatNumber
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/Ticket.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: SeatNumber
+    path: src/DatabaseRepository/Model/Ticket.cs
+    startLine: 11
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public int SeatNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SeatNumber As Integer
+  overload: TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.BookAt
+  commentId: P:TicketSystem.DatabaseRepository.Model.Ticket.BookAt
+  id: BookAt
+  parent: TicketSystem.DatabaseRepository.Model.Ticket
+  langs:
+  - csharp
+  - vb
+  name: BookAt
+  nameWithType: Ticket.BookAt
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.BookAt
+  type: Property
+  source:
+    remote:
+      path: src/DatabaseRepository/Model/Ticket.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: BookAt
+    path: src/DatabaseRepository/Model/Ticket.cs
+    startLine: 12
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public int BookAt { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BookAt As Integer
+  overload: TicketSystem.DatabaseRepository.Model.Ticket.BookAt*
+  modifiers.csharp:
+  - public
+  - get
+  - set
   modifiers.vb:
   - Public
 references:
-- uid: TicketSystem.PaymentProvider
-  commentId: N:TicketSystem.PaymentProvider
+- uid: TicketSystem.DatabaseRepository.Model
+  commentId: N:TicketSystem.DatabaseRepository.Model
   isExternal: false
-  name: TicketSystem.PaymentProvider
-  nameWithType: TicketSystem.PaymentProvider
-  fullName: TicketSystem.PaymentProvider
+  name: TicketSystem.DatabaseRepository.Model
+  nameWithType: TicketSystem.DatabaseRepository.Model
+  fullName: TicketSystem.DatabaseRepository.Model
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -109,13 +236,6 @@ references:
   name: Object
   nameWithType: Object
   fullName: System.Object
-- uid: TicketSystem.PaymentProvider.IPaymentProvider
-  commentId: T:TicketSystem.PaymentProvider.IPaymentProvider
-  parent: TicketSystem.PaymentProvider
-  isExternal: false
-  name: IPaymentProvider
-  nameWithType: IPaymentProvider
-  fullName: TicketSystem.PaymentProvider.IPaymentProvider
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -401,101 +521,40 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: TicketSystem.PaymentProvider.PaymentProvider.Pay*
-  commentId: Overload:TicketSystem.PaymentProvider.PaymentProvider.Pay
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.ID*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.Ticket.ID
   isExternal: false
-  name: Pay
-  nameWithType: PaymentProvider.Pay
-  fullName: TicketSystem.PaymentProvider.PaymentProvider.Pay
-- uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-  commentId: M:TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-  parent: TicketSystem.PaymentProvider.IPaymentProvider
-  isExternal: true
-  name: Pay(Decimal, String, String)
-  nameWithType: IPaymentProvider.Pay(Decimal, String, String)
-  fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal, System.String, System.String)
-  spec.csharp:
-  - uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-    name: Pay
-    nameWithType: IPaymentProvider.Pay
-    fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Decimal
-    name: Decimal
-    nameWithType: Decimal
-    fullName: System.Decimal
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: TicketSystem.PaymentProvider.IPaymentProvider.Pay(System.Decimal,System.String,System.String)
-    name: Pay
-    nameWithType: IPaymentProvider.Pay
-    fullName: TicketSystem.PaymentProvider.IPaymentProvider.Pay
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.Decimal
-    name: Decimal
-    nameWithType: Decimal
-    fullName: System.Decimal
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Decimal
-  commentId: T:System.Decimal
+  name: ID
+  nameWithType: Ticket.ID
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.ID
+- uid: System.Int32
+  commentId: T:System.Int32
   parent: System
   isExternal: true
-  name: Decimal
-  nameWithType: Decimal
-  fullName: System.Decimal
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
-- uid: TicketSystem.PaymentProvider.Payment
-  commentId: T:TicketSystem.PaymentProvider.Payment
-  parent: TicketSystem.PaymentProvider
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.UserID*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.Ticket.UserID
   isExternal: false
-  name: Payment
-  nameWithType: Payment
-  fullName: TicketSystem.PaymentProvider.Payment
+  name: UserID
+  nameWithType: Ticket.UserID
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.UserID
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.FlightID*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.Ticket.FlightID
+  isExternal: false
+  name: FlightID
+  nameWithType: Ticket.FlightID
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.FlightID
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber
+  isExternal: false
+  name: SeatNumber
+  nameWithType: Ticket.SeatNumber
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber
+- uid: TicketSystem.DatabaseRepository.Model.Ticket.BookAt*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.Ticket.BookAt
+  isExternal: false
+  name: BookAt
+  nameWithType: Ticket.BookAt
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket.BookAt
