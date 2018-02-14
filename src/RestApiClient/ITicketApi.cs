@@ -9,7 +9,7 @@ namespace TicketSystem.RestApiClient
         /// Get all tickets, from one user
         /// </summary>
         /// <returns>List with Ticket objects</returns>
-        List<Ticket> GetTickets(int userId);
+        List<Ticket> GetTicketsByUser(int userId);
 
         /// <summary>
         /// Get a ticket by ID from the system Returns a single ticket
