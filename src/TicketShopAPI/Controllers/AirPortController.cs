@@ -184,7 +184,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 404 NotFound</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // PUT: api/AirPort/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]JObject data)
@@ -216,7 +216,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
 
@@ -227,7 +227,7 @@ namespace TicketShopAPI.Controllers
         /// <param name="id">id of airport to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // DELETE: api/AirPort/5
         [HttpDelete("{id}")]
         public void Delete(int id)
@@ -245,7 +245,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
     }

@@ -63,7 +63,7 @@ namespace TicketShopAPI.Controllers
         /// <QueryString Value="grade">searches for user group, 1: customers, 2: administrators 3: Sensei</param>
         /// <returns> all matching customers as json | StatusCode: 200 Ok</returns>
         /// <returns> no such user registered | StatusCode: 204 NoContent</returns>
-        /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/User/5
         [HttpGet("{id}")]
         public IEnumerable<string> Get(int id)
@@ -87,7 +87,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }            
         }
@@ -105,7 +105,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
         }
@@ -117,7 +117,7 @@ namespace TicketShopAPI.Controllers
         /// <param name="user">new user to be added to database</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // POST: api/User
         [HttpPost]
         public void Post([FromBody]JObject data)
@@ -149,7 +149,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
 
         }
@@ -163,7 +163,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 404 NotFound</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         /// NOTE: Make sure 'user' class has complete property values, only password and DeletedUser can be skipped
         // PUT: api/User/5
         [HttpPut("{id}")]
@@ -206,7 +206,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
 
@@ -217,7 +217,7 @@ namespace TicketShopAPI.Controllers
         /// <param name="id">id of user to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // DELETE: api/User/5
         [HttpDelete("{id}")]
         public void Delete(int id)
@@ -235,7 +235,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
     }
