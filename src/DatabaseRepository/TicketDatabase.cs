@@ -159,7 +159,7 @@ namespace TicketSystem.DatabaseRepository
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("INSERT INTO FRANCHISE VALUES('@name')", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO Franchise VALUES('@name')", connection);
                 command.ExecuteNonQuery();
                 
             }
@@ -173,6 +173,16 @@ namespace TicketSystem.DatabaseRepository
                 SqlCommand command = new SqlCommand("INSERT INTO ApiKeys(KeyValue, Secret) VALUES(@key, @secret)", connection);
                 command.ExecuteNonQuery();
 
+            }
+        }
+
+        public List<Flight> FlightFind(string query)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<Flight>("SELECT * FROM Flights WHERE ID like '%" + query + "%'").ToList();
             }
         }
 
@@ -291,16 +301,15 @@ namespace TicketSystem.DatabaseRepository
                 connection.Open();
                 occupiedSeats = connection.Query<int>("SELECT SeatNumber FROM Tickets JOIN Flights ON Flights.ID=FlightID").ToList();
             }
-            /*****TAKE A LOOK AT THIS ONE*******/
-            //int seats = FlightFind(flightId.ToString())[0].Seats;
+            int seats = FlightFind(flightId.ToString())[0].Seats;
             List<int> avaliableSeats = new List<int>();
-            /*for (int i = 1; i <= seats; i++)
+            for (int i = 1; i <= seats; i++)
             {
                 if (!occupiedSeats.Contains(i))
                 {
                     avaliableSeats.Add(i);
                 }
-            }*/
+            }
             return avaliableSeats;
         }
 
