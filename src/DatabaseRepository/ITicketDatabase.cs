@@ -5,8 +5,6 @@ namespace TicketSystem.DatabaseRepository
 {
     public interface ITicketDatabase
     {
-<<<<<<< HEAD
-=======
         /// <summary>
         /// locates one, all or subcategory of users
         /// </summary>
@@ -14,7 +12,6 @@ namespace TicketSystem.DatabaseRepository
         /// <returns>An object List representing the users matching the search querry</returns>
         List<User> UserFind(string query);
 
->>>>>>> mattias
         /// <summary>
         /// Add a new User to the database
         /// </summary>

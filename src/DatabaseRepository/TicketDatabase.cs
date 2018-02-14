@@ -175,6 +175,12 @@ namespace TicketSystem.DatabaseRepository
 
             }
         }
+
+        public Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
                 connection.Open();
                 var data = new { @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats };
                 connection.Query("INSERT INTO Flights(DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) values(@departureDate, @departurePort, @arrivalDate, @arrivalPort, @seats)", data);
@@ -285,15 +291,16 @@ namespace TicketSystem.DatabaseRepository
                 connection.Open();
                 occupiedSeats = connection.Query<int>("SELECT SeatNumber FROM Tickets JOIN Flights ON Flights.ID=FlightID").ToList();
             }
-            int seats = FlightFind(flightId.ToString())[0].Seats;
+            /*****TAKE A LOOK AT THIS ONE*******/
+            //int seats = FlightFind(flightId.ToString())[0].Seats;
             List<int> avaliableSeats = new List<int>();
-            for (int i = 1; i <= seats; i++)
+            /*for (int i = 1; i <= seats; i++)
             {
                 if (!occupiedSeats.Contains(i))
                 {
                     avaliableSeats.Add(i);
                 }
-            }
+            }*/
             return avaliableSeats;
         }
 
@@ -327,7 +334,5 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-
->>>>>>> mattias
     }
 }
