@@ -17,4 +17,18 @@
     <ProjectReference Include="..\RestApiClient\RestApiClient.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Views\User\UserGetAllTickets.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>GetAllTickets.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\User\UserGetAllTickets.cs">
+      <DependentUpon>GetAllTickets.cshtml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
