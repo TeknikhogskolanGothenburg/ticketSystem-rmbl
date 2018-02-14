@@ -24,7 +24,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// querries database for all tickets
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> all tickets as json | StatusCode: 200 OK</returns>
         /// <returns> there are no tickts | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
@@ -62,7 +61,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// querries database for ticket by id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> ticket as json | StatusCode: 200 OK</returns>
         /// <returns> that ticket does not exsist | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
@@ -98,7 +96,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// Adds a new ticket to the database
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="data">data used to process purchase of a ticket</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
@@ -163,7 +160,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// updates a user based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="ticket">ticket data used to update</param>
         /// <param name="id">id of ticket to be updated</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
@@ -198,7 +194,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// deletes a ticket based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="id">id of ticket to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>

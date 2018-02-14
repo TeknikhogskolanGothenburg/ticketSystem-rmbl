@@ -23,7 +23,7 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// querries database for all users
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+
         /// <returns> all registered customers as json | StatusCode: 200 OK</returns>
         /// <returns> no users registered | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 401 Unauthorized</returns>
@@ -58,7 +58,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// querries database for users matching a condition
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="id">user id used in database querry</param>
         /// <QueryString Value="grade">searches for user group, 1: customers, 2: administrators 3: Sensei</param>
         /// <returns> all matching customers as json | StatusCode: 200 Ok</returns>
@@ -113,7 +112,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// Adds a new user to the database
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="user">new user to be added to database</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
@@ -157,7 +155,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// updates a user based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="data">user data used to update</param>
         /// <param name="id">id of user to be updated</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
@@ -213,7 +210,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// deletes a user based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="id">id of user to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>

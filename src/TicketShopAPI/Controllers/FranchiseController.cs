@@ -35,6 +35,12 @@ namespace TicketShopAPI.Controllers
         //    return "value";
         //}
 
+        /// <summary>
+        /// querries database for an apiKey based on id
+        /// </summary>
+        /// <param name="id">id of apikey to be found</param>
+        /// <returns>void | StatusCode: 200 Ok</returns>
+        /// /// <returns>void | StatusCode: 401 Unauthorized</returns>
         [HttpGet("{id}/Key")]
         public string GetKey(int id)
         {
@@ -47,6 +53,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return "access denied";
             }
         }

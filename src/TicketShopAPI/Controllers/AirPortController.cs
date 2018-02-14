@@ -23,8 +23,7 @@ namespace TicketShopAPI.Controllers
 
         /// <summary>
         /// querries database for all AirPorts
-        /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+        /// </summary>       
         /// <returns> all AirPorts as json | StatusCode: 200 OK</returns>
         /// <returns> there are no AirPorts | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
@@ -61,8 +60,7 @@ namespace TicketShopAPI.Controllers
 
         /// <summary>
         /// querries database for AirPort by id
-        /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+        /// </summary>        
         /// <returns> ticket as json | StatusCode: 200 OK</returns>
         /// <returns> that AirPort does not exsist | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
@@ -95,6 +93,13 @@ namespace TicketShopAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// querries database for departure flights from a specific airport
+        /// </summary>
+        /// <param name="id">id of airport</param>
+        /// <returns> List of flights as json | StatusCode: 200 OK</returns>
+        /// <returns> | StatusCode: 401 Unauthorized</returns>
+        // GET: api/AirPort/5/DepartureFlight
         [HttpGet("{id}/DepartureFlight")]
         public IEnumerable<string> GetDepartureFlight(int id)
         {
@@ -113,6 +118,13 @@ namespace TicketShopAPI.Controllers
 
         }
 
+        /// <summary>
+        /// querries database for arrival flights from a specific airport
+        /// </summary>
+        /// <param name="id">id of airport</param>
+        /// <returns> List of flights as json | StatusCode: 200 OK</returns>
+        /// <returns> | StatusCode: 401 Unauthorized</returns>
+        // GET: api/AirPort/5/ArrivalFlight
         [HttpGet("{id}/ArrivalFlight")]
         public IEnumerable<string> GetArrivalFligth(int id)
         {
@@ -132,8 +144,7 @@ namespace TicketShopAPI.Controllers
 
         /// <summary>
         /// Adds a new AirPort to the database
-        /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+        /// </summary>        
         /// <param name="data">new AirPort data to be added to database</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
@@ -178,7 +189,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// updates a AirPort based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="data">AirPort data used to update</param>
         /// <param name="id">id of AirPort to be updated</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
@@ -222,8 +232,7 @@ namespace TicketShopAPI.Controllers
 
         /// <summary>
         /// deletes an airport based on id
-        /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+        /// </summary>       
         /// <param name="id">id of airport to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>

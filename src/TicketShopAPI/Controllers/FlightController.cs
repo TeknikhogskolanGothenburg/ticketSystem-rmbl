@@ -24,7 +24,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// querries database for all flights
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> all flights as json | StatusCode: 200 OK</returns>
         /// <returns> there are no flights | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
@@ -63,7 +62,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// querries database for flight by id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> ticket as json | StatusCode: 200 OK</returns>
         /// <returns> that flight does not exsist | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
@@ -105,7 +103,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// Adds a new Flight to the database
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="data">new flight data to be added to database</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
@@ -151,7 +148,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// updates a Flight based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="data">flight data used to update</param>
         /// <param name="id">id of flight to be updated</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
@@ -196,7 +192,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// deletes a flight based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="id">id of flight to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
