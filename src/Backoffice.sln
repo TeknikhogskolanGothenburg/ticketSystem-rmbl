@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiClient", "RestApiCli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackOffice", "BackOffice\BackOffice.csproj", "{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationLibrary", "AuthenticationLibrary\AuthenticationLibrary.csproj", "{CF6CE314-1C61-4494-A683-524002D18F83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationLibrary", "AuthenticationLibrary\AuthenticationLibrary.csproj", "{1F7F6AF5-7BB7-4690-9E9A-E8F1D4217FFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA7B522-F37B-4A20-90C3-5FFD3831E7C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF6CE314-1C61-4494-A683-524002D18F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF6CE314-1C61-4494-A683-524002D18F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF6CE314-1C61-4494-A683-524002D18F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF6CE314-1C61-4494-A683-524002D18F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F7F6AF5-7BB7-4690-9E9A-E8F1D4217FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F7F6AF5-7BB7-4690-9E9A-E8F1D4217FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F7F6AF5-7BB7-4690-9E9A-E8F1D4217FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F7F6AF5-7BB7-4690-9E9A-E8F1D4217FFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

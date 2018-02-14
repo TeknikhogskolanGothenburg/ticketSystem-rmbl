@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiClient", "RestApiCli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketShop", "TicketShop\TicketShop.csproj", "{045BBC16-4925-4906-8854-CFC57F62C008}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationLibrary", "AuthenticationLibrary\AuthenticationLibrary.csproj", "{5255B1E8-8AF8-4BCF-8A36-103A2E098AF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationLibrary", "AuthenticationLibrary\AuthenticationLibrary.csproj", "{5041F879-83DA-4838-B0DC-E1FA3F225852}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{045BBC16-4925-4906-8854-CFC57F62C008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{045BBC16-4925-4906-8854-CFC57F62C008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{045BBC16-4925-4906-8854-CFC57F62C008}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5255B1E8-8AF8-4BCF-8A36-103A2E098AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5255B1E8-8AF8-4BCF-8A36-103A2E098AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5255B1E8-8AF8-4BCF-8A36-103A2E098AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5255B1E8-8AF8-4BCF-8A36-103A2E098AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5041F879-83DA-4838-B0DC-E1FA3F225852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5041F879-83DA-4838-B0DC-E1FA3F225852}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5041F879-83DA-4838-B0DC-E1FA3F225852}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5041F879-83DA-4838-B0DC-E1FA3F225852}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
