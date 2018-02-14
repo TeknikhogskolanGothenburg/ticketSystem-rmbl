@@ -15,42 +15,46 @@ using TicketShopAPI.APISecurity;
 namespace TicketShopAPI.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Transaction")]
-    public class TransactionController : Controller
+    [Route("api/Franchise")]
+    public class FranchiseController : Controller
     {
         private Security security = new Security();
         private TicketDatabase TicketDb = new TicketDatabase();
 
-        // GET: api/Transaction
-        [HttpGet]
-        public IEnumerable<string> Get()
+        //// GET: api/Franchise
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+
+        //// GET: api/Franchise/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
+
+        [HttpGet("{id}/Key")]
+        public string GetKey(int id)
         {
-            if (security.IsAuthorised(""))
+            if (security.IsAuthorised("NotSureyet"))
             {
-                List<Transaction> allTransactions = TicketDb.TransactionFind();
-                return allTransactions.Select(t => JsonConvert.SerializeObject(t));
+                return TicketDb.APIKeyFind(id);
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                return null;
+                return "access denied";
             }
         }
 
-        //// GET: api/Transaction/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return null;
-        //}
-
-        //// POST: api/Transaction
+        //// POST: api/Franchise
         //[HttpPost]
         //public void Post([FromBody]string value)
         //{
         //}
 
-        //// PUT: api/Transaction/5
+        //// PUT: api/Franchise/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody]string value)
         //{

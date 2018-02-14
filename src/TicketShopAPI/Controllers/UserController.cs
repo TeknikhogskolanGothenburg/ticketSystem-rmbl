@@ -9,7 +9,7 @@ using TicketSystem.DatabaseRepository;
 using TicketSystem.DatabaseRepository.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
+using TicketShopAPI.APISecurity;
 
 namespace TicketShopAPI.Controllers
 {
@@ -24,33 +24,35 @@ namespace TicketShopAPI.Controllers
         /// querries database for all users
         /// </summary>
         /// <param name="NotSureYet">value that determines if client has access to the api</param>
-        /// <returns> all registered customers as json</returns>
+        /// <returns> all registered customers as json | StatusCode: 200 OK</returns>
         /// <returns> no users registered | StatusCode: 204 NoContent</returns>
-        /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns> access denied | StatusCode: 401 Unauthorized</returns>
         // GET: api/User
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            List<User> allusers = new List<User>();
+            string apiKey = Request.Headers["Authorization"];
             if (security.IsAuthorised("NotSureyet"))
             {
+                List<User> allusers = new List<User>();
                 allusers = TicketDb.UserFind("");
+                if (allusers.Count != 0)
+                {
+
+                    return allusers.Select(u => JsonConvert.SerializeObject(u));
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NoContent;
+                    return new string[] { "no users registered" };
+                }
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
-            if (allusers.Count != 0)
-            {
 
-                return allusers.Select(u => JsonConvert.SerializeObject(u));
-            }
-            else
-            {
-                Response.StatusCode = (int)HttpStatusCode.NoContent;
-                return new string[] { "no users registered" };
-            }
         }
 
         /// <summary>
@@ -90,7 +92,16 @@ namespace TicketShopAPI.Controllers
         [HttpGet("{id}/Ticket")]
         public IEnumerable<string> GetUserTicket(int id)
         {
-            return new string[] { "", "" };
+            if (security.IsAuthorised(""))
+            {
+                List<Ticket> tickets = TicketDb.TicketforUserFind(id);
+                return tickets.Select(t => JsonConvert.SerializeObject(t));
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                return new string[] { "access denied" };
+            }
         }
 
         /// <summary>
@@ -101,13 +112,14 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
-            // POST: api/User
+        // POST: api/User
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
             if (security.IsAuthorised("NotSureYet"))
             {
                 User user = data["User"].ToObject<User>();
+
                 if (user == null)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -143,7 +155,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 404 NotFound</returns>
         /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
-        // NOTE: Make sure 'user' class has complete property values, only password can be skipped by sending null
+        /// NOTE: Make sure 'user' class has complete property values, only password and DeletedUser can be skipped
         // PUT: api/User/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]JObject data)

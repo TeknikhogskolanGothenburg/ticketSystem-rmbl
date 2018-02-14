@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
-namespace TicketSystem.DatabaseRepository
-{
+
+namespace TicketShopAPI.APISecurity
+{ 
     public class Security : ISecurity
     {
         //public string GenerateSalt()
@@ -24,7 +25,7 @@ namespace TicketSystem.DatabaseRepository
 
         public bool IsAuthorised(string credentials)
         {
-            //checks to see if authentication value is valid
+            
             return true;
         }
     }

@@ -10,6 +10,7 @@ using TicketSystem.DatabaseRepository.Model;
 using Newtonsoft.Json;
 using TicketSystem.PaymentProvider;
 using Newtonsoft.Json.Linq;
+using TicketShopAPI.APISecurity;
 
 namespace TicketShopAPI.Controllers
 {

@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TicketSystem.DatabaseRepository
+namespace TicketShopAPI.APISecurity
 {
     public interface ISecurity
     {
         /// <summary>
         /// Generates a new random salt string
+        /// DEACTIVATED
         /// </summary>        
         /// <returns>salt string</returns>
         //string GenerateSalt();
 
         /// <summary>
         /// Generates a new SAH256 encrypted password
+        /// DEACTIVATED
         /// </summary>
         /// <param name="password">password to be encrypted</param>
         /// <param name="salt">salt to be used in encryption</param>
