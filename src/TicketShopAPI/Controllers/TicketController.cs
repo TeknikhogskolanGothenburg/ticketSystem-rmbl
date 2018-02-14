@@ -32,26 +32,31 @@ namespace TicketShopAPI.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            List<Ticket> allTickets = new List<Ticket>();
-            if (security.IsAuthorised("NotSureYet"))
+
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
+                List<Ticket> allTickets = new List<Ticket>();
                 allTickets = TicketDb.TicketFind("");
+                if (allTickets.Count != 0)
+                {
+
+                    return allTickets.Select(u => JsonConvert.SerializeObject(u));
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NoContent;
+                    return new string[] { "there are no tickts" };
+                }
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
-            if (allTickets.Count != 0)
-            {
 
-                return allTickets.Select(u => JsonConvert.SerializeObject(u));
-            }
-            else
-            {
-                Response.StatusCode = (int)HttpStatusCode.NoContent;
-                return new string[] { "there are no tickts" };
-            }
         }
 
         /// <summary>
@@ -65,7 +70,10 @@ namespace TicketShopAPI.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 Ticket ticket = new Ticket();
                 List<Ticket> queryResult = TicketDb.TicketFind(id.ToString());
@@ -101,7 +109,10 @@ namespace TicketShopAPI.Controllers
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
-            if (security.IsAuthorised(Request.Headers["Authorization"]))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 Ticket ticket;
                 try
@@ -163,7 +174,10 @@ namespace TicketShopAPI.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Ticket ticket)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 if (ticket == null)
                 {
@@ -196,7 +210,10 @@ namespace TicketShopAPI.Controllers
         {            
             Response.StatusCode = (int)HttpStatusCode.NotImplemented;
             return;
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 try
                 {

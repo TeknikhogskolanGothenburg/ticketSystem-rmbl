@@ -32,26 +32,31 @@ namespace TicketShopAPI.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            List<Flight> allFlights = new List<Flight>();
-            if (security.IsAuthorised("NotSureYet"))
+
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
+                List<Flight> allFlights = new List<Flight>();
                 allFlights = TicketDb.FlightFind("");
+                if (allFlights.Count != 0)
+                {
+
+                    return allFlights.Select(u => JsonConvert.SerializeObject(u));
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NoContent;
+                    return new string[] { "there are no flights" };
+                }
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
-            if (allFlights.Count != 0)
-            {
-
-                return allFlights.Select(u => JsonConvert.SerializeObject(u));
-            }
-            else
-            {
-                Response.StatusCode = (int)HttpStatusCode.NoContent;
-                return new string[] { "there are no flights" };
-            }
+            
         }
 
 
@@ -66,7 +71,10 @@ namespace TicketShopAPI.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 Flight flight = new Flight();
                 List<Flight> queryResult = TicketDb.FlightFind(id.ToString());
@@ -108,7 +116,10 @@ namespace TicketShopAPI.Controllers
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
-            if (security.IsAuthorised(Request.Headers["Authorization"]))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 Flight flight;
                 try
@@ -151,7 +162,10 @@ namespace TicketShopAPI.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]JObject data)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 Flight flight;
                 try
@@ -191,7 +205,10 @@ namespace TicketShopAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 bool deleteSuccessful = TicketDb.FlightDelete(id);
                 if (!deleteSuccessful)

@@ -38,7 +38,10 @@ namespace TicketShopAPI.Controllers
         [HttpGet("{id}/Key")]
         public string GetKey(int id)
         {
-            if (security.IsAuthorised("NotSureyet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 return TicketDb.APIKeyFind(id);
             }

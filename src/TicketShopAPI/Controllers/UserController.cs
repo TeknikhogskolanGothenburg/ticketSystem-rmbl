@@ -67,11 +67,10 @@ namespace TicketShopAPI.Controllers
         // GET: api/User/5
         [HttpGet("{id}")]
         public IEnumerable<string> Get(int id)
-        {
-            
+        {            
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
-            int gradeRestriction = 2;
+            int gradeRestriction = 1;
             if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 List<User> users = new List<User>();
@@ -96,7 +95,10 @@ namespace TicketShopAPI.Controllers
         [HttpGet("{id}/Ticket")]
         public IEnumerable<string> GetUserTicket(int id)
         {
-            if (security.IsAuthorised(""))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 List<Ticket> tickets = TicketDb.TicketforUserFind(id);
                 return tickets.Select(t => JsonConvert.SerializeObject(t));
@@ -120,7 +122,10 @@ namespace TicketShopAPI.Controllers
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 User user = data["User"].ToObject<User>();
 
@@ -164,7 +169,10 @@ namespace TicketShopAPI.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]JObject data)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 User user;
                 try
@@ -214,7 +222,10 @@ namespace TicketShopAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 bool deleteSuccessful = TicketDb.UserDelete(id);
                 if (!deleteSuccessful)

@@ -25,7 +25,10 @@ namespace TicketShopAPI.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            if (security.IsAuthorised(""))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 List<Transaction> allTransactions = TicketDb.TransactionFind();
                 return allTransactions.Select(t => JsonConvert.SerializeObject(t));

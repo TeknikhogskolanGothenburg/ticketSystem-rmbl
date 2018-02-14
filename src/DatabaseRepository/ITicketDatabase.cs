@@ -191,31 +191,30 @@ namespace TicketSystem.DatabaseRepository
         List<Flight> AirportArrivalsFind(int portId);
 
         /// <summary>
-        /// Deletes a user from the database
+        /// finds all avaliable seats on a specific flight
         /// </summary>
-        /// <param name="id">value that db querry tries to match for removal</param>
-        /// <returns>a bool indicating whether the delete command was successful</returns>
+        /// <param name="flightId">the id of the flight in question</param>
+        /// <returns>a list of seat numbers</returns>
         List<int> AvaliableSeatsFind(int flightId);
 
         /// <summary>
-        /// Deletes a user from the database
+        /// Finds an apiKey with a specific ID
         /// </summary>
-        /// <param name="id">value that db querry tries to match for removal</param>
-        /// <returns>a bool indicating whether the delete command was successful</returns>
+        /// <param name="id">id used in query to match</param>
+        /// <returns>the ApiKey string</returns>
         string APIKeyFind(int id);
 
         /// <summary>
-        /// Deletes a user from the database
+        /// finds an api key secret
         /// </summary>
-        /// <param name="id">value that db querry tries to match for removal</param>
-        /// <returns>a bool indicating whether the delete command was successful</returns>
+        /// <param name="id">the id of the api key sectet</param>
+        /// <returns>the api key secret string</returns>
         string APISecretFind(int id);
 
         /// <summary>
-        /// Deletes a user from the database
+        /// finds all transactions
         /// </summary>
-        /// <param name="id">value that db querry tries to match for removal</param>
-        /// <returns>a bool indicating whether the delete command was successful</returns>
+        /// <returns>a list containing objects representing a transaction</returns>
         List<Transaction> TransactionFind();
     }
 }
