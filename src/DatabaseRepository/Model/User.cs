@@ -15,6 +15,7 @@ namespace TicketSystem.DatabaseRepository.Model
         public string City { get; set; }
         public string ZipCode { get; set; }
         public string Address { get; set; }
+        public bool DeletedUser { get; set; }
         public int Grade { get; set; }
     }
 }

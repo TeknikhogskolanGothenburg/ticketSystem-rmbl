@@ -23,7 +23,7 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// querries database for all users
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
+
         /// <returns> all registered customers as json | StatusCode: 200 OK</returns>
         /// <returns> no users registered | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 401 Unauthorized</returns>
@@ -31,20 +31,21 @@ namespace TicketShopAPI.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            string apiKey = Request.Headers["Authorization"];
-            if (security.IsAuthorised("NotSureyet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 List<User> allusers = new List<User>();
                 allusers = TicketDb.UserFind("");
                 if (allusers.Count != 0)
                 {
-
                     return allusers.Select(u => JsonConvert.SerializeObject(u));
                 }
                 else
                 {
                     Response.StatusCode = (int)HttpStatusCode.NoContent;
-                    return new string[] { "no users registered" };
+                    return new string[] { "no users registered" };                    
                 }
             }
             else
@@ -52,54 +53,58 @@ namespace TicketShopAPI.Controllers
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
-
         }
 
         /// <summary>
         /// querries database for users matching a condition
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="id">user id used in database querry</param>
         /// <QueryString Value="grade">searches for user group, 1: customers, 2: administrators 3: Sensei</param>
         /// <returns> all matching customers as json | StatusCode: 200 Ok</returns>
         /// <returns> no such user registered | StatusCode: 204 NoContent</returns>
-        /// <returns> access denied | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/User/5
         [HttpGet("{id}")]
         public IEnumerable<string> Get(int id)
-        {
-            List<User> users = new List<User>();
-            if (security.IsAuthorised("NotSureYet"))
+        {            
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
+                List<User> users = new List<User>();
                 users = TicketDb.UserFind(id.ToString());
+                if (users.Count != 0)
+                {
+                    return users.Select(u => JsonConvert.SerializeObject(u));
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NoContent;
+                    return new string[] { "no such user registered" };
+                }
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
-            }
-            if (users.Count != 0)
-            {
-                return users.Select(u => JsonConvert.SerializeObject(u));
-            }
-            else
-            {
-                Response.StatusCode = (int)HttpStatusCode.NoContent;
-                return new string[] { "no such user registered" };
-            }
+            }            
         }
 
         [HttpGet("{id}/Ticket")]
         public IEnumerable<string> GetUserTicket(int id)
         {
-            if (security.IsAuthorised(""))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 List<Ticket> tickets = TicketDb.TicketforUserFind(id);
                 return tickets.Select(t => JsonConvert.SerializeObject(t));
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
         }
@@ -107,16 +112,18 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// Adds a new user to the database
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="user">new user to be added to database</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // POST: api/User
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 User user = data["User"].ToObject<User>();
 
@@ -140,7 +147,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
 
         }
@@ -148,19 +155,21 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// updates a user based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="data">user data used to update</param>
         /// <param name="id">id of user to be updated</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
         /// <returns>void | StatusCode: 404 NotFound</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         /// NOTE: Make sure 'user' class has complete property values, only password and DeletedUser can be skipped
         // PUT: api/User/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]JObject data)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 User user;
                 try
@@ -194,23 +203,25 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
 
         /// <summary>
         /// deletes a user based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="id">id of user to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
-        /// <returns>void | StatusCode: 407 ProxyAuthenticationRequired</returns>
+        /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // DELETE: api/User/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
             {
                 bool deleteSuccessful = TicketDb.UserDelete(id);
                 if (!deleteSuccessful)
@@ -220,7 +231,7 @@ namespace TicketShopAPI.Controllers
             }
             else
             {
-                Response.StatusCode = (int)HttpStatusCode.ProxyAuthenticationRequired;
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }
     }

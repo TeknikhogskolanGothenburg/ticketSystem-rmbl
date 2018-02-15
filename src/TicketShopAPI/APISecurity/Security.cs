@@ -4,7 +4,7 @@ using System.Text;
 using System.Security.Cryptography;
 
 namespace TicketShopAPI.APISecurity
-{ 
+{
     public class Security : ISecurity
     {
         //public string GenerateSalt()
@@ -23,9 +23,8 @@ namespace TicketShopAPI.APISecurity
         //    return Convert.ToBase64String(hashedPassword);
         //}
 
-        public bool IsAuthorised(string credentials)
+        public bool IsAuthorised(string apiKeyData, string sessionData, int grade)
         {
-            
             return true;
         }
     }
