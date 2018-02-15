@@ -7,22 +7,31 @@ using Microsoft.AspNetCore.Mvc;
 using TicketSystem.RestApiClient;
 using BackOffice.Models;
 using TicketSystem.RestApiClient.Model;
-using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace BackOffice.Controllers
 {
     public class HomeController : Controller
     {
         private TicketApi ticketApi;
+        private ApiInformation api;
+        private MessagesHandler messagesHandler;
 
         /// <summary>
         /// Default constructor, prepare api
         /// </summary>
         public HomeController()
         {
-            ApiInformation api = new ApiInformation();
+            api = new ApiInformation();
+        }
 
-            if ((TempData != null) && TempData["Userid"] != null)
+        /// <summary>
+        /// Before actions are executing, do this... 
+        /// </summary>
+        /// <param name="context">Action context</param>
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            if (TempData["Userid"] != null)
             {
                 ticketApi = new TicketApi(api.Key, api.Secret, (int)TempData["SessionId"], (string)TempData["SessionSecret"]);
             }
@@ -30,6 +39,11 @@ namespace BackOffice.Controllers
             {
                 ticketApi = new TicketApi(api.Key, api.Secret);
             }
+
+            messagesHandler = new MessagesHandler(TempData);
+
+            // Execute action
+            base.OnActionExecuting(context);
         }
 
         /// <summary>
@@ -49,7 +63,12 @@ namespace BackOffice.Controllers
         [HttpPost]
         public IActionResult Index(Login login)
         {
-            if (login != null && ModelState.IsValid)
+            if(login != null)
+            {
+                return View(new Login());
+            }
+
+            if (ModelState.IsValid)
             {
                 /*try
                 {
@@ -59,36 +78,54 @@ namespace BackOffice.Controllers
                     TempData.Add("Username", sessionInfo.Username);
                     TempData.Add("SessionId", sessionInfo.SessionId);
                     TempData.Add("SessionSecret", sessionInfo.SessionSecret);
+
+                    messagesHandler.Add("primary", "Welcome " + sessionInfo.Username + "!");      
+
+                    return RedirectToAction("Index", "Users");
                 }
                 catch (Exception ex)
                 {
-                    ViewBag.Errors = ex.Message;
+                    messagesHandler.Add("danger", ex.Message);
                 }*/
             }
 
             return View(login);
         }
 
+        /// <summary>
+        /// Add flight, without post
+        /// </summary>
+        /// <returns>View</returns>
         [HttpGet("Flights/")]
         public IActionResult AddFlight()
         {
             return View(new Flight());
         }
 
+        /// <summary>
+        /// Add fligth, with post
+        /// </summary>
+        /// <param name="flight">Post values in flight object</param>
+        /// <returns>Redirect or view</returns>
         [HttpPost("Flights/")]
-        public IActionResult Flights(Flight flight)
+        public IActionResult AddFlight(Flight flight)
         {
-            if (flight != null && ModelState.IsValid)
+            if(flight != null)
+            {
+                View(new Flight());
+            }
+
+            if (ModelState.IsValid)
             {
                 try
                 {
                     int id = ticketApi.PostFlight(flight);
-                    flight = new Flight();
-                    //return RedirectToAction("Flights", "Home", new { id });
+                    messagesHandler.Add("success", "Flight was added successfully!");
+                    return RedirectToAction("AddFlight");
                 }
                 catch (Exception ex)
                 {
-                    ViewBag.Errors = ex.Message;
+                    messagesHandler.Add("danger", ex.Message);
                 }
             }
 
