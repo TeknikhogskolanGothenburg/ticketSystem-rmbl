@@ -78,3 +78,11 @@ CREATE TABLE Sessions(
 	Active BIT NOT NULL DEFAULT(1),
 	Created DateTime
 );
+
+INSERT INTO Users VALUES ('Zilver', 'qawsedrf', 'z@example.com', 'Z', '', 'Zagreb', '10000', 'Hrvatske Bratske Zajednice', 1, 0);
+INSERT INTO Franchises VALUES ('Captain Morgan');
+INSERT INTO AirPorts VALUES ('Madrid', 'ES', 1.1);
+INSERT INTO AirPorts VALUES ('Barcelona', 'ES', 1.1);
+INSERT INTO AirPorts VALUES ('Venecia', 'IT', 1.2);
+INSERT INTO Flights VALUES ('1833-05-16', 1, '1833-05-17', 2, 16, 9500);
+INSERT INTO Tickets VALUES (1, 1, 16, 1)

@@ -30,12 +30,12 @@ namespace TicketShopAPI.Controllers
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/Flight
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Get(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
         {
             List<Flight> allFlights = new List<Flight>();
             if (security.IsAuthorised("NotSureYet"))
             {
-                allFlights = TicketDb.FlightFind("");
+                //allFlights = TicketDb.FlightAdd(allFlights);
             }
             else
             {
@@ -64,12 +64,12 @@ namespace TicketShopAPI.Controllers
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/Flight/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public void FlightFind(int id)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            /*if (security.IsAuthorised("NotSureYet"))
             {
                 Flight flight = new Flight();
-                List<Flight> queryResult = TicketDb.FlightFind(id.ToString());
+                //List<Flight> queryResult = TicketDb.FlightFind(id.ToString());
                 if (queryResult.Count > 0)
                 {
                     flight = queryResult[0];
@@ -85,7 +85,7 @@ namespace TicketShopAPI.Controllers
             {
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return "access denied";
-            }
+            }*/
         }
 
         [HttpGet("{id}/AvaliableSeats")]
