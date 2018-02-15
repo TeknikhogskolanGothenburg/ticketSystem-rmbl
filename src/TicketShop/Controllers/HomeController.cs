@@ -15,42 +15,9 @@ namespace TicketShop.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
         public IActionResult Index()
         {
-            var model = new DataBaseRep();
-            try
-            {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "rmbl.database.windows.net";
-                builder.UserID = "rmblA";
-                builder.Password = "QAwsedrf123@@";
-                builder.InitialCatalog = "RMBL-SERVER";
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    connection.Open();
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT ID, Name FROM AirPorts");
-                    String sql = sb.ToString();
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                model.Response.Add(reader.GetInt32(0), reader.GetString(1));
-                            }
-                        }
-                    }
-                    connection.Close();
-                }
-            }
-            catch (SqlException e)
-            {
-                model.Response.Add(1, e.ToString());
-            }
-            return View("Index", model);
+            return View("Index");
         }
 
         [HttpPost]
