@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AuthenticationLibrary\AuthenticationLibrary.csproj" />
     <ProjectReference Include="..\RestApiClient\RestApiClient.csproj" />
   </ItemGroup>
 </Project>
