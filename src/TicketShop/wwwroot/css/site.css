@@ -8,7 +8,7 @@
 body {
     background-image: url("../images/wallhaven-372450.jpg");
     background-repeat: no-repeat;
-    background-position: -1215px;
+    background-position-y: -1215px;
     background-attachment: fixed;
 }
 
@@ -67,15 +67,16 @@ body {
 }
 
 .booking-form .from span {
-    transform: rotate(-20deg);
-    padding-left: 10px;
-    padding-left: 25px;
+    transform: rotate(-10deg);
+    position: relative;
+    bottom: 7px;
+    left: 10px;
 }
 
 .booking-form .to span {
-    transform: rotate(20deg);
-    padding-left: 10px;
-    padding-left: 25px;
+    transform: rotate(10deg);
+    position: relative;
+    left: 10px;
 }
 
 .HomeCity, .CityDest {
@@ -145,7 +146,7 @@ body {
 @media (min-width: 576px) {
     .custom-container {
         grid-template-columns: 5% auto 5%;
-        grid-template-rows: 300px 300px auto;
+        grid-template-rows: 300px 300px;
     }
 
     .booking-form {
@@ -163,128 +164,10 @@ body {
     }
 }
 
-.ticket {
-    margin: auto;
-    margin-top: 50px;
-    height: 500px;
-    max-width: 700px;
-    background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15");
-    opacity: 1;
-    display: grid;
-    grid-template-columns: 3% auto 3%;
-    grid-template-rows: 100%;
-    border-radius: 10px;
-}
-
-.right-side, .left-side {
-    min-height: 100%;
-    padding: 10px;
-    background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15");
-}
-
-.right-side {
-    grid-column-start: 2;
-    max-width: 95%;
-    background-color: #fff;
-    border-right: none;
-    border: none;
-    z-index: 10;
-}
-
-.right-side p {
-    font-size: 20px;
-    font-family: 'Lora', serif;
-    margin-bottom: 0;
-}
-
-.right-side h5 {
-    background-color: #D9D3C9;
-}
-
-#FlightService {
-    font-size: 25px;
-    font-family: 'Lora', serif;
-}
-
-.BarCode {
-    position: absolute;
-    width: 300px;
-    display: none;
-    font-size: 35px !important;
-    font-family: "Libre Barcode 39", cursive !important;
-}
-
-#TwistedBarCode {
-    transform: rotate(90deg);
-}
-
-#Price {
-    font-family: 'Lobster', cursive;
-    font-size: 28px;
-}
-
-#DepartureTimeSection {
-    margin-top: 35px;
-}
-
-#DepartureTimeSection h5 {
-    background-color: #D9D3C9;
-}
-
-.left-side {
-    grid-column-start: 3;
-    min-width: 100%;
-    display: block;
-}
-
-.left-side img {
-    opacity: 0.2;
-    position: absolute;
-    margin-top: -10px;
-    margin-left: -30px;
-    border-radius: 10px;
-}
-
-.stampOfApproval {
-    position: relative;
-    right: 100px;
-    border: 5px dashed red;
-    opacity: 0.8;
-    height: 120px;
-    width: 120px;
-    z-index: 12;
-    border-radius: 50%;
-    transform: rotate(-28deg);
-}
-
-.stampOfApproval p {
-    position: relative;
-    font-size: 15px;
-    color: red;
-    font-family: 'Lobster';
-}
-
-@media (min-width: 768px) {
-    .ticket {
-        height: 400px;
-    }
-
-    .right-side {
-        border-right: 1.5px dashed #000;
-    }
-
-    .BarCode {
-        display: block;
-    }
-}
-
 @media screen and (min-width: 992px) {
     .booking-form {
         margin: auto;
     }
-    .ticket {
-        grid-template-columns: 3% auto 3%;
-    } 
 }
 
 @media screen and (max-width: 1199px) {
@@ -319,10 +202,5 @@ body {
         grid-column-end: 2;
         grid-row-start: 2;
         grid-row-end: 2;
-    }
-    .ticket {
-        height: 400px;
-        grid-template-columns: 3% 70% auto 3%;
-        grid-template-rows: 100%;
     }
 }

@@ -28,7 +28,7 @@ namespace TicketShop.Controllers
             }
         }
         // GET: /<controller>/
-        [HttpGet("{id}")]
+        /*[HttpGet("{id}")]
         public ActionResult Index(string id)
         {
             int x;
@@ -37,6 +37,10 @@ namespace TicketShop.Controllers
                 ticketApi.GetTicketsByUser(x);
             }
             return RedirectToAction("Index", "Home");
+        }*/
+        public ActionResult Index()
+        {
+            return View();
         }
     }
 }

@@ -1,5 +1,77 @@
-﻿@model TicketShop.Models.DataBaseRep
-@{ 
-    ViewData["Title"] = "Home Page";
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="container">
+    <div class="ticket">
+        <div class="right-side">
+            <p id="FlightService">RMBL FlightServices</p>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h5>Abbriviation</h5>
+                    <p>Master</p>
+                </div>
+                <div class="col">
+                    <h5>First Name</h5>
+                    <p>Sensei</p>
+                </div>
+                <div class="col">
+                    <h5>Last Name</h5>
+                    <p>Teacher</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h5>From</h5>
+                    <p>Dubai</p>
+                </div>
+                <div class="col">
+                    <h5>To</h5>
+                    <p>Tokyo</p>
+                </div>
+                <div class="col">
+                    <h5>Seat Number</h5>
+                    <p>32B</p>
+                </div>
+            </div>
+            <br>
+            <div class="row" id="DepartureTimeSection">
+                <div class="col">
+                    <h5>Departure</h5>
+                    <p>13/5/2018 - <span>18:05</span></p>
+                </div>
+                <div class="col">
+                    <h5>Arrival</h5>
+                    <p>14/5/2018 - <span>22:10</span></p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <p class="BarCode">HUEMASTER EYYY</p>
+                </div>
+                <div class="col">
+                    <p class="text-right" id="Price">9 200:-</p>
+                </div>
+            </div>
+        </div><!--Right side End-->
+
+        <div class="left-side">
+            <img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-621248.jpg" alt="" width="210px" height="400px">
+            <div class="stampOfApproval text-center">
+                <p>
+                    RMBL <br>FlightService
+                    <br> Have a nice flight!
+                    <br>Transaction ID: #33567
+                </p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="BarCode" id="TwistedBarCode">THIS IS ANOTHER</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
