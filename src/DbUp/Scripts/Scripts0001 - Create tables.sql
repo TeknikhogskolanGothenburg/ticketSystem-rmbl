@@ -86,3 +86,5 @@ INSERT INTO AirPorts VALUES ('Barcelona', 'ES', 1.1);
 INSERT INTO AirPorts VALUES ('Venecia', 'IT', 1.2);
 INSERT INTO Flights VALUES ('1833-05-16', 1, '1833-05-17', 2, 16, 9500);
 INSERT INTO Tickets VALUES (1, 1, 16, 1)
+INSERT INTO ApiKeys VALUES ('d8e18d8d-6986-497b-b999-d6f073a65045', 1, 'af9f508f-142d-47ce-83ab-cb06eb9a4701')
+SELECT * FROM ApiKeys
