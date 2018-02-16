@@ -1,6 +1,113 @@
 ﻿@{
     ViewData["Title"] = "Contact";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
+<div class="container">
+    <div class="showTickets-container">
+
+            <!-- List group -->
+            <div class="list-group" id="myList" role="tablist">
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#home" role="tab">Flight 1</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab">Flight 2</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#messages" role="tab">Flight 3</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#settings" role="tab">Flight 4</a>
+          </div>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="home" role="tabpanel">
+                <p>This is the first one</p>
+              </div>
+              <div class="tab-pane" id="profile" role="tabpanel">
+                <p>This is the second one</p>
+              </div>
+              <div class="tab-pane" id="messages" role="tabpanel">
+
+                    <div class="ticket">
+                        <div class="right-side">
+                            <p id="FlightService">RMBL FlightServices</p>
+                            <br>
+                        <div class="row">
+                            <div class="col">
+                                <h5>Abbriviation</h5>
+                                <p>Master</p>
+                            </div>
+                            <div class="col">
+                                <h5>First Name</h5>
+                                <p>Sensei</p>
+                            </div>
+                            <div class="col">
+                                <h5>Last Name</h5>
+                                <p>Teacher</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <h5>From</h5>
+                                <p>Dubai</p>
+                            </div>
+                            <div class="col">
+                                <h5>To</h5>
+                                <p>Tokyo</p>
+                            </div>
+                            <div class="col">
+                                <h5>Seat Number</h5>
+                                <p>32B</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row" id="DepartureTimeSection">
+                            <div class="col">
+                                <h5>Departure</h5>
+                                <p>13/5/2018 - <span>18:05</span></p>
+                            </div>
+                            <div class="col">
+                                <h5>Arrival</h5>
+                                <p>14/5/2018 - <span>22:10</span></p>
+                            </div>
+                        </div>
+                            <br>
+                                <div class="row">
+                            <div class="col">
+                                <p class="BarCode">HUEMASTER EYYY</p>
+                            </div>
+                            <div class="col">
+                                <p class="text-right" id="Price">9 200:-</p>
+                            </div>
+                        </div>
+                        </div><!--Right side End-->
+
+                        <div class="left-side">
+                            <img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-621248.jpg" alt="" width = "210px" height="400px">
+                            <div class="stampOfApproval text-center">
+                                <p>RMBL <br>FlightService
+                                    <br> Have a nice flight!
+                                    <br>Transaction ID: #33567
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="BarCode" id="TwistedBarCode">THIS IS ANOTHER</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div id="buyButton" class="text-right">
+                            <a href="#" class="btn btn-success">Buy Ticket</a>
+                        </div>
+              </div>
+              <div class="tab-pane" id="settings" role="tabpanel">
+                <p>This is the fourth one</p>
+              </div>
+          </div>
+
+    </div>
+</div>
+
+<script>
+    $('#myList a').on('click', function (e) {
+      e.preventDefault()
+      $(this).tab('show');
+    })
+</script>

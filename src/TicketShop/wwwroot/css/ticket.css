@@ -1,9 +1,30 @@
-﻿@import url("https://fonts.googleapis.com/css?family=Libre+Barcode+39|Lobster|Lora");
+﻿.showTickets-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 3% auto 3%;
+    grid-template-rows: 3% auto auto 3%;
+    color: #fff
+}
+
+.list-group {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    margin-right: 10px
+}
+
+.tab-content {
+    grid-column-start: 2;
+    grid-row-start: 3
+}
+
+#buyButton {
+    margin-top: 20px
+}
 
 .ticket {
     margin: auto;
-    margin-top: 50px;
-    height: 500px;
+    margin-top: 20px;
+    height: 480px;
     max-width: 700px;
     background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15");
     opacity: 1;
@@ -11,12 +32,13 @@
     grid-template-columns: 3% auto 3%;
     grid-template-rows: 100%;
     border-radius: 10px;
+    color: #000
 }
 
 .right-side, .left-side {
     min-height: 100%;
     padding: 10px;
-    background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15");
+    background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15")
 }
 
 .right-side {
@@ -25,22 +47,22 @@
     background-color: #fff;
     border-right: none;
     border: none;
-    z-index: 10;
+    z-index: 10
 }
 
     .right-side p {
         font-size: 20px;
-        font-family: "Lora", serif;
-        margin-bottom: 0;
+        font-family: 'Lora', serif;
+        margin-bottom: 0
     }
 
     .right-side h5 {
-        background-color: #D9D3C9;
+        background-color: #D9D3C9
     }
 
 #FlightService {
     font-size: 25px;
-    font-family: "Lora", serif;
+    font-family: 'Lora', serif
 }
 
 .BarCode {
@@ -48,31 +70,31 @@
     width: 300px;
     display: none;
     font-size: 35px !important;
-    font-family: "Libre Barcode 39", cursive !important;
+    font-family: "Libre Barcode 39", cursive !important
 }
 
 #TwistedBarCode {
-    margin-top: 30px;
-    transform: rotate(90deg);
+    transform: rotate(90deg)
 }
 
 #Price {
-    font-family: "Lobster", cursive;
+    font-family: 'Lobster', cursive;
     font-size: 28px;
+    width: 100px
 }
 
 #DepartureTimeSection {
-    margin-top: 35px;
+    margin-top: 35px
 }
 
-#DepartureTimeSection h5 {
-    background-color: #D9D3C9;
-}
+    #DepartureTimeSection h5 {
+        background-color: #D9D3C9
+    }
 
 .left-side {
     grid-column-start: 3;
     min-width: 100%;
-    display: block;
+    display: block
 }
 
     .left-side img {
@@ -80,7 +102,7 @@
         position: absolute;
         margin-top: -10px;
         margin-left: -30px;
-        border-radius: 10px;
+        border-radius: 10px
     }
 
 .stampOfApproval {
@@ -92,54 +114,81 @@
     width: 120px;
     z-index: 12;
     border-radius: 50%;
-    transform: rotate(-28deg);
+    transform: rotate(-28deg)
 }
 
-.stampOfApproval p {
-    position: relative;
-    font-size: 15px;
-    color: red;
-    font-family: "Lobster";
-}
+    .stampOfApproval p {
+        position: relative;
+        font-size: 15px;
+        color: red;
+        font-family: 'Lobster'
+    }
 
 @media (min-width: 768px) {
+    .showTickets-container {
+        grid-template-columns: 5% 200px auto 5%
+    }
+
+    .tab-content {
+        grid-column-start: 3;
+        grid-row-start: 2
+    }
+
     .ticket {
-        height: 400px;
+        margin-top: auto;
+        height: 400px
     }
 
     .right-side {
-        border-right: 1.5px dashed #000;
+        border-right: 1.5px dashed #000
     }
 
     .BarCode {
-        display: block;
+        display: block
+    }
+
+    #Price {
+        width: auto
     }
 }
 
 @media screen and (min-width: 992px) {
     .ticket {
-        grid-template-columns: 3% auto 3%;
+        grid-template-columns: 3% auto 3%
     }
 }
 
 @media screen and (max-width: 1199px) {
     .right-side {
-        border-right: none;
+        border-right: none
     }
 
     .left-side {
-        display: none;
+        display: none
     }
 
         .left-side img {
-            width: 150px;
+            width: 150px
         }
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1200px) {
     .ticket {
         height: 400px;
         grid-template-columns: 3% 70% auto 3%;
-        grid-template-rows: 100%;
+        grid-template-rows: 100%
     }
 }
+
+#DepartureTimeSection {
+    margin-top: -10px
+}
+
+.stampOfApproval {
+    height: 160px;
+    width: 160px
+}
+
+    .stampOfApproval p {
+        font-size: 20px
+    }
