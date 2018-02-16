@@ -41,7 +41,7 @@ namespace TicketShop.Controllers
             {
                 ticketApi.GetTicketById(x);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "User");
         }
     }
 }

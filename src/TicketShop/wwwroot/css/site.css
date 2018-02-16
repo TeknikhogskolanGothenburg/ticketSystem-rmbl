@@ -100,6 +100,27 @@ body {
     right: 10px;
 }
 
+/*************************/
+/*LOG IN AND SIGN UP FORM*/
+/*************************/
+
+input{
+    width: 240px!important;
+    margin-bottom: 1rem;
+}
+
+.CreateUser p, .LogIn p{
+    margin-bottom: 0;
+}
+
+#SubmitButton{
+    margin-top: 10px;
+}
+
+/******************************/
+/*LOG IN AND SIGN UP FORM END*/
+/****************************/
+
 @media screen and (max-width: 992px) {
     .booking-form {
         width: 95%;

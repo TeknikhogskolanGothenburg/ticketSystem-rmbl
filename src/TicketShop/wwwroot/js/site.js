@@ -16,6 +16,8 @@ $(document).ready(function () {
         			<div class="col">
         				<p>Password</p>
         				<input type="password">
+        				<p>Enter Password again</p>
+        				<input type="password">
         			</div>
         		</div>
         		<div class="row">
