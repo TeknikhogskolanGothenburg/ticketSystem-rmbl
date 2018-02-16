@@ -7,6 +7,19 @@ namespace TicketSystem.DatabaseRepository
     public interface ITicketDatabase
     {
         /// <summary>
+        /// find one user
+        /// </summary>
+        /// <param name="id">user index</param>
+        /// <returns>A user object</returns>
+        User UserFind(int id);
+
+        /// <summary>
+        /// finds all users
+        /// </summary>
+        /// <returns>An object List representing the users</returns>
+        List<User> UserFindAll();
+
+        /// <summary>
         /// locates one, all or subcategory of users
         /// </summary>
         /// <param name="query">value that db querry tries to match</param>
@@ -47,6 +60,13 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="id">value that db querry tries to match for removal</param>
         /// <returns>a bool indicating whether the delete command was successful</returns>
         bool UserDelete(int id);
+
+        /// <summary>
+        /// Find a session
+        /// </summary>
+        /// <param name="id">Session index</param>
+        /// <returns>A Session object representing row in table</returns>
+        Session SessionFind(int id);
 
         /// <summary>
         /// Finds one or all Tickets
@@ -210,6 +230,13 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="id">the id of the api key sectet</param>
         /// <returns>the api key secret string</returns>
         string APISecretFind(int id);
+
+        /// <summary>
+        /// Finds an api key secret by api key key
+        /// </summary>
+        /// <param name="query">The api key key</param>
+        /// <returns>the api key secret string</returns>
+        string APISecretFind(string query);
 
         /// <summary>
         /// finds all transactions

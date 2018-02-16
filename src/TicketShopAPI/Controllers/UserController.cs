@@ -10,6 +10,7 @@ using TicketSystem.DatabaseRepository.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using TicketShopAPI.APISecurity;
+using AuthenticationLibrary;
 
 namespace TicketShopAPI.Controllers
 {
@@ -33,11 +34,12 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 List<User> allusers = new List<User>();
-                allusers = TicketDb.UserFind("");
+                allusers = TicketDb.UserFindAll();
                 if (allusers.Count != 0)
                 {
                     return allusers.Select(u => JsonConvert.SerializeObject(u));
@@ -65,29 +67,30 @@ namespace TicketShopAPI.Controllers
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/User/5
         [HttpGet("{id}")]
-        public IEnumerable<string> Get(int id)
+        public string Get(int id)
         {            
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
-                List<User> users = new List<User>();
-                users = TicketDb.UserFind(id.ToString());
-                if (users.Count != 0)
-                {
-                    return users.Select(u => JsonConvert.SerializeObject(u));
+                User user = new User();
+                user = TicketDb.UserFind(id);
+                if (user != null)
+                {                    
+                    return JsonConvert.SerializeObject(user);
                 }
                 else
                 {
                     Response.StatusCode = (int)HttpStatusCode.NoContent;
-                    return new string[] { "no such user registered" };
+                    return "no such user registered";
                 }
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                return new string[] { "access denied" };
+                return "access denied";
             }            
         }
 
@@ -96,8 +99,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 List<Ticket> tickets = TicketDb.TicketforUserFind(id);
                 return tickets.Select(t => JsonConvert.SerializeObject(t));
@@ -122,8 +126,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
-            int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 0;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 User user = data["User"].ToObject<User>();
 
@@ -131,14 +136,11 @@ namespace TicketShopAPI.Controllers
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 }
-                //string newSalt = security.GenerateSalt();
-                //string encryptedPassword = security.GenerateSHA256Hash(user.Password, newSalt);
-
-                string encryptedPassword = "placeholder";
-
+                user.Password = SecurePasswordHasher.Hash(user.Password);
+                
                 try
                 {
-                    TicketDb.UserAdd(user.Username, encryptedPassword, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
+                    TicketDb.UserAdd(user.Username, user.Password, user.Email, user.FirstName, user.LastName, user.City, user.ZipCode, user.Address, user.Grade);
                 }
                 catch
                 {
@@ -168,10 +170,18 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
-            int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
+                Response.Headers.Add("Authorization", Authentication.AuthenticationHeader(security.ApiKey,security.ApiSecret,security.Timestamp));
                 User user;
+                if (!(security.User.Grade > 1) && security.UserId != id)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                    return;
+                }
+
                 try
                 {
                     user = data["User"].ToObject<User>();
@@ -220,8 +230,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 bool deleteSuccessful = TicketDb.UserDelete(id);
                 if (!deleteSuccessful)
