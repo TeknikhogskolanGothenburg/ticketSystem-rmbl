@@ -68,7 +68,7 @@ namespace TicketShop.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Booking()
         {
             ViewData["Message"] = "Your contact page.";
 
