@@ -10,104 +10,101 @@ using System.Data.SqlClient;
 using TicketShop.Models;
 using TicketSystem.RestApiClient.Model;
 using TicketSystem.RestApiClient;
+using TicketShop.Interfaces;
+using TicketShop.Mocks;
 
 namespace TicketShop.Controllers
 {
     public class HomeController : Controller
     {
+        private TicketApi ticketApi;
+        public HomeController()
+        {
+            ApiInformation api = new ApiInformation();
+
+
+            if ((TempData != null) && TempData["Userid"] != null)
+            {
+                ticketApi = new TicketApi(api.Key, api.Secret, (int)TempData["SessionId"], (string)TempData["SessionSecret"]);
+            }
+            else
+            {
+                ticketApi = new TicketApi(api.Key, api.Secret);
+            }
+        }
+
         public IActionResult Index()
         {
             return View("Index");
         }
 
-        [HttpPost]
-        public IActionResult Login([FromBody] User user)
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult NewBooking([FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult CheckOut([FromBody] Booking booking)
-        {
-            return null;
-        }
-
         [HttpGet("{id}")]
-        public IActionResult Booking(int? id)
+        public ActionResult Booking(string id)
         {
-            return null;
+            int x;
+            if (int.TryParse(id, out x) == true)
+            {
+                ticketApi.GetUser(x);
+            }
+            return RedirectToAction("Booking", "Home");
         }
 
-        [HttpPost("{id}")]
-        public IActionResult EditBooking(int? id, [FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        public IActionResult Profile()
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult Settings([FromBody] User user)
-        {
-            return null;
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
 
         public ActionResult Booking()
         {
-            ViewData["Message"] = "Your contact page.";
+            var model = new Models.Ticket();
+            List<Models.Ticket> tickets = new List<Models.Ticket>(); 
 
-            return View();
-        }
-
-        public ActionResult _Ticket(TicketVariables temp, string abb, string firstName, string lastName, string from, string to, int seatNum, DateTime dep, DateTime arrival, int price)
-        {
-            var model = new TicketVariables
+            try
             {
-                Abbriviation = abb,
-                FirstName = firstName,
-                LastName = lastName,
-                From = from,
-                To = to,
-                SeatNum = seatNum,
-                Departure = dep,
-                Arrival = arrival,
-                Price = price,
-            };
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "rmbl.database.windows.net";
+                builder.UserID = "rmblA";
+                builder.Password = "QAwsedrf123@@";
+                builder.InitialCatalog = "RMBL-SERVER";
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    //Console.WriteLine("Opening the port");
+                    connection.Open();
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("SELECT A.Name, B.Name, DepatureDate, ArrivalDate, Price FROM Flights LEFT JOIN AirPorts AS A ON A.ID = Flights.DeparturePort INNER JOIN AirPorts AS B ON B.ID = Flights.ArrivalPort");
+                    String sql = sb.ToString();
 
-            var testModel = new TicketVariables
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var temp = reader.GetString(0);
+                                tickets.Add(
+                                    new Models.Ticket {
+                                        From = reader.GetString(0),
+                                        To = reader.GetString(1),
+                                        Departure = reader.GetDateTime(2),
+                                        Arrival = reader.GetDateTime(3),
+                                        Price = reader.GetInt32(4)
+                                    });
+                            }
+                        }
+
+                    }
+                    connection.Close();
+                }
+            }
+            catch (SqlException e)
             {
-                Abbriviation = "Lord",
-                FirstName = "Z",
-                LastName = "",
-                From = "Venecia",
-                To = "Dubai",
-                SeatNum = 16,
-                Departure = DateTime.Now,
-                Arrival = DateTime.Today,
-                Price = 10000,
-            };
-            return PartialView("_Ticket", testModel);
+               
+            }
+            
+
+            return View("Booking", tickets);
         }
 
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

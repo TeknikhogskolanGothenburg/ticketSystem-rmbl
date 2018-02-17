@@ -1,19 +1,8 @@
-﻿@model TicketShop.Models.TicketVariables
+﻿@model Ticket
 @{
     ViewData["Title"] = "Ze ticket";
-    var testModel = new TicketVariables
-    {
-        Abbriviation = "Lord",
-        FirstName = "Z",
-        LastName = "",
-        From = "Venecia",
-        To = "Dubai",
-        SeatNum = 16,
-        Departure = DateTime.Now,
-        Arrival = DateTime.Today,
-        Price = 10000,
-    };
 }
+
 
 <div class="ticket">
     <div class="right-side">
@@ -22,29 +11,29 @@
         <div class="row">
             <div class="col">
                 <h5>Abbriviation</h5>
-                <p>@testModel.Abbriviation</p>
+                <p>King</p>
             </div>
             <div class="col">
                 <h5>First Name</h5>
-                <p>@testModel.FirstName</p>
+                <p>Michael</p>
             </div>
             <div class="col">
                 <h5>Last Name</h5>
-                <p>@testModel.LastName</p>
+                <p>Jackson</p>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <h5>From</h5>
-                <p>@testModel.From</p>
+                <p>@Model.From</p>
             </div>
             <div class="col">
                 <h5>To</h5>
-                <p>@testModel.To</p>
+                <p>@Model.To</p>
             </div>
             <div class="col">
                 <h5>Seat Number</h5>
-                <p>@testModel.SeatNum</p>
+                <p>16C</p>
             </div>
         </div>
         <br>
@@ -52,11 +41,11 @@
             <div class="col">
                 <h5>Departure</h5>
                 <!--<p>13/5/2018 - <span>18:05</span></p>-->
-                <p>@testModel.Departure</p>
+                <p>@Model.Departure.Day / @Model.Departure.Month / @Model.Departure.Year</p>
             </div>
             <div class="col">
                 <h5>Arrival</h5>
-                <p>@testModel.Arrival</p>
+                <p>@Model.Arrival.Day / @Model.Arrival.Month / @Model.Arrival.Year</p>
             </div>
         </div>
         <br>
@@ -65,7 +54,7 @@
                 <p class="BarCode">HUEMASTER EYYY</p>
             </div>
             <div class="col">
-                <p class="text-right" id="Price">@testModel.Price</p>
+                <p class="text-right" id="Price"></p>
             </div>
         </div>
     </div><!--Right side End-->

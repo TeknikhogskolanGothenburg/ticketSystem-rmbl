@@ -87,12 +87,15 @@ body {
     margin-top: -70px;
 }
 
-.dateGo, .dateHome {
+.dateGo{
     width: 220px;
     height: 80px;
-    background-color: #6498a0;
-    font-size: 60px;
+    background-color: #6498a0;*/
     color: #fff;
+}
+
+.fa-calendar-alt{
+    font-size: 60px;
 }
 
 .dateGo span, .dateHome span {
@@ -106,7 +109,7 @@ body {
 /*LOG IN AND SIGN UP FORM*/
 /*************************/
 
-input{
+.LogIn input, .create-and-login input{
     width: 240px!important;
     margin-bottom: 1rem;
 }
