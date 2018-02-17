@@ -8,21 +8,25 @@ using TicketSystem.RestApiClient;
 using BackOffice.Models;
 using TicketSystem.RestApiClient.Model;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Session;
+using Microsoft.Extensions.Configuration;
 
 namespace BackOffice.Controllers
 {
     public class HomeController : Controller
     {
+        private IConfigurationRoot config;
+        private Sessions sessions;
         private TicketApi ticketApi;
-        private ApiInformation api;
         private MessagesHandler messagesHandler;
 
         /// <summary>
         /// Default constructor, prepare api
         /// </summary>
-        public HomeController()
+        public HomeController(IConfigurationRoot newConfig, Sessions newSessions)
         {
-            api = new ApiInformation();
+            config = newConfig;
+            sessions = newSessions;
         }
 
         /// <summary>
@@ -31,16 +35,21 @@ namespace BackOffice.Controllers
         /// <param name="context">Action context</param>
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            if (TempData["Userid"] != null)
+            sessions.Intialize(context.HttpContext);
+            ViewData["Sessions"] = sessions;
+
+            if (sessions.Get("UserId") != null)
             {
-                ticketApi = new TicketApi(api.Key, api.Secret, (int)TempData["SessionId"], (string)TempData["SessionSecret"]);
+                ticketApi = new TicketApi(config["Api:Key"], config["Api:Secret"], (int)sessions.Get("SessionId"), (string)sessions.Get("SessionSecret"));
             }
             else
             {
-                ticketApi = new TicketApi(api.Key, api.Secret);
+                ticketApi = new TicketApi(config["Api:Key"], config["Api:Secret"]);
             }
 
-            messagesHandler = new MessagesHandler(TempData);
+            messagesHandler = new MessagesHandler(sessions);
+
+            ViewData["Messages"] = messagesHandler;
 
             // Execute action
             base.OnActionExecuting(context);
@@ -52,7 +61,14 @@ namespace BackOffice.Controllers
         /// <returns>Login view</returns>
         public IActionResult Index()
         {
-            return View(new Login());
+            /*if(!sessions.Exist("UserId"))
+            {*/
+                return View(new Login());
+            /*}
+            
+            messagesHandler.Add("warning", "You are already login!");
+
+            return RedirectToAction("Index", "Users");*/
         }
 
         /// <summary>
@@ -63,43 +79,62 @@ namespace BackOffice.Controllers
         [HttpPost]
         public IActionResult Index(Login login)
         {
-            if(login != null)
-            {
-                return View(new Login());
-            }
-
-            if (ModelState.IsValid)
-            {
-                /*try
+            /*if (!sessions.Exist("UserId"))
+            {*/
+                if (login == null)
                 {
-                    SessionInfo sessionInfo = ticketApi.PostLoginIn(login);
-
-                    TempData.Add("Userid", sessionInfo.UserId);
-                    TempData.Add("Username", sessionInfo.Username);
-                    TempData.Add("SessionId", sessionInfo.SessionId);
-                    TempData.Add("SessionSecret", sessionInfo.SessionSecret);
-
-                    messagesHandler.Add("primary", "Welcome " + sessionInfo.Username + "!");      
-
-                    return RedirectToAction("Index", "Users");
+                    return View(new Login());
                 }
-                catch (Exception ex)
-                {
-                    messagesHandler.Add("danger", ex.Message);
-                }*/
-            }
 
-            return View(login);
+                if (ModelState.IsValid)
+                {
+                    sessions.Add("UserId", 1);
+                    sessions.Add("Username", login.Username);
+                    sessions.Add("SessionId", 1);
+                    sessions.Add("SessionSecret", Guid.NewGuid().ToString());
+
+                    /*try
+                    {
+                        SessionInfo sessionInfo = ticketApi.PostLoginIn(login);
+
+                        session.Add("Userid", sessionInfo.UserId);
+                        session.Add("Username", sessionInfo.Username);
+                        session.Add("SessionId", sessionInfo.SessionId);
+                        session.Add("SessionSecret", sessionInfo.SessionSecret);
+
+                        messagesHandler.Add("primary", "Welcome " + sessionInfo.Username + "!");      
+
+                        return RedirectToAction("Index", "Users");
+                    }   
+                    catch (Exception ex)
+                    {
+                        messagesHandler.Add("danger", ex.Message);
+                    }*/
+                }
+
+                return View(login);
+            /*}
+
+            messagesHandler.Add("warning", "You are already login!");
+
+            return RedirectToAction("Index", "Users");*/
         }
 
         /// <summary>
         /// Add flight, without post
         /// </summary>
         /// <returns>View</returns>
-        [HttpGet("Flights/")]
+        [HttpGet]
         public IActionResult AddFlight()
         {
-            return View(new Flight());
+            if (sessions.Exist("UserId"))
+            {
+                return View(new Flight());
+            }
+
+            messagesHandler.Add("warning", "You need to be login, for add fligth!");
+
+            return RedirectToAction("Index");
         }
 
         /// <summary>
@@ -107,29 +142,36 @@ namespace BackOffice.Controllers
         /// </summary>
         /// <param name="flight">Post values in flight object</param>
         /// <returns>Redirect or view</returns>
-        [HttpPost("Flights/")]
+        [HttpPost]
         public IActionResult AddFlight(Flight flight)
         {
-            if(flight != null)
+            if (sessions.Exist("UserId"))
             {
-                View(new Flight());
+                if (flight != null)
+                {
+                    View(new Flight());
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        int id = ticketApi.PostFlight(flight);
+                        messagesHandler.Add("success", "Flight was added successfully!");
+                        return RedirectToAction("AddFlight");
+                    }
+                    catch (Exception ex)
+                    {
+                        messagesHandler.Add("danger", ex.Message);
+                    }
+                }
+
+                return View(flight);
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    int id = ticketApi.PostFlight(flight);
-                    messagesHandler.Add("success", "Flight was added successfully!");
-                    return RedirectToAction("AddFlight");
-                }
-                catch (Exception ex)
-                {
-                    messagesHandler.Add("danger", ex.Message);
-                }
-            }
+            messagesHandler.Add("warning", "You need to be login, for add fligth!");
 
-            return View(flight);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Error()

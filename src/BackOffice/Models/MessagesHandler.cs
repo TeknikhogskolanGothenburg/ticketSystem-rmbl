@@ -8,29 +8,25 @@ namespace BackOffice.Models
 {
     public class MessagesHandler
     {
-        private ITempDataDictionary tempData;
-
-        /// <summary>
-        /// Getter for TempData["Messages"]
-        /// </summary>
-        public Dictionary<string, List<string>> Messages
-        {
-            get
-            {
-                return ((Dictionary<string, List<string>>)tempData["Messages"]);
-            }
-        }
+        public Dictionary<string, List<string>> Messages { get; private set; }
+        private Sessions sessions;
 
         /// <summary>
         /// Constructor with TempData
         /// </summary>
         /// <param name="newTempData">TempData</param>
-        public MessagesHandler(ITempDataDictionary newTempData)
+        public MessagesHandler(Sessions newSessions)
         {
-            tempData = newTempData;
-            if (tempData["Messages"] == null)
+            sessions = newSessions;
+
+            if (sessions.Get("Messages") == null)
             {
-                tempData["Messages"] = new Dictionary<string, List<string>>();
+                Messages = new Dictionary<string, List<string>>();
+                sessions.Add("Messages", Messages);
+            }
+            else
+            {
+                Messages = (Dictionary<string, List<string>>)sessions.Get("Messages");
             }
         }
 
@@ -54,7 +50,8 @@ namespace BackOffice.Models
         /// </summary>
         public void RemoveAll()
         {
-            tempData["Messages"] = new Dictionary<string, List<string>>();
+            Messages = new Dictionary<string, List<string>>();
+            sessions.Add("Messages", Messages);
         }
     }
 }

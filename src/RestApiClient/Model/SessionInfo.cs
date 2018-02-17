@@ -8,6 +8,7 @@ namespace TicketSystem.RestApiClient.Model
     {
         public int UserId { get; set; }
         public string Username { get; set; }
+        public int UserGrade { get; set; }
         public int SessionId { get; set; }
         public string SessionSecret { get; set; }
     }

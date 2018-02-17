@@ -19,10 +19,5 @@ namespace TicketSystem.RestApiClient.Model
         [DataType(DataType.Date)]
         [Display(Name = "Departure day")]
         public DateTime DepartureDay { get; set; }
-
-        [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Return day")]
-        public DateTime ReturnDay { get; set; }
     }
 }

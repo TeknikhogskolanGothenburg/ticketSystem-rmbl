@@ -250,6 +250,9 @@ namespace TicketSystem.RestApiClient
                 case HttpStatusCode.Unauthorized:
                     throw new UnauthorizedAccessException(string.Format("Unauthorized {0} {1} {2}", toDo, toWhat, withId));
 
+                case HttpStatusCode.InternalServerError:
+                    throw new Exception(String.Format("Api server did got internal server error on request todo {0} {1} {2}"));
+
                 case HttpStatusCode.NotFound:
                     throw new NotSupportedException(string.Format("Not found api command for {0} {1} {2}", toDo, toWhat, withId));
 
