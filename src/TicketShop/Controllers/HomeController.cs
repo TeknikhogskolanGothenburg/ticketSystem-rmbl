@@ -68,11 +68,41 @@ namespace TicketShop.Controllers
             return View();
         }
 
-        public IActionResult Booking()
+        public ActionResult Booking()
         {
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult _Ticket(TicketVariables temp, string abb, string firstName, string lastName, string from, string to, int seatNum, DateTime dep, DateTime arrival, int price)
+        {
+            var model = new TicketVariables
+            {
+                Abbriviation = abb,
+                FirstName = firstName,
+                LastName = lastName,
+                From = from,
+                To = to,
+                SeatNum = seatNum,
+                Departure = dep,
+                Arrival = arrival,
+                Price = price,
+            };
+
+            var testModel = new TicketVariables
+            {
+                Abbriviation = "Lord",
+                FirstName = "Z",
+                LastName = "",
+                From = "Venecia",
+                To = "Dubai",
+                SeatNum = 16,
+                Departure = DateTime.Now,
+                Arrival = DateTime.Today,
+                Price = 10000,
+            };
+            return PartialView("_Ticket", testModel);
         }
 
         public IActionResult Error()

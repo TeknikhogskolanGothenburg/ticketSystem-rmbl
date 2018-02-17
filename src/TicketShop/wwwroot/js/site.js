@@ -79,4 +79,8 @@ $(document).ready(function () {
         placement: "left",
         html: true
     });
+    $('#myList a').on('click', function (e) {
+            e.preventDefault()
+      $(this).tab('show');
+    });
 });

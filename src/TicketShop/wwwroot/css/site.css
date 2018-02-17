@@ -84,7 +84,7 @@ body {
 .HomeCity, .CityDest {
     width: 120px;
     float: right;
-    margin-top: -60px;
+    margin-top: -70px;
 }
 
 .dateGo, .dateHome {
@@ -123,49 +123,6 @@ input{
 /*LOG IN AND SIGN UP FORM END*/
 /****************************/
 
-@media screen and (max-width: 992px) {
-    .booking-form {
-        width: 95%;
-        margin: 10px;
-        margin-right: 15px;
-    }
-
-    .from, .to {
-        width: 100px !important;
-        height: 100px !important;
-    }
-
-        .from .from span, .to .from span {
-            position: relative;
-            bottom: 15px;
-            font-size: 50px;
-        }
-
-        .from .to span, .to .to span {
-            position: relative;
-            bottom: 15px;
-            font-size: 50px;
-        }
-
-    .dateGo, .dateHome {
-        width: 300px;
-    }
-
-    .HomeCity, .CityDest {
-        width: 200px;
-        height: 80px !important;
-        margin-top: -90px;
-    }
-
-    #SecondCol {
-        padding-left: 65px;
-    }
-
-    #LastForms .form-control {
-        height: 80px !important;
-    }
-}
-
 @media (min-width: 576px) {
     .custom-container {
         grid-template-columns: 5% auto 5%;
@@ -189,8 +146,44 @@ input{
 
 @media screen and (min-width: 992px) {
     .booking-form {
-        margin: auto;
+        width: 95%;
+        margin: 10px;
+        margin-right: 15px;
     }
+
+.from, .to {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.from .from span, .to .from span {
+    position: relative;
+    bottom: 15px;
+    font-size: 50px;
+}
+
+.from .to span, .to .to span {
+    position: relative;
+    bottom: 15px;
+    font-size: 50px;
+}
+
+.dateGo, .dateHome {
+    width: 300px;
+}
+
+.HomeCity, .CityDest {
+    width: 100px;
+    margin-top: -70px;
+}
+
+#SecondCol {
+    padding-left: 65px;
+}
+
+#LastForms .form-control {
+    height: 80px !important;
+}
 }
 
 @media screen and (max-width: 1199px) {

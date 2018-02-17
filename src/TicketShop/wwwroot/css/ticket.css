@@ -1,5 +1,7 @@
-﻿.showTickets-container {
-    margin-top: 50px;
+﻿@import url("https://fonts.googleapis.com/css?family=Libre+Barcode+39|Lobster|Lora");
+
+.showTickets-container {
+    margin-top: 30px;
     display: grid;
     grid-template-columns: 3% auto 3%;
     grid-template-rows: 3% auto auto 3%;
@@ -24,7 +26,7 @@
 .ticket {
     margin: auto;
     margin-top: 20px;
-    height: 480px;
+    height: 650px;
     max-width: 700px;
     background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15");
     opacity: 1;
@@ -50,15 +52,16 @@
     z-index: 10
 }
 
-    .right-side p {
-        font-size: 20px;
-        font-family: 'Lora', serif;
-        margin-bottom: 0
-    }
+.right-side p {
+    font-size: 20px;
+    font-family: 'Lora', serif;
+    margin-bottom: 0;
+    background-color: #D9D3C9;
+}
 
-    .right-side h5 {
-        background-color: #D9D3C9
-    }
+#Price {
+    background-color: #eee0;
+}
 
 #FlightService {
     font-size: 25px;
@@ -70,7 +73,8 @@
     width: 300px;
     display: none;
     font-size: 35px !important;
-    font-family: "Libre Barcode 39", cursive !important
+    font-family: "Libre Barcode 39", cursive !important;
+    background-color: #eee0!important;
 }
 
 #TwistedBarCode {
@@ -84,12 +88,8 @@
 }
 
 #DepartureTimeSection {
-    margin-top: 35px
+    margin-top: -20px
 }
-
-    #DepartureTimeSection h5 {
-        background-color: #D9D3C9
-    }
 
 .left-side {
     grid-column-start: 3;
@@ -156,6 +156,9 @@
     .ticket {
         grid-template-columns: 3% auto 3%
     }
+    #DepartureTimeSection{
+        margin-top: 25px;
+    }
 }
 
 @media screen and (max-width: 1199px) {
@@ -180,9 +183,7 @@
     }
 }
 
-#DepartureTimeSection {
-    margin-top: -10px
-}
+
 
 .stampOfApproval {
     height: 160px;

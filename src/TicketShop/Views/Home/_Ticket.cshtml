@@ -1,0 +1,90 @@
+﻿@model TicketShop.Models.TicketVariables
+@{
+    ViewData["Title"] = "Ze ticket";
+    var testModel = new TicketVariables
+    {
+        Abbriviation = "Lord",
+        FirstName = "Z",
+        LastName = "",
+        From = "Venecia",
+        To = "Dubai",
+        SeatNum = 16,
+        Departure = DateTime.Now,
+        Arrival = DateTime.Today,
+        Price = 10000,
+    };
+}
+
+<div class="ticket">
+    <div class="right-side">
+        <p id="FlightService">RMBL FlightServices</p>
+        <br>
+        <div class="row">
+            <div class="col">
+                <h5>Abbriviation</h5>
+                <p>@testModel.Abbriviation</p>
+            </div>
+            <div class="col">
+                <h5>First Name</h5>
+                <p>@testModel.FirstName</p>
+            </div>
+            <div class="col">
+                <h5>Last Name</h5>
+                <p>@testModel.LastName</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5>From</h5>
+                <p>@testModel.From</p>
+            </div>
+            <div class="col">
+                <h5>To</h5>
+                <p>@testModel.To</p>
+            </div>
+            <div class="col">
+                <h5>Seat Number</h5>
+                <p>@testModel.SeatNum</p>
+            </div>
+        </div>
+        <br>
+        <div class="row" id="DepartureTimeSection">
+            <div class="col">
+                <h5>Departure</h5>
+                <!--<p>13/5/2018 - <span>18:05</span></p>-->
+                <p>@testModel.Departure</p>
+            </div>
+            <div class="col">
+                <h5>Arrival</h5>
+                <p>@testModel.Arrival</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <p class="BarCode">HUEMASTER EYYY</p>
+            </div>
+            <div class="col">
+                <p class="text-right" id="Price">@testModel.Price</p>
+            </div>
+        </div>
+    </div><!--Right side End-->
+    <div class="left-side">
+        <img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-621248.jpg" alt="" width="210px" height="400px">
+        <div class="stampOfApproval text-center">
+            <p>
+                RMBL <br>FlightService
+                <br> Have a nice flight!
+                <br>Transaction ID: #33567
+            </p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="BarCode" id="TwistedBarCode">THIS IS ANOTHER</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="buyButton" class="text-right">
+    <a href="#" class="btn btn-success">Buy Ticket</a>
+</div>
