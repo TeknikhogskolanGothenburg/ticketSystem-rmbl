@@ -8,11 +8,11 @@ namespace TicketSystem.RestApiClient.Model
     public class FlightSearch
     {
         [Required]
-        [Range(0, int.MaxValue)]
+        [Range(1, int.MaxValue)]
         public int From { get; set; }
 
         [Required]
-        [Range(0, int.MaxValue)]
+        [Range(1, int.MaxValue)]
         public int Destination { get; set; }
 
         [Required]
