@@ -15,15 +15,29 @@
         </div>
     }
 
-    <label>
-        Username:
-        @Html.EditorFor(m => m.Username)
-    </label><br />
 
-    <label>
-        Password:
-        @Html.EditorFor(m => m.Password)
-    </label><br /><br />
-        
-    <input type="submit" value="Login" />
+    <div class="card">
+        <img src="~/images/pina-colada.svg" width="100" height="100" class="card-img-top" alt="Alternate Text" />
+        <div class="card-body">
+            <h5 class="card-title"><span style="font-weight: 400;">RMBL- Flight Service</span> Admin Page</h5>
+            <p class="card-text">
+                <div class="row">
+                    <div class="col-12">
+                        <label>
+                            Username:
+                            @Html.EditorFor(m => m.Username)
+                        </label>
+                    </div>
+                    <div class="col-12">
+                        <label>
+                            Password:
+                            @Html.EditorFor(m => m.Password)
+                        </label>
+                    </div>
+                </div>
+            </p>
+            <input type="submit" value="Login" class="btn btn-primary"/>
+
+        </div>
+    </div>
 }
