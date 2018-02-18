@@ -121,11 +121,11 @@ namespace TicketShopAPI.Controllers
         }
 
         /// <summary>
-        /// user login
+        /// login user by creating new session
         /// </summary>
-        /// <param name="id">id of user</param>
-        /// <returns>void | StatusCode: 200 Ok</returns>
-        /// <returns>void | StatusCode: 407 Unauthorized</returns>
+        /// <param name="data">username and password info</param>
+        /// <returns>an object repesenting the new session + user info | StatusCode: 200 Ok</returns>
+        /// <returns>null | StatusCode: 407 Unauthorized</returns>
         // POST: api/5/Ticket
         [HttpPost("/Login")]
         public LoginAnswer PostLogin([FromBody]JObject data)
