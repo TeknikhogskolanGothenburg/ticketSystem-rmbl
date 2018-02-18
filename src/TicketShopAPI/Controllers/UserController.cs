@@ -121,26 +121,33 @@ namespace TicketShopAPI.Controllers
         }
 
         /// <summary>
-        /// user login
+        /// login user by creating new session
         /// </summary>
-        /// <param name="id">id of user</param>
-        /// <returns>void | StatusCode: 200 Ok</returns>
-        /// <returns>void | StatusCode: 407 Unauthorized</returns>
+        /// <param name="data">username and password info</param>
+        /// <returns>an object repesenting the new session + user info | StatusCode: 200 Ok</returns>
+        /// <returns>null | StatusCode: 407 Unauthorized</returns>
         // POST: api/5/Ticket
         [HttpPost("/Login")]
-        public Session PostLogin([FromBody]JObject data)
+        public LoginAnswer PostLogin([FromBody]JObject data)
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
             string timeStamp = Request.Headers["Timestamp"];
-            int gradeRestriction = -1;
+            int gradeRestriction = 0;
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 Login loginInfo = data["Login"].ToObject<Login>();
                 User user = TicketDb.UserFind(loginInfo.Username);
                 if(SecurePasswordHasher.Verify(loginInfo.Password, user.Password))
                 {
-                    return TicketDb.SessionAdd(user.Id, "not sure", DateTime.Now);
+                    string secret = Guid.NewGuid().ToString();
+                    Session session = TicketDb.SessionAdd(user.Id, secret, DateTime.Now);
+                    return new LoginAnswer {
+                        SessionId = session.ID,
+                        SessionSecret = session.Secret,
+                        UserGrade = user.Grade,
+                        UserId = user.Id,
+                        Username = user.Username }; 
                 }
                 else
                 {
