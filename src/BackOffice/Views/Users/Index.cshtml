@@ -1,3 +1,13 @@
-﻿@{
+﻿@using TicketSystem.RestApiClient.Model;
+
+@{
     ViewData["Title"] = "Users";
+}
+
+@if (ViewBag.Users != null)
+{
+    foreach (User user in ViewBag.Users)
+    {
+        <p>@user.Username</p>
+    }
 }
