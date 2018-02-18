@@ -9,6 +9,32 @@
 
 <div class="custom-container">
 
+    @using (Html.BeginForm("Booking", "Home", FormMethod.Post))
+    {
+        <div class="booking-form">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="from"><span class="fa fa-plane"></span></div>
+                    <select name="" asp-for="@Model.From" id="" class="HomeCity form-control">
+                        @{
+                            foreach (AirPort airport in airports)
+                            {
+                                <option value="@airport.ID">@airport.Name</option>
+
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="to"><span class="fa fa-plane"></span></div>
+                    <select asp-for="@Model.Destination" id="" class="CityDest form-control">
+                        @{
+                            foreach (AirPort airport in airports)
+                            {
+                                <option value="@airport.ID">@airport.Name</option>
+                            }
+
+
     <div class="booking-form">
         <div class="row">
             <div class="col-lg-6 col-md-12 col-xs-12">
@@ -20,6 +46,7 @@
                         foreach (AirPort airport in airports)
                         {
                             <option value="@airport.ID">@airport.Name</option>
+
 
                         }
                     }
@@ -60,11 +87,3 @@
         </h1>
     </div>
 </div>
-
-@using (Html.BeginForm("Booking", "Home", FormMethod.Post))
-{
-    @Html.EditorFor(m => m.DepartureDay)
-    @Html.EditorFor(m => m.Destination)
-    @Html.EditorFor(m => m.From)
-
-}

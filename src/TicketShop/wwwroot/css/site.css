@@ -53,11 +53,15 @@ body {
     font-size: 130%;
 }
 
+
+form {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
 .booking-form {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
     float: right;
     max-width: 500px;
     /*background-color: #eaeaea;*/
@@ -113,13 +117,13 @@ body {
 .dateGo span{
     position: relative;
     float: right;
-    right: 5px;
-    top: -5px;
+    right: -15px;
+    top: -55px;
 }
 
 .dateGo input{
     display: initial;
-    width: 65%;
+    width: 77%;
     height: 60%;
     margin-top: 5%;
 }
