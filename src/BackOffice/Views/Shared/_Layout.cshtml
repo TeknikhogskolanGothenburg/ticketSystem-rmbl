@@ -32,7 +32,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">RMBL</a>
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RMBL</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,10 +40,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AddFlight">Add a new Flight</a>
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Booking Site", "Booking", "Home", null, new { @class = "nav-link" })
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Documentation">Documentation</a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">Contact</a>
@@ -51,7 +51,7 @@
             </ul>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
-                    <a href="#" class="navbar-brand">
+                    <a class="navbar-brand">
                         <img src="~/images/pina-colada.svg" width="40" height="40" alt="Alternate Text" />
                     </a>
                 </li>
