@@ -1,10 +1,28 @@
-﻿<!DOCTYPE html>
+﻿@using BackOffice.Helpers
+@using BackOffice.Models
+@using Microsoft.AspNetCore.Html
+
+@{
+    HtmlContentBuilder alertMessages = null;
+    if (ViewData.ContainsKey("Messages"))
+    {
+        MessagesHandler messages = ((MessagesHandler)ViewData["Messages"]);
+
+        if (messages.Messages.Count > 0)
+        {
+            alertMessages = MessagesHelper.Alerts(messages.Messages);
+
+            messages.RemoveAll();
+        }
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BackOffice</title>
-
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -38,13 +56,14 @@
         </div>
     </nav>
     <div class="container body-content">
+        <h1>@ViewData["Title"]</h1>
+        @alertMessages
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; 2018 - BackOffice</p>
         </footer>
     </div>
-
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -65,7 +84,6 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

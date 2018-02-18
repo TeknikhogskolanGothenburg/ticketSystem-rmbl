@@ -1,4 +1,59 @@
-﻿@{
+﻿@model TicketShop.Models.DataBaseRep
+@{
     ViewData["Title"] = "Home Page";
 }
 
+  <div class="custom-container">
+    <div class="booking-form">
+      <div class="row">
+        <div class="col">
+          <div class="from"><span class="fa fa-plane"></span>
+        </div>
+          <select name="" id="" class="HomeCity form-control">
+              @{ 
+                  foreach(KeyValuePair<int, string> x in Model.Response)
+                  {
+                      //<option value="@x.Value">@x.Value</option>
+                      if(@x.Value == "Venecia")
+                      {
+                          <option>@x.Value</option>
+                      }
+
+                  }
+              }
+        </select>
+        </div>
+        <div class="col">
+          <div class="to"><span class="fa fa-plane"></span>
+        </div>
+          <select name="" id="" class="CityDest form-control">
+              @{ 
+                  foreach(KeyValuePair<int, string> x in Model.Response)
+                  {
+                      <option value="@x.Value">@x.Value</option>
+
+                  }
+              }
+         </select>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col">
+          <div class="dateGo"><span class="fas fa-calendar-alt"></span></div>
+        </div>
+        <div class="col" id="SecondCol">
+          <div class="dateHome"><span class="fas fa-calendar-alt"></span></div>
+        </div>
+      </div>
+      <br>
+
+    </div>
+    <div class="TitleC">
+      <h1 class="display-1">
+              R<span id="Middle-M">M</span>BL <br>
+              <small class="text-muted">Luxury Flights</small>
+          </h1>
+    </div>
+  </div>

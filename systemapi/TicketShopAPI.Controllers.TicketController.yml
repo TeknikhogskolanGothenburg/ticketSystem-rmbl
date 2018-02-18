@@ -8,8 +8,8 @@ items:
   - TicketShopAPI.Controllers.TicketController.Delete(System.Int32)
   - TicketShopAPI.Controllers.TicketController.Get
   - TicketShopAPI.Controllers.TicketController.Get(System.Int32)
-  - TicketShopAPI.Controllers.TicketController.Post(System.String)
-  - TicketShopAPI.Controllers.TicketController.Put(System.Int32,System.String)
+  - TicketShopAPI.Controllers.TicketController.Post(TicketSystem.DatabaseRepository.Model.Ticket,TicketSystem.PaymentProvider.Payment)
+  - TicketShopAPI.Controllers.TicketController.Put(System.Int32,TicketSystem.DatabaseRepository.Model.Ticket)
   langs:
   - csharp
   - vb
@@ -24,7 +24,7 @@ items:
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketController
     path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 10
+    startLine: 14
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
@@ -249,10 +249,12 @@ items:
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Get
     path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 15
+    startLine: 28
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
+  summary: "\nquerries database for all tickets\n"
+  example: []
   syntax:
     content: >-
       [HttpGet]
@@ -260,6 +262,7 @@ items:
       public IEnumerable<string> Get()
     return:
       type: System.Collections.Generic.IEnumerable{System.String}
+      description: 'all tickets as json | StatusCode: 200 OK'
     content.vb: >-
       <HttpGet>
 
@@ -291,13 +294,15 @@ items:
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Get
     path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 32
+    startLine: 62
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
+  summary: "\nquerries database for ticket by id\n"
+  example: []
   syntax:
     content: >-
-      [HttpGet("{id}", Name = "Get")]
+      [HttpGet("{id}")]
 
       public string Get(int id)
     parameters:
@@ -305,8 +310,9 @@ items:
       type: System.Int32
     return:
       type: System.String
+      description: 'ticket as json | StatusCode: 200 OK'
     content.vb: >-
-      <HttpGet("{id}", Name:="Get")>
+      <HttpGet("{id}")>
 
       Public Function Get(id As Integer) As String
   overload: TicketShopAPI.Controllers.TicketController.Get*
@@ -316,24 +322,20 @@ items:
     arguments:
     - type: System.String
       value: '{id}'
-    namedArguments:
-    - name: Name
-      type: System.String
-      value: Get
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: TicketShopAPI.Controllers.TicketController.Post(System.String)
-  commentId: M:TicketShopAPI.Controllers.TicketController.Post(System.String)
-  id: Post(System.String)
+- uid: TicketShopAPI.Controllers.TicketController.Post(TicketSystem.DatabaseRepository.Model.Ticket,TicketSystem.PaymentProvider.Payment)
+  commentId: M:TicketShopAPI.Controllers.TicketController.Post(TicketSystem.DatabaseRepository.Model.Ticket,TicketSystem.PaymentProvider.Payment)
+  id: Post(TicketSystem.DatabaseRepository.Model.Ticket,TicketSystem.PaymentProvider.Payment)
   parent: TicketShopAPI.Controllers.TicketController
   langs:
   - csharp
   - vb
-  name: Post(String)
-  nameWithType: TicketController.Post(String)
-  fullName: TicketShopAPI.Controllers.TicketController.Post(System.String)
+  name: Post(Ticket, Payment)
+  nameWithType: TicketController.Post(Ticket, Payment)
+  fullName: TicketShopAPI.Controllers.TicketController.Post(TicketSystem.DatabaseRepository.Model.Ticket, TicketSystem.PaymentProvider.Payment)
   type: Method
   source:
     remote:
@@ -342,26 +344,32 @@ items:
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Post
     path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 39
+    startLine: 100
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
+  summary: "\nAdds a new ticket to the database\n"
+  example: []
   syntax:
     content: >-
       [HttpPost]
 
-      public void Post([FromBody] string value)
+      public void Post([FromBody] Ticket ticket, Payment payment)
     parameters:
-    - id: value
-      type: System.String
+    - id: ticket
+      type: TicketSystem.DatabaseRepository.Model.Ticket
+      description: new ticket to be added to database
       attributes:
       - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
         ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
         arguments: []
+    - id: payment
+      type: TicketSystem.PaymentProvider.Payment
+      description: payment information to be processed as a condition to get ticket
     content.vb: >-
       <HttpPost>
 
-      Public Sub Post(value As String)
+      Public Sub Post(ticket As Ticket, payment As Payment)
   overload: TicketShopAPI.Controllers.TicketController.Post*
   attributes:
   - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
@@ -371,16 +379,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: TicketShopAPI.Controllers.TicketController.Put(System.Int32,System.String)
-  commentId: M:TicketShopAPI.Controllers.TicketController.Put(System.Int32,System.String)
-  id: Put(System.Int32,System.String)
+- uid: TicketShopAPI.Controllers.TicketController.Put(System.Int32,TicketSystem.DatabaseRepository.Model.Ticket)
+  commentId: M:TicketShopAPI.Controllers.TicketController.Put(System.Int32,TicketSystem.DatabaseRepository.Model.Ticket)
+  id: Put(System.Int32,TicketSystem.DatabaseRepository.Model.Ticket)
   parent: TicketShopAPI.Controllers.TicketController
   langs:
   - csharp
   - vb
-  name: Put(Int32, String)
-  nameWithType: TicketController.Put(Int32, String)
-  fullName: TicketShopAPI.Controllers.TicketController.Put(System.Int32, System.String)
+  name: Put(Int32, Ticket)
+  nameWithType: TicketController.Put(Int32, Ticket)
+  fullName: TicketShopAPI.Controllers.TicketController.Put(System.Int32, TicketSystem.DatabaseRepository.Model.Ticket)
   type: Method
   source:
     remote:
@@ -389,20 +397,24 @@ items:
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Put
     path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 45
+    startLine: 154
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
+  summary: "\nupdates a user based on id\n"
+  example: []
   syntax:
     content: >-
       [HttpPut("{id}")]
 
-      public void Put(int id, [FromBody] string value)
+      public void Put(int id, [FromBody] Ticket ticket)
     parameters:
     - id: id
       type: System.Int32
-    - id: value
-      type: System.String
+      description: id of ticket to be updated
+    - id: ticket
+      type: TicketSystem.DatabaseRepository.Model.Ticket
+      description: ticket data used to update
       attributes:
       - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
         ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
@@ -410,7 +422,7 @@ items:
     content.vb: >-
       <HttpPut("{id}")>
 
-      Public Sub Put(id As Integer, value As String)
+      Public Sub Put(id As Integer, ticket As Ticket)
   overload: TicketShopAPI.Controllers.TicketController.Put*
   attributes:
   - type: Microsoft.AspNetCore.Mvc.HttpPutAttribute
@@ -440,10 +452,12 @@ items:
       repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Delete
     path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 51
+    startLine: 185
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
+  summary: "\ndeletes a ticket based on id\n"
+  example: []
   syntax:
     content: >-
       [HttpDelete("{id}")]
@@ -452,6 +466,7 @@ items:
     parameters:
     - id: id
       type: System.Int32
+      description: id of ticket to be deleted
     content.vb: >-
       <HttpDelete("{id}")>
 
@@ -10659,6 +10674,32 @@ references:
   name: Post
   nameWithType: TicketController.Post
   fullName: TicketShopAPI.Controllers.TicketController.Post
+- uid: TicketSystem.DatabaseRepository.Model.Ticket
+  commentId: T:TicketSystem.DatabaseRepository.Model.Ticket
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: Ticket
+  nameWithType: Ticket
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket
+- uid: TicketSystem.PaymentProvider.Payment
+  commentId: T:TicketSystem.PaymentProvider.Payment
+  parent: TicketSystem.PaymentProvider
+  isExternal: false
+  name: Payment
+  nameWithType: Payment
+  fullName: TicketSystem.PaymentProvider.Payment
+- uid: TicketSystem.DatabaseRepository.Model
+  commentId: N:TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: TicketSystem.DatabaseRepository.Model
+  nameWithType: TicketSystem.DatabaseRepository.Model
+  fullName: TicketSystem.DatabaseRepository.Model
+- uid: TicketSystem.PaymentProvider
+  commentId: N:TicketSystem.PaymentProvider
+  isExternal: false
+  name: TicketSystem.PaymentProvider
+  nameWithType: TicketSystem.PaymentProvider
+  fullName: TicketSystem.PaymentProvider
 - uid: TicketShopAPI.Controllers.TicketController.Put*
   commentId: Overload:TicketShopAPI.Controllers.TicketController.Put
   isExternal: false
