@@ -19,24 +19,7 @@ namespace TicketShopAPI.APISecurity
         private string SessionHashTimestamp;
         private Session Session;
         public User User;
-        
-
-        //public string GenerateSalt()
-        //{
-        //    RandomNumberGenerator rng = RNGCryptoServiceProvider.Create();
-        //    byte[] buff = new byte[10];
-        //    rng.GetBytes(buff);
-        //    return Convert.ToBase64String(buff);
-        //}
-
-        //public string GenerateSHA256Hash(string password, string salt)
-        //{
-        //    byte[] saltedPassword = Encoding.UTF8.GetBytes(password + salt);
-        //    SHA256Managed hashEngine = new SHA256Managed();
-        //    byte[] hashedPassword = hashEngine.ComputeHash(saltedPassword);
-        //    return Convert.ToBase64String(hashedPassword);
-        //}
-
+       
         public bool IsAuthorised(string timestamp, string apiKeyData, string sessionData, int grade)
         {
             if (apiKeyData == null)

@@ -20,6 +20,16 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
+        public User UserFind(string name)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<User>("SELECT * FROM Users WHERE Username=@name", name).ToList().First();
+            }
+        }
+
         public List<User> UserFindAll()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
@@ -341,24 +351,23 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public string APISecretFind(int id)
+        public string APISecretFind(int franchiseId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE FranchiseID=@id", id).First();
+                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE FranchiseID=@franchiseId", franchiseId).First();
             }
         }
 
-        // Add this one, I think you maybe want the both
-        public string APISecretFind(string query)
+        public string APISecretFind(string apiKey)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE ApiKey=@query", query).First();
+                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE ApiKey=@apiKey", apiKey).First();
             }
         }
 
@@ -372,6 +381,19 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
+        public Session SessionAdd(int userId, string secret, DateTime created)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var data = new { userId, secret, created };
+                connection.Query("INSERT INTO Sessions (UserID , Secret , Created ) VALUES (@userId, @secret, @created)", data);
+                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('AirPorts') AS Current_Identity").First();
+                return connection.Query<Session>("SELECT * FROM Sessions WHERE ID=@Id", new { Id = addedEventQuery }).First();
+            }
+        }
+
         public Session SessionFind(int id)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
@@ -381,7 +403,5 @@ namespace TicketSystem.DatabaseRepository
                 return connection.Query<Session>("SELECT * FROM Session WHERE ID = @id", id).ToList().First();
             }
         }
-
-
     }
 }

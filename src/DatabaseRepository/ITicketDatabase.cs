@@ -20,13 +20,6 @@ namespace TicketSystem.DatabaseRepository
         List<User> UserFindAll();
 
         /// <summary>
-        /// locates one, all or subcategory of users
-        /// </summary>
-        /// <param name="query">value that db querry tries to match</param>
-        /// <returns>An object List representing the users matching the search querry</returns>
-        List<User> UserFind(string query);
-
-        /// <summary>
         /// Add a new User to the database
         /// </summary>
         /// <param name="firstName">First name of the User</param>
@@ -67,13 +60,6 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="id">Session index</param>
         /// <returns>A Session object representing row in table</returns>
         Session SessionFind(int id);
-
-        /// <summary>
-        /// Finds one or all Tickets
-        /// </summary>
-        /// <param name="query">value that db querry tries to match with ticket id ("" = all ticketrs)</param>
-        /// <returns>A list of tickts found</returns>
-        List<Ticket> TicketFind(string query);
 
         /// <summary>
         /// Finds a list of tickets belonging to a specific user
@@ -127,11 +113,17 @@ namespace TicketSystem.DatabaseRepository
         bool TicketToTransactionAdd(int ticketId, int transactionId);
 
         /// <summary>
-        /// Finds one or all flights
+        /// Finds one flight by id
         /// </summary>
-        /// <param name="query">value that db query tryes to match ("" = all flights)</param>
-        /// <returns>a list of flights that where matched</returns>
-        List<Flight> FlightFind(string query);
+        /// <param name="id">the id of the flight</param>
+        /// <returns>an objct representing a flight</returns>
+        Flight FlightFind(int id);
+
+        /// <summary>
+        /// Finds all flights
+        /// </summary>
+        /// <returns>a list of objcts representing a flight</returns>
+        List<Flight> FlightFindAll();
 
         /// <summary>
         /// adds a new flight to the db
@@ -164,11 +156,17 @@ namespace TicketSystem.DatabaseRepository
         bool FlightDelete(int id);
 
         /// <summary>
-        /// finds one or all airports
+        /// finds an airport by id
         /// </summary>
-        /// <param name="query">value that query tries to match ("" = all airports)</param>
-        /// <returns>a list of Airports that matched the query</returns>
-        List<AirPort> AirPortFind(string query);
+        /// <param name="id">id of the airport</param>
+        /// <returns>an object representing an air port</returns>
+        AirPort AirPortFind(int id);
+
+        /// <summary>
+        /// finds all airports
+        /// </summary>
+        /// <returns>a list of objects representing an air port</returns>
+        List<AirPort> AirPortFindAll();
 
         /// <summary>
         /// adds a new airport to the db
@@ -225,18 +223,18 @@ namespace TicketSystem.DatabaseRepository
         string APIKeyFind(int id);
 
         /// <summary>
-        /// finds an api key secret
+        /// finds an api key secret by franchise Id
         /// </summary>
         /// <param name="id">the id of the api key sectet</param>
-        /// <returns>the api key secret string</returns>
-        string APISecretFind(int id);
+        /// <returns>api key secret</returns>
+        string APISecretFind(int franchiseId);
 
         /// <summary>
-        /// Finds an api key secret by api key key
+        /// Finds an api key secret by api key
         /// </summary>
-        /// <param name="query">The api key key</param>
-        /// <returns>the api key secret string</returns>
-        string APISecretFind(string query);
+        /// <param name="apiKey">The api key</param>
+        /// <returns>api key secret</returns>
+        string APISecretFind(string apiKey);
 
         /// <summary>
         /// finds all transactions
