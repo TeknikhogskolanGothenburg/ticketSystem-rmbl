@@ -1,7 +1,73 @@
-﻿
+﻿@model TicketSystem.RestApiClient.Model.User;
+
 @{
-    ViewData["Title"] = "EditUser";
+    ViewData["Title"] = "Edit User '" + Model.Username + "'";
 }
 
-<h2>EditUser</h2>
+@using (Html.BeginForm())
+{
+    if (!Html.ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger" role="alert">
+            <h4>Input was wrong:</h4>
+            @Html.ValidationSummary()
+        </div>
+    }
 
+    <label>
+        Username:
+        @Html.EditorFor(m => m.Username)
+    </label><br />
+
+    <label>
+        First name:
+        @Html.EditorFor(m => m.FirstName)
+    </label><br />
+
+    <label>
+        Last name:
+        @Html.EditorFor(m => m.LastName)
+    </label><br />
+
+    <label>
+        New password:
+        @Html.EditorFor(m => m.Password)
+    </label><br />
+
+    <label>
+        New password agian:
+        @Html.EditorFor(m => m.PasswordAgian)
+    </label><br />
+
+    <label>
+        Email:
+        @Html.EditorFor(m => m.Email)
+    </label><br />
+
+    <label>
+        Grade:
+        <select name="Grade" asp-for="Grade">
+            <option value="1">Member</option>
+            <option value="2">Administator</option>
+            <option value="3">Sensei</option>
+        </select>
+    </label><br />
+
+    <label>
+        Address:
+        @Html.EditorFor(m => m.Address)
+    </label><br />
+
+    <label>
+        Zip Code:
+        @Html.EditorFor(m => m.ZipCode)
+    </label><br />
+
+    <label>
+        City:
+        @Html.EditorFor(m => m.City)
+    </label><br /><br />
+
+    <input type = "submit" value="Edit user" />
+
+}

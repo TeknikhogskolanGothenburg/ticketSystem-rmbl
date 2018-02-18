@@ -24,7 +24,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// querries database for all tickets
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> all tickets as json | StatusCode: 200 OK</returns>
         /// <returns> there are no tickts | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
@@ -32,32 +31,37 @@ namespace TicketShopAPI.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            List<Ticket> allTickets = new List<Ticket>();
-            if (security.IsAuthorised("NotSureYet"))
+
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
-                allTickets = TicketDb.TicketFind("");
+                List<Ticket> allTickets = new List<Ticket>();
+                allTickets = TicketDb.TicketFindAll();
+                if (allTickets.Count != 0)
+                {
+
+                    return allTickets.Select(u => JsonConvert.SerializeObject(u));
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NoContent;
+                    return new string[] { "there are no tickts" };
+                }
             }
             else
             {
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
-            if (allTickets.Count != 0)
-            {
 
-                return allTickets.Select(u => JsonConvert.SerializeObject(u));
-            }
-            else
-            {
-                Response.StatusCode = (int)HttpStatusCode.NoContent;
-                return new string[] { "there are no tickts" };
-            }
         }
 
         /// <summary>
         /// querries database for ticket by id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <returns> ticket as json | StatusCode: 200 OK</returns>
         /// <returns> that ticket does not exsist | StatusCode: 204 NoContent</returns>
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
@@ -65,13 +69,15 @@ namespace TicketShopAPI.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
-                Ticket ticket = new Ticket();
-                List<Ticket> queryResult = TicketDb.TicketFind(id.ToString());
-                if (queryResult.Count > 0)
+                Ticket ticket = TicketDb.TicketFind(id);
+                if (ticket != null)
                 {
-                    ticket = queryResult[0];
                     return JsonConvert.SerializeObject(ticket);
                 }
                 else
@@ -90,7 +96,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// Adds a new ticket to the database
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="data">data used to process purchase of a ticket</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
@@ -101,7 +106,11 @@ namespace TicketShopAPI.Controllers
         [HttpPost]
         public void Post([FromBody]JObject data)
         {
-            if (security.IsAuthorised(Request.Headers["Authorization"]))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 Ticket ticket;
                 try
@@ -115,7 +124,7 @@ namespace TicketShopAPI.Controllers
                 }
                 Payment payment = data["payment"].ToObject<Payment>();
                 //is the seat already taken?
-                foreach (Ticket t in TicketDb.TicketFind(""))
+                foreach (Ticket t in TicketDb.TicketFindAll())
                 {
                     if (t.FlightID == ticket.FlightID && t.SeatNumber == ticket.SeatNumber)
                     {
@@ -152,7 +161,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// updates a user based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="ticket">ticket data used to update</param>
         /// <param name="id">id of ticket to be updated</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
@@ -163,7 +171,11 @@ namespace TicketShopAPI.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Ticket ticket)
         {
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 if (ticket == null)
                 {
@@ -184,7 +196,6 @@ namespace TicketShopAPI.Controllers
         /// <summary>
         /// deletes a ticket based on id
         /// </summary>
-        /// <param name="NotSureYet">value that determines if client has access to the api</param>
         /// <param name="id">id of ticket to be deleted</param>
         /// <returns>void | StatusCode: 200 Ok</returns>
         /// <returns>void | StatusCode: 400 BadRequest</returns>
@@ -196,7 +207,11 @@ namespace TicketShopAPI.Controllers
         {            
             Response.StatusCode = (int)HttpStatusCode.NotImplemented;
             return;
-            if (security.IsAuthorised("NotSureYet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 try
                 {
