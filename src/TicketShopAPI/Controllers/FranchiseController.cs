@@ -35,15 +35,26 @@ namespace TicketShopAPI.Controllers
         //    return "value";
         //}
 
+        /// <summary>
+        /// querries database for an apiKey based on id
+        /// </summary>
+        /// <param name="id">id of apikey to be found</param>
+        /// <returns>void | StatusCode: 200 Ok</returns>
+        /// /// <returns>void | StatusCode: 401 Unauthorized</returns>
         [HttpGet("{id}/Key")]
         public string GetKey(int id)
         {
-            if (security.IsAuthorised("NotSureyet"))
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 2;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 return TicketDb.APIKeyFind(id);
             }
             else
             {
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return "access denied";
             }
         }

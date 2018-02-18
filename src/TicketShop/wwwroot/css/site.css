@@ -180,7 +180,7 @@ body {
 @media screen and (min-width: 1200px) {
     .custom-container {
         grid-template-columns: 5% 500px auto 500px 5%;
-        grid-tempelate-rows: 300px 300px auto;
+        grid-template-rows: 300px 300px auto;
     }
 
     .booking-form {
