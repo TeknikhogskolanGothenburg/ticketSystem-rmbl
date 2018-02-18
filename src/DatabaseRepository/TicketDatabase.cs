@@ -310,6 +310,17 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
+        public List<Flight> AirportDeparturesAtDateFind(int portId, DateTime date)
+        {
+            DateTime dateEnd = date.AddDays(7);
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<Flight>("SELECT Flights.ID, DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats FROM AirPorts JOIN Flights ON Airports.ID=Flights.Departureport WHERE AirPorts.ID=@portId AND Flighs.DepatureDate > @date AND Flighs.DepatureDate < @dateEnd", new { portId, date, dateEnd }).ToList();
+            }
+        }
+
         public List<Flight> AirportArrivalsFind(int portId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
