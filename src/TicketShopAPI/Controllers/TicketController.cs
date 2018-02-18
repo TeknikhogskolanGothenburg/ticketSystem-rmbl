@@ -34,11 +34,12 @@ namespace TicketShopAPI.Controllers
 
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 List<Ticket> allTickets = new List<Ticket>();
-                allTickets = TicketDb.TicketFind("");
+                allTickets = TicketDb.TicketFindAll();
                 if (allTickets.Count != 0)
                 {
 
@@ -70,14 +71,13 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
-                Ticket ticket = new Ticket();
-                List<Ticket> queryResult = TicketDb.TicketFind(id.ToString());
-                if (queryResult.Count > 0)
+                Ticket ticket = TicketDb.TicketFind(id);
+                if (ticket != null)
                 {
-                    ticket = queryResult[0];
                     return JsonConvert.SerializeObject(ticket);
                 }
                 else
@@ -108,8 +108,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 Ticket ticket;
                 try
@@ -123,7 +124,7 @@ namespace TicketShopAPI.Controllers
                 }
                 Payment payment = data["payment"].ToObject<Payment>();
                 //is the seat already taken?
-                foreach (Ticket t in TicketDb.TicketFind(""))
+                foreach (Ticket t in TicketDb.TicketFindAll())
                 {
                     if (t.FlightID == ticket.FlightID && t.SeatNumber == ticket.SeatNumber)
                     {
@@ -172,8 +173,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 if (ticket == null)
                 {
@@ -207,8 +209,9 @@ namespace TicketShopAPI.Controllers
             return;
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 try
                 {

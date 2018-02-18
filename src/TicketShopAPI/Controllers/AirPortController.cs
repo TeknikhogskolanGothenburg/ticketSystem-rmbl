@@ -33,11 +33,12 @@ namespace TicketShopAPI.Controllers
         {            
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 List<AirPort> allAirPorts = new List<AirPort>();
-                allAirPorts = TicketDb.AirPortFind("");
+                allAirPorts = TicketDb.AirPortFindAll();
                 if (allAirPorts.Count != 0)
                 {
 
@@ -70,14 +71,16 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+
             int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 AirPort AirPort = new AirPort();
-                List<AirPort> queryResult = TicketDb.AirPortFind(id.ToString());
-                if (queryResult.Count > 0)
+                AirPort queryResult = TicketDb.AirPortFind(id);
+                if (queryResult != null)
                 {
-                    AirPort = queryResult[0];
+                    AirPort = queryResult;
                     return JsonConvert.SerializeObject(AirPort);
                 }
                 else
@@ -105,8 +108,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 return TicketDb.AirportDeparturesFind(id).Select(f => JsonConvert.SerializeObject(f));
             }
@@ -130,8 +134,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 1;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 return TicketDb.AirportArrivalsFind(id).Select(f => JsonConvert.SerializeObject(f));
             }
@@ -156,8 +161,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 AirPort AirPort;
                 try
@@ -201,8 +207,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 AirPort AirPort;
                 try
@@ -243,8 +250,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 bool deleteSuccessful = TicketDb.AirPortDelete(id);
                 if (!deleteSuccessful)

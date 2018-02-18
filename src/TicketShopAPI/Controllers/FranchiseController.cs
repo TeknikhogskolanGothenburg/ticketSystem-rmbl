@@ -46,8 +46,9 @@ namespace TicketShopAPI.Controllers
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
             int gradeRestriction = 2;
-            if (security.IsAuthorised(apiKeyData, sessionData, gradeRestriction))
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 return TicketDb.APIKeyFind(id);
             }
