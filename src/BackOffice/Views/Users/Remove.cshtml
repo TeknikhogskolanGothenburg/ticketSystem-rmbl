@@ -1,4 +1,13 @@
-﻿
+﻿@model TicketSystem.RestApiClient.Model.User;
+
 @{
-    ViewData["Title"] = "Remove user";
+    ViewData["Title"] = "Remove user '" + Model.Username + "'";
+}
+
+@using (@Html.BeginForm())
+{
+    <p>Do you really want to remove user '@Model.Username'?</p>
+
+    <input type="submit" name="remove" value="Yes" />
+    <input type="submit" name="remove" value="No" />
 }

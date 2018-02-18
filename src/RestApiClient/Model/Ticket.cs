@@ -18,8 +18,6 @@ namespace TicketSystem.RestApiClient.Model
         [Range(1, int.MaxValue)]
         public int UserId { get; set; }
 
-        [Required]
-        [Range(1, int.MaxValue)]
         public int BookAt { get; set; }
     }
 }
