@@ -29,7 +29,7 @@ namespace TicketShopAPI.Controllers
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/Flight
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Get(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
         {
 
             string apiKeyData = Request.Headers["Authorization"];
@@ -68,7 +68,7 @@ namespace TicketShopAPI.Controllers
         /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
         // GET: api/Flight/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public void FlightFind(int id)
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
@@ -91,7 +91,7 @@ namespace TicketShopAPI.Controllers
             {
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return "access denied";
-            }
+            }*/
         }
 
         /// <summary>

@@ -15,10 +15,29 @@ namespace TicketShop.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
+        private TicketApi ticketApi;
+        public List<TicketVariables> tickets = new List<TicketVariables>();
+
+
+        public HomeController()
+        {
+            ApiInformation api = new ApiInformation();
+
+
+            if ((TempData != null) && TempData["Userid"] != null)
+            {
+                ticketApi = new TicketApi(api.Key, api.Secret, (int)TempData["SessionId"], (string)TempData["SessionSecret"]);
+            }
+            else
+            {
+                ticketApi = new TicketApi(api.Key, api.Secret);
+            }
+        }
+
         public IActionResult Index()
         {
-            var model = new DataBaseRep();
+            var model = new TicketVariables();
+
             try
             {
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -28,9 +47,10 @@ namespace TicketShop.Controllers
                 builder.InitialCatalog = "RMBL-SERVER";
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
+                    //Console.WriteLine("Opening the port");
                     connection.Open();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT ID, Name FROM AirPorts");
+                    sb.Append("SELECT A.Name, B.Name, DepatureDate, ArrivalDate, Price FROM Flights LEFT JOIN AirPorts AS A ON A.ID = Flights.DeparturePort INNER JOIN AirPorts AS B ON B.ID = Flights.ArrivalPort");
                     String sql = sb.ToString();
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
@@ -39,78 +59,85 @@ namespace TicketShop.Controllers
                         {
                             while (reader.Read())
                             {
-                                model.Response.Add(reader.GetInt32(0), reader.GetString(1));
+                                var temp = reader.GetString(0);
+                                tickets.Add(
+                                    new TicketVariables
+                                    {
+                                        From = reader.GetString(0),
+                                        To = reader.GetString(1),
+                                        Departure = reader.GetDateTime(2),
+                                        Arrival = reader.GetDateTime(3),
+                                        Price = reader.GetInt32(4)
+                                    });
                             }
                         }
+
                     }
                     connection.Close();
                 }
             }
             catch (SqlException e)
             {
-                model.Response.Add(1, e.ToString());
+
             }
-            return View("Index", model);
+            return View("Index", tickets);
         }
 
-        [HttpPost]
-        public IActionResult Login([FromBody] User user)
+        
+        public ActionResult Booking()
         {
-            return null;
-        }
+            var model = new TicketVariables();
 
-        [HttpPost]
-        public IActionResult NewBooking([FromBody] Booking booking)
-        {
-            return null;
-        }
+            try
+            {
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "rmbl.database.windows.net";
+                builder.UserID = "rmblA";
+                builder.Password = "QAwsedrf123@@";
+                builder.InitialCatalog = "RMBL-SERVER";
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    //Console.WriteLine("Opening the port");
+                    connection.Open();
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("SELECT A.Name, B.Name, DepatureDate, ArrivalDate, Price FROM Flights LEFT JOIN AirPorts AS A ON A.ID = Flights.DeparturePort INNER JOIN AirPorts AS B ON B.ID = Flights.ArrivalPort");
+                    String sql = sb.ToString();
 
-        [HttpPost]
-        public IActionResult CheckOut([FromBody] Booking booking)
-        {
-            return null;
-        }
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var temp = reader.GetString(0);
+                                tickets.Add(
+                                    new TicketVariables {
+                                        From = reader.GetString(0),
+                                        To = reader.GetString(1),
+                                        Departure = reader.GetDateTime(2),
+                                        Arrival = reader.GetDateTime(3),
+                                        Price = reader.GetInt32(4)
+                                    });
+                            }
+                        }
 
-        [HttpGet("{id}")]
-        public IActionResult Booking(int? id)
-        {
-            return null;
-        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+               
+            }
+            
 
-        [HttpPost("{id}")]
-        public IActionResult EditBooking(int? id, [FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        public IActionResult Profile()
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult Settings([FromBody] User user)
-        {
-            return null;
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View("Booking", tickets);
         }
 
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
