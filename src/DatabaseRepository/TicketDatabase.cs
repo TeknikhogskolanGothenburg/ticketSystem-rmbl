@@ -367,7 +367,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE ApiKey=@apiKey", new { apiKey }).First();
+                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE KeyValue=@apiKey", new { apiKey }).First();
             }
         }
 
