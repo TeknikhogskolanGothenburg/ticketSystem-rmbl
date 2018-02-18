@@ -19,9 +19,8 @@ namespace TicketShopAPI.APISecurity
         private string SessionHashTimestamp;
         private Session Session;
         public User User;
-       
-        public bool IsAuthorised(string timestamp, string apiKeyData, string sessionData, int grade)
 
+        public bool IsAuthorised(string timestamp, string apiKeyData, string sessionData, int grade)
         {
             if (apiKeyData == null || timestamp == null)
             {
