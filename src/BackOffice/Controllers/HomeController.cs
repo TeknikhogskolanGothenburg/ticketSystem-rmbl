@@ -8,7 +8,6 @@ using TicketSystem.RestApiClient;
 using BackOffice.Models;
 using TicketSystem.RestApiClient.Model;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Session;
 using Microsoft.Extensions.Configuration;
 
 namespace BackOffice.Controllers

@@ -28,6 +28,7 @@ namespace BackOffice
         {
             services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddSingleton<Sessions>(new Sessions());
+
             services.AddMvc();
 
             // Adds a default in-memory implementation of IDistributedCache.
