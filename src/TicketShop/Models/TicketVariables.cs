@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TicketShop.Interfaces;
-using TicketShop.Models;
 
-namespace TicketShop.Mocks
+namespace TicketShop.Models
 {
-    public class MockTicketRepository:ITicketRepository
+    public class TicketVariables
     {
-        private readonly ITicketRepository _ticketRepository = new MockTicketRepository();
-        public IEnumerable<Ticket> Tickets {
+        public int TicketID { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
+        public int SeatNum { get; set; }
+        public DateTime Departure { get; set; }
+        public DateTime Arrival { get; set; }
+        public int Price { get; set; }
+
+        public Dictionary<int, string> Response = new Dictionary<int, string>();
+
+
+        /*public IEnumerable<Ticket> Tickets
+        {
             get
             {
                 return new List<Ticket>
@@ -62,10 +71,6 @@ namespace TicketShop.Mocks
                 };
             }
         }
-
-        public Ticket GetTicketById(int ticketId)
-        {
-            throw new NotImplementedException();
-        }
+        */
     }
 }

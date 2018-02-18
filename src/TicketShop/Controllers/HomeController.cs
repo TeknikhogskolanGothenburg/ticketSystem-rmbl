@@ -10,14 +10,15 @@ using System.Data.SqlClient;
 using TicketShop.Models;
 using TicketSystem.RestApiClient.Model;
 using TicketSystem.RestApiClient;
-using TicketShop.Interfaces;
-using TicketShop.Mocks;
 
 namespace TicketShop.Controllers
 {
     public class HomeController : Controller
     {
         private TicketApi ticketApi;
+        public List<TicketVariables> tickets = new List<TicketVariables>();
+
+
         public HomeController()
         {
             ApiInformation api = new ApiInformation();
@@ -35,8 +36,7 @@ namespace TicketShop.Controllers
 
         public IActionResult Index()
         {
-            var model = new Models.Ticket();
-            List<Models.Ticket> tickets = new List<Models.Ticket>();
+            var model = new TicketVariables();
 
             try
             {
@@ -61,7 +61,7 @@ namespace TicketShop.Controllers
                             {
                                 var temp = reader.GetString(0);
                                 tickets.Add(
-                                    new Models.Ticket
+                                    new TicketVariables
                                     {
                                         From = reader.GetString(0),
                                         To = reader.GetString(1),
@@ -86,8 +86,7 @@ namespace TicketShop.Controllers
         
         public ActionResult Booking()
         {
-            var model = new Models.Ticket();
-            List<Models.Ticket> tickets = new List<Models.Ticket>(); 
+            var model = new TicketVariables();
 
             try
             {
@@ -112,7 +111,7 @@ namespace TicketShop.Controllers
                             {
                                 var temp = reader.GetString(0);
                                 tickets.Add(
-                                    new Models.Ticket {
+                                    new TicketVariables {
                                         From = reader.GetString(0),
                                         To = reader.GetString(1),
                                         Departure = reader.GetDateTime(2),
