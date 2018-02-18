@@ -4,10 +4,9 @@
     ViewData["Title"] = "Login";
 }
 
-<h2>Login</h2>
-
 @using (Html.BeginForm())
 {
+
     if (!Html.ViewData.ModelState.IsValid)
     {
         <div class="alert alert-danger" role="alert">
@@ -18,12 +17,12 @@
 
     <label>
         Username:
-        @Html.TextBoxFor(m => m.Username)
+        @Html.EditorFor(m => m.Username)
     </label><br />
 
     <label>
         Password:
-        @Html.TextBoxFor(m => m.Password)
+        @Html.EditorFor(m => m.Password)
     </label><br /><br />
         
     <input type="submit" value="Login" />

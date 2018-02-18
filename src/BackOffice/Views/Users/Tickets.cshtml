@@ -1,0 +1,13 @@
+﻿@using TicketSystem.RestApiClient.Model
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+@if (ViewBag.Tickets != null)
+{
+    foreach(Ticket ticket in ViewBag.Tickets)
+    {
+        <p>@ticket.</p>
+    }
+}

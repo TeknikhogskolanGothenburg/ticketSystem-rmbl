@@ -23,7 +23,7 @@ namespace TicketSystem.RestApiClient.Model
 
         [Required]
         [Range(1, int.MaxValue)]
-        [Display(Name = "Departure Airport")]
+        [Display(Name = "Arrival Airport")]
         public int ArrivalPort { get; set; }
 
         [Required]
