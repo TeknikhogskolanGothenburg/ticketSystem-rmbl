@@ -128,7 +128,7 @@ namespace TicketShopAPI.Controllers
         /// <returns>void | StatusCode: 407 Unauthorized</returns>
         // POST: api/5/Ticket
         [HttpPost("/Login")]
-        public Session PostLogin([FromBody]JObject data)
+        public LoginAnswer PostLogin([FromBody]JObject data)
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
@@ -140,7 +140,14 @@ namespace TicketShopAPI.Controllers
                 User user = TicketDb.UserFind(loginInfo.Username);
                 if(SecurePasswordHasher.Verify(loginInfo.Password, user.Password))
                 {
-                    return TicketDb.SessionAdd(user.Id, "not sure", DateTime.Now);
+                    string secret = Guid.NewGuid().ToString();
+                    Session session = TicketDb.SessionAdd(user.Id, secret, DateTime.Now);
+                    return new LoginAnswer {
+                        SessionId = session.ID,
+                        SessionSecret = session.Secret,
+                        UserGrade = user.Grade,
+                        UserId = user.Id,
+                        Username = user.Username }; 
                 }
                 else
                 {
