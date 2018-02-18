@@ -23,8 +23,8 @@ namespace TicketShopAPI.APISecurity
         public bool IsAuthorised(string timestamp, string apiKeyData, string sessionData, int grade)
         {
             //return true;
-
-            if (apiKeyData == null)
+        {
+            if (apiKeyData == null || timestamp == null)
             {
                 return false;
             }
