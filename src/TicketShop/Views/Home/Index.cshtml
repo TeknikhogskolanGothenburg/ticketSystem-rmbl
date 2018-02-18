@@ -1,4 +1,4 @@
-﻿@model Ticket
+﻿@model IEnumerable<Ticket>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -6,30 +6,42 @@
   <div class="custom-container">
     <div class="booking-form">
       <div class="row">
-        <div class="col">
+        <div class="col-lg-6 col-md-12 col-xs-12">
           <div class="from"><span class="fa fa-plane"></span>
         </div>
           <select name="" id="" class="HomeCity form-control">
-              
+              @{ 
+                  foreach (var airports in Model)
+                  {
+                      <option>@airports.From</option>
+
+                  }
+              }
           </select>
         </div>
-        <div class="col">
+        <div class="col-lg-6 col-md-12 col-xs-12">
           <div class="to"><span class="fa fa-plane"></span>
         </div>
           <select name="" id="" class="CityDest form-control">
+              @{ 
+                  foreach (var airports in Model)
+                  {
+                      <option>@airports.To</option>
+
+                  }
+              }
          </select>
         </div>
       </div>
       <br>
-      <br>
       <div class="row">
-        <div class="col">
+        <div class="col-lg-6 col-md-12 col-xs-12">
           <div class="dateGo">
-              <input type="type" name="name" value="" /><span class="fas fa-calendar-alt"></span>
+              <input type="type" name="name" value="" class="form-control" /><span class="fas fa-calendar-alt"></span>
           </div>
         </div>
-        <div class="col">
-            @Html.ActionLink("Check flights!", "Booking", "Home", null, new { @class = "btn btn-primary" })
+        <div id="CheckFlightButton" class="col-lg-6 col-md-12 col-xs-12 text-right">
+            @Html.ActionLink("Check flights!", "Booking", "Home", null, new { @class = "btn btn-dark" })
         </div>
       </div>
       <br>

@@ -26,7 +26,6 @@
 .ticket {
     margin: auto;
     margin-top: 20px;
-    height: 650px;
     max-width: 700px;
     background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15");
     opacity: 1;
@@ -38,7 +37,6 @@
 }
 
 .right-side, .left-side {
-    min-height: 100%;
     padding: 10px;
     background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15")
 }
@@ -65,7 +63,8 @@
 
 #FlightService {
     font-size: 25px;
-    font-family: 'Lora', serif
+    font-family: 'Lora', serif;
+    background-color: #eee0;
 }
 
 .BarCode {
@@ -182,8 +181,6 @@
         grid-template-rows: 100%
     }
 }
-
-
 
 .stampOfApproval {
     height: 160px;

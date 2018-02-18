@@ -14,6 +14,11 @@ body {
     background-attachment: fixed;
 }
 
+
+.container{
+    margin-bottom: 125px!important;
+}
+
 .custom-container {
     grid-template-columns: 5% auto 5%;
     grid-template-rows: 300px 300px;
@@ -50,22 +55,26 @@ body {
     grid-row-start: 2;
     grid-row-end: 2;
     float: right;
-    width: 500px;
-    height: 300px;
-    background-color: #eaeaea;
+    max-width: 500px;
+    /*background-color: #eaeaea;*/
+    background-color: #eaeaeaba;
     margin: auto;
     padding: 10px;
     z-index: 12;
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.32);
+    border-radius: 3px;
+}
+
+.booking-form select{
+    width: 125px;
 }
 
 .booking-form .from, .booking-form .to {
     display: block;
     width: 90px;
     height: 90px;
-    background-color: #94b6ba;
     font-size: 60px;
-    color: #fff;
+    color: #000;
 }
 
 .booking-form .from span {
@@ -90,19 +99,29 @@ body {
 .dateGo{
     width: 220px;
     height: 80px;
-    background-color: #6498a0;*/
-    color: #fff;
+    padding: 10px;
 }
 
 .fa-calendar-alt{
     font-size: 60px;
 }
 
-.dateGo span, .dateHome span {
+.dateGo span{
     position: relative;
     float: right;
-    top: 5px;
-    right: 10px;
+    right: 5px;
+    top: -5px;
+}
+
+.dateGo input{
+    display: initial;
+    width: 65%;
+    height: 60%;
+    margin-top: 5%;
+}
+
+#CheckFlightButton{
+    margin-top: 15px; 
 }
 
 /*************************/
@@ -127,6 +146,10 @@ body {
 /****************************/
 
 @media (min-width: 576px) {
+    .container{
+        margin-bottom: auto!important;
+    }
+    
     .custom-container {
         grid-template-columns: 5% auto 5%;
         grid-template-rows: 300px 300px;
@@ -150,43 +173,32 @@ body {
 @media screen and (min-width: 992px) {
     .booking-form {
         width: 95%;
-        margin: 10px;
-        margin-right: 15px;
     }
 
-.from, .to {
-    width: 100px !important;
-    height: 100px !important;
-}
+    .from .from span, .to .from span {
+        position: relative;
+        bottom: 15px;
+        font-size: 50px;
+    }
 
-.from .from span, .to .from span {
-    position: relative;
-    bottom: 15px;
-    font-size: 50px;
-}
+    .from .to span, .to .to span {
+        position: relative;
+        bottom: 15px;
+        font-size: 50px;
+    }
 
-.from .to span, .to .to span {
-    position: relative;
-    bottom: 15px;
-    font-size: 50px;
-}
+    .HomeCity, .CityDest {
+        width: 100px;
+        margin-top: -70px;
+    }
 
-.dateGo, .dateHome {
-    width: 300px;
-}
+    #SecondCol {
+        padding-left: 65px;
+    }
 
-.HomeCity, .CityDest {
-    width: 100px;
-    margin-top: -70px;
-}
-
-#SecondCol {
-    padding-left: 65px;
-}
-
-#LastForms .form-control {
-    height: 80px !important;
-}
+    #LastForms .form-control {
+        height: 80px !important;
+    }
 }
 
 @media screen and (max-width: 1199px) {
@@ -205,13 +217,13 @@ body {
 
 @media screen and (min-width: 1200px) {
     .custom-container {
-        grid-template-columns: 5% 500px auto 500px 5%;
+        grid-template-columns: 5% 500px 500px 5%;
         grid-template-rows: 300px 300px;
     }
 
     .booking-form {
-        grid-column-start: 4;
-        grid-column-end: 4;
+        grid-column-start: 3;
+        grid-column-end: 3;
         grid-row-start: 1;
         grid-row-end: 1;
     }

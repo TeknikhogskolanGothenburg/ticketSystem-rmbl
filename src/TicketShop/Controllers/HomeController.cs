@@ -35,7 +35,52 @@ namespace TicketShop.Controllers
 
         public IActionResult Index()
         {
-            return View("Index");
+            var model = new Models.Ticket();
+            List<Models.Ticket> tickets = new List<Models.Ticket>();
+
+            try
+            {
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "rmbl.database.windows.net";
+                builder.UserID = "rmblA";
+                builder.Password = "QAwsedrf123@@";
+                builder.InitialCatalog = "RMBL-SERVER";
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    //Console.WriteLine("Opening the port");
+                    connection.Open();
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("SELECT A.Name, B.Name, DepatureDate, ArrivalDate, Price FROM Flights LEFT JOIN AirPorts AS A ON A.ID = Flights.DeparturePort INNER JOIN AirPorts AS B ON B.ID = Flights.ArrivalPort");
+                    String sql = sb.ToString();
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var temp = reader.GetString(0);
+                                tickets.Add(
+                                    new Models.Ticket
+                                    {
+                                        From = reader.GetString(0),
+                                        To = reader.GetString(1),
+                                        Departure = reader.GetDateTime(2),
+                                        Arrival = reader.GetDateTime(3),
+                                        Price = reader.GetInt32(4)
+                                    });
+                            }
+                        }
+
+                    }
+                    connection.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+
+            }
+            return View("Index", tickets);
         }
 
         [HttpGet("{id}")]
