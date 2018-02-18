@@ -83,18 +83,7 @@ namespace TicketShop.Controllers
             return View("Index", tickets);
         }
 
-        [HttpGet("{id}")]
-        public ActionResult Booking(string id)
-        {
-            int x;
-            if (int.TryParse(id, out x) == true)
-            {
-                ticketApi.GetUser(x);
-            }
-            return RedirectToAction("Booking", "Home");
-        }
-
-
+        
         public ActionResult Booking()
         {
             var model = new Models.Ticket();

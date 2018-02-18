@@ -19,6 +19,10 @@ body {
     margin-bottom: 125px!important;
 }
 
+.display-1{
+    font-size: 5rem!important;
+}
+
 .custom-container {
     grid-template-columns: 5% auto 5%;
     grid-template-rows: 300px 300px;
@@ -149,7 +153,11 @@ body {
     .container{
         margin-bottom: auto!important;
     }
-    
+
+    .display-1 {
+        font-size: 6rem;
+    }
+
     .custom-container {
         grid-template-columns: 5% auto 5%;
         grid-template-rows: 300px 300px;
