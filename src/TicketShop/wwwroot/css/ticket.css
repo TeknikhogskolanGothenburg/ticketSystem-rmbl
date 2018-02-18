@@ -1,0 +1,190 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Libre+Barcode+39|Lobster|Lora");
+
+.showTickets-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 3% auto 3%;
+    grid-template-rows: 3% auto auto 3%;
+    color: #fff
+}
+
+.list-group {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    margin-right: 10px
+}
+
+.tab-content {
+    grid-column-start: 2;
+    grid-row-start: 3
+}
+
+#buyButton {
+    margin-top: 20px
+}
+
+.ticket {
+    margin: auto;
+    margin-top: 20px;
+    max-width: 700px;
+    background-color: #eaeaea;
+    /*background-image: url("http://api.thumbr.it/whitenoise-600x400.png?background=ede7dcff&noise=cf25cf&density=40&opacity=15");*/
+    display: grid;
+    grid-template-columns: 3% auto 3%;
+    grid-template-rows: 100%;
+    border-radius: 10px;
+    color: #000
+}
+
+.right-side, .left-side {
+    padding: 10px;
+}
+
+.right-side {
+    grid-column-start: 2;
+    max-width: 95%;
+    border-right: none;
+    border: none;
+    z-index: 10
+}
+
+.right-side p {
+    font-size: 20px;
+    font-family: 'Lora', serif;
+    margin-bottom: 0;
+    background-color: #D9D3C9;
+}
+
+#Price {
+    background-color: #eee0;
+}
+
+#FlightService {
+    font-size: 25px;
+    font-family: 'Lora', serif;
+    background-color: #eee0;
+}
+
+.BarCode {
+    position: absolute;
+    width: 300px;
+    display: none;
+    font-size: 35px !important;
+    font-family: "Libre Barcode 39", cursive !important;
+    background-color: #eee0!important;
+}
+
+#TwistedBarCode {
+    transform: rotate(90deg)
+}
+
+#Price {
+    font-family: 'Lobster', cursive;
+    font-size: 28px;
+    width: 100px
+}
+
+#DepartureTimeSection {
+    margin-top: -20px
+}
+
+.left-side {
+    grid-column-start: 3;
+    min-width: 100%;
+    display: block
+}
+
+    .left-side img {
+        opacity: 0.2;
+        position: absolute;
+        margin-top: -10px;
+        margin-left: -30px;
+        border-radius: 10px
+    }
+
+.stampOfApproval {
+    position: relative;
+    right: 100px;
+    border: 5px dashed red;
+    opacity: 0.8;
+    height: 120px;
+    width: 120px;
+    z-index: 12;
+    border-radius: 50%;
+    transform: rotate(-28deg)
+}
+
+    .stampOfApproval p {
+        position: relative;
+        font-size: 15px;
+        color: red;
+        font-family: 'Lobster'
+    }
+
+@media (min-width: 768px) {
+    .showTickets-container {
+        grid-template-columns: 5% 200px auto 5%
+    }
+
+    .tab-content {
+        grid-column-start: 3;
+        grid-row-start: 2
+    }
+
+    .ticket {
+        margin-top: auto;
+        height: 400px
+    }
+
+    .right-side {
+        border-right: 1.5px dashed #000
+    }
+
+    .BarCode {
+        display: block
+    }
+
+    #Price {
+        width: auto
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .ticket {
+        grid-template-columns: 3% auto 3%
+    }
+    #DepartureTimeSection{
+        margin-top: 25px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .right-side {
+        border-right: none
+    }
+
+    .left-side {
+        display: none
+    }
+
+        .left-side img {
+            width: 150px
+        }
+}
+
+@media screen and (min-width: 1200px) {
+    .ticket {
+        height: 400px;
+        grid-template-columns: 3% 70% auto 3%;
+        grid-template-rows: 100%
+    }
+}
+
+.stampOfApproval {
+    height: 160px;
+    width: 160px
+}
+
+    .stampOfApproval p {
+        font-size: 20px
+    }

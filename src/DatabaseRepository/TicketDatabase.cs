@@ -351,7 +351,7 @@ namespace TicketSystem.DatabaseRepository
             }
             return avaliableSeats;
         }
-
+        
         public string APIKeyFind(int id)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
