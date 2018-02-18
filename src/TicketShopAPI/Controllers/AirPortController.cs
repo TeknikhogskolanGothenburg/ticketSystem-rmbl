@@ -30,7 +30,7 @@ namespace TicketShopAPI.Controllers
         // GET: api/AirPort
         [HttpGet]
         public IEnumerable<string> Get()
-        {            
+        {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
             string timeStamp = Request.Headers["Timestamp"];
@@ -55,7 +55,7 @@ namespace TicketShopAPI.Controllers
                 Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return new string[] { "access denied" };
             }
-            
+
         }
 
 
@@ -113,6 +113,46 @@ namespace TicketShopAPI.Controllers
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 return TicketDb.AirportDeparturesFind(id).Select(f => JsonConvert.SerializeObject(f));
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                return null;
+            }
+
+        }
+
+        /// <summary>
+        /// querries database for departure flights from a specific airport on a specific day + 1 week
+        /// </summary>
+        /// <param name="id">id of airport</param>
+        /// <param name="day">id of airport</param>
+        /// <returns> List of flights as json | StatusCode: 200 OK</returns>
+        /// <returns> | StatusCode: 401 Unauthorized</returns>
+        // GET: api/AirPort/5/DepartureFlight/1
+        [HttpGet("{id}/DepartureFlight/{day}")]
+        public IEnumerable<string> GetDepartureFlightOn(int id, string date)
+        {
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = 1;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
+            {
+                string[] format = { "yyyyMMdd" };
+                DateTime departureDate;
+
+                if (!DateTime.TryParseExact(date,
+                                            format,
+                                            System.Globalization.CultureInfo.InvariantCulture,
+                                            System.Globalization.DateTimeStyles.None,
+                                            out departureDate))
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return null;
+                }               
+
+                return TicketDb.AirportDeparturesAtDateFind(id,departureDate).Select(f => JsonConvert.SerializeObject(f));
             }
             else
             {
