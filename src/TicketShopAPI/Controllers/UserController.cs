@@ -133,7 +133,7 @@ namespace TicketShopAPI.Controllers
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
             string timeStamp = Request.Headers["Timestamp"];
-            int gradeRestriction = -1;
+            int gradeRestriction = 0;
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 Login loginInfo = data["Login"].ToObject<Login>();
