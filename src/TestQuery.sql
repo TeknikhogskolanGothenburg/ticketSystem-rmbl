@@ -1,9 +1,0 @@
-DROP TABLE IF EXISTS dbo.[Table];
-
-CREATE TABLE Test(
-	ID INT  PRIMARY KEY IDENTITY,
-	Hello NVARCHAR(50) NOT NULL,
-)
-
-INSERT INTO Test VALUES ('Hello from here')
-INSERT INTO Test VALUES ('Hello from there')

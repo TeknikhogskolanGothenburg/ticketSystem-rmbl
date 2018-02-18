@@ -1,0 +1,48 @@
+﻿@model TicketSystem.RestApiClient.Model.Flight;
+
+@{
+    ViewData["Title"] = "Add Flight";
+}
+
+@using (Html.BeginForm())
+{
+    if (!Html.ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger" role="alert">
+            <h4>Input was wrong:</h4>
+            @Html.ValidationSummary()
+        </div>
+    }
+
+    <label>
+        Depture time:
+        @Html.EditorFor(m => m.DepartureDate)
+    </label><br />
+
+    <label>
+        Depture Airport:
+        @Html.EditorFor(m => m.DeparturePort)
+    </label><br />
+
+    <label>
+        Arrival time:
+        @Html.EditorFor(m => m.ArrivalDate)
+    </label><br />
+
+    <label>
+        Arrival Airport:
+        @Html.EditorFor(m => m.ArrivalPort)
+    </label><br />
+
+    <label>
+        Maximal seats to sell:
+        @Html.EditorFor(m => m.Seats)
+    </label><br />
+
+    <label>
+        Price in dollars:
+        @Html.EditorFor(m => m.Price)
+    </label><br /><br />
+
+    <input type="submit" value="Add flight" />
+}
