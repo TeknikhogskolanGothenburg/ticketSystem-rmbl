@@ -32,6 +32,18 @@ namespace TicketSystem.RestApiClient
             sessionSecret = newSessionSecret;
         }
 
+        public List<AirPort> GetAirPorts()
+        {
+            RestRequest request = new RestRequest("api/AirPort/", Method.GET);
+            RestClient client = PrepareRequest(ref request);
+
+            IRestResponse<List<AirPort>> response = client.Execute<List<AirPort>>(request);
+
+            AnalysResponse(response, "Get", "AirPort");
+
+            return response.Data;
+        }
+
         /// <summary>
         /// Add flight
         /// </summary>

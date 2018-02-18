@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TicketSystem.RestApiClient.Model
 {
-    class FlightSearch
+    public class FlightSearch
     {
         [Required]
         [Range(0, int.MaxValue)]
