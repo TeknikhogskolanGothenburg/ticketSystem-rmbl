@@ -69,6 +69,8 @@ namespace TicketShop.Controllers
                 new AirPort{ID = 5, Name = "Moskva", Country = "RU", UTCOffset = 1.40 }
             };
 
+            var temp2 = ticketApi.GetUser(1);
+
             /*try
             {
                 airports = ticketApi.GetAirPorts();
