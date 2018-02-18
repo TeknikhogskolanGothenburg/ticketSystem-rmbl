@@ -5,9 +5,11 @@ items:
   id: ITicketDatabase
   parent: TicketSystem.DatabaseRepository
   children:
-  - TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd(System.String,System.String)
-  - TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd(System.String,System.String,System.String,System.String)
-  - TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind(System.String)
+  - TicketSystem.DatabaseRepository.ITicketDatabase.UserAdd(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
+  - TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+  - TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
+  - TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String,System.String)
+  - TicketSystem.DatabaseRepository.ITicketDatabase.UserModify(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
   langs:
   - csharp
   - vb
@@ -16,8 +18,12 @@ items:
   fullName: TicketSystem.DatabaseRepository.ITicketDatabase
   type: Interface
   source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: ITicketDatabase
-    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\ITicketDatabase.cs
+    path: src/DatabaseRepository/ITicketDatabase.cs
     startLine: 5
   assemblies:
   - DatabaseRepository
@@ -31,111 +37,231 @@ items:
   modifiers.vb:
   - Public
   - Interface
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd(System.String,System.String)
-  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd(System.String,System.String)
-  id: EventAdd(System.String,System.String)
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
+  id: UserFind(System.String)
   parent: TicketSystem.DatabaseRepository.ITicketDatabase
   langs:
   - csharp
   - vb
-  name: EventAdd(String, String)
-  nameWithType: ITicketDatabase.EventAdd(String, String)
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd(System.String, System.String)
+  name: UserFind(String)
+  nameWithType: ITicketDatabase.UserFind(String)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
   type: Method
   source:
-    id: EventAdd
-    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\ITicketDatabase.cs
-    startLine: 13
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: UserFind
+    path: src/DatabaseRepository/ITicketDatabase.cs
+    startLine: 12
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
-  summary: "\nAdd a new Event to the database\n"
+  summary: "\nlocates one, all or subcategory of users\n"
   example: []
   syntax:
-    content: TicketEvent EventAdd(string name, string description)
-    parameters:
-    - id: name
-      type: System.String
-      description: Name of the event
-    - id: description
-      type: System.String
-      description: A desription of the event, html markup of the event is allowed
-    return:
-      type: TicketSystem.DatabaseRepository.Model.TicketEvent
-      description: An object representing the newly created TicketEvent
-    content.vb: Function EventAdd(name As String, description As String) As TicketEvent
-  overload: TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd*
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd(System.String,System.String,System.String,System.String)
-  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd(System.String,System.String,System.String,System.String)
-  id: VenueAdd(System.String,System.String,System.String,System.String)
-  parent: TicketSystem.DatabaseRepository.ITicketDatabase
-  langs:
-  - csharp
-  - vb
-  name: VenueAdd(String, String, String, String)
-  nameWithType: ITicketDatabase.VenueAdd(String, String, String, String)
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd(System.String, System.String, System.String, System.String)
-  type: Method
-  source:
-    id: VenueAdd
-    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\ITicketDatabase.cs
-    startLine: 23
-  assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository
-  summary: "\nAdd a new venue to the database\n"
-  example: []
-  syntax:
-    content: Venue VenueAdd(string name, string address, string city, string country)
-    parameters:
-    - id: name
-      type: System.String
-      description: Name of the venue
-    - id: address
-      type: System.String
-      description: Physical address of the venue
-    - id: city
-      type: System.String
-      description: City part of the adress
-    - id: country
-      type: System.String
-      description: Country part of the adress
-    return:
-      type: TicketSystem.DatabaseRepository.Model.Venue
-      description: An object representing the newly created Venue
-    content.vb: Function VenueAdd(name As String, address As String, city As String, country As String) As Venue
-  overload: TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd*
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind(System.String)
-  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind(System.String)
-  id: VenuesFind(System.String)
-  parent: TicketSystem.DatabaseRepository.ITicketDatabase
-  langs:
-  - csharp
-  - vb
-  name: VenuesFind(String)
-  nameWithType: ITicketDatabase.VenuesFind(String)
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind(System.String)
-  type: Method
-  source:
-    id: VenuesFind
-    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\ITicketDatabase.cs
-    startLine: 31
-  assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository
-  summary: "\nFind all venus matching the query\n"
-  example: []
-  syntax:
-    content: List<Venue> VenuesFind(string query)
+    content: List<User> UserFind(string query)
     parameters:
     - id: query
       type: System.String
-      description: A text which is user i looking for in the venues
+      description: value that db querry tries to match
     return:
-      type: List{TicketSystem.DatabaseRepository.Model.Venue}
-      description: A list of venus matching the query
-    content.vb: Function VenuesFind(query As String) As List(Of Venue)
-  overload: TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind*
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.User}
+      description: An object List representing the users matching the search querry
+    content.vb: Function UserFind(query As String) As List(Of User)
+  overload: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind*
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String,System.String)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String,System.String)
+  id: UserGroupFind(System.String,System.String)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: UserGroupFind(String, String)
+  nameWithType: ITicketDatabase.UserGroupFind(String, String)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: UserGroupFind
+    path: src/DatabaseRepository/ITicketDatabase.cs
+    startLine: 20
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  summary: "\nlocates one, all or subcategory of users of a specific type\n"
+  example: []
+  syntax:
+    content: List<User> UserGroupFind(string query, string grade)
+    parameters:
+    - id: query
+      type: System.String
+      description: value that db querry tries to match
+    - id: grade
+      type: System.String
+      description: the grade of user, 1:customer 2:administrator 3:sensei
+    return:
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.User}
+      description: An object List representing the users matching the search querry
+    content.vb: Function UserGroupFind(query As String, grade As String) As List(Of User)
+  overload: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind*
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserAdd(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserAdd(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
+  id: UserAdd(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: UserAdd(String, String, String, String, String, String, String, String, Int32)
+  nameWithType: ITicketDatabase.UserAdd(String, String, String, String, String, String, String, String, Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserAdd(System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: UserAdd
+    path: src/DatabaseRepository/ITicketDatabase.cs
+    startLine: 32
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  summary: "\nAdd a new User to the database\n"
+  example: []
+  syntax:
+    content: User UserAdd(string username, string password, string email, string firstName, string lastName, string city, string zipCode, string address, int grade)
+    parameters:
+    - id: username
+      type: System.String
+    - id: password
+      type: System.String
+      description: password of the user
+    - id: email
+      type: System.String
+    - id: firstName
+      type: System.String
+      description: First name of the User
+    - id: lastName
+      type: System.String
+    - id: city
+      type: System.String
+      description: Users city of residence
+    - id: zipCode
+      type: System.String
+    - id: address
+      type: System.String
+      description: Users address
+    - id: grade
+      type: System.Int32
+      description: 'Access level of the user {1: Normal customer, 2: Admin, 3: Sensei}'
+    return:
+      type: TicketSystem.DatabaseRepository.Model.User
+      description: An object representing the newly created User
+    content.vb: Function UserAdd(username As String, password As String, email As String, firstName As String, lastName As String, city As String, zipCode As String, address As String, grade As Integer) As User
+  overload: TicketSystem.DatabaseRepository.ITicketDatabase.UserAdd*
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserModify(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserModify(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
+  id: UserModify(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: UserModify(Int32, String, String, String, String, String, String, String, String, Int32)
+  nameWithType: ITicketDatabase.UserModify(Int32, String, String, String, String, String, String, String, String, Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserModify(System.Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: UserModify
+    path: src/DatabaseRepository/ITicketDatabase.cs
+    startLine: 48
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  summary: "\nUpdates a user in the database\n"
+  example: []
+  syntax:
+    content: User UserModify(int id, string username, string password, string email, string firstName, string lastName, string city, string zipCode, string address, int grade)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: user property to be matched, required
+    - id: username
+      type: System.String
+      description: user property to be updated, required
+    - id: password
+      type: System.String
+      description: user property to be updated, required
+    - id: email
+      type: System.String
+      description: user property to be updated, not required
+    - id: firstName
+      type: System.String
+      description: user property to be updated, required
+    - id: lastName
+      type: System.String
+      description: user property to be updated, required
+    - id: city
+      type: System.String
+      description: user property to be updated, required
+    - id: zipCode
+      type: System.String
+      description: user property to be updated, required
+    - id: address
+      type: System.String
+      description: user property to be updated, required
+    - id: grade
+      type: System.Int32
+      description: user property to be updated, requiredd
+    return:
+      type: TicketSystem.DatabaseRepository.Model.User
+      description: User object representing the newly updated user, password is always null
+    content.vb: Function UserModify(id As Integer, username As String, password As String, email As String, firstName As String, lastName As String, city As String, zipCode As String, address As String, grade As Integer) As User
+  overload: TicketSystem.DatabaseRepository.ITicketDatabase.UserModify*
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+  id: UserDelete(System.String)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: UserDelete(String)
+  nameWithType: ITicketDatabase.UserDelete(String)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/DatabaseRepository/ITicketDatabase.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
+    id: UserDelete
+    path: src/DatabaseRepository/ITicketDatabase.cs
+    startLine: 55
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  summary: "\nDeletes a user from the database\n"
+  example: []
+  syntax:
+    content: bool UserDelete(string id)
+    parameters:
+    - id: id
+      type: System.String
+      description: value that db querry tries to match for removal
+    return:
+      type: System.Boolean
+      description: a bool indicating whether the delete command was successful
+    content.vb: Function UserDelete(id As String) As Boolean
+  overload: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete*
 references:
 - uid: TicketSystem.DatabaseRepository
   commentId: N:TicketSystem.DatabaseRepository
@@ -143,125 +269,160 @@ references:
   name: TicketSystem.DatabaseRepository
   nameWithType: TicketSystem.DatabaseRepository
   fullName: TicketSystem.DatabaseRepository
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd*
-  commentId: Overload:TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.ITicketDatabase.UserFind
   isExternal: false
-  name: EventAdd
-  nameWithType: ITicketDatabase.EventAdd
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.EventAdd
+  name: UserFind
+  nameWithType: ITicketDatabase.UserFind
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
-- uid: TicketSystem.DatabaseRepository.Model.TicketEvent
-  commentId: T:TicketSystem.DatabaseRepository.Model.TicketEvent
+- uid: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.User}
+  commentId: T:System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.User}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<User>
+  nameWithType: List<User>
+  fullName: System.Collections.Generic.List<TicketSystem.DatabaseRepository.Model.User>
+  nameWithType.vb: List(Of User)
+  fullName.vb: System.Collections.Generic.List(Of TicketSystem.DatabaseRepository.Model.User)
+  name.vb: List(Of User)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: TicketSystem.DatabaseRepository.Model.User
+    name: User
+    nameWithType: User
+    fullName: TicketSystem.DatabaseRepository.Model.User
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: TicketSystem.DatabaseRepository.Model.User
+    name: User
+    nameWithType: User
+    fullName: TicketSystem.DatabaseRepository.Model.User
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: false
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind
+  isExternal: false
+  name: UserGroupFind
+  nameWithType: ITicketDatabase.UserGroupFind
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserAdd*
+  commentId: Overload:TicketSystem.DatabaseRepository.ITicketDatabase.UserAdd
+  isExternal: false
+  name: UserAdd
+  nameWithType: ITicketDatabase.UserAdd
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserAdd
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketSystem.DatabaseRepository.Model.User
+  commentId: T:TicketSystem.DatabaseRepository.Model.User
   parent: TicketSystem.DatabaseRepository.Model
   isExternal: false
-  name: TicketEvent
-  nameWithType: TicketEvent
-  fullName: TicketSystem.DatabaseRepository.Model.TicketEvent
+  name: User
+  nameWithType: User
+  fullName: TicketSystem.DatabaseRepository.Model.User
 - uid: TicketSystem.DatabaseRepository.Model
   commentId: N:TicketSystem.DatabaseRepository.Model
   isExternal: false
   name: TicketSystem.DatabaseRepository.Model
   nameWithType: TicketSystem.DatabaseRepository.Model
   fullName: TicketSystem.DatabaseRepository.Model
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd*
-  commentId: Overload:TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserModify*
+  commentId: Overload:TicketSystem.DatabaseRepository.ITicketDatabase.UserModify
   isExternal: false
-  name: VenueAdd
-  nameWithType: ITicketDatabase.VenueAdd
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.VenueAdd
-- uid: TicketSystem.DatabaseRepository.Model.Venue
-  commentId: T:TicketSystem.DatabaseRepository.Model.Venue
-  parent: TicketSystem.DatabaseRepository.Model
+  name: UserModify
+  nameWithType: ITicketDatabase.UserModify
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserModify
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete*
+  commentId: Overload:TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete
   isExternal: false
-  name: Venue
-  nameWithType: Venue
-  fullName: TicketSystem.DatabaseRepository.Model.Venue
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind*
-  commentId: Overload:TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind
-  isExternal: false
-  name: VenuesFind
-  nameWithType: ITicketDatabase.VenuesFind
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.VenuesFind
-- uid: List{TicketSystem.DatabaseRepository.Model.Venue}
-  commentId: '!:List{TicketSystem.DatabaseRepository.Model.Venue}'
-  definition: List`1
-  name: List<Venue>
-  nameWithType: List<Venue>
-  fullName: List<TicketSystem.DatabaseRepository.Model.Venue>
-  nameWithType.vb: List(Of Venue)
-  fullName.vb: List(Of TicketSystem.DatabaseRepository.Model.Venue)
-  name.vb: List(Of Venue)
-  spec.csharp:
-  - uid: List`1
-    name: List
-    nameWithType: List
-    fullName: List
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: TicketSystem.DatabaseRepository.Model.Venue
-    name: Venue
-    nameWithType: Venue
-    fullName: TicketSystem.DatabaseRepository.Model.Venue
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: List`1
-    name: List
-    nameWithType: List
-    fullName: List
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: TicketSystem.DatabaseRepository.Model.Venue
-    name: Venue
-    nameWithType: Venue
-    fullName: TicketSystem.DatabaseRepository.Model.Venue
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: List`1
+  name: UserDelete
+  nameWithType: ITicketDatabase.UserDelete
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
-  name: List<>
-  nameWithType: List<>
-  fullName: List<>
-  nameWithType.vb: List(Of )
-  fullName.vb: List(Of )
-  name.vb: List(Of )
-  spec.csharp:
-  - uid: List`1
-    name: List
-    nameWithType: List
-    fullName: List
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: List`1
-    name: List
-    nameWithType: List
-    fullName: List
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
-  - name: )
-    nameWithType: )
-    fullName: )
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

@@ -18,7 +18,7 @@ namespace TicketSystem.PaymentProvider
             if (valuta.Length != 3)
             {
                 // ISO 4217: https://en.wikipedia.org/wiki/ISO_4217
-                throw new ArgumentException("The valua must be three charaters, the input '" + valuta + "' is not valid");
+                throw new ArgumentException("The valuta must be three characters, the input '" + valuta + "' is not valid");
             }
 
             Random rnd = new Random();

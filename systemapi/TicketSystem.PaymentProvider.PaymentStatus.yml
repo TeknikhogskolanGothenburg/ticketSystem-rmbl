@@ -16,15 +16,19 @@ items:
   fullName: TicketSystem.PaymentProvider.PaymentStatus
   type: Enum
   source:
+    remote:
+      path: src/PaymentProvider/PaymentStatus.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentStatus
-    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\PaymentStatus.cs
+    path: src/PaymentProvider/PaymentStatus.cs
     startLine: 2
   assemblies:
   - PaymentProvider
   namespace: TicketSystem.PaymentProvider
   syntax:
-    content: 'public enum PaymentStatus : int'
-    content.vb: Public Enum PaymentStatus As Integer
+    content: public enum PaymentStatus
+    content.vb: Public Enum PaymentStatus
   modifiers.csharp:
   - public
   - enum
@@ -43,8 +47,12 @@ items:
   fullName: TicketSystem.PaymentProvider.PaymentStatus.PaymentApproved
   type: Field
   source:
+    remote:
+      path: src/PaymentProvider/PaymentStatus.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentApproved
-    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\PaymentStatus.cs
+    path: src/PaymentProvider/PaymentStatus.cs
     startLine: 4
   assemblies:
   - PaymentProvider
@@ -71,8 +79,12 @@ items:
   fullName: TicketSystem.PaymentProvider.PaymentStatus.PaymentRejected
   type: Field
   source:
+    remote:
+      path: src/PaymentProvider/PaymentStatus.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentRejected
-    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\PaymentStatus.cs
+    path: src/PaymentProvider/PaymentStatus.cs
     startLine: 5
   assemblies:
   - PaymentProvider
@@ -99,8 +111,12 @@ items:
   fullName: TicketSystem.PaymentProvider.PaymentStatus.UnknownError
   type: Field
   source:
+    remote:
+      path: src/PaymentProvider/PaymentStatus.cs
+      branch: mattias
+      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: UnknownError
-    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\PaymentStatus.cs
+    path: src/PaymentProvider/PaymentStatus.cs
     startLine: 6
   assemblies:
   - PaymentProvider
