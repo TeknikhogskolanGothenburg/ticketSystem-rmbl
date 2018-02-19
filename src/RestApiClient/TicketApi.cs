@@ -132,7 +132,7 @@ namespace TicketSystem.RestApiClient
 
         public List<int> GetFlightSeats(int flight)
         {
-            RestRequest request = new RestRequest("api/flights/{id}/AvaliableSeats", Method.GET);
+            RestRequest request = new RestRequest("api/Flight/{id}/AvaliableSeats", Method.GET);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", flight);
 
@@ -361,7 +361,7 @@ namespace TicketSystem.RestApiClient
 
                 case HttpStatusCode.UnsupportedMediaType:
                 case HttpStatusCode.BadRequest:
-                    throw new FormatException(string.Format("Sended values to {0} {1} {2}, are not well formated", toDo, toWhat, withId));
+                    throw new FormatException(string.Format("Sent values to {0} {1} {2}, are not well formated", toDo, toWhat, withId));
 
                 case HttpStatusCode.NoContent:
                     throw new NullReferenceException(string.Format("{0} {1} is not found", toWhat, withId));

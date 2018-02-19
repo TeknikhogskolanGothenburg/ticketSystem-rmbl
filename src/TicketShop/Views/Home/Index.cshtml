@@ -33,23 +33,24 @@
                             {
                                 <option value="@airport.ID">@airport.Name</option>
                             }
-                         }
+                        }
                     </select>
                 </div>
             </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-xs-12">
-                <div class="dateGo">
-                    @Html.EditorFor(m => m.DepartureDay, new { @class = "form-control" })<span class="fas fa-calendar-alt"></span>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="dateGo">
+                        @Html.EditorFor(m => m.DepartureDay, new { @class = "form-control" })<span class="fas fa-calendar-alt"></span>
+                    </div>
+                </div>
+                <div id="CheckFlightButton" class="col-lg-6 col-md-12 col-xs-12 text-right">
+                    <input type="submit" value="Check flights!" class="btn btn-dark" />
                 </div>
             </div>
-            <div id="CheckFlightButton" class="col-lg-6 col-md-12 col-xs-12 text-right">
-                <input type="submit" value="Check flights!" class="btn btn-dark" />
-            </div>
-           </div>
-          <br>
+            <br>
         </div>
     }
+
 
     <div class="TitleC">
         <h1 class="display-1">

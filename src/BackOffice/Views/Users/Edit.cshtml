@@ -14,60 +14,73 @@
         </div>
     }
 
-    <label>
-        Username:
-        @Html.EditorFor(m => m.Username)
-    </label><br />
+        <div class="card">
+            <div class="card-body">
+                <h5>Edit Your User</h5>
+                <p class="card-text">
 
-    <label>
-        First name:
-        @Html.EditorFor(m => m.FirstName)
-    </label><br />
-
-    <label>
-        Last name:
-        @Html.EditorFor(m => m.LastName)
-    </label><br />
-
-    <label>
-        New password:
-        @Html.EditorFor(m => m.Password)
-    </label><br />
-
-    //<label>
-    //    New password agian:
-    //    @Html.EditorFor(m => m.PasswordAgian)
-    //</label><br />
-
-    <label>
-        Email:
-        @Html.EditorFor(m => m.Email)
-    </label><br />
-
-    <label>
-        Grade:
-        <select name="Grade" asp-for="Grade">
-            <option value="1">Member</option>
-            <option value="2">Administator</option>
-            <option value="3">Sensei</option>
-        </select>
-    </label><br />
-
-    <label>
-        Address:
-        @Html.EditorFor(m => m.Address)
-    </label><br />
-
-    <label>
-        Zip Code:
-        @Html.EditorFor(m => m.ZipCode)
-    </label><br />
-
-    <label>
-        City:
-        @Html.EditorFor(m => m.City)
-    </label><br /><br />
-
-    <input type = "submit" value="Edit user" />
-
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                Username:
+                                @Html.EditorFor(m => m.Username)
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                First name:
+                                @Html.EditorFor(m => m.FirstName)
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                Last name:
+                                @Html.EditorFor(m => m.LastName)
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                New password:
+                                @Html.EditorFor(m => m.Password)
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                Email:
+                                @Html.EditorFor(m => m.Email)
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                Grade:
+                                <select name="Grade" asp-for="Grade">
+                                    <option value="1">Member</option>
+                                    <option value="2">Administator</option>
+                                    <option value="3">Sensei</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                City:
+                                @Html.EditorFor(m => m.City)
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                Address:
+                                @Html.EditorFor(m => m.Address)
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                Zip Code:
+                                @Html.EditorFor(m => m.ZipCode)
+                            </label>
+                        </div>
+                    </div>
+                </p>
+                <input type="submit" value="Edit user" class="btn btn-dark" />
+            </div>
+        </div>
 }

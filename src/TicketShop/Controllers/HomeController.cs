@@ -74,54 +74,65 @@ namespace TicketShop.Controllers
 
         public ActionResult Booking(FlightSearch flightSearch)
         {
-            List<Flight> flightsAirportDate = ticketApi.GetFlightsByAirportDate(flightSearch.From, flightSearch.DepartureDay.ToString("yyyyMMdd"));
-            List<Flight> customersChoice = new List<Flight>();
-
-            string airPortFromName = "";
-            string airPortDestinationName = "";
-
-            foreach (AirPort airport in ticketApi.GetAirPorts())
-            {
-                if (airport.ID == flightSearch.From)
-                {
-                    airPortFromName = airport.Name;
-                }
-                if(airport.ID == flightSearch.Destination)
-                {
-                    airPortDestinationName = airport.Name;
-                }
-            }
-
-            int seatNumber = 0;
-            
-
-            foreach (Flight flight in flightsAirportDate)
-            {
-                if(flight.ArrivalPort == flightSearch.Destination)
-                {
-                    customersChoice.Add(flight);
-                }
-            }
-
             List<TicketVariables> tickets = new List<TicketVariables>();
-            foreach (Flight flight in customersChoice)
-            {
-                seatNumber = ticketApi.GetFlightSeats(flight.Id)[0];
-                tickets.Add(new TicketVariables {
-                    From = airPortFromName,
-                    To = airPortDestinationName,
-                    SeatNum = seatNumber,
-                    Departure = flight.DepartureDate,
-                    Arrival = flight.ArrivalDate,
-                    Price = flight.Price
-                });
-            }
 
-            if (tickets.Count > 0)
+            try
             {
-                return View("Booking", tickets);
+                List<Flight> flightsAirportDate = ticketApi.GetFlightsByAirportDate(flightSearch.From, flightSearch.DepartureDay.ToString("yyyyMMdd"));
+                List<Flight> customersChoice = new List<Flight>();
+
+                string airPortFromName = "";
+                string airPortDestinationName = "";
+
+                foreach (AirPort airport in ticketApi.GetAirPorts())
+                {
+                    if (airport.ID == flightSearch.From)
+                    {
+                        airPortFromName = airport.Name;
+                    }
+                    if (airport.ID == flightSearch.Destination)
+                    {
+                        airPortDestinationName = airport.Name;
+                    }
+                }
+
+                int seatNumber = 0;
+
+
+                foreach (Flight flight in flightsAirportDate)
+                {
+                    if (flight.ArrivalPort == flightSearch.Destination)
+                    {
+                        customersChoice.Add(flight);
+                    }
+                }
+
+                foreach (Flight flight in customersChoice)
+                {
+                    seatNumber = ticketApi.GetFlightSeats(flight.Id)[0];
+                    tickets.Add(new TicketVariables
+                    {
+                        From = airPortFromName,
+                        To = airPortDestinationName,
+                        SeatNum = seatNumber,
+                        Departure = flight.DepartureDate,
+                        Arrival = flight.ArrivalDate,
+                        Price = flight.Price
+                    });
+                }
+
+                if (tickets.Count > 0)
+                {
+                    return View("Booking", tickets);
+                }
             }
-            return View("_NoFlights");
+            catch (Exception ex)
+            {
+                messagesHandler.Add("danger", ex.Message);
+            }
+            messagesHandler.Add("warning", "No flights available");
+
+            return RedirectToAction("index");
         }
 
         public IActionResult Error()

@@ -1,13 +1,34 @@
-﻿<!DOCTYPE html>
+﻿@using TicketShop.Helpers
+@using TicketShop.Models
+@using Microsoft.AspNetCore.Html
+
+@{
+    HtmlContentBuilder alertMessages = null;
+    if (ViewData.ContainsKey("Messages"))
+    {
+        MessagesHandler messages = ((MessagesHandler)ViewData["Messages"]);
+
+        if (messages.Messages.Count > 0)
+        {
+            alertMessages = MessagesHelper.Alerts(messages.Messages);
+
+            messages.RemoveAll();
+        }
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TicketShop</title>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/css/ticket.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/popper.js/dist/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/js/site.js"></script>
 
 </head>
@@ -46,6 +67,7 @@
         </div>
     </nav>
     <div class="container">
+    @alertMessages
     @RenderBody()
       </div> 
 

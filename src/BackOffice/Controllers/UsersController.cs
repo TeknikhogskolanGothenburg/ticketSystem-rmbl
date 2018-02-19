@@ -287,7 +287,7 @@ namespace BackOffice.Controllers
                 int userId;
                 if ((String.IsNullOrEmpty(id)) || !int.TryParse(id, out userId))
                 {
-                    messagesHandler.Add("danger", "No user find, to get tickets for");
+                    messagesHandler.Add("danger", "Tickets for that user is not found!");
                 }
                 else
                 {

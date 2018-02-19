@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using TicketSystem.PaymentProvider;
 using Newtonsoft.Json.Linq;
 using TicketShopAPI.APISecurity;
+using Microsoft.Extensions.Logging;
 
 namespace TicketShopAPI.Controllers
 {
@@ -20,6 +21,12 @@ namespace TicketShopAPI.Controllers
     {
         private Security security = new Security();
         private TicketDatabase TicketDb = new TicketDatabase();
+        private ILogger<AirPortController> logger;
+
+        public AirPortController(ILogger<AirPortController> newLogger)
+        {
+            logger = newLogger;
+        }
 
         /// <summary>
         /// querries database for all AirPorts
@@ -130,8 +137,10 @@ namespace TicketShopAPI.Controllers
         /// <returns> List of flights as json | StatusCode: 200 OK</returns>
         /// <returns> | StatusCode: 401 Unauthorized</returns>
         // GET: api/AirPort/5/DepartureFlight/1
+
         [HttpGet("{id}/DepartureFlight/{date}")]
         public IEnumerable<string> GetDepartureFlightOn(int id, string date)
+
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
@@ -142,7 +151,7 @@ namespace TicketShopAPI.Controllers
                 string[] format = { "yyyyMMdd" };
                 DateTime departureDate;
 
-                if (!DateTime.TryParseExact(date,
+                if (!DateTime.TryParseExact(day,
                                             format,
                                             System.Globalization.CultureInfo.InvariantCulture,
                                             System.Globalization.DateTimeStyles.None,
