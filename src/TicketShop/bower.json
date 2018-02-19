@@ -3,6 +3,6 @@
   "private": true,
   "dependencies": {
     "bootstrap": "v4.0.0",
-    "popper.js": "1.12.9"
+    "jquery-validation": "1.17.0"
   }
 }
