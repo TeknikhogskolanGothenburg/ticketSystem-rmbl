@@ -62,7 +62,14 @@ namespace TicketShop.Controllers
         {
             List<AirPort> airports = ticketApi.GetAirPorts();
             ViewBag.AirPorts = airports;
+
+            User temp = new User { Username = "Hancock", Password = "swagger1337", Email = "hancock@example.com", Grade = 1, FirstName = "Hancock", LastName = "", Address = "Space", ZipCode = "123:NunYa", City = "LA", DeletedUser = false };
+
+
+            ticketApi.PutUser(1, temp);
+
             return View(new FlightSearch());
+
         }
 
 
