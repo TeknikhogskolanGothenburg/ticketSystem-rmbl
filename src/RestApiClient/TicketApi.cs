@@ -129,6 +129,25 @@ namespace TicketSystem.RestApiClient
 
             return fligths;
         }
+
+        public List<int> GetFlightSeats(int flight)
+        {
+            RestRequest request = new RestRequest("api/flights/{id}/AvaliableSeats", Method.GET);
+            RestClient client = PrepareRequest(ref request);
+            request.AddUrlSegment("id", flight);
+
+            IRestResponse<List<int>> response = client.Execute<List<int>>(request);
+
+            AnalysResponse(response, "Get", "Seats", "from flight id" + flight);
+
+            List<int> seats = new List<int>();
+            response.Data.ForEach(f => seats.Add(JsonConvert.DeserializeObject<int>(f.ToString())));
+
+            return seats;
+        }
+        
+
+
         /// <summary>
         /// Get a ticket by ID from the system Returns a single ticket
         /// </summary>
