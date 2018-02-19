@@ -93,6 +93,13 @@ namespace BackOffice.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    //sessions.Add("UserId", 1);
+                    //sessions.Add("Username", login.Username);
+                    //sessions.Add("SessionId", 1);
+                    //sessions.Add("SessionSecret", Guid.NewGuid().ToString());
+
+                    //return RedirectToAction("Index", "Users");
+
                     try
                     {
                         SessionInfo sessionInfo = ticketApi.PostLoginIn(login);
