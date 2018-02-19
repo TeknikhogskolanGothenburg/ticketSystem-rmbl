@@ -157,7 +157,7 @@ namespace TicketShopAPI.Controllers
 
                 try
                 {
-                    Flight newFlight = TicketDb.FlightAdd(flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
+                    Flight newFlight = TicketDb.FlightAdd(flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats, flight.Price);
                 }
                 catch
                 {
@@ -203,7 +203,7 @@ namespace TicketShopAPI.Controllers
 
                 try
                 {
-                    TicketDb.FlightModify(id, flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
+                    TicketDb.FlightModify(id, flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats, flight.Price);
                 }
                 catch
                 {

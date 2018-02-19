@@ -204,27 +204,27 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
+        public Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats, int price)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var data = new { @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats };
-                connection.Query("INSERT INTO Flights(DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) values(@departureDate, @departurePort, @arrivalDate, @arrivalPort, @seats)", data);
+                var data = new { @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats, price };
+                connection.Query("INSERT INTO Flights(DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats, Price) values(@departureDate, @departurePort, @arrivalDate, @arrivalPort, @seats, @price)", data);
                 var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Flights') AS Current_Identity").First();
                 return connection.Query<Flight>("SELECT * FROM Flights WHERE ID=@Id", new { Id = addedEventQuery }).First();
             }
         }
 
-        public Flight FlightModify(int id, DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
+        public Flight FlightModify(int id, DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats, int price)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var data = new { id, @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats };
-                connection.Query("UPDATE Flights SET DepatureDate=@departureDate, DeparturePort=@departurePort, ArrivalDate=@arrivalDate, ArrivalPort=@arrivalPort, Seats=@seats WHERE ID = @id", data);
+                var data = new { id, @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats, price };
+                connection.Query("UPDATE Flights SET DepatureDate=@departureDate, DeparturePort=@departurePort, ArrivalDate=@arrivalDate, ArrivalPort=@arrivalPort, Seats=@seats, Price=@price WHERE ID = @id", data);
                 return connection.Query<Flight>("SELECT * FROM Flights WHERE ID=@Id", new { Id = id }).First();
             }
         }
