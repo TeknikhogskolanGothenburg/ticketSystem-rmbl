@@ -147,12 +147,15 @@ namespace TicketShop.Controllers
                 {
                     return View("Booking", tickets);
                 }
+                else
+                {
+                    messagesHandler.Add("warning", "No flights available");
+                }
             }
             catch (Exception ex)
             {
                 messagesHandler.Add("danger", ex.Message);
             }
-            messagesHandler.Add("warning", "No flights available");
 
             return RedirectToAction("index");
         }
