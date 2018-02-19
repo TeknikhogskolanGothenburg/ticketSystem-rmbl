@@ -9,6 +9,7 @@
     <PackageReference Include="bootstrap" Version="4.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
     <PackageReference Include="popper.js" Version="1.12.9" />
+    <PackageReference Include="Seq.Extensions.Logging" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
