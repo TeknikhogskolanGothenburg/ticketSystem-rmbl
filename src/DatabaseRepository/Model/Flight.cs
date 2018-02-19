@@ -12,5 +12,6 @@ namespace TicketSystem.DatabaseRepository.Model
         public DateTime ArrivalDate { get; set; }
         public int ArrivalPort { get; set; }
         public int Seats { get; set; }
+        public int Price { get; set; }
     }
 }

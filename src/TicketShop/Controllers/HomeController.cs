@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,107 +10,106 @@ using System.Data.SqlClient;
 using TicketShop.Models;
 using TicketSystem.RestApiClient.Model;
 using TicketSystem.RestApiClient;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace TicketShop.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
+        private IConfigurationRoot config;
+        private Sessions sessions;
+        private TicketApi ticketApi;
+        private MessagesHandler messagesHandler;
+        public List<TicketVariables> tickets = new List<TicketVariables>();
+
+        /// <summary>
+        /// Constructor with api settings and sessions object
+        /// </summary>
+        public HomeController(IConfigurationRoot newConfig, Sessions newSessions)
+        {
+            config = newConfig;
+            sessions = newSessions;
+        }
+
+        /// <summary>
+        /// Before actions are executing, do this... 
+        /// </summary>
+        /// <param name="context">Action context</param>
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            sessions.Intialize(context.HttpContext);
+            ViewData["Sessions"] = sessions;
+
+            if (sessions.Get("UserId") != null)
+            {
+                ticketApi = new TicketApi(config["Api:Key"], config["Api:Secret"], (int)sessions.Get("SessionId"), (string)sessions.Get("SessionSecret"));
+            }
+            else
+            {
+                ticketApi = new TicketApi(config["Api:Key"], config["Api:Secret"]);
+            }
+
+            messagesHandler = new MessagesHandler(sessions);
+
+            ViewData["Messages"] = messagesHandler;
+
+            // Execute action
+            base.OnActionExecuting(context);
+        }
+
         public IActionResult Index()
         {
-            var model = new DataBaseRep();
-            try
-            {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "rmbl.database.windows.net";
-                builder.UserID = "rmblA";
-                builder.Password = "QAwsedrf123@@";
-                builder.InitialCatalog = "RMBL-SERVER";
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    connection.Open();
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT ID, Name FROM AirPorts");
-                    String sql = sb.ToString();
+            List<AirPort> airports = ticketApi.GetAirPorts();
+            ViewBag.AirPorts = airports;
 
-                    using (SqlCommand command = new SqlCommand(sql, connection))
+            var temp = ticketApi.GetTicketById(1);
+
+            return View(new FlightSearch());
+        }
+
+        
+        public ActionResult Booking(FlightSearch flightSearch)
+        {
+            List<AirPort> airports = ticketApi.GetAirPorts();
+            List<Flight> flights = ticketApi.GetFlights(); 
+            List<TicketVariables> tickets = new List<TicketVariables>();
+
+            foreach (Flight x in flights)
+            {
+                if(x.DeparturePort == flightSearch.From)
+                {
+                    if(x.ArrivalPort == flightSearch.Destination)
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        if(x.DepartureDate == flightSearch.DepartureDay)
                         {
-                            while (reader.Read())
+                            tickets.Add(
+                            new TicketVariables
                             {
-                                model.Response.Add(reader.GetInt32(0), reader.GetString(1));
-                            }
+                                From = airports.ElementAt(x.DeparturePort-1).Name,
+                                To = airports.ElementAt(x.ArrivalPort-1).Name,
+                                SeatNum = 16,
+                                Departure = x.DepartureDate,
+                                Arrival = x.ArrivalDate,
+                                Price = x.Price,
+                            }   
+                            );
                         }
                     }
-                    connection.Close();
                 }
             }
-            catch (SqlException e)
+
+            if (tickets.Count > 0)
             {
-                model.Response.Add(1, e.ToString());
+                return View("Booking", tickets);
             }
-            return View("Index", model);
-        }
-
-        [HttpPost]
-        public IActionResult Login([FromBody] User user)
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult NewBooking([FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult CheckOut([FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Booking(int? id)
-        {
-            return null;
-        }
-
-        [HttpPost("{id}")]
-        public IActionResult EditBooking(int? id, [FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        public IActionResult Profile()
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult Settings([FromBody] User user)
-        {
-            return null;
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View("_NoFlights");
         }
 
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
