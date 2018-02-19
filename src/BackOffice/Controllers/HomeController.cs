@@ -8,8 +8,8 @@ using TicketSystem.RestApiClient;
 using BackOffice.Models;
 using TicketSystem.RestApiClient.Model;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Session;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace BackOffice.Controllers
 {
@@ -19,14 +19,19 @@ namespace BackOffice.Controllers
         private Sessions sessions;
         private TicketApi ticketApi;
         private MessagesHandler messagesHandler;
+        private ILogger<HomeController> logger;
 
         /// <summary>
-        /// Default constructor, prepare api
+        /// Constructor sith logging, sessions and app settings
         /// </summary>
-        public HomeController(IConfigurationRoot newConfig, Sessions newSessions)
+        /// <param name="newLogger">Logger</param>
+        /// <param name="newConfig">App settings</param>
+        /// <param name="newSessions">Sessions</param>
+        public HomeController(ILogger<HomeController> newLogger, IConfigurationRoot newConfig, Sessions newSessions)
         {
             config = newConfig;
             sessions = newSessions;
+            logger = newLogger;
         }
 
         /// <summary>
@@ -61,14 +66,14 @@ namespace BackOffice.Controllers
         /// <returns>Login view</returns>
         public IActionResult Index()
         {
-            /*if(!sessions.Exist("UserId"))
-            {*/
+            if(!sessions.Exist("UserId"))
+            {
                 return View(new Login());
-            /*}
+            }
             
             messagesHandler.Add("warning", "You are already login!");
 
-            return RedirectToAction("Index", "Users");*/
+            return RedirectToAction("Index", "Users");
         }
 
         /// <summary>
@@ -79,8 +84,8 @@ namespace BackOffice.Controllers
         [HttpPost]
         public IActionResult Index(Login login)
         {
-            /*if (!sessions.Exist("UserId"))
-            {*/
+            if (!sessions.Exist("UserId"))
+            {
                 if (login == null)
                 {
                     return View(new Login());
@@ -92,6 +97,8 @@ namespace BackOffice.Controllers
                     sessions.Add("Username", login.Username);
                     sessions.Add("SessionId", 1);
                     sessions.Add("SessionSecret", Guid.NewGuid().ToString());
+
+                    return RedirectToAction("Index", "Users");
 
                     /*try
                     {
@@ -113,11 +120,11 @@ namespace BackOffice.Controllers
                 }
 
                 return View(login);
-            /*}
+            }
 
             messagesHandler.Add("warning", "You are already login!");
 
-            return RedirectToAction("Index", "Users");*/
+            return RedirectToAction("Index", "Users");
         }
 
         /// <summary>
@@ -129,6 +136,9 @@ namespace BackOffice.Controllers
         {
             if (sessions.Exist("UserId"))
             {
+                List<AirPort> airports = ticketApi.GetAirPorts();
+                ViewBag.AirPorts = airports;
+
                 return View(new Flight());
             }
 

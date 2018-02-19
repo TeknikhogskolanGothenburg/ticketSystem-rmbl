@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using TicketSystem.PaymentProvider;
 using Newtonsoft.Json.Linq;
 using TicketShopAPI.APISecurity;
+using Microsoft.Extensions.Logging;
 
 namespace TicketShopAPI.Controllers
 {
@@ -20,6 +21,12 @@ namespace TicketShopAPI.Controllers
     {
         private Security security = new Security();
         private TicketDatabase TicketDb = new TicketDatabase();
+        private ILogger<FlightController> logger;
+
+        public FlightController(ILogger<FlightController> newLogger)
+        {
+            logger = newLogger;
+        }
 
         /// <summary>
         /// querries database for all flights
@@ -35,7 +42,7 @@ namespace TicketShopAPI.Controllers
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
             string timeStamp = Request.Headers["Timestamp"];
-            int gradeRestriction = 1;
+            int gradeRestriction = -1;
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 List<Flight> allFlights = new List<Flight>();
@@ -73,7 +80,7 @@ namespace TicketShopAPI.Controllers
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
             string timeStamp = Request.Headers["Timestamp"];
-            int gradeRestriction = 1;
+            int gradeRestriction = -1;
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 Flight flight = TicketDb.FlightFind(id);
@@ -94,10 +101,35 @@ namespace TicketShopAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// querries database for all avaliable seat numbers on a particular flight
+        /// </summary>
+        /// <returns> a list of set numbers | StatusCode: 200 OK</returns>
+        /// <returns> that flight does not exsist | StatusCode: 204 NoContent</returns>
+        /// <returns> access denied | StatusCode: 407 Unauthorized</returns>
+        // GET: api/Flight/5/AvaliableSeats
         [HttpGet("{id}/AvaliableSeats")]
         public List<int> GetAvaliableSeats(int id)
         {
-            return TicketDb.AvaliableSeatsFind(id);
+            string apiKeyData = Request.Headers["Authorization"];
+            string sessionData = Request.Headers["User-Authentication"];
+            string timeStamp = Request.Headers["Timestamp"];
+            int gradeRestriction = -1;
+            if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
+            {
+                Flight flight = TicketDb.FlightFind(id);
+                if (flight != null)
+                {
+                    return TicketDb.AvaliableSeatsFind(id);
+                }
+                Response.StatusCode = (int)HttpStatusCode.NoContent;
+                return new List<int>();
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                return new List<int>();
+            }
         }
 
         /// <summary>
@@ -132,7 +164,7 @@ namespace TicketShopAPI.Controllers
 
                 try
                 {
-                    Flight newFlight = TicketDb.FlightAdd(flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
+                    Flight newFlight = TicketDb.FlightAdd(flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats, flight.Price);
                 }
                 catch
                 {
@@ -178,7 +210,7 @@ namespace TicketShopAPI.Controllers
 
                 try
                 {
-                    TicketDb.FlightModify(id, flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats);
+                    TicketDb.FlightModify(id, flight.DepartureDate, flight.DeparturePort, flight.ArrivalDate, flight.ArrivalPort, flight.Seats, flight.Price);
                 }
                 catch
                 {

@@ -10,107 +10,135 @@ using System.Data.SqlClient;
 using TicketShop.Models;
 using TicketSystem.RestApiClient.Model;
 using TicketSystem.RestApiClient;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace TicketShop.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
+        private IConfigurationRoot config;
+        private Sessions sessions;
+        private TicketApi ticketApi;
+        private MessagesHandler messagesHandler;
+        public List<TicketVariables> tickets = new List<TicketVariables>();
+
+        /// <summary>
+        /// Constructor with api settings and sessions object
+        /// </summary>
+        public HomeController(IConfigurationRoot newConfig, Sessions newSessions)
+        {
+            config = newConfig;
+            sessions = newSessions;
+        }
+
+        /// <summary>
+        /// Before actions are executing, do this... 
+        /// </summary>
+        /// <param name="context">Action context</param>
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            sessions.Intialize(context.HttpContext);
+            ViewData["Sessions"] = sessions;
+
+            if (sessions.Get("UserId") != null)
+            {
+                ticketApi = new TicketApi(config["Api:Key"], config["Api:Secret"], (int)sessions.Get("SessionId"), (string)sessions.Get("SessionSecret"));
+            }
+            else
+            {
+                ticketApi = new TicketApi(config["Api:Key"], config["Api:Secret"]);
+            }
+
+            messagesHandler = new MessagesHandler(sessions);
+
+            ViewData["Messages"] = messagesHandler;
+
+            // Execute action
+            base.OnActionExecuting(context);
+        }
+
         public IActionResult Index()
         {
-            var model = new DataBaseRep();
+            List<AirPort> airports = ticketApi.GetAirPorts();
+            ViewBag.AirPorts = airports;
+            return View(new FlightSearch());
+        }
+
+        public IActionResult RegisterUser(User user)
+        {
+
+            return View();
+        }
+
+
+        public ActionResult Booking(FlightSearch flightSearch)
+        {
+            List<TicketVariables> tickets = new List<TicketVariables>();
+
             try
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "rmbl.database.windows.net";
-                builder.UserID = "rmblA";
-                builder.Password = "QAwsedrf123@@";
-                builder.InitialCatalog = "RMBL-SERVER";
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    connection.Open();
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT ID, Name FROM AirPorts");
-                    String sql = sb.ToString();
+                List<Flight> flightsAirportDate = ticketApi.GetFlightsByAirportDate(flightSearch.From, flightSearch.DepartureDay.ToString("yyyyMMdd"));
+                List<Flight> customersChoice = new List<Flight>();
 
-                    using (SqlCommand command = new SqlCommand(sql, connection))
+                string airPortFromName = "";
+                string airPortDestinationName = "";
+
+                foreach (AirPort airport in ticketApi.GetAirPorts())
+                {
+                    if (airport.ID == flightSearch.From)
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                model.Response.Add(reader.GetInt32(0), reader.GetString(1));
-                            }
-                        }
+                        airPortFromName = airport.Name;
                     }
-                    connection.Close();
+                    if (airport.ID == flightSearch.Destination)
+                    {
+                        airPortDestinationName = airport.Name;
+                    }
+                }
+
+                int seatNumber = 0;
+
+
+                foreach (Flight flight in flightsAirportDate)
+                {
+                    if (flight.ArrivalPort == flightSearch.Destination)
+                    {
+                        customersChoice.Add(flight);
+                    }
+                }
+
+                foreach (Flight flight in customersChoice)
+                {
+                    seatNumber = ticketApi.GetFlightSeats(flight.Id)[0];
+                    tickets.Add(new TicketVariables
+                    {
+                        From = airPortFromName,
+                        To = airPortDestinationName,
+                        SeatNum = seatNumber,
+                        Departure = flight.DepartureDate,
+                        Arrival = flight.ArrivalDate,
+                        Price = flight.Price
+                    });
+                }
+
+                if (tickets.Count > 0)
+                {
+                    return View("Booking", tickets);
                 }
             }
-            catch (SqlException e)
+            catch (Exception ex)
             {
-                model.Response.Add(1, e.ToString());
+                messagesHandler.Add("danger", ex.Message);
             }
-            return View("Index", model);
-        }
+            messagesHandler.Add("warning", "No flights available");
 
-        [HttpPost]
-        public IActionResult Login([FromBody] User user)
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult NewBooking([FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult CheckOut([FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Booking(int? id)
-        {
-            return null;
-        }
-
-        [HttpPost("{id}")]
-        public IActionResult EditBooking(int? id, [FromBody] Booking booking)
-        {
-            return null;
-        }
-
-        public IActionResult Profile()
-        {
-            return null;
-        }
-
-        [HttpPost]
-        public IActionResult Settings([FromBody] User user)
-        {
-            return null;
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return RedirectToAction("index");
         }
 
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

@@ -1,3 +1,18 @@
-﻿@{
+﻿@using TicketSystem.RestApiClient.Model;
+
+@{
     ViewData["Title"] = "Users";
+}
+
+@if (ViewBag.Users != null)
+{
+    foreach (User user in ViewBag.Users)
+    {
+        <p>
+            @user.Username 
+            [@Html.ActionLink("Tickets", "Tickets", "Users", new { id = user.Id }) |
+            @Html.ActionLink("Edit", "Edit", "Users", new { id = user.Id }) |
+            @Html.ActionLink("Remove", "Remove", "Users", new { id = user.Id })]
+        </p>
+    }
 }

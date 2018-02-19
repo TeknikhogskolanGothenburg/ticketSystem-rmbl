@@ -1,59 +1,61 @@
-﻿@model TicketShop.Models.DataBaseRep
+﻿@model TicketSystem.RestApiClient.Model.FlightSearch;
+@using TicketSystem.RestApiClient.Model;
+
 @{
     ViewData["Title"] = "Home Page";
+
+    List<AirPort> airports = ((List<AirPort>)ViewBag.AirPorts);
 }
 
-  <div class="custom-container">
-    <div class="booking-form">
-      <div class="row">
-        <div class="col">
-          <div class="from"><span class="fa fa-plane"></span>
-        </div>
-          <select name="" id="" class="HomeCity form-control">
-              @{ 
-                  foreach(KeyValuePair<int, string> x in Model.Response)
-                  {
-                      //<option value="@x.Value">@x.Value</option>
-                      if(@x.Value == "Venecia")
-                      {
-                          <option>@x.Value</option>
-                      }
+<div class="custom-container">
 
-                  }
-              }
-        </select>
-        </div>
-        <div class="col">
-          <div class="to"><span class="fa fa-plane"></span>
-        </div>
-          <select name="" id="" class="CityDest form-control">
-              @{ 
-                  foreach(KeyValuePair<int, string> x in Model.Response)
-                  {
-                      <option value="@x.Value">@x.Value</option>
+    @using (Html.BeginForm("Booking", "Home", FormMethod.Post))
+    {
+        <div class="booking-form">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="from"><span class="fa fa-plane"></span></div>
+                    <select asp-for="@Model.From" id="" class="HomeCity form-control">
+                        @{
+                            foreach (AirPort airport in airports)
+                            {
+                                <option value="@airport.ID">@airport.Name</option>
 
-                  }
-              }
-         </select>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="to"><span class="fa fa-plane"></span></div>
+                    <select asp-for="@Model.Destination" id="" class="CityDest form-control">
+                        @{
+                            foreach (AirPort airport in airports)
+                            {
+                                <option value="@airport.ID">@airport.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="dateGo">
+                        @Html.EditorFor(m => m.DepartureDay, new { @class = "form-control" })<span class="fas fa-calendar-alt"></span>
+                    </div>
+                </div>
+                <div id="CheckFlightButton" class="col-lg-6 col-md-12 col-xs-12 text-right">
+                    <input type="submit" value="Check flights!" class="btn btn-dark" />
+                </div>
+            </div>
+            <br>
         </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col">
-          <div class="dateGo"><span class="fas fa-calendar-alt"></span></div>
-        </div>
-        <div class="col" id="SecondCol">
-          <div class="dateHome"><span class="fas fa-calendar-alt"></span></div>
-        </div>
-      </div>
-      <br>
+    }
 
-    </div>
+
     <div class="TitleC">
-      <h1 class="display-1">
-              R<span id="Middle-M">M</span>BL <br>
-              <small class="text-muted">Luxury Flights</small>
-          </h1>
+        <h1 class="display-1">
+            R<span id="Middle-M">M</span>BL <br>
+            <small class="text-muted">Luxury Flights</small>
+        </h1>
     </div>
-  </div>
+</div>

@@ -8,6 +8,7 @@ using BackOffice.Models;
 using TicketSystem.RestApiClient.Model;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace BackOffice.Controllers
 {
@@ -17,14 +18,19 @@ namespace BackOffice.Controllers
         private Sessions sessions;
         private TicketApi ticketApi;
         private MessagesHandler messagesHandler;
+        private ILogger<UsersController> logger;
 
         /// <summary>
-        /// Default constructor, prepare api
+        /// Constructor sith logging, sessions and app settings
         /// </summary>
-        public UsersController(IConfigurationRoot newConfig, Sessions newSessions)
+        /// <param name="newLogger">Logger</param>
+        /// <param name="newConfig">App settings</param>
+        /// <param name="newSessions">Sessions</param>
+        public UsersController(ILogger<UsersController> newLogger, IConfigurationRoot newConfig, Sessions newSessions)
         {
             config = newConfig;
             sessions = newSessions;
+            logger = newLogger;
         }
 
         /// <summary>
@@ -281,7 +287,7 @@ namespace BackOffice.Controllers
                 int userId;
                 if ((String.IsNullOrEmpty(id)) || !int.TryParse(id, out userId))
                 {
-                    messagesHandler.Add("danger", "No user find, to get tickets for");
+                    messagesHandler.Add("danger", "Tickets for that user is not found!");
                 }
                 else
                 {

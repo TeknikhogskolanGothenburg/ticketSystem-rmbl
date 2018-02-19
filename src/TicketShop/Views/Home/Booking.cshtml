@@ -1,0 +1,33 @@
+﻿@using TicketShop.Models
+@model IEnumerable<TicketVariables>
+
+<div class="container">
+    <div class="showTickets-container">
+        <!-- List group -->
+        <div class="list-group" id="myList" role="tablist">
+        @{
+            var counter = 1;
+            foreach (var ticket in Model)
+            {
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#flight-@counter" role="tab">@ticket.From - @ticket.To <br /> @ticket.Departure.Day / @ticket.Departure.Month / @ticket.Departure.Year</a>
+                counter++;
+            }
+        }
+        </div>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            @{
+                var counter2 = 1;
+                foreach(TicketVariables x in Model)
+                {
+                    <div class="tab-pane fade" id="flight-@counter2" role="tabpanel">
+                        @Html.Partial("_Ticket", x)
+                    </div>
+                    counter2++;
+                }
+            }
+        </div>
+
+    </div>
+</div>

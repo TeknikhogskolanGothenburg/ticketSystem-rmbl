@@ -7,8 +7,10 @@ namespace TicketSystem.RestApiClient.Model
 {
     public class Flight
     {
+        public int Id { get; set; }
+
         [DataType(DataType.Date)]
-        [Display(Name = "Departure time")]
+        [Display(Name = "Departure date")]
         public DateTime DepartureDate { get; set; }
 
         [Required]
@@ -18,7 +20,7 @@ namespace TicketSystem.RestApiClient.Model
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Arrival time")]
+        [Display(Name = "Arrival date")]
         public DateTime ArrivalDate { get; set; }
 
         [Required]
@@ -34,5 +36,11 @@ namespace TicketSystem.RestApiClient.Model
         [Range(1, int.MaxValue)]
         [Display(Name = "Ticket price")]
         public int Price { get; set; }
+
+        public Flight()
+        {
+            DepartureDate = DateTime.Now;
+            ArrivalDate = DateTime.Now;
+        }
     }
 }

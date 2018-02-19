@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using TicketShopAPI.APISecurity;
 using AuthenticationLibrary;
+using Microsoft.Extensions.Logging;
 
 namespace TicketShopAPI.Controllers
 {
@@ -20,6 +21,12 @@ namespace TicketShopAPI.Controllers
     {
         private Security security = new Security();
         private TicketDatabase TicketDb = new TicketDatabase();
+        private ILogger<UserController> logger;
+
+        public UserController(ILogger<UserController> newLogger)
+        {
+            logger = newLogger;
+        }
 
         /// <summary>
         /// querries database for all users
@@ -42,6 +49,7 @@ namespace TicketShopAPI.Controllers
                 allusers = TicketDb.UserFindAll();
                 if (allusers.Count != 0)
                 {
+                    allusers.Select(u => u.Password = null);
                     return allusers.Select(u => JsonConvert.SerializeObject(u));
                 }
                 else
@@ -78,7 +86,8 @@ namespace TicketShopAPI.Controllers
                 User user = new User();
                 user = TicketDb.UserFind(id);
                 if (user != null)
-                {                    
+                {
+                    user.Password = null;
                     return JsonConvert.SerializeObject(user);
                 }
                 else
@@ -121,26 +130,33 @@ namespace TicketShopAPI.Controllers
         }
 
         /// <summary>
-        /// user login
+        /// login user by creating new session
         /// </summary>
-        /// <param name="id">id of user</param>
-        /// <returns>void | StatusCode: 200 Ok</returns>
-        /// <returns>void | StatusCode: 407 Unauthorized</returns>
+        /// <param name="data">username and password info</param>
+        /// <returns>an object repesenting the new session + user info | StatusCode: 200 Ok</returns>
+        /// <returns>null | StatusCode: 407 Unauthorized</returns>
         // POST: api/5/Ticket
         [HttpPost("/Login")]
-        public Session PostLogin([FromBody]JObject data)
+        public LoginAnswer PostLogin([FromBody]JObject data)
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];
             string timeStamp = Request.Headers["Timestamp"];
-            int gradeRestriction = -1;
+            int gradeRestriction = 0;
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
                 Login loginInfo = data["Login"].ToObject<Login>();
                 User user = TicketDb.UserFind(loginInfo.Username);
                 if(SecurePasswordHasher.Verify(loginInfo.Password, user.Password))
                 {
-                    return TicketDb.SessionAdd(user.Id, "not sure", DateTime.Now);
+                    string secret = Guid.NewGuid().ToString();
+                    Session session = TicketDb.SessionAdd(user.Id, secret, DateTime.Now);
+                    return new LoginAnswer {
+                        SessionId = session.ID,
+                        SessionSecret = session.Secret,
+                        UserGrade = user.Grade,
+                        UserId = user.Id,
+                        Username = user.Username }; 
                 }
                 else
                 {
@@ -216,30 +232,26 @@ namespace TicketShopAPI.Controllers
             int gradeRestriction = 1;
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
-                Response.Headers.Add("Authorization", Authentication.AuthenticationHeader(security.ApiKey,security.ApiSecret,security.Timestamp));
-                User user;
-                if (!(security.User.Grade > 1) && security.UserId != id)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                    return;
-                }
+                //Response.Headers.Add("Authorization", Authentication.AuthenticationHeader(security.ApiKey,security.ApiSecret,security.Timestamp));																																	
 
+                User user;
+
+                //if (!(security.User.Grade > 1) && security.UserId != id)
+                //{
+                //    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                //    return;
+                //}
+                
                 try
                 {
-                    user = data["User"].ToObject<User>();
+                    user = data.ToObject<User>();
                 }
                 catch
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     return;
                 }
-
-                // --- new passord code here ---
-                //string newSalt = security.GenerateSalt();
-                //string encryptedPassword = security.GenerateSHA256Hash(user.Password, newSalt);
-
-                string encryptedPassword = "temporary placeholder";
-
+                string encryptedPassword = SecurePasswordHasher.Hash(user.Password);
                 if (user.Password == null)
                 {
                     encryptedPassword = null;

@@ -16,7 +16,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<User>("SELECT * FROM Users WHERE ID = @id", id).ToList().First();
+                return connection.Query<User>("SELECT * FROM Users WHERE ID = @id", new { id }).ToList().First();
             }
         }
 
@@ -26,7 +26,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<User>("SELECT * FROM Users WHERE Username=@name", name).ToList().First();
+                return connection.Query<User>("SELECT * FROM Users WHERE Username=@name", new { name }).ToList().First();
             }
         }
 
@@ -92,7 +92,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID=@id",id).ToList().First();
+                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE ID=@id", new { id }).ToList().First();
             }
         }
 
@@ -112,7 +112,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE UserID=@id", id).ToList();
+                return connection.Query<Ticket>("SELECT * FROM Tickets WHERE UserID=@id", new { id }).ToList();
             }
         }
 
@@ -190,7 +190,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Flight>("SELECT * FROM Flights WHERE ID=@id",id).ToList().First();
+                return connection.Query<Flight>("SELECT * FROM Flights WHERE ID=@id", new { id }).ToList().First();
             }
         }
 
@@ -204,27 +204,27 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
+        public Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats, int price)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var data = new { @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats };
-                connection.Query("INSERT INTO Flights(DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats) values(@departureDate, @departurePort, @arrivalDate, @arrivalPort, @seats)", data);
+                var data = new { @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats, price };
+                connection.Query("INSERT INTO Flights(DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats, Price) values(@departureDate, @departurePort, @arrivalDate, @arrivalPort, @seats, @price)", data);
                 var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Flights') AS Current_Identity").First();
                 return connection.Query<Flight>("SELECT * FROM Flights WHERE ID=@Id", new { Id = addedEventQuery }).First();
             }
         }
 
-        public Flight FlightModify(int id, DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats)
+        public Flight FlightModify(int id, DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats, int price)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var data = new { id, @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats };
-                connection.Query("UPDATE Flights SET DepatureDate=@departureDate, DeparturePort=@departurePort, ArrivalDate=@arrivalDate, ArrivalPort=@arrivalPort, Seats=@seats WHERE ID = @id", data);
+                var data = new { id, @departureDate = departureDate.Date, departurePort, @arrivalDate = arrivalDate.Date, arrivalPort, seats, price };
+                connection.Query("UPDATE Flights SET DepatureDate=@departureDate, DeparturePort=@departurePort, ArrivalDate=@arrivalDate, ArrivalPort=@arrivalPort, Seats=@seats, Price=@price WHERE ID = @id", data);
                 return connection.Query<Flight>("SELECT * FROM Flights WHERE ID=@Id", new { Id = id }).First();
             }
         }
@@ -248,7 +248,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<AirPort>("SELECT * FROM AirPorts WHERE ID=@id").ToList().First();
+                return connection.Query<AirPort>("SELECT * FROM AirPorts WHERE ID=@id", new { id }).ToList().First();
             }
         }
 
@@ -306,7 +306,18 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Flight>("SELECT Flight.ID, DeparturDate, DeparturePort, ArrivalDate, ArrivalPort, Seats FROM AirPorts JOIN Flight ON Airports.ID=Flight.Departureport WHERE AirPort.ID=@portId").ToList();
+                return connection.Query<Flight>("SELECT Flights.ID, DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats FROM AirPorts JOIN Flights ON Airports.ID=Flights.Departureport WHERE AirPorts.ID=@portId", new { portId }).ToList();
+            }
+        }
+
+        public List<Flight> AirportDeparturesAtDateFind(int portId, DateTime date)
+        {
+            DateTime dateEnd = date.AddDays(7);
+            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                return connection.Query<Flight>("SELECT Flights.ID, DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats, Price FROM AirPorts JOIN Flights ON Airports.ID=Flights.Departureport WHERE AirPorts.ID=@portId AND Flights.DepartureDate >= @date AND Flights.DepartureDate < @dateEnd", new { portId, date, dateEnd }).ToList();
             }
         }
 
@@ -316,7 +327,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Flight>("SELECT Flight.ID, DeparturDate, DeparturePort, ArrivalDate, ArrivalPort, Seats FROM AirPorts JOIN Flight ON Airports.ID=Flight.ArrivalPort WHERE AirPort.ID=@portId").ToList();
+                return connection.Query<Flight>("SELECT Flights.ID, DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats, Price FROM AirPorts JOIN Flights ON Airports.ID=Flights.ArrivalPort WHERE AirPorts.ID=@portId", new { portId }).ToList();
             }
         }
 
@@ -327,7 +338,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                occupiedSeats = connection.Query<int>("SELECT SeatNumber FROM Tickets JOIN Flights ON Flights.ID=FlightID").ToList();
+                occupiedSeats = connection.Query<int>("SELECT SeatNumber FROM Tickets JOIN Flights ON Flights.ID=FlightID WHERE FlightID=@flightId", new { flightId }).ToList();
             }
             int seats = FlightFind(flightId).Seats;
             List<int> avaliableSeats = new List<int>();
@@ -340,14 +351,14 @@ namespace TicketSystem.DatabaseRepository
             }
             return avaliableSeats;
         }
-
+        
         public string APIKeyFind(int id)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<string>("SELECT KeyValue FROM ApiKeys WHERE FranchiseID=@id", id).First();
+                return connection.Query<string>("SELECT KeyValue FROM ApiKeys WHERE FranchiseID=@id", new { id }).First();
             }
         }
 
@@ -357,7 +368,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE FranchiseID=@franchiseId", franchiseId).First();
+                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE FranchiseID=@franchiseId", new { franchiseId }).First();
             }
         }
 
@@ -367,7 +378,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE ApiKey=@apiKey", apiKey).First();
+                return connection.Query<string>("SELECT Secret FROM ApiKeys WHERE KeyValue=@apiKey", new { apiKey }).First();
             }
         }
 
@@ -400,7 +411,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Session>("SELECT * FROM Session WHERE ID = @id", id).ToList().First();
+                return connection.Query<Session>("SELECT * FROM Session WHERE ID = @id", new { id }).ToList().First();
             }
         }
     }
