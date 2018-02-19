@@ -13,36 +13,55 @@
             @Html.ValidationSummary()
         </div>
     }
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">
+                <div class="row">
+                    <div class="col">
+                        <label>
+                            Depture time:
+                            @Html.EditorFor(m => m.DepartureDate)
+                        </label>
+                    </div>
 
-    <label>
-        Departure time:
-        @Html.EditorFor(m => m.DepartureDate)
-    </label><br />
+                    <div class="col">
+                        <label>
+                            Depture Airport:
+                            @Html.EditorFor(m => m.DeparturePort)
+                        </label>
+                    </div>
 
-    <label>
-        Depture Airport:
-        @Html.EditorFor(m => m.DeparturePort)
-    </label><br />
+                    <div class="col">
+                        <label>
+                            Arrival time:
+                            @Html.EditorFor(m => m.ArrivalDate)
+                        </label>
+                    </div>
 
-    <label>
-        Arrival time:
-        @Html.EditorFor(m => m.ArrivalDate)
-    </label><br />
+                    <div class="col">
+                        <label>
+                            Arrival Airport:
+                            @Html.EditorFor(m => m.ArrivalPort)
+                        </label>
+                    </div>
 
-    <label>
-        Arrival Airport:
-        @Html.EditorFor(m => m.ArrivalPort)
-    </label><br />
+                    <div class="col">
+                        <label>
+                            Maximal seats to sell:
+                            @Html.EditorFor(m => m.Seats)
+                        </label>
+                    </div>
 
-    <label>
-        Maximal seats to sell:
-        @Html.EditorFor(m => m.Seats)
-    </label><br />
-
-    <label>
-        Price in dollars:
-        @Html.EditorFor(m => m.Price)
-    </label><br /><br />
-
-    <input type="submit" value="Add flight" />
+                    <div class="col">
+                        <label>
+                            Price in dollars:
+                            @Html.EditorFor(m => m.Price)
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <input type="submit" value="Add flight" class="btn btn-primary"/>
+            </p>
+        </div>
+    </div>
 }
