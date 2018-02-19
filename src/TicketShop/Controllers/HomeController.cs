@@ -79,8 +79,19 @@ namespace TicketShop.Controllers
 
         public IActionResult TicketPurchase(TicketVariables ticket, Payment payment)
         {
+            Booking booking = new Booking();
+            booking.Ticket = new Ticket
+            {
+                BookAt = 1,
+                FlightID = 3,
+                SeatNumber = ticket.SeatNum,
+                UserID = 1
+            };
+            booking.Payment = new Payment { Valuta = "SEK" };
 
-            return View(ticket);
+            ticketApi.PostTicket(booking);
+
+            return View();
         }
 
         public ActionResult Booking(FlightSearch flightSearch)
