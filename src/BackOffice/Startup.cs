@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BackOffice.Models;
+using Microsoft.Extensions.Logging;
+
 
 namespace BackOffice
 {
@@ -26,6 +28,11 @@ namespace BackOffice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddSeq();
+            });
+
             services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddSingleton<Sessions>(new Sessions());
 

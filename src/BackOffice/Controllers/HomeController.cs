@@ -9,6 +9,7 @@ using BackOffice.Models;
 using TicketSystem.RestApiClient.Model;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace BackOffice.Controllers
 {
@@ -18,14 +19,19 @@ namespace BackOffice.Controllers
         private Sessions sessions;
         private TicketApi ticketApi;
         private MessagesHandler messagesHandler;
+        private ILogger<HomeController> logger;
 
         /// <summary>
-        /// Default constructor, prepare api
+        /// Constructor sith logging, sessions and app settings
         /// </summary>
-        public HomeController(IConfigurationRoot newConfig, Sessions newSessions)
+        /// <param name="newLogger">Logger</param>
+        /// <param name="newConfig">App settings</param>
+        /// <param name="newSessions">Sessions</param>
+        public HomeController(ILogger<HomeController> newLogger, IConfigurationRoot newConfig, Sessions newSessions)
         {
             config = newConfig;
             sessions = newSessions;
+            logger = newLogger;
         }
 
         /// <summary>
