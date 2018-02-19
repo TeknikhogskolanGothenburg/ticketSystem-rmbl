@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "v4.0.0",
-    "jquery-validation": "1.17.0"
+    "jquery-validation": "1.17.0",
+    "font-awesome-5": "5.0.6"
   }
 }
