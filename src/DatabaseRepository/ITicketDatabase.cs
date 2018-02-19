@@ -134,7 +134,7 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="arrivalPort">flight property to be written</param>
         /// <param name="seats">flight property to be written</param>
         /// <returns>an object representing the newly added flight</returns>
-        Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats);
+        Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats, int price);
 
         /// <summary>
         /// updates an excisting flight
@@ -146,7 +146,7 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="arrivalPort">flight property to be overwritten</param>
         /// <param name="seats">flight property to be overwritten</param>
         /// <returns>an object representing the updated flight</returns>
-        Flight FlightModify(int id, DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats);
+        Flight FlightModify(int id, DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats, int price);
 
         /// <summary>
         /// Deletes a flight from the database

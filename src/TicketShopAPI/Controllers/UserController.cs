@@ -223,14 +223,8 @@ namespace TicketShopAPI.Controllers
             int gradeRestriction = 1;
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
-                Response.Headers.Add("Authorization", Authentication.AuthenticationHeader(security.ApiKey,security.ApiSecret,security.Timestamp));
+                //Response.Headers.Add("Authorization", Authentication.AuthenticationHeader(security.ApiKey,security.ApiSecret,security.Timestamp));
                 User user;
-                if (!(security.User.Grade > 1) && security.UserId != id)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                    return;
-                }
-
                 try
                 {
                     user = data["User"].ToObject<User>();
