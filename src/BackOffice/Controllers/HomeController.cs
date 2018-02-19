@@ -93,21 +93,14 @@ namespace BackOffice.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    sessions.Add("UserId", 1);
-                    sessions.Add("Username", login.Username);
-                    sessions.Add("SessionId", 1);
-                    sessions.Add("SessionSecret", Guid.NewGuid().ToString());
-
-                    return RedirectToAction("Index", "Users");
-
-                    /*try
+                    try
                     {
                         SessionInfo sessionInfo = ticketApi.PostLoginIn(login);
 
-                        session.Add("Userid", sessionInfo.UserId);
-                        session.Add("Username", sessionInfo.Username);
-                        session.Add("SessionId", sessionInfo.SessionId);
-                        session.Add("SessionSecret", sessionInfo.SessionSecret);
+                        sessions.Add("Userid", sessionInfo.UserId);
+                        sessions.Add("Username", sessionInfo.Username);
+                        sessions.Add("SessionId", sessionInfo.SessionId);
+                        sessions.Add("SessionSecret", sessionInfo.SessionSecret);
 
                         messagesHandler.Add("primary", "Welcome " + sessionInfo.Username + "!");      
 
@@ -116,7 +109,7 @@ namespace BackOffice.Controllers
                     catch (Exception ex)
                     {
                         messagesHandler.Add("danger", ex.Message);
-                    }*/
+                    }
                 }
 
                 return View(login);
