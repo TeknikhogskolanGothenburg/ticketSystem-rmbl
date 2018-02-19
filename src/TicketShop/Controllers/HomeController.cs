@@ -71,6 +71,28 @@ namespace TicketShop.Controllers
             return View();
         }
 
+        public IActionResult Checkout(TicketVariables ticket)
+        {
+
+            return View(ticket);
+        }
+
+        public IActionResult TicketPurchase(TicketVariables ticket, Payment payment)
+        {
+            Booking booking = new Booking();
+            booking.Ticket = new Ticket
+            {
+                BookAt = 1,
+                FlightID = 3,
+                SeatNumber = ticket.SeatNum,
+                UserID = 1
+            };
+            booking.Payment = new Payment { Valuta = "SEK" };
+
+            ticketApi.PostTicket(booking);
+
+            return View();
+        }
 
         public ActionResult Booking(FlightSearch flightSearch)
         {
@@ -125,12 +147,15 @@ namespace TicketShop.Controllers
                 {
                     return View("Booking", tickets);
                 }
+                else
+                {
+                    messagesHandler.Add("warning", "No flights available");
+                }
             }
             catch (Exception ex)
             {
                 messagesHandler.Add("danger", ex.Message);
             }
-            messagesHandler.Add("warning", "No flights available");
 
             return RedirectToAction("index");
         }
