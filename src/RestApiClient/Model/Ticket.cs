@@ -8,16 +8,16 @@ namespace TicketSystem.RestApiClient.Model
 
         [Required]
         [Range(1, int.MaxValue)]
+        public int UserID { get; set; }
+
+        [Required]
+        [Range(1, int.MaxValue)]
         public int FlightID { get; set; }
 
         [Required]
         [Range(1, int.MaxValue)]
         public int SeatNumber { get; set; }
-
-        [Required]
-        [Range(1, int.MaxValue)]
-        public int UserID { get; set; }
-
+      
         public int BookAt { get; set; }
     }
 }

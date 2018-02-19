@@ -60,25 +60,7 @@ namespace TicketShop.Controllers
 
         public IActionResult Index()
         {
-            List<AirPort> airports = new List<AirPort>
-            {
-                new AirPort{ID = 1, Name = "Madrid", Country = "ES", UTCOffset = 1.10 },
-                new AirPort{ID = 2, Name = "Barcelona", Country = "ES", UTCOffset = 1.10 },
-                new AirPort{ID = 3, Name = "Venecia", Country = "IT", UTCOffset = 1.20 },
-                new AirPort{ID = 4, Name = "Japan", Country = "JP", UTCOffset = 1.30 },
-                new AirPort{ID = 5, Name = "Moskva", Country = "RU", UTCOffset = 1.40 }
-            };
-
-            /*try
-            {
-                airports = ticketApi.GetAirPorts();
-            }
-            catch (Exception ex)
-            {
-                messagesHandler.Add("danger", ex.Message);
-                airports = new List<AirPort>();
-            }*/
-
+            List<AirPort> airports = ticketApi.GetAirPorts();
             ViewBag.AirPorts = airports;
             return View(new FlightSearch());
         }
@@ -87,55 +69,40 @@ namespace TicketShop.Controllers
         public ActionResult Booking(FlightSearch flightSearch)
         {
 
-            TicketVariables ticket = new TicketVariables();
+            List<AirPort> airports = ticketApi.GetAirPorts();
+            List<Flight> flights = ticketApi.GetFlights(); 
+            List<TicketVariables> tickets = new List<TicketVariables>();
+
+            foreach (Flight x in flights)
+            {
+                if(x.DeparturePort == flightSearch.From)
+                {
+                    if(x.ArrivalPort == flightSearch.Destination)
+                    {
+                        if(x.DepartureDate == flightSearch.DepartureDay)
+                        {
+                            tickets.Add(
+                            new TicketVariables
+                            {
+                                From = airports.ElementAt(x.DeparturePort-1).Name,
+                                To = airports.ElementAt(x.ArrivalPort-1).Name,
+                                SeatNum = 16,
+                                Departure = x.DepartureDate,
+                                Arrival = x.ArrivalDate,
+                                Price = x.Price,
+                            }   
+                            );
+                        }
+                    }
+                }
+            }
 
 
-            //var model = new TicketVariables();
-
-            //try
-            //{
-            //    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            //    builder.DataSource = "rmbl.database.windows.net";
-            //    builder.UserID = "rmblA";
-            //    builder.Password = "QAwsedrf123@@";
-            //    builder.InitialCatalog = "RMBL-SERVER";
-            //    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-            //    {
-            //        //Console.WriteLine("Opening the port");
-            //        connection.Open();
-            //        StringBuilder sb = new StringBuilder();
-            //        sb.Append("SELECT A.Name, B.Name, DepatureDate, ArrivalDate, Price FROM Flights LEFT JOIN AirPorts AS A ON A.ID = Flights.DeparturePort INNER JOIN AirPorts AS B ON B.ID = Flights.ArrivalPort");
-            //        String sql = sb.ToString();
-
-            //        using (SqlCommand command = new SqlCommand(sql, connection))
-            //        {
-            //            using (SqlDataReader reader = command.ExecuteReader())
-            //            {
-            //                while (reader.Read())
-            //                {
-            //                    var temp = reader.GetString(0);
-            //                    tickets.Add(
-            //                        new TicketVariables {
-            //                            From = reader.GetString(0),
-            //                            To = reader.GetString(1),
-            //                            Departure = reader.GetDateTime(2),
-            //                            Arrival = reader.GetDateTime(3),
-            //                            Price = reader.GetInt32(4)
-            //                        });
-            //                }
-            //            }
-
-            //        }
-            //        connection.Close();
-            //    }
-            //}
-            //catch (SqlException e)
-            //{
-
-            //}
-
-
-            return View("Booking", tickets);
+            if (tickets.Count > 0)
+            {
+                return View("Booking", tickets);
+            }
+            return View("_NoFlights");
         }
 
         public IActionResult Error()

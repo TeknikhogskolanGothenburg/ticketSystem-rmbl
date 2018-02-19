@@ -49,6 +49,22 @@ namespace TicketSystem.RestApiClient
             AnalysResponse(response, "Get", "AirPort");
 
             return airPorts;
+
+        }
+
+        public List<Flight> GetFlights()
+        {
+            RestRequest request = new RestRequest("api/Flight/", Method.GET);
+            RestClient client = PrepareRequest(ref request);
+
+            IRestResponse<List<string>> response = client.Execute<List<string>>(request);
+            List<Flight> flights = new List<Flight>();
+            response.Data.ForEach(a => flights.Add(JsonConvert.DeserializeObject<Flight>(a)));
+
+            AnalysResponse(response, "Get", "Flights");
+
+            return flights;
+            
         }
 
         /// <summary>
@@ -125,6 +141,7 @@ namespace TicketSystem.RestApiClient
             client.ClearHandlers();
             client.AddHandler("application/json", new JsonDeserializer());
             IRestResponse response = client.Execute(request);
+
             
             AnalysResponse(response, "Get", "Ticket", "with id " + ticketId);
 
@@ -202,11 +219,21 @@ namespace TicketSystem.RestApiClient
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", userId);
 
-            IRestResponse<User> response = client.Execute<User>(request);
+            /*IRestResponse<User> response = client.Execute<User>(request);
 
-            AnalysResponse(response, "Get", "user", "with id" + userId);
+            AnalysResponse(response, "Get", "user", "with id" + userId);*/
 
-            return response.Data;
+
+            IRestResponse<string> response = (IRestResponse<string>)client.Execute(request);
+            List<User> user = new List<User>();
+            //response.Data.ForEach(a => user.Add(JsonConvert.DeserializeObject<User>(a)));
+
+            AnalysResponse(response, "Get", "User");
+
+
+            //return airPorts;
+
+            return new User();
         }
 
         /// <summary>
