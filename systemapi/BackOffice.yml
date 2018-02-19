@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: BackOffice
+  commentId: N:BackOffice
+  id: BackOffice
+  children:
+  - BackOffice.Program
+  - BackOffice.Startup
+  langs:
+  - csharp
+  - vb
+  name: BackOffice
+  nameWithType: BackOffice
+  fullName: BackOffice
+  type: Namespace
+  assemblies:
+  - BackOffice
+references:
+- uid: BackOffice.Program
+  commentId: T:BackOffice.Program
+  isExternal: false
+  name: Program
+  nameWithType: Program
+  fullName: BackOffice.Program
+- uid: BackOffice.Startup
+  commentId: T:BackOffice.Startup
+  isExternal: false
+  name: Startup
+  nameWithType: Startup
+  fullName: BackOffice.Startup

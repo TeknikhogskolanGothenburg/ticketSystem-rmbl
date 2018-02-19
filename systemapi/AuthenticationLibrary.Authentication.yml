@@ -1,0 +1,558 @@
+### YamlMime:ManagedReference
+items:
+- uid: AuthenticationLibrary.Authentication
+  commentId: T:AuthenticationLibrary.Authentication
+  id: Authentication
+  parent: AuthenticationLibrary
+  children:
+  - AuthenticationLibrary.Authentication.AuthenticationHeader(System.String,System.String,System.String)
+  - AuthenticationLibrary.Authentication.HashMessageByKey(System.String,System.String)
+  - AuthenticationLibrary.Authentication.UserAuthenticationHeader(System.Int32,System.String,System.String)
+  - AuthenticationLibrary.Authentication.VerifyHashMessageByKey(System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: Authentication
+  nameWithType: Authentication
+  fullName: AuthenticationLibrary.Authentication
+  type: Class
+  source:
+    id: Authentication
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\AuthenticationLibrary\Authentication.cs
+    startLine: 6
+  assemblies:
+  - AuthenticationLibrary
+  namespace: AuthenticationLibrary
+  syntax:
+    content: public static class Authentication
+    content.vb: Public Module Authentication
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: AuthenticationLibrary.Authentication.AuthenticationHeader(System.String,System.String,System.String)
+  commentId: M:AuthenticationLibrary.Authentication.AuthenticationHeader(System.String,System.String,System.String)
+  id: AuthenticationHeader(System.String,System.String,System.String)
+  parent: AuthenticationLibrary.Authentication
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationHeader(String, String, String)
+  nameWithType: Authentication.AuthenticationHeader(String, String, String)
+  fullName: AuthenticationLibrary.Authentication.AuthenticationHeader(System.String, System.String, System.String)
+  type: Method
+  source:
+    id: AuthenticationHeader
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\AuthenticationLibrary\Authentication.cs
+    startLine: 16
+  assemblies:
+  - AuthenticationLibrary
+  namespace: AuthenticationLibrary
+  summary: "\nPrepare and return Authentication header&apos;s value\n"
+  example: []
+  syntax:
+    content: public static string AuthenticationHeader(string key, string secret, string timestamp)
+    parameters:
+    - id: key
+      type: System.String
+      description: Api key
+    - id: secret
+      type: System.String
+      description: Api secret
+    - id: timestamp
+      type: System.String
+      description: Timestamp to hash
+    return:
+      type: System.String
+      description: Prepare value for Authentication header
+    content.vb: Public Shared Function AuthenticationHeader(key As String, secret As String, timestamp As String) As String
+  overload: AuthenticationLibrary.Authentication.AuthenticationHeader*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: AuthenticationLibrary.Authentication.UserAuthenticationHeader(System.Int32,System.String,System.String)
+  commentId: M:AuthenticationLibrary.Authentication.UserAuthenticationHeader(System.Int32,System.String,System.String)
+  id: UserAuthenticationHeader(System.Int32,System.String,System.String)
+  parent: AuthenticationLibrary.Authentication
+  langs:
+  - csharp
+  - vb
+  name: UserAuthenticationHeader(Int32, String, String)
+  nameWithType: Authentication.UserAuthenticationHeader(Int32, String, String)
+  fullName: AuthenticationLibrary.Authentication.UserAuthenticationHeader(System.Int32, System.String, System.String)
+  type: Method
+  source:
+    id: UserAuthenticationHeader
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\AuthenticationLibrary\Authentication.cs
+    startLine: 29
+  assemblies:
+  - AuthenticationLibrary
+  namespace: AuthenticationLibrary
+  summary: "\nPrepare and return User Authentication header&apos;s value\n"
+  example: []
+  syntax:
+    content: public static string UserAuthenticationHeader(int id, string secret, string timestamp)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Session index
+    - id: secret
+      type: System.String
+      description: Session secret
+    - id: timestamp
+      type: System.String
+      description: Timestamp to hash
+    return:
+      type: System.String
+      description: Prepare value for User Authentication header
+    content.vb: Public Shared Function UserAuthenticationHeader(id As Integer, secret As String, timestamp As String) As String
+  overload: AuthenticationLibrary.Authentication.UserAuthenticationHeader*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: AuthenticationLibrary.Authentication.HashMessageByKey(System.String,System.String)
+  commentId: M:AuthenticationLibrary.Authentication.HashMessageByKey(System.String,System.String)
+  id: HashMessageByKey(System.String,System.String)
+  parent: AuthenticationLibrary.Authentication
+  langs:
+  - csharp
+  - vb
+  name: HashMessageByKey(String, String)
+  nameWithType: Authentication.HashMessageByKey(String, String)
+  fullName: AuthenticationLibrary.Authentication.HashMessageByKey(System.String, System.String)
+  type: Method
+  source:
+    id: HashMessageByKey
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\AuthenticationLibrary\Authentication.cs
+    startLine: 41
+  assemblies:
+  - AuthenticationLibrary
+  namespace: AuthenticationLibrary
+  summary: "\nHash string with hash key string\n"
+  example: []
+  syntax:
+    content: public static string HashMessageByKey(string hashKey, string message)
+    parameters:
+    - id: hashKey
+      type: System.String
+      description: Hash key string
+    - id: message
+      type: System.String
+      description: What to hash
+    return:
+      type: System.String
+      description: Hashed string
+    content.vb: Public Shared Function HashMessageByKey(hashKey As String, message As String) As String
+  overload: AuthenticationLibrary.Authentication.HashMessageByKey*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: AuthenticationLibrary.Authentication.VerifyHashMessageByKey(System.String,System.String,System.String)
+  commentId: M:AuthenticationLibrary.Authentication.VerifyHashMessageByKey(System.String,System.String,System.String)
+  id: VerifyHashMessageByKey(System.String,System.String,System.String)
+  parent: AuthenticationLibrary.Authentication
+  langs:
+  - csharp
+  - vb
+  name: VerifyHashMessageByKey(String, String, String)
+  nameWithType: Authentication.VerifyHashMessageByKey(String, String, String)
+  fullName: AuthenticationLibrary.Authentication.VerifyHashMessageByKey(System.String, System.String, System.String)
+  type: Method
+  source:
+    id: VerifyHashMessageByKey
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\AuthenticationLibrary\Authentication.cs
+    startLine: 62
+  assemblies:
+  - AuthenticationLibrary
+  namespace: AuthenticationLibrary
+  summary: "\nVerify hash message from key is the same as new hash of same message \n"
+  example: []
+  syntax:
+    content: public static bool VerifyHashMessageByKey(string hashKey, string message, string hashMessage)
+    parameters:
+    - id: hashKey
+      type: System.String
+      description: Hash key string
+    - id: message
+      type: System.String
+      description: What was hashed
+    - id: hashMessage
+      type: System.String
+      description: Hashed string
+    return:
+      type: System.Boolean
+      description: Validation result
+    content.vb: Public Shared Function VerifyHashMessageByKey(hashKey As String, message As String, hashMessage As String) As Boolean
+  overload: AuthenticationLibrary.Authentication.VerifyHashMessageByKey*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: AuthenticationLibrary
+  commentId: N:AuthenticationLibrary
+  isExternal: false
+  name: AuthenticationLibrary
+  nameWithType: AuthenticationLibrary
+  fullName: AuthenticationLibrary
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AuthenticationLibrary.Authentication.AuthenticationHeader*
+  commentId: Overload:AuthenticationLibrary.Authentication.AuthenticationHeader
+  isExternal: false
+  name: AuthenticationHeader
+  nameWithType: Authentication.AuthenticationHeader
+  fullName: AuthenticationLibrary.Authentication.AuthenticationHeader
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: AuthenticationLibrary.Authentication.UserAuthenticationHeader*
+  commentId: Overload:AuthenticationLibrary.Authentication.UserAuthenticationHeader
+  isExternal: false
+  name: UserAuthenticationHeader
+  nameWithType: Authentication.UserAuthenticationHeader
+  fullName: AuthenticationLibrary.Authentication.UserAuthenticationHeader
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: AuthenticationLibrary.Authentication.HashMessageByKey*
+  commentId: Overload:AuthenticationLibrary.Authentication.HashMessageByKey
+  isExternal: false
+  name: HashMessageByKey
+  nameWithType: Authentication.HashMessageByKey
+  fullName: AuthenticationLibrary.Authentication.HashMessageByKey
+- uid: AuthenticationLibrary.Authentication.VerifyHashMessageByKey*
+  commentId: Overload:AuthenticationLibrary.Authentication.VerifyHashMessageByKey
+  isExternal: false
+  name: VerifyHashMessageByKey
+  nameWithType: Authentication.VerifyHashMessageByKey
+  fullName: AuthenticationLibrary.Authentication.VerifyHashMessageByKey
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

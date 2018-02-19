@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShop.Models
+  commentId: N:TicketShop.Models
+  id: TicketShop.Models
+  children:
+  - TicketShop.Models.DataBaseRep
+  - TicketShop.Models.ErrorViewModel
+  - TicketShop.Models.MessagesHandler
+  - TicketShop.Models.Session
+  - TicketShop.Models.Sessions
+  - TicketShop.Models.TicketVariables
+  langs:
+  - csharp
+  - vb
+  name: TicketShop.Models
+  nameWithType: TicketShop.Models
+  fullName: TicketShop.Models
+  type: Namespace
+  assemblies:
+  - TicketShop
+references:
+- uid: TicketShop.Models.DataBaseRep
+  commentId: T:TicketShop.Models.DataBaseRep
+  isExternal: false
+  name: DataBaseRep
+  nameWithType: DataBaseRep
+  fullName: TicketShop.Models.DataBaseRep
+- uid: TicketShop.Models.ErrorViewModel
+  commentId: T:TicketShop.Models.ErrorViewModel
+  isExternal: false
+  name: ErrorViewModel
+  nameWithType: ErrorViewModel
+  fullName: TicketShop.Models.ErrorViewModel
+- uid: TicketShop.Models.MessagesHandler
+  commentId: T:TicketShop.Models.MessagesHandler
+  isExternal: false
+  name: MessagesHandler
+  nameWithType: MessagesHandler
+  fullName: TicketShop.Models.MessagesHandler
+- uid: TicketShop.Models.Session
+  commentId: T:TicketShop.Models.Session
+  isExternal: false
+  name: Session
+  nameWithType: Session
+  fullName: TicketShop.Models.Session
+- uid: TicketShop.Models.Sessions
+  commentId: T:TicketShop.Models.Sessions
+  parent: TicketShop.Models
+  isExternal: false
+  name: Sessions
+  nameWithType: Sessions
+  fullName: TicketShop.Models.Sessions
+- uid: TicketShop.Models.TicketVariables
+  commentId: T:TicketShop.Models.TicketVariables
+  isExternal: false
+  name: TicketVariables
+  nameWithType: TicketVariables
+  fullName: TicketShop.Models.TicketVariables
+- uid: TicketShop.Models
+  commentId: N:TicketShop.Models
+  isExternal: false
+  name: TicketShop.Models
+  nameWithType: TicketShop.Models
+  fullName: TicketShop.Models

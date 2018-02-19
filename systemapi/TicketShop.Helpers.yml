@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShop.Helpers
+  commentId: N:TicketShop.Helpers
+  id: TicketShop.Helpers
+  children:
+  - TicketShop.Helpers.MessagesHelper
+  langs:
+  - csharp
+  - vb
+  name: TicketShop.Helpers
+  nameWithType: TicketShop.Helpers
+  fullName: TicketShop.Helpers
+  type: Namespace
+  assemblies:
+  - TicketShop
+references:
+- uid: TicketShop.Helpers.MessagesHelper
+  commentId: T:TicketShop.Helpers.MessagesHelper
+  isExternal: false
+  name: MessagesHelper
+  nameWithType: MessagesHelper
+  fullName: TicketShop.Helpers.MessagesHelper

@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShopAPI.APISecurity
+  commentId: N:TicketShopAPI.APISecurity
+  id: TicketShopAPI.APISecurity
+  children:
+  - TicketShopAPI.APISecurity.ISecurity
+  - TicketShopAPI.APISecurity.SecurePasswordHasher
+  - TicketShopAPI.APISecurity.Security
+  langs:
+  - csharp
+  - vb
+  name: TicketShopAPI.APISecurity
+  nameWithType: TicketShopAPI.APISecurity
+  fullName: TicketShopAPI.APISecurity
+  type: Namespace
+  assemblies:
+  - TicketShopAPI
+references:
+- uid: TicketShopAPI.APISecurity.ISecurity
+  commentId: T:TicketShopAPI.APISecurity.ISecurity
+  parent: TicketShopAPI.APISecurity
+  isExternal: false
+  name: ISecurity
+  nameWithType: ISecurity
+  fullName: TicketShopAPI.APISecurity.ISecurity
+- uid: TicketShopAPI.APISecurity.SecurePasswordHasher
+  commentId: T:TicketShopAPI.APISecurity.SecurePasswordHasher
+  isExternal: false
+  name: SecurePasswordHasher
+  nameWithType: SecurePasswordHasher
+  fullName: TicketShopAPI.APISecurity.SecurePasswordHasher
+- uid: TicketShopAPI.APISecurity.Security
+  commentId: T:TicketShopAPI.APISecurity.Security
+  isExternal: false
+  name: Security
+  nameWithType: Security
+  fullName: TicketShopAPI.APISecurity.Security
+- uid: TicketShopAPI.APISecurity
+  commentId: N:TicketShopAPI.APISecurity
+  isExternal: false
+  name: TicketShopAPI.APISecurity
+  nameWithType: TicketShopAPI.APISecurity
+  fullName: TicketShopAPI.APISecurity

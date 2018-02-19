@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShop.Controllers
+  commentId: N:TicketShop.Controllers
+  id: TicketShop.Controllers
+  children:
+  - TicketShop.Controllers.HomeController
+  langs:
+  - csharp
+  - vb
+  name: TicketShop.Controllers
+  nameWithType: TicketShop.Controllers
+  fullName: TicketShop.Controllers
+  type: Namespace
+  assemblies:
+  - TicketShop
+references:
+- uid: TicketShop.Controllers.HomeController
+  commentId: T:TicketShop.Controllers.HomeController
+  isExternal: false
+  name: HomeController
+  nameWithType: HomeController
+  fullName: TicketShop.Controllers.HomeController

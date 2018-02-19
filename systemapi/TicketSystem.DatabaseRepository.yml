@@ -4,9 +4,7 @@ items:
   commentId: N:TicketSystem.DatabaseRepository
   id: TicketSystem.DatabaseRepository
   children:
-  - TicketSystem.DatabaseRepository.ISecurity
   - TicketSystem.DatabaseRepository.ITicketDatabase
-  - TicketSystem.DatabaseRepository.Security
   - TicketSystem.DatabaseRepository.TicketDatabase
   langs:
   - csharp
@@ -18,13 +16,6 @@ items:
   assemblies:
   - DatabaseRepository
 references:
-- uid: TicketSystem.DatabaseRepository.ISecurity
-  commentId: T:TicketSystem.DatabaseRepository.ISecurity
-  parent: TicketSystem.DatabaseRepository
-  isExternal: false
-  name: ISecurity
-  nameWithType: ISecurity
-  fullName: TicketSystem.DatabaseRepository.ISecurity
 - uid: TicketSystem.DatabaseRepository.ITicketDatabase
   commentId: T:TicketSystem.DatabaseRepository.ITicketDatabase
   parent: TicketSystem.DatabaseRepository
@@ -32,12 +23,6 @@ references:
   name: ITicketDatabase
   nameWithType: ITicketDatabase
   fullName: TicketSystem.DatabaseRepository.ITicketDatabase
-- uid: TicketSystem.DatabaseRepository.Security
-  commentId: T:TicketSystem.DatabaseRepository.Security
-  isExternal: false
-  name: Security
-  nameWithType: Security
-  fullName: TicketSystem.DatabaseRepository.Security
 - uid: TicketSystem.DatabaseRepository.TicketDatabase
   commentId: T:TicketSystem.DatabaseRepository.TicketDatabase
   isExternal: false

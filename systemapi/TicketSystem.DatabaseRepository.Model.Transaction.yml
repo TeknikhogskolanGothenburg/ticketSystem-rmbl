@@ -16,12 +16,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Transaction
   type: Class
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Transaction.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Transaction
-    path: src/DatabaseRepository/Model/Transaction.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Transaction.cs
     startLine: 6
   assemblies:
   - DatabaseRepository
@@ -57,12 +53,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Transaction.ID
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Transaction.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: ID
-    path: src/DatabaseRepository/Model/Transaction.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Transaction.cs
     startLine: 8
   assemblies:
   - DatabaseRepository
@@ -92,12 +84,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Transaction.PaymentStatus
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Transaction.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentStatus
-    path: src/DatabaseRepository/Model/Transaction.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Transaction.cs
     startLine: 9
   assemblies:
   - DatabaseRepository
@@ -127,12 +115,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Transaction.PaymentReferenceId
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Transaction.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentReferenceId
-    path: src/DatabaseRepository/Model/Transaction.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Transaction.cs
     startLine: 10
   assemblies:
   - DatabaseRepository

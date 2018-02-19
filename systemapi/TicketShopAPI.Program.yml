@@ -15,12 +15,8 @@ items:
   fullName: TicketShopAPI.Program
   type: Class
   source:
-    remote:
-      path: src/TicketShopAPI/Program.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Program
-    path: src/TicketShopAPI/Program.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Program.cs
     startLine: 12
   assemblies:
   - TicketShopAPI
@@ -56,12 +52,8 @@ items:
   fullName: TicketShopAPI.Program.Main(System.String[])
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Program.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Main
-    path: src/TicketShopAPI/Program.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Program.cs
     startLine: 14
   assemblies:
   - TicketShopAPI
@@ -94,12 +86,8 @@ items:
   fullName: TicketShopAPI.Program.BuildWebHost(System.String[])
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Program.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: BuildWebHost
-    path: src/TicketShopAPI/Program.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Program.cs
     startLine: 19
   assemblies:
   - TicketShopAPI

@@ -4,7 +4,15 @@ items:
   commentId: N:TicketSystem.RestApiClient.Model
   id: TicketSystem.RestApiClient.Model
   children:
+  - TicketSystem.RestApiClient.Model.AirPort
+  - TicketSystem.RestApiClient.Model.Booking
+  - TicketSystem.RestApiClient.Model.Flight
+  - TicketSystem.RestApiClient.Model.FlightSearch
+  - TicketSystem.RestApiClient.Model.Login
+  - TicketSystem.RestApiClient.Model.Payment
+  - TicketSystem.RestApiClient.Model.SessionInfo
   - TicketSystem.RestApiClient.Model.Ticket
+  - TicketSystem.RestApiClient.Model.User
   langs:
   - csharp
   - vb
@@ -15,6 +23,54 @@ items:
   assemblies:
   - RestApiClient
 references:
+- uid: TicketSystem.RestApiClient.Model.AirPort
+  commentId: T:TicketSystem.RestApiClient.Model.AirPort
+  isExternal: false
+  name: AirPort
+  nameWithType: AirPort
+  fullName: TicketSystem.RestApiClient.Model.AirPort
+- uid: TicketSystem.RestApiClient.Model.Booking
+  commentId: T:TicketSystem.RestApiClient.Model.Booking
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: Booking
+  nameWithType: Booking
+  fullName: TicketSystem.RestApiClient.Model.Booking
+- uid: TicketSystem.RestApiClient.Model.Flight
+  commentId: T:TicketSystem.RestApiClient.Model.Flight
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: Flight
+  nameWithType: Flight
+  fullName: TicketSystem.RestApiClient.Model.Flight
+- uid: TicketSystem.RestApiClient.Model.FlightSearch
+  commentId: T:TicketSystem.RestApiClient.Model.FlightSearch
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: FlightSearch
+  nameWithType: FlightSearch
+  fullName: TicketSystem.RestApiClient.Model.FlightSearch
+- uid: TicketSystem.RestApiClient.Model.Login
+  commentId: T:TicketSystem.RestApiClient.Model.Login
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: Login
+  nameWithType: Login
+  fullName: TicketSystem.RestApiClient.Model.Login
+- uid: TicketSystem.RestApiClient.Model.Payment
+  commentId: T:TicketSystem.RestApiClient.Model.Payment
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: Payment
+  nameWithType: Payment
+  fullName: TicketSystem.RestApiClient.Model.Payment
+- uid: TicketSystem.RestApiClient.Model.SessionInfo
+  commentId: T:TicketSystem.RestApiClient.Model.SessionInfo
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: SessionInfo
+  nameWithType: SessionInfo
+  fullName: TicketSystem.RestApiClient.Model.SessionInfo
 - uid: TicketSystem.RestApiClient.Model.Ticket
   commentId: T:TicketSystem.RestApiClient.Model.Ticket
   parent: TicketSystem.RestApiClient.Model
@@ -22,6 +78,13 @@ references:
   name: Ticket
   nameWithType: Ticket
   fullName: TicketSystem.RestApiClient.Model.Ticket
+- uid: TicketSystem.RestApiClient.Model.User
+  commentId: T:TicketSystem.RestApiClient.Model.User
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: User
+  nameWithType: User
+  fullName: TicketSystem.RestApiClient.Model.User
 - uid: TicketSystem.RestApiClient.Model
   commentId: N:TicketSystem.RestApiClient.Model
   isExternal: false

@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: BackOffice.Controllers
+  commentId: N:BackOffice.Controllers
+  id: BackOffice.Controllers
+  children:
+  - BackOffice.Controllers.HomeController
+  - BackOffice.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: BackOffice.Controllers
+  nameWithType: BackOffice.Controllers
+  fullName: BackOffice.Controllers
+  type: Namespace
+  assemblies:
+  - BackOffice
+references:
+- uid: BackOffice.Controllers.HomeController
+  commentId: T:BackOffice.Controllers.HomeController
+  isExternal: false
+  name: HomeController
+  nameWithType: HomeController
+  fullName: BackOffice.Controllers.HomeController
+- uid: BackOffice.Controllers.UsersController
+  commentId: T:BackOffice.Controllers.UsersController
+  isExternal: false
+  name: UsersController
+  nameWithType: UsersController
+  fullName: BackOffice.Controllers.UsersController

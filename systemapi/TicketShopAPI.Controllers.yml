@@ -4,7 +4,11 @@ items:
   commentId: N:TicketShopAPI.Controllers
   id: TicketShopAPI.Controllers
   children:
+  - TicketShopAPI.Controllers.AirPortController
+  - TicketShopAPI.Controllers.FlightController
+  - TicketShopAPI.Controllers.FranchiseController
   - TicketShopAPI.Controllers.TicketController
+  - TicketShopAPI.Controllers.TransactionController
   - TicketShopAPI.Controllers.UserController
   langs:
   - csharp
@@ -16,12 +20,36 @@ items:
   assemblies:
   - TicketShopAPI
 references:
+- uid: TicketShopAPI.Controllers.AirPortController
+  commentId: T:TicketShopAPI.Controllers.AirPortController
+  isExternal: false
+  name: AirPortController
+  nameWithType: AirPortController
+  fullName: TicketShopAPI.Controllers.AirPortController
+- uid: TicketShopAPI.Controllers.FlightController
+  commentId: T:TicketShopAPI.Controllers.FlightController
+  isExternal: false
+  name: FlightController
+  nameWithType: FlightController
+  fullName: TicketShopAPI.Controllers.FlightController
+- uid: TicketShopAPI.Controllers.FranchiseController
+  commentId: T:TicketShopAPI.Controllers.FranchiseController
+  isExternal: false
+  name: FranchiseController
+  nameWithType: FranchiseController
+  fullName: TicketShopAPI.Controllers.FranchiseController
 - uid: TicketShopAPI.Controllers.TicketController
   commentId: T:TicketShopAPI.Controllers.TicketController
   isExternal: false
   name: TicketController
   nameWithType: TicketController
   fullName: TicketShopAPI.Controllers.TicketController
+- uid: TicketShopAPI.Controllers.TransactionController
+  commentId: T:TicketShopAPI.Controllers.TransactionController
+  isExternal: false
+  name: TransactionController
+  nameWithType: TransactionController
+  fullName: TicketShopAPI.Controllers.TransactionController
 - uid: TicketShopAPI.Controllers.UserController
   commentId: T:TicketShopAPI.Controllers.UserController
   isExternal: false

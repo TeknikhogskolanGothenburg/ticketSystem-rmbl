@@ -1,0 +1,626 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShop.Models.TicketVariables
+  commentId: T:TicketShop.Models.TicketVariables
+  id: TicketVariables
+  parent: TicketShop.Models
+  children:
+  - TicketShop.Models.TicketVariables.Arrival
+  - TicketShop.Models.TicketVariables.Departure
+  - TicketShop.Models.TicketVariables.From
+  - TicketShop.Models.TicketVariables.Price
+  - TicketShop.Models.TicketVariables.SeatNum
+  - TicketShop.Models.TicketVariables.TicketID
+  - TicketShop.Models.TicketVariables.To
+  langs:
+  - csharp
+  - vb
+  name: TicketVariables
+  nameWithType: TicketVariables
+  fullName: TicketShop.Models.TicketVariables
+  type: Class
+  source:
+    id: TicketVariables
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Models\TicketVariables.cs
+    startLine: 7
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Models
+  syntax:
+    content: public class TicketVariables
+    content.vb: Public Class TicketVariables
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: TicketShop.Models.TicketVariables.TicketID
+  commentId: P:TicketShop.Models.TicketVariables.TicketID
+  id: TicketID
+  parent: TicketShop.Models.TicketVariables
+  langs:
+  - csharp
+  - vb
+  name: TicketID
+  nameWithType: TicketVariables.TicketID
+  fullName: TicketShop.Models.TicketVariables.TicketID
+  type: Property
+  source:
+    id: TicketID
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Models\TicketVariables.cs
+    startLine: 9
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Models
+  syntax:
+    content: public int TicketID { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TicketID As Integer
+  overload: TicketShop.Models.TicketVariables.TicketID*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketShop.Models.TicketVariables.From
+  commentId: P:TicketShop.Models.TicketVariables.From
+  id: From
+  parent: TicketShop.Models.TicketVariables
+  langs:
+  - csharp
+  - vb
+  name: From
+  nameWithType: TicketVariables.From
+  fullName: TicketShop.Models.TicketVariables.From
+  type: Property
+  source:
+    id: From
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Models\TicketVariables.cs
+    startLine: 10
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Models
+  syntax:
+    content: public string From { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property From As String
+  overload: TicketShop.Models.TicketVariables.From*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketShop.Models.TicketVariables.To
+  commentId: P:TicketShop.Models.TicketVariables.To
+  id: To
+  parent: TicketShop.Models.TicketVariables
+  langs:
+  - csharp
+  - vb
+  name: To
+  nameWithType: TicketVariables.To
+  fullName: TicketShop.Models.TicketVariables.To
+  type: Property
+  source:
+    id: To
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Models\TicketVariables.cs
+    startLine: 11
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Models
+  syntax:
+    content: public string To { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property To As String
+  overload: TicketShop.Models.TicketVariables.To*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketShop.Models.TicketVariables.SeatNum
+  commentId: P:TicketShop.Models.TicketVariables.SeatNum
+  id: SeatNum
+  parent: TicketShop.Models.TicketVariables
+  langs:
+  - csharp
+  - vb
+  name: SeatNum
+  nameWithType: TicketVariables.SeatNum
+  fullName: TicketShop.Models.TicketVariables.SeatNum
+  type: Property
+  source:
+    id: SeatNum
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Models\TicketVariables.cs
+    startLine: 12
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Models
+  syntax:
+    content: public int SeatNum { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SeatNum As Integer
+  overload: TicketShop.Models.TicketVariables.SeatNum*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketShop.Models.TicketVariables.Departure
+  commentId: P:TicketShop.Models.TicketVariables.Departure
+  id: Departure
+  parent: TicketShop.Models.TicketVariables
+  langs:
+  - csharp
+  - vb
+  name: Departure
+  nameWithType: TicketVariables.Departure
+  fullName: TicketShop.Models.TicketVariables.Departure
+  type: Property
+  source:
+    id: Departure
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Models\TicketVariables.cs
+    startLine: 13
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Models
+  syntax:
+    content: public DateTime Departure { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Departure As Date
+  overload: TicketShop.Models.TicketVariables.Departure*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketShop.Models.TicketVariables.Arrival
+  commentId: P:TicketShop.Models.TicketVariables.Arrival
+  id: Arrival
+  parent: TicketShop.Models.TicketVariables
+  langs:
+  - csharp
+  - vb
+  name: Arrival
+  nameWithType: TicketVariables.Arrival
+  fullName: TicketShop.Models.TicketVariables.Arrival
+  type: Property
+  source:
+    id: Arrival
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Models\TicketVariables.cs
+    startLine: 14
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Models
+  syntax:
+    content: public DateTime Arrival { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Arrival As Date
+  overload: TicketShop.Models.TicketVariables.Arrival*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketShop.Models.TicketVariables.Price
+  commentId: P:TicketShop.Models.TicketVariables.Price
+  id: Price
+  parent: TicketShop.Models.TicketVariables
+  langs:
+  - csharp
+  - vb
+  name: Price
+  nameWithType: TicketVariables.Price
+  fullName: TicketShop.Models.TicketVariables.Price
+  type: Property
+  source:
+    id: Price
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Models\TicketVariables.cs
+    startLine: 15
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Models
+  syntax:
+    content: public int Price { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Price As Integer
+  overload: TicketShop.Models.TicketVariables.Price*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: TicketShop.Models
+  commentId: N:TicketShop.Models
+  isExternal: false
+  name: TicketShop.Models
+  nameWithType: TicketShop.Models
+  fullName: TicketShop.Models
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TicketShop.Models.TicketVariables.TicketID*
+  commentId: Overload:TicketShop.Models.TicketVariables.TicketID
+  isExternal: false
+  name: TicketID
+  nameWithType: TicketVariables.TicketID
+  fullName: TicketShop.Models.TicketVariables.TicketID
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketShop.Models.TicketVariables.From*
+  commentId: Overload:TicketShop.Models.TicketVariables.From
+  isExternal: false
+  name: From
+  nameWithType: TicketVariables.From
+  fullName: TicketShop.Models.TicketVariables.From
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: TicketShop.Models.TicketVariables.To*
+  commentId: Overload:TicketShop.Models.TicketVariables.To
+  isExternal: false
+  name: To
+  nameWithType: TicketVariables.To
+  fullName: TicketShop.Models.TicketVariables.To
+- uid: TicketShop.Models.TicketVariables.SeatNum*
+  commentId: Overload:TicketShop.Models.TicketVariables.SeatNum
+  isExternal: false
+  name: SeatNum
+  nameWithType: TicketVariables.SeatNum
+  fullName: TicketShop.Models.TicketVariables.SeatNum
+- uid: TicketShop.Models.TicketVariables.Departure*
+  commentId: Overload:TicketShop.Models.TicketVariables.Departure
+  isExternal: false
+  name: Departure
+  nameWithType: TicketVariables.Departure
+  fullName: TicketShop.Models.TicketVariables.Departure
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+- uid: TicketShop.Models.TicketVariables.Arrival*
+  commentId: Overload:TicketShop.Models.TicketVariables.Arrival
+  isExternal: false
+  name: Arrival
+  nameWithType: TicketVariables.Arrival
+  fullName: TicketShop.Models.TicketVariables.Arrival
+- uid: TicketShop.Models.TicketVariables.Price*
+  commentId: Overload:TicketShop.Models.TicketVariables.Price
+  isExternal: false
+  name: Price
+  nameWithType: TicketVariables.Price
+  fullName: TicketShop.Models.TicketVariables.Price

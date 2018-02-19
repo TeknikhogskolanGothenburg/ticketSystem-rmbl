@@ -14,12 +14,8 @@ items:
   fullName: TicketSystem.PaymentProvider.PaymentProvider
   type: Class
   source:
-    remote:
-      path: src/PaymentProvider/PaymentProvider.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: PaymentProvider
-    path: src/PaymentProvider/PaymentProvider.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\PaymentProvider.cs
     startLine: 4
   assemblies:
   - PaymentProvider
@@ -28,7 +24,6 @@ items:
     content: 'public class PaymentProvider : IPaymentProvider'
     content.vb: >-
       Public Class PaymentProvider
-
           Implements IPaymentProvider
   inheritance:
   - System.Object
@@ -60,12 +55,8 @@ items:
   fullName: TicketSystem.PaymentProvider.PaymentProvider.Pay(System.Decimal, System.String, System.String)
   type: Method
   source:
-    remote:
-      path: src/PaymentProvider/PaymentProvider.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Pay
-    path: src/PaymentProvider/PaymentProvider.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\PaymentProvider\PaymentProvider.cs
     startLine: 15
   assemblies:
   - PaymentProvider

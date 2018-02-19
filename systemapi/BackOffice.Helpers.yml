@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: BackOffice.Helpers
+  commentId: N:BackOffice.Helpers
+  id: BackOffice.Helpers
+  children:
+  - BackOffice.Helpers.MessagesHelper
+  langs:
+  - csharp
+  - vb
+  name: BackOffice.Helpers
+  nameWithType: BackOffice.Helpers
+  fullName: BackOffice.Helpers
+  type: Namespace
+  assemblies:
+  - BackOffice
+references:
+- uid: BackOffice.Helpers.MessagesHelper
+  commentId: T:BackOffice.Helpers.MessagesHelper
+  isExternal: false
+  name: MessagesHelper
+  nameWithType: MessagesHelper
+  fullName: BackOffice.Helpers.MessagesHelper

@@ -18,12 +18,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Ticket
   type: Class
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Ticket.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Ticket
-    path: src/DatabaseRepository/Model/Ticket.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Ticket.cs
     startLine: 6
   assemblies:
   - DatabaseRepository
@@ -59,12 +55,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Ticket.ID
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Ticket.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: ID
-    path: src/DatabaseRepository/Model/Ticket.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Ticket.cs
     startLine: 8
   assemblies:
   - DatabaseRepository
@@ -94,12 +86,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Ticket.UserID
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Ticket.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: UserID
-    path: src/DatabaseRepository/Model/Ticket.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Ticket.cs
     startLine: 9
   assemblies:
   - DatabaseRepository
@@ -129,12 +117,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Ticket.FlightID
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Ticket.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: FlightID
-    path: src/DatabaseRepository/Model/Ticket.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Ticket.cs
     startLine: 10
   assemblies:
   - DatabaseRepository
@@ -164,12 +148,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Ticket.SeatNumber
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Ticket.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: SeatNumber
-    path: src/DatabaseRepository/Model/Ticket.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Ticket.cs
     startLine: 11
   assemblies:
   - DatabaseRepository
@@ -199,12 +179,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.Ticket.BookAt
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/Ticket.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: BookAt
-    path: src/DatabaseRepository/Model/Ticket.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\Ticket.cs
     startLine: 12
   assemblies:
   - DatabaseRepository

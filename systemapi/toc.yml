@@ -1,4 +1,71 @@
 ### YamlMime:TableOfContent
+- uid: AuthenticationLibrary
+  name: AuthenticationLibrary
+  items:
+  - uid: AuthenticationLibrary.Authentication
+    name: Authentication
+- uid: BackOffice
+  name: BackOffice
+  items:
+  - uid: BackOffice.Program
+    name: Program
+  - uid: BackOffice.Startup
+    name: Startup
+- uid: BackOffice.Controllers
+  name: BackOffice.Controllers
+  items:
+  - uid: BackOffice.Controllers.HomeController
+    name: HomeController
+  - uid: BackOffice.Controllers.UsersController
+    name: UsersController
+- uid: BackOffice.Helpers
+  name: BackOffice.Helpers
+  items:
+  - uid: BackOffice.Helpers.MessagesHelper
+    name: MessagesHelper
+- uid: BackOffice.Models
+  name: BackOffice.Models
+  items:
+  - uid: BackOffice.Models.ErrorViewModel
+    name: ErrorViewModel
+  - uid: BackOffice.Models.MessagesHandler
+    name: MessagesHandler
+  - uid: BackOffice.Models.Session
+    name: Session
+  - uid: BackOffice.Models.Sessions
+    name: Sessions
+- uid: TicketShop
+  name: TicketShop
+  items:
+  - uid: TicketShop.Program
+    name: Program
+  - uid: TicketShop.Startup
+    name: Startup
+- uid: TicketShop.Controllers
+  name: TicketShop.Controllers
+  items:
+  - uid: TicketShop.Controllers.HomeController
+    name: HomeController
+- uid: TicketShop.Helpers
+  name: TicketShop.Helpers
+  items:
+  - uid: TicketShop.Helpers.MessagesHelper
+    name: MessagesHelper
+- uid: TicketShop.Models
+  name: TicketShop.Models
+  items:
+  - uid: TicketShop.Models.DataBaseRep
+    name: DataBaseRep
+  - uid: TicketShop.Models.ErrorViewModel
+    name: ErrorViewModel
+  - uid: TicketShop.Models.MessagesHandler
+    name: MessagesHandler
+  - uid: TicketShop.Models.Session
+    name: Session
+  - uid: TicketShop.Models.Sessions
+    name: Sessions
+  - uid: TicketShop.Models.TicketVariables
+    name: TicketVariables
 - uid: TicketShopAPI
   name: TicketShopAPI
   items:
@@ -6,27 +73,54 @@
     name: Program
   - uid: TicketShopAPI.Startup
     name: Startup
+- uid: TicketShopAPI.APISecurity
+  name: TicketShopAPI.APISecurity
+  items:
+  - uid: TicketShopAPI.APISecurity.ISecurity
+    name: ISecurity
+  - uid: TicketShopAPI.APISecurity.SecurePasswordHasher
+    name: SecurePasswordHasher
+  - uid: TicketShopAPI.APISecurity.Security
+    name: Security
 - uid: TicketShopAPI.Controllers
   name: TicketShopAPI.Controllers
   items:
+  - uid: TicketShopAPI.Controllers.AirPortController
+    name: AirPortController
+  - uid: TicketShopAPI.Controllers.FlightController
+    name: FlightController
+  - uid: TicketShopAPI.Controllers.FranchiseController
+    name: FranchiseController
   - uid: TicketShopAPI.Controllers.TicketController
     name: TicketController
+  - uid: TicketShopAPI.Controllers.TransactionController
+    name: TransactionController
   - uid: TicketShopAPI.Controllers.UserController
     name: UserController
 - uid: TicketSystem.DatabaseRepository
   name: TicketSystem.DatabaseRepository
   items:
-  - uid: TicketSystem.DatabaseRepository.ISecurity
-    name: ISecurity
   - uid: TicketSystem.DatabaseRepository.ITicketDatabase
     name: ITicketDatabase
-  - uid: TicketSystem.DatabaseRepository.Security
-    name: Security
   - uid: TicketSystem.DatabaseRepository.TicketDatabase
     name: TicketDatabase
 - uid: TicketSystem.DatabaseRepository.Model
   name: TicketSystem.DatabaseRepository.Model
   items:
+  - uid: TicketSystem.DatabaseRepository.Model.AirPort
+    name: AirPort
+  - uid: TicketSystem.DatabaseRepository.Model.ApiKeys
+    name: ApiKeys
+  - uid: TicketSystem.DatabaseRepository.Model.Flight
+    name: Flight
+  - uid: TicketSystem.DatabaseRepository.Model.Franchise
+    name: Franchise
+  - uid: TicketSystem.DatabaseRepository.Model.Login
+    name: Login
+  - uid: TicketSystem.DatabaseRepository.Model.LoginAnswer
+    name: LoginAnswer
+  - uid: TicketSystem.DatabaseRepository.Model.Session
+    name: Session
   - uid: TicketSystem.DatabaseRepository.Model.Ticket
     name: Ticket
   - uid: TicketSystem.DatabaseRepository.Model.Transaction
@@ -54,5 +148,21 @@
 - uid: TicketSystem.RestApiClient.Model
   name: TicketSystem.RestApiClient.Model
   items:
+  - uid: TicketSystem.RestApiClient.Model.AirPort
+    name: AirPort
+  - uid: TicketSystem.RestApiClient.Model.Booking
+    name: Booking
+  - uid: TicketSystem.RestApiClient.Model.Flight
+    name: Flight
+  - uid: TicketSystem.RestApiClient.Model.FlightSearch
+    name: FlightSearch
+  - uid: TicketSystem.RestApiClient.Model.Login
+    name: Login
+  - uid: TicketSystem.RestApiClient.Model.Payment
+    name: Payment
+  - uid: TicketSystem.RestApiClient.Model.SessionInfo
+    name: SessionInfo
   - uid: TicketSystem.RestApiClient.Model.Ticket
     name: Ticket
+  - uid: TicketSystem.RestApiClient.Model.User
+    name: User

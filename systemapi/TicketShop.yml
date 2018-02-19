@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShop
+  commentId: N:TicketShop
+  id: TicketShop
+  children:
+  - TicketShop.Program
+  - TicketShop.Startup
+  langs:
+  - csharp
+  - vb
+  name: TicketShop
+  nameWithType: TicketShop
+  fullName: TicketShop
+  type: Namespace
+  assemblies:
+  - TicketShop
+references:
+- uid: TicketShop.Program
+  commentId: T:TicketShop.Program
+  isExternal: false
+  name: Program
+  nameWithType: Program
+  fullName: TicketShop.Program
+- uid: TicketShop.Startup
+  commentId: T:TicketShop.Startup
+  isExternal: false
+  name: Startup
+  nameWithType: Startup
+  fullName: TicketShop.Startup

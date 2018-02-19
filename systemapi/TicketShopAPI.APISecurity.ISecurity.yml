@@ -1,0 +1,104 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShopAPI.APISecurity.ISecurity
+  commentId: T:TicketShopAPI.APISecurity.ISecurity
+  id: ISecurity
+  parent: TicketShopAPI.APISecurity
+  children:
+  - TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: ISecurity
+  nameWithType: ISecurity
+  fullName: TicketShopAPI.APISecurity.ISecurity
+  type: Interface
+  source:
+    id: ISecurity
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\ISecurity.cs
+    startLine: 6
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: public interface ISecurity
+    content.vb: Public Interface ISecurity
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  commentId: M:TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  id: IsAuthorised(System.String,System.String,System.String,System.Int32)
+  parent: TicketShopAPI.APISecurity.ISecurity
+  langs:
+  - csharp
+  - vb
+  name: IsAuthorised(String, String, String, Int32)
+  nameWithType: ISecurity.IsAuthorised(String, String, String, Int32)
+  fullName: TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String, System.String, System.String, System.Int32)
+  type: Method
+  source:
+    id: IsAuthorised
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\ISecurity.cs
+    startLine: 16
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: bool IsAuthorised(string timestamp, string apiKeyData, string sessionData, int grade)
+    parameters:
+    - id: timestamp
+      type: System.String
+    - id: apiKeyData
+      type: System.String
+    - id: sessionData
+      type: System.String
+    - id: grade
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Function IsAuthorised(timestamp As String, apiKeyData As String, sessionData As String, grade As Integer) As Boolean
+  overload: TicketShopAPI.APISecurity.ISecurity.IsAuthorised*
+references:
+- uid: TicketShopAPI.APISecurity
+  commentId: N:TicketShopAPI.APISecurity
+  isExternal: false
+  name: TicketShopAPI.APISecurity
+  nameWithType: TicketShopAPI.APISecurity
+  fullName: TicketShopAPI.APISecurity
+- uid: TicketShopAPI.APISecurity.ISecurity.IsAuthorised*
+  commentId: Overload:TicketShopAPI.APISecurity.ISecurity.IsAuthorised
+  isExternal: false
+  name: IsAuthorised
+  nameWithType: ISecurity.IsAuthorised
+  fullName: TicketShopAPI.APISecurity.ISecurity.IsAuthorised
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System

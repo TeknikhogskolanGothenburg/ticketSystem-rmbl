@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: BackOffice.Models
+  commentId: N:BackOffice.Models
+  id: BackOffice.Models
+  children:
+  - BackOffice.Models.ErrorViewModel
+  - BackOffice.Models.MessagesHandler
+  - BackOffice.Models.Session
+  - BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: BackOffice.Models
+  nameWithType: BackOffice.Models
+  fullName: BackOffice.Models
+  type: Namespace
+  assemblies:
+  - BackOffice
+references:
+- uid: BackOffice.Models.ErrorViewModel
+  commentId: T:BackOffice.Models.ErrorViewModel
+  isExternal: false
+  name: ErrorViewModel
+  nameWithType: ErrorViewModel
+  fullName: BackOffice.Models.ErrorViewModel
+- uid: BackOffice.Models.MessagesHandler
+  commentId: T:BackOffice.Models.MessagesHandler
+  isExternal: false
+  name: MessagesHandler
+  nameWithType: MessagesHandler
+  fullName: BackOffice.Models.MessagesHandler
+- uid: BackOffice.Models.Session
+  commentId: T:BackOffice.Models.Session
+  isExternal: false
+  name: Session
+  nameWithType: Session
+  fullName: BackOffice.Models.Session
+- uid: BackOffice.Models.Sessions
+  commentId: T:BackOffice.Models.Sessions
+  parent: BackOffice.Models
+  isExternal: false
+  name: Sessions
+  nameWithType: Sessions
+  fullName: BackOffice.Models.Sessions
+- uid: BackOffice.Models
+  commentId: N:BackOffice.Models
+  isExternal: false
+  name: BackOffice.Models
+  nameWithType: BackOffice.Models
+  fullName: BackOffice.Models

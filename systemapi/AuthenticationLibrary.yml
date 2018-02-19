@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: AuthenticationLibrary
+  commentId: N:AuthenticationLibrary
+  id: AuthenticationLibrary
+  children:
+  - AuthenticationLibrary.Authentication
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationLibrary
+  nameWithType: AuthenticationLibrary
+  fullName: AuthenticationLibrary
+  type: Namespace
+  assemblies:
+  - AuthenticationLibrary
+references:
+- uid: AuthenticationLibrary.Authentication
+  commentId: T:AuthenticationLibrary.Authentication
+  isExternal: false
+  name: Authentication
+  nameWithType: Authentication
+  fullName: AuthenticationLibrary.Authentication

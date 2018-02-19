@@ -4,6 +4,13 @@ items:
   commentId: N:TicketSystem.DatabaseRepository.Model
   id: TicketSystem.DatabaseRepository.Model
   children:
+  - TicketSystem.DatabaseRepository.Model.AirPort
+  - TicketSystem.DatabaseRepository.Model.ApiKeys
+  - TicketSystem.DatabaseRepository.Model.Flight
+  - TicketSystem.DatabaseRepository.Model.Franchise
+  - TicketSystem.DatabaseRepository.Model.Login
+  - TicketSystem.DatabaseRepository.Model.LoginAnswer
+  - TicketSystem.DatabaseRepository.Model.Session
   - TicketSystem.DatabaseRepository.Model.Ticket
   - TicketSystem.DatabaseRepository.Model.Transaction
   - TicketSystem.DatabaseRepository.Model.User
@@ -17,6 +24,52 @@ items:
   assemblies:
   - DatabaseRepository
 references:
+- uid: TicketSystem.DatabaseRepository.Model.AirPort
+  commentId: T:TicketSystem.DatabaseRepository.Model.AirPort
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: AirPort
+  nameWithType: AirPort
+  fullName: TicketSystem.DatabaseRepository.Model.AirPort
+- uid: TicketSystem.DatabaseRepository.Model.ApiKeys
+  commentId: T:TicketSystem.DatabaseRepository.Model.ApiKeys
+  isExternal: false
+  name: ApiKeys
+  nameWithType: ApiKeys
+  fullName: TicketSystem.DatabaseRepository.Model.ApiKeys
+- uid: TicketSystem.DatabaseRepository.Model.Flight
+  commentId: T:TicketSystem.DatabaseRepository.Model.Flight
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: Flight
+  nameWithType: Flight
+  fullName: TicketSystem.DatabaseRepository.Model.Flight
+- uid: TicketSystem.DatabaseRepository.Model.Franchise
+  commentId: T:TicketSystem.DatabaseRepository.Model.Franchise
+  isExternal: false
+  name: Franchise
+  nameWithType: Franchise
+  fullName: TicketSystem.DatabaseRepository.Model.Franchise
+- uid: TicketSystem.DatabaseRepository.Model.Login
+  commentId: T:TicketSystem.DatabaseRepository.Model.Login
+  isExternal: false
+  name: Login
+  nameWithType: Login
+  fullName: TicketSystem.DatabaseRepository.Model.Login
+- uid: TicketSystem.DatabaseRepository.Model.LoginAnswer
+  commentId: T:TicketSystem.DatabaseRepository.Model.LoginAnswer
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: LoginAnswer
+  nameWithType: LoginAnswer
+  fullName: TicketSystem.DatabaseRepository.Model.LoginAnswer
+- uid: TicketSystem.DatabaseRepository.Model.Session
+  commentId: T:TicketSystem.DatabaseRepository.Model.Session
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: Session
+  nameWithType: Session
+  fullName: TicketSystem.DatabaseRepository.Model.Session
 - uid: TicketSystem.DatabaseRepository.Model.Ticket
   commentId: T:TicketSystem.DatabaseRepository.Model.Ticket
   parent: TicketSystem.DatabaseRepository.Model

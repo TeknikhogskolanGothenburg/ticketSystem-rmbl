@@ -1,0 +1,657 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketShopAPI.APISecurity.Security
+  commentId: T:TicketShopAPI.APISecurity.Security
+  id: Security
+  parent: TicketShopAPI.APISecurity
+  children:
+  - TicketShopAPI.APISecurity.Security.ApiKey
+  - TicketShopAPI.APISecurity.Security.ApiSecret
+  - TicketShopAPI.APISecurity.Security.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  - TicketShopAPI.APISecurity.Security.Timestamp
+  - TicketShopAPI.APISecurity.Security.User
+  - TicketShopAPI.APISecurity.Security.UserId
+  langs:
+  - csharp
+  - vb
+  name: Security
+  nameWithType: Security
+  fullName: TicketShopAPI.APISecurity.Security
+  type: Class
+  source:
+    id: Security
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\Security.cs
+    startLine: 10
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: 'public class Security : ISecurity'
+    content.vb: >-
+      Public Class Security
+          Implements ISecurity
+  inheritance:
+  - System.Object
+  implements:
+  - TicketShopAPI.APISecurity.ISecurity
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: TicketShopAPI.APISecurity.Security.Timestamp
+  commentId: F:TicketShopAPI.APISecurity.Security.Timestamp
+  id: Timestamp
+  parent: TicketShopAPI.APISecurity.Security
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: Security.Timestamp
+  fullName: TicketShopAPI.APISecurity.Security.Timestamp
+  type: Field
+  source:
+    id: Timestamp
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\Security.cs
+    startLine: 12
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: public string Timestamp
+    return:
+      type: System.String
+    content.vb: Public Timestamp As String
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketShopAPI.APISecurity.Security.ApiKey
+  commentId: F:TicketShopAPI.APISecurity.Security.ApiKey
+  id: ApiKey
+  parent: TicketShopAPI.APISecurity.Security
+  langs:
+  - csharp
+  - vb
+  name: ApiKey
+  nameWithType: Security.ApiKey
+  fullName: TicketShopAPI.APISecurity.Security.ApiKey
+  type: Field
+  source:
+    id: ApiKey
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\Security.cs
+    startLine: 14
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: public string ApiKey
+    return:
+      type: System.String
+    content.vb: Public ApiKey As String
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketShopAPI.APISecurity.Security.ApiSecret
+  commentId: F:TicketShopAPI.APISecurity.Security.ApiSecret
+  id: ApiSecret
+  parent: TicketShopAPI.APISecurity.Security
+  langs:
+  - csharp
+  - vb
+  name: ApiSecret
+  nameWithType: Security.ApiSecret
+  fullName: TicketShopAPI.APISecurity.Security.ApiSecret
+  type: Field
+  source:
+    id: ApiSecret
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\Security.cs
+    startLine: 16
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: public string ApiSecret
+    return:
+      type: System.String
+    content.vb: Public ApiSecret As String
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketShopAPI.APISecurity.Security.UserId
+  commentId: F:TicketShopAPI.APISecurity.Security.UserId
+  id: UserId
+  parent: TicketShopAPI.APISecurity.Security
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: Security.UserId
+  fullName: TicketShopAPI.APISecurity.Security.UserId
+  type: Field
+  source:
+    id: UserId
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\Security.cs
+    startLine: 17
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: public int UserId
+    return:
+      type: System.Int32
+    content.vb: Public UserId As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketShopAPI.APISecurity.Security.User
+  commentId: F:TicketShopAPI.APISecurity.Security.User
+  id: User
+  parent: TicketShopAPI.APISecurity.Security
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: Security.User
+  fullName: TicketShopAPI.APISecurity.Security.User
+  type: Field
+  source:
+    id: User
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\Security.cs
+    startLine: 20
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: public User User
+    return:
+      type: TicketSystem.DatabaseRepository.Model.User
+    content.vb: Public User As User
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketShopAPI.APISecurity.Security.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  commentId: M:TicketShopAPI.APISecurity.Security.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  id: IsAuthorised(System.String,System.String,System.String,System.Int32)
+  parent: TicketShopAPI.APISecurity.Security
+  langs:
+  - csharp
+  - vb
+  name: IsAuthorised(String, String, String, Int32)
+  nameWithType: Security.IsAuthorised(String, String, String, Int32)
+  fullName: TicketShopAPI.APISecurity.Security.IsAuthorised(System.String, System.String, System.String, System.Int32)
+  type: Method
+  source:
+    id: IsAuthorised
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\APISecurity\Security.cs
+    startLine: 22
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.APISecurity
+  syntax:
+    content: public bool IsAuthorised(string timestamp, string apiKeyData, string sessionData, int grade)
+    parameters:
+    - id: timestamp
+      type: System.String
+    - id: apiKeyData
+      type: System.String
+    - id: sessionData
+      type: System.String
+    - id: grade
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsAuthorised(timestamp As String, apiKeyData As String, sessionData As String, grade As Integer) As Boolean
+  overload: TicketShopAPI.APISecurity.Security.IsAuthorised*
+  implements:
+  - TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: TicketShopAPI.APISecurity
+  commentId: N:TicketShopAPI.APISecurity
+  isExternal: false
+  name: TicketShopAPI.APISecurity
+  nameWithType: TicketShopAPI.APISecurity
+  fullName: TicketShopAPI.APISecurity
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: TicketShopAPI.APISecurity.ISecurity
+  commentId: T:TicketShopAPI.APISecurity.ISecurity
+  parent: TicketShopAPI.APISecurity
+  isExternal: false
+  name: ISecurity
+  nameWithType: ISecurity
+  fullName: TicketShopAPI.APISecurity.ISecurity
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketSystem.DatabaseRepository.Model.User
+  commentId: T:TicketSystem.DatabaseRepository.Model.User
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: User
+  nameWithType: User
+  fullName: TicketSystem.DatabaseRepository.Model.User
+- uid: TicketSystem.DatabaseRepository.Model
+  commentId: N:TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: TicketSystem.DatabaseRepository.Model
+  nameWithType: TicketSystem.DatabaseRepository.Model
+  fullName: TicketSystem.DatabaseRepository.Model
+- uid: TicketShopAPI.APISecurity.Security.IsAuthorised*
+  commentId: Overload:TicketShopAPI.APISecurity.Security.IsAuthorised
+  isExternal: false
+  name: IsAuthorised
+  nameWithType: Security.IsAuthorised
+  fullName: TicketShopAPI.APISecurity.Security.IsAuthorised
+- uid: TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  commentId: M:TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String,System.String,System.String,System.Int32)
+  parent: TicketShopAPI.APISecurity.ISecurity
+  isExternal: true
+  name: IsAuthorised(String, String, String, Int32)
+  nameWithType: ISecurity.IsAuthorised(String, String, String, Int32)
+  fullName: TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String, System.String, System.String, System.Int32)
+  spec.csharp:
+  - uid: TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String,System.String,System.String,System.Int32)
+    name: IsAuthorised
+    nameWithType: ISecurity.IsAuthorised
+    fullName: TicketShopAPI.APISecurity.ISecurity.IsAuthorised
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketShopAPI.APISecurity.ISecurity.IsAuthorised(System.String,System.String,System.String,System.Int32)
+    name: IsAuthorised
+    nameWithType: ISecurity.IsAuthorised
+    fullName: TicketShopAPI.APISecurity.ISecurity.IsAuthorised
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

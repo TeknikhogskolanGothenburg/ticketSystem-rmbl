@@ -5,10 +5,11 @@ items:
   id: TicketController
   parent: TicketShopAPI.Controllers
   children:
+  - TicketShopAPI.Controllers.TicketController.#ctor(Microsoft.Extensions.Logging.ILogger{TicketShopAPI.Controllers.TicketController})
   - TicketShopAPI.Controllers.TicketController.Delete(System.Int32)
   - TicketShopAPI.Controllers.TicketController.Get
   - TicketShopAPI.Controllers.TicketController.Get(System.Int32)
-  - TicketShopAPI.Controllers.TicketController.Post(TicketSystem.DatabaseRepository.Model.Ticket,TicketSystem.PaymentProvider.Payment)
+  - TicketShopAPI.Controllers.TicketController.Post(Newtonsoft.Json.Linq.JObject)
   - TicketShopAPI.Controllers.TicketController.Put(System.Int32,TicketSystem.DatabaseRepository.Model.Ticket)
   langs:
   - csharp
@@ -18,13 +19,9 @@ items:
   fullName: TicketShopAPI.Controllers.TicketController
   type: Class
   source:
-    remote:
-      path: src/TicketShopAPI/Controllers/TicketController.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketController
-    path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 14
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Controllers\TicketController.cs
+    startLine: 17
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
@@ -231,6 +228,38 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: TicketShopAPI.Controllers.TicketController.#ctor(Microsoft.Extensions.Logging.ILogger{TicketShopAPI.Controllers.TicketController})
+  commentId: M:TicketShopAPI.Controllers.TicketController.#ctor(Microsoft.Extensions.Logging.ILogger{TicketShopAPI.Controllers.TicketController})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{TicketShopAPI.Controllers.TicketController})'
+  parent: TicketShopAPI.Controllers.TicketController
+  langs:
+  - csharp
+  - vb
+  name: TicketController(ILogger<TicketController>)
+  nameWithType: TicketController.TicketController(ILogger<TicketController>)
+  fullName: TicketShopAPI.Controllers.TicketController.TicketController(Microsoft.Extensions.Logging.ILogger<TicketShopAPI.Controllers.TicketController>)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Controllers\TicketController.cs
+    startLine: 25
+  assemblies:
+  - TicketShopAPI
+  namespace: TicketShopAPI.Controllers
+  syntax:
+    content: public TicketController(ILogger<TicketController> newLogger)
+    parameters:
+    - id: newLogger
+      type: Microsoft.Extensions.Logging.ILogger{TicketShopAPI.Controllers.TicketController}
+    content.vb: Public Sub New(newLogger As ILogger(Of TicketController))
+  overload: TicketShopAPI.Controllers.TicketController.#ctor*
+  nameWithType.vb: TicketController.TicketController(ILogger(Of TicketController))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: TicketShopAPI.Controllers.TicketController.TicketController(Microsoft.Extensions.Logging.ILogger(Of TicketShopAPI.Controllers.TicketController))
+  name.vb: TicketController(ILogger(Of TicketController))
 - uid: TicketShopAPI.Controllers.TicketController.Get
   commentId: M:TicketShopAPI.Controllers.TicketController.Get
   id: Get
@@ -243,13 +272,9 @@ items:
   fullName: TicketShopAPI.Controllers.TicketController.Get()
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Controllers/TicketController.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Get
-    path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 28
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Controllers\TicketController.cs
+    startLine: 37
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
@@ -288,13 +313,9 @@ items:
   fullName: TicketShopAPI.Controllers.TicketController.Get(System.Int32)
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Controllers/TicketController.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Get
-    path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 62
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Controllers\TicketController.cs
+    startLine: 75
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
@@ -326,25 +347,21 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: TicketShopAPI.Controllers.TicketController.Post(TicketSystem.DatabaseRepository.Model.Ticket,TicketSystem.PaymentProvider.Payment)
-  commentId: M:TicketShopAPI.Controllers.TicketController.Post(TicketSystem.DatabaseRepository.Model.Ticket,TicketSystem.PaymentProvider.Payment)
-  id: Post(TicketSystem.DatabaseRepository.Model.Ticket,TicketSystem.PaymentProvider.Payment)
+- uid: TicketShopAPI.Controllers.TicketController.Post(Newtonsoft.Json.Linq.JObject)
+  commentId: M:TicketShopAPI.Controllers.TicketController.Post(Newtonsoft.Json.Linq.JObject)
+  id: Post(Newtonsoft.Json.Linq.JObject)
   parent: TicketShopAPI.Controllers.TicketController
   langs:
   - csharp
   - vb
-  name: Post(Ticket, Payment)
-  nameWithType: TicketController.Post(Ticket, Payment)
-  fullName: TicketShopAPI.Controllers.TicketController.Post(TicketSystem.DatabaseRepository.Model.Ticket, TicketSystem.PaymentProvider.Payment)
+  name: Post(JObject)
+  nameWithType: TicketController.Post(JObject)
+  fullName: TicketShopAPI.Controllers.TicketController.Post(Newtonsoft.Json.Linq.JObject)
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Controllers/TicketController.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Post
-    path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 100
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Controllers\TicketController.cs
+    startLine: 112
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
@@ -354,22 +371,19 @@ items:
     content: >-
       [HttpPost]
 
-      public void Post([FromBody] Ticket ticket, Payment payment)
+      public void Post([FromBody] JObject data)
     parameters:
-    - id: ticket
-      type: TicketSystem.DatabaseRepository.Model.Ticket
-      description: new ticket to be added to database
+    - id: data
+      type: Newtonsoft.Json.Linq.JObject
+      description: data used to process purchase of a ticket
       attributes:
       - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
         ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
         arguments: []
-    - id: payment
-      type: TicketSystem.PaymentProvider.Payment
-      description: payment information to be processed as a condition to get ticket
     content.vb: >-
       <HttpPost>
 
-      Public Sub Post(ticket As Ticket, payment As Payment)
+      Public Sub Post(data As JObject)
   overload: TicketShopAPI.Controllers.TicketController.Post*
   attributes:
   - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
@@ -391,13 +405,9 @@ items:
   fullName: TicketShopAPI.Controllers.TicketController.Put(System.Int32, TicketSystem.DatabaseRepository.Model.Ticket)
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Controllers/TicketController.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Put
-    path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 154
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Controllers\TicketController.cs
+    startLine: 177
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
@@ -446,13 +456,9 @@ items:
   fullName: TicketShopAPI.Controllers.TicketController.Delete(System.Int32)
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Controllers/TicketController.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Delete
-    path: src/TicketShopAPI/Controllers/TicketController.cs
-    startLine: 185
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Controllers\TicketController.cs
+    startLine: 211
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI.Controllers
@@ -10559,6 +10565,99 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: TicketShopAPI.Controllers.TicketController.#ctor*
+  commentId: Overload:TicketShopAPI.Controllers.TicketController.#ctor
+  isExternal: false
+  name: TicketController
+  nameWithType: TicketController.TicketController
+  fullName: TicketShopAPI.Controllers.TicketController.TicketController
+- uid: Microsoft.Extensions.Logging.ILogger{TicketShopAPI.Controllers.TicketController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{TicketShopAPI.Controllers.TicketController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  name: ILogger<TicketController>
+  nameWithType: ILogger<TicketController>
+  fullName: Microsoft.Extensions.Logging.ILogger<TicketShopAPI.Controllers.TicketController>
+  nameWithType.vb: ILogger(Of TicketController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TicketShopAPI.Controllers.TicketController)
+  name.vb: ILogger(Of TicketController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    nameWithType: ILogger
+    fullName: Microsoft.Extensions.Logging.ILogger
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: TicketShopAPI.Controllers.TicketController
+    name: TicketController
+    nameWithType: TicketController
+    fullName: TicketShopAPI.Controllers.TicketController
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    nameWithType: ILogger
+    fullName: Microsoft.Extensions.Logging.ILogger
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: TicketShopAPI.Controllers.TicketController
+    name: TicketController
+    nameWithType: TicketController
+    fullName: TicketShopAPI.Controllers.TicketController
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    nameWithType: ILogger
+    fullName: Microsoft.Extensions.Logging.ILogger
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TCategoryName
+    nameWithType: TCategoryName
+    fullName: TCategoryName
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    nameWithType: ILogger
+    fullName: Microsoft.Extensions.Logging.ILogger
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TCategoryName
+    nameWithType: TCategoryName
+    fullName: TCategoryName
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: false
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
 - uid: TicketShopAPI.Controllers.TicketController.Get*
   commentId: Overload:TicketShopAPI.Controllers.TicketController.Get
   isExternal: false
@@ -10674,6 +10773,25 @@ references:
   name: Post
   nameWithType: TicketController.Post
   fullName: TicketShopAPI.Controllers.TicketController.Post
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: false
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+- uid: TicketShopAPI.Controllers.TicketController.Put*
+  commentId: Overload:TicketShopAPI.Controllers.TicketController.Put
+  isExternal: false
+  name: Put
+  nameWithType: TicketController.Put
+  fullName: TicketShopAPI.Controllers.TicketController.Put
 - uid: TicketSystem.DatabaseRepository.Model.Ticket
   commentId: T:TicketSystem.DatabaseRepository.Model.Ticket
   parent: TicketSystem.DatabaseRepository.Model
@@ -10681,31 +10799,12 @@ references:
   name: Ticket
   nameWithType: Ticket
   fullName: TicketSystem.DatabaseRepository.Model.Ticket
-- uid: TicketSystem.PaymentProvider.Payment
-  commentId: T:TicketSystem.PaymentProvider.Payment
-  parent: TicketSystem.PaymentProvider
-  isExternal: false
-  name: Payment
-  nameWithType: Payment
-  fullName: TicketSystem.PaymentProvider.Payment
 - uid: TicketSystem.DatabaseRepository.Model
   commentId: N:TicketSystem.DatabaseRepository.Model
   isExternal: false
   name: TicketSystem.DatabaseRepository.Model
   nameWithType: TicketSystem.DatabaseRepository.Model
   fullName: TicketSystem.DatabaseRepository.Model
-- uid: TicketSystem.PaymentProvider
-  commentId: N:TicketSystem.PaymentProvider
-  isExternal: false
-  name: TicketSystem.PaymentProvider
-  nameWithType: TicketSystem.PaymentProvider
-  fullName: TicketSystem.PaymentProvider
-- uid: TicketShopAPI.Controllers.TicketController.Put*
-  commentId: Overload:TicketShopAPI.Controllers.TicketController.Put
-  isExternal: false
-  name: Put
-  nameWithType: TicketController.Put
-  fullName: TicketShopAPI.Controllers.TicketController.Put
 - uid: TicketShopAPI.Controllers.TicketController.Delete*
   commentId: Overload:TicketShopAPI.Controllers.TicketController.Delete
   isExternal: false

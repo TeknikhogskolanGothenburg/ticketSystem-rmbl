@@ -7,6 +7,7 @@ items:
   children:
   - TicketSystem.DatabaseRepository.Model.User.Address
   - TicketSystem.DatabaseRepository.Model.User.City
+  - TicketSystem.DatabaseRepository.Model.User.DeletedUser
   - TicketSystem.DatabaseRepository.Model.User.Email
   - TicketSystem.DatabaseRepository.Model.User.FirstName
   - TicketSystem.DatabaseRepository.Model.User.Grade
@@ -23,12 +24,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User
   type: Class
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: User
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 6
   assemblies:
   - DatabaseRepository
@@ -64,12 +61,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.Id
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Id
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 8
   assemblies:
   - DatabaseRepository
@@ -99,12 +92,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.Username
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Username
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 9
   assemblies:
   - DatabaseRepository
@@ -134,12 +123,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.Password
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Password
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 10
   assemblies:
   - DatabaseRepository
@@ -169,12 +154,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.Email
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Email
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 11
   assemblies:
   - DatabaseRepository
@@ -204,12 +185,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.FirstName
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: FirstName
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 12
   assemblies:
   - DatabaseRepository
@@ -239,12 +216,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.LastName
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: LastName
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 13
   assemblies:
   - DatabaseRepository
@@ -274,12 +247,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.City
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: City
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 14
   assemblies:
   - DatabaseRepository
@@ -309,12 +278,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.ZipCode
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: ZipCode
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 15
   assemblies:
   - DatabaseRepository
@@ -344,12 +309,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.Address
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Address
-    path: src/DatabaseRepository/Model/User.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
     startLine: 16
   assemblies:
   - DatabaseRepository
@@ -361,6 +322,37 @@ items:
       type: System.String
     content.vb: Public Property Address As String
   overload: TicketSystem.DatabaseRepository.Model.User.Address*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.Model.User.DeletedUser
+  commentId: P:TicketSystem.DatabaseRepository.Model.User.DeletedUser
+  id: DeletedUser
+  parent: TicketSystem.DatabaseRepository.Model.User
+  langs:
+  - csharp
+  - vb
+  name: DeletedUser
+  nameWithType: User.DeletedUser
+  fullName: TicketSystem.DatabaseRepository.Model.User.DeletedUser
+  type: Property
+  source:
+    id: DeletedUser
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
+    startLine: 17
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository.Model
+  syntax:
+    content: public bool DeletedUser { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property DeletedUser As Boolean
+  overload: TicketSystem.DatabaseRepository.Model.User.DeletedUser*
   modifiers.csharp:
   - public
   - get
@@ -379,13 +371,9 @@ items:
   fullName: TicketSystem.DatabaseRepository.Model.User.Grade
   type: Property
   source:
-    remote:
-      path: src/DatabaseRepository/Model/User.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Grade
-    path: src/DatabaseRepository/Model/User.cs
-    startLine: 17
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\Model\User.cs
+    startLine: 18
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository.Model
@@ -769,6 +757,19 @@ references:
   name: Address
   nameWithType: User.Address
   fullName: TicketSystem.DatabaseRepository.Model.User.Address
+- uid: TicketSystem.DatabaseRepository.Model.User.DeletedUser*
+  commentId: Overload:TicketSystem.DatabaseRepository.Model.User.DeletedUser
+  isExternal: false
+  name: DeletedUser
+  nameWithType: User.DeletedUser
+  fullName: TicketSystem.DatabaseRepository.Model.User.DeletedUser
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
 - uid: TicketSystem.DatabaseRepository.Model.User.Grade*
   commentId: Overload:TicketSystem.DatabaseRepository.Model.User.Grade
   isExternal: false

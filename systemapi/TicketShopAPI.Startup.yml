@@ -17,12 +17,8 @@ items:
   fullName: TicketShopAPI.Startup
   type: Class
   source:
-    remote:
-      path: src/TicketShopAPI/Startup.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Startup
-    path: src/TicketShopAPI/Startup.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Startup.cs
     startLine: 13
   assemblies:
   - TicketShopAPI
@@ -58,12 +54,8 @@ items:
   fullName: TicketShopAPI.Startup.Startup(Microsoft.Extensions.Configuration.IConfiguration)
   type: Constructor
   source:
-    remote:
-      path: src/TicketShopAPI/Startup.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: .ctor
-    path: src/TicketShopAPI/Startup.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Startup.cs
     startLine: 15
   assemblies:
   - TicketShopAPI
@@ -91,12 +83,8 @@ items:
   fullName: TicketShopAPI.Startup.Configuration
   type: Property
   source:
-    remote:
-      path: src/TicketShopAPI/Startup.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Configuration
-    path: src/TicketShopAPI/Startup.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Startup.cs
     startLine: 20
   assemblies:
   - TicketShopAPI
@@ -126,12 +114,8 @@ items:
   fullName: TicketShopAPI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Startup.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: ConfigureServices
-    path: src/TicketShopAPI/Startup.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Startup.cs
     startLine: 23
   assemblies:
   - TicketShopAPI
@@ -159,13 +143,9 @@ items:
   fullName: TicketShopAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IHostingEnvironment)
   type: Method
   source:
-    remote:
-      path: src/TicketShopAPI/Startup.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: Configure
-    path: src/TicketShopAPI/Startup.cs
-    startLine: 29
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShopAPI\Startup.cs
+    startLine: 34
   assemblies:
   - TicketShopAPI
   namespace: TicketShopAPI

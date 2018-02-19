@@ -1,0 +1,684 @@
+### YamlMime:ManagedReference
+items:
+- uid: BackOffice.Models.Sessions
+  commentId: T:BackOffice.Models.Sessions
+  id: Sessions
+  parent: BackOffice.Models
+  children:
+  - BackOffice.Models.Sessions.#ctor
+  - BackOffice.Models.Sessions.Add(System.String,System.Object,System.Int32)
+  - BackOffice.Models.Sessions.EmptyExpiredSessions
+  - BackOffice.Models.Sessions.Exist(System.String)
+  - BackOffice.Models.Sessions.Get(System.String)
+  - BackOffice.Models.Sessions.Intialize(Microsoft.AspNetCore.Http.HttpContext)
+  - BackOffice.Models.Sessions.Remove(System.String)
+  - BackOffice.Models.Sessions.RemoveAll
+  langs:
+  - csharp
+  - vb
+  name: Sessions
+  nameWithType: Sessions
+  fullName: BackOffice.Models.Sessions
+  type: Class
+  source:
+    id: Sessions
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 8
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  syntax:
+    content: public class Sessions
+    content.vb: Public Class Sessions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: BackOffice.Models.Sessions.#ctor
+  commentId: M:BackOffice.Models.Sessions.#ctor
+  id: '#ctor'
+  parent: BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: Sessions()
+  nameWithType: Sessions.Sessions()
+  fullName: BackOffice.Models.Sessions.Sessions()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 18
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  summary: "\nDefault constructor\n"
+  example: []
+  syntax:
+    content: public Sessions()
+    content.vb: Public Sub New
+  overload: BackOffice.Models.Sessions.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: BackOffice.Models.Sessions.Intialize(Microsoft.AspNetCore.Http.HttpContext)
+  commentId: M:BackOffice.Models.Sessions.Intialize(Microsoft.AspNetCore.Http.HttpContext)
+  id: Intialize(Microsoft.AspNetCore.Http.HttpContext)
+  parent: BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: Intialize(HttpContext)
+  nameWithType: Sessions.Intialize(HttpContext)
+  fullName: BackOffice.Models.Sessions.Intialize(Microsoft.AspNetCore.Http.HttpContext)
+  type: Method
+  source:
+    id: Intialize
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 27
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  summary: "\nInitialize sessions with Http context\n"
+  example: []
+  syntax:
+    content: public void Intialize(HttpContext context)
+    parameters:
+    - id: context
+      type: Microsoft.AspNetCore.Http.HttpContext
+      description: Http context
+    content.vb: Public Sub Intialize(context As HttpContext)
+  overload: BackOffice.Models.Sessions.Intialize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: BackOffice.Models.Sessions.Add(System.String,System.Object,System.Int32)
+  commentId: M:BackOffice.Models.Sessions.Add(System.String,System.Object,System.Int32)
+  id: Add(System.String,System.Object,System.Int32)
+  parent: BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: Add(String, Object, Int32)
+  nameWithType: Sessions.Add(String, Object, Int32)
+  fullName: BackOffice.Models.Sessions.Add(System.String, System.Object, System.Int32)
+  type: Method
+  source:
+    id: Add
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 44
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  summary: "\nAdd session value\n"
+  example: []
+  syntax:
+    content: public void Add(string key, object value, int expires = 7200000)
+    parameters:
+    - id: key
+      type: System.String
+      description: Session key
+    - id: value
+      type: System.Object
+      description: Session value
+    - id: expires
+      type: System.Int32
+      description: 'When should session expire? (In millisecound) [Default: 2 hours]'
+    content.vb: Public Sub Add(key As String, value As Object, expires As Integer = 7200000)
+  overload: BackOffice.Models.Sessions.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: BackOffice.Models.Sessions.Exist(System.String)
+  commentId: M:BackOffice.Models.Sessions.Exist(System.String)
+  id: Exist(System.String)
+  parent: BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: Exist(String)
+  nameWithType: Sessions.Exist(String)
+  fullName: BackOffice.Models.Sessions.Exist(System.String)
+  type: Method
+  source:
+    id: Exist
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 64
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  summary: "\nCheck if session exist\n"
+  example: []
+  syntax:
+    content: public bool Exist(string key)
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: System.Boolean
+      description: Validate result
+    content.vb: Public Function Exist(key As String) As Boolean
+  overload: BackOffice.Models.Sessions.Exist*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: BackOffice.Models.Sessions.Get(System.String)
+  commentId: M:BackOffice.Models.Sessions.Get(System.String)
+  id: Get(System.String)
+  parent: BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: Get(String)
+  nameWithType: Sessions.Get(String)
+  fullName: BackOffice.Models.Sessions.Get(System.String)
+  type: Method
+  source:
+    id: Get
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 82
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  summary: "\nGet session value with key\n"
+  example: []
+  syntax:
+    content: public object Get(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: Session key
+    return:
+      type: System.Object
+      description: Session value
+    content.vb: Public Function Get(key As String) As Object
+  overload: BackOffice.Models.Sessions.Get*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: BackOffice.Models.Sessions.Remove(System.String)
+  commentId: M:BackOffice.Models.Sessions.Remove(System.String)
+  id: Remove(System.String)
+  parent: BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: Remove(String)
+  nameWithType: Sessions.Remove(String)
+  fullName: BackOffice.Models.Sessions.Remove(System.String)
+  type: Method
+  source:
+    id: Remove
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 109
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  summary: "\nRemove session with key\n"
+  example: []
+  syntax:
+    content: public void Remove(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: Session key
+    content.vb: Public Sub Remove(key As String)
+  overload: BackOffice.Models.Sessions.Remove*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: BackOffice.Models.Sessions.RemoveAll
+  commentId: M:BackOffice.Models.Sessions.RemoveAll
+  id: RemoveAll
+  parent: BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: RemoveAll()
+  nameWithType: Sessions.RemoveAll()
+  fullName: BackOffice.Models.Sessions.RemoveAll()
+  type: Method
+  source:
+    id: RemoveAll
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 126
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  summary: "\nRemove all sessions\n"
+  example: []
+  syntax:
+    content: public void RemoveAll()
+    content.vb: Public Sub RemoveAll
+  overload: BackOffice.Models.Sessions.RemoveAll*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: BackOffice.Models.Sessions.EmptyExpiredSessions
+  commentId: M:BackOffice.Models.Sessions.EmptyExpiredSessions
+  id: EmptyExpiredSessions
+  parent: BackOffice.Models.Sessions
+  langs:
+  - csharp
+  - vb
+  name: EmptyExpiredSessions()
+  nameWithType: Sessions.EmptyExpiredSessions()
+  fullName: BackOffice.Models.Sessions.EmptyExpiredSessions()
+  type: Method
+  source:
+    id: EmptyExpiredSessions
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\BackOffice\Models\Sessions.cs
+    startLine: 134
+  assemblies:
+  - BackOffice
+  namespace: BackOffice.Models
+  summary: "\nRemove all expired sessions\n"
+  example: []
+  syntax:
+    content: public void EmptyExpiredSessions()
+    content.vb: Public Sub EmptyExpiredSessions
+  overload: BackOffice.Models.Sessions.EmptyExpiredSessions*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: BackOffice.Models
+  commentId: N:BackOffice.Models
+  isExternal: false
+  name: BackOffice.Models
+  nameWithType: BackOffice.Models
+  fullName: BackOffice.Models
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BackOffice.Models.Sessions.#ctor*
+  commentId: Overload:BackOffice.Models.Sessions.#ctor
+  isExternal: false
+  name: Sessions
+  nameWithType: Sessions.Sessions
+  fullName: BackOffice.Models.Sessions.Sessions
+- uid: BackOffice.Models.Sessions.Intialize*
+  commentId: Overload:BackOffice.Models.Sessions.Intialize
+  isExternal: false
+  name: Intialize
+  nameWithType: Sessions.Intialize
+  fullName: BackOffice.Models.Sessions.Intialize
+- uid: Microsoft.AspNetCore.Http.HttpContext
+  commentId: T:Microsoft.AspNetCore.Http.HttpContext
+  parent: Microsoft.AspNetCore.Http
+  isExternal: true
+  name: HttpContext
+  nameWithType: HttpContext
+  fullName: Microsoft.AspNetCore.Http.HttpContext
+- uid: Microsoft.AspNetCore.Http
+  commentId: N:Microsoft.AspNetCore.Http
+  isExternal: false
+  name: Microsoft.AspNetCore.Http
+  nameWithType: Microsoft.AspNetCore.Http
+  fullName: Microsoft.AspNetCore.Http
+- uid: BackOffice.Models.Sessions.Add*
+  commentId: Overload:BackOffice.Models.Sessions.Add
+  isExternal: false
+  name: Add
+  nameWithType: Sessions.Add
+  fullName: BackOffice.Models.Sessions.Add
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: BackOffice.Models.Sessions.Exist*
+  commentId: Overload:BackOffice.Models.Sessions.Exist
+  isExternal: false
+  name: Exist
+  nameWithType: Sessions.Exist
+  fullName: BackOffice.Models.Sessions.Exist
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: BackOffice.Models.Sessions.Get*
+  commentId: Overload:BackOffice.Models.Sessions.Get
+  isExternal: false
+  name: Get
+  nameWithType: Sessions.Get
+  fullName: BackOffice.Models.Sessions.Get
+- uid: BackOffice.Models.Sessions.Remove*
+  commentId: Overload:BackOffice.Models.Sessions.Remove
+  isExternal: false
+  name: Remove
+  nameWithType: Sessions.Remove
+  fullName: BackOffice.Models.Sessions.Remove
+- uid: BackOffice.Models.Sessions.RemoveAll*
+  commentId: Overload:BackOffice.Models.Sessions.RemoveAll
+  isExternal: false
+  name: RemoveAll
+  nameWithType: Sessions.RemoveAll
+  fullName: BackOffice.Models.Sessions.RemoveAll
+- uid: BackOffice.Models.Sessions.EmptyExpiredSessions*
+  commentId: Overload:BackOffice.Models.Sessions.EmptyExpiredSessions
+  isExternal: false
+  name: EmptyExpiredSessions
+  nameWithType: Sessions.EmptyExpiredSessions
+  fullName: BackOffice.Models.Sessions.EmptyExpiredSessions

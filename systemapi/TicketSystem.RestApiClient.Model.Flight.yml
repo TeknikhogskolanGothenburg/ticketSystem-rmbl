@@ -1,0 +1,822 @@
+### YamlMime:ManagedReference
+items:
+- uid: TicketSystem.RestApiClient.Model.Flight
+  commentId: T:TicketSystem.RestApiClient.Model.Flight
+  id: Flight
+  parent: TicketSystem.RestApiClient.Model
+  children:
+  - TicketSystem.RestApiClient.Model.Flight.#ctor
+  - TicketSystem.RestApiClient.Model.Flight.ArrivalDate
+  - TicketSystem.RestApiClient.Model.Flight.ArrivalPort
+  - TicketSystem.RestApiClient.Model.Flight.DepartureDate
+  - TicketSystem.RestApiClient.Model.Flight.DeparturePort
+  - TicketSystem.RestApiClient.Model.Flight.Id
+  - TicketSystem.RestApiClient.Model.Flight.Price
+  - TicketSystem.RestApiClient.Model.Flight.Seats
+  langs:
+  - csharp
+  - vb
+  name: Flight
+  nameWithType: Flight
+  fullName: TicketSystem.RestApiClient.Model.Flight
+  type: Class
+  source:
+    id: Flight
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 7
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: public class Flight
+    content.vb: Public Class Flight
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: TicketSystem.RestApiClient.Model.Flight.Id
+  commentId: P:TicketSystem.RestApiClient.Model.Flight.Id
+  id: Id
+  parent: TicketSystem.RestApiClient.Model.Flight
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Flight.Id
+  fullName: TicketSystem.RestApiClient.Model.Flight.Id
+  type: Property
+  source:
+    id: Id
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 9
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: TicketSystem.RestApiClient.Model.Flight.Id*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.RestApiClient.Model.Flight.DepartureDate
+  commentId: P:TicketSystem.RestApiClient.Model.Flight.DepartureDate
+  id: DepartureDate
+  parent: TicketSystem.RestApiClient.Model.Flight
+  langs:
+  - csharp
+  - vb
+  name: DepartureDate
+  nameWithType: Flight.DepartureDate
+  fullName: TicketSystem.RestApiClient.Model.Flight.DepartureDate
+  type: Property
+  source:
+    id: DepartureDate
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 11
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: >-
+      [DataType(DataType.Date)]
+
+      [Display(Name = "Departure date")]
+
+      public DateTime DepartureDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <DataType(DataType.Date)>
+
+      <Display(Name:="Departure date")>
+
+      Public Property DepartureDate As Date
+  overload: TicketSystem.RestApiClient.Model.Flight.DepartureDate*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.DataTypeAttribute
+    ctor: System.ComponentModel.DataAnnotations.DataTypeAttribute.#ctor(System.ComponentModel.DataAnnotations.DataType)
+    arguments:
+    - type: System.ComponentModel.DataAnnotations.DataType
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Departure date
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.RestApiClient.Model.Flight.DeparturePort
+  commentId: P:TicketSystem.RestApiClient.Model.Flight.DeparturePort
+  id: DeparturePort
+  parent: TicketSystem.RestApiClient.Model.Flight
+  langs:
+  - csharp
+  - vb
+  name: DeparturePort
+  nameWithType: Flight.DeparturePort
+  fullName: TicketSystem.RestApiClient.Model.Flight.DeparturePort
+  type: Property
+  source:
+    id: DeparturePort
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 15
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: >-
+      [Required]
+
+      [Range(1, 2147483647)]
+
+      [Display(Name = "Departure Airport")]
+
+      public int DeparturePort { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      <Range(1, 2147483647)>
+
+      <Display(Name:="Departure Airport")>
+
+      Public Property DeparturePort As Integer
+  overload: TicketSystem.RestApiClient.Model.Flight.DeparturePort*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.RangeAttribute
+    ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+    - type: System.Int32
+      value: 2147483647
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Departure Airport
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.RestApiClient.Model.Flight.ArrivalDate
+  commentId: P:TicketSystem.RestApiClient.Model.Flight.ArrivalDate
+  id: ArrivalDate
+  parent: TicketSystem.RestApiClient.Model.Flight
+  langs:
+  - csharp
+  - vb
+  name: ArrivalDate
+  nameWithType: Flight.ArrivalDate
+  fullName: TicketSystem.RestApiClient.Model.Flight.ArrivalDate
+  type: Property
+  source:
+    id: ArrivalDate
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 20
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: >-
+      [Required]
+
+      [DataType(DataType.Date)]
+
+      [Display(Name = "Arrival date")]
+
+      public DateTime ArrivalDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <Required>
+
+      <DataType(DataType.Date)>
+
+      <Display(Name:="Arrival date")>
+
+      Public Property ArrivalDate As Date
+  overload: TicketSystem.RestApiClient.Model.Flight.ArrivalDate*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.DataTypeAttribute
+    ctor: System.ComponentModel.DataAnnotations.DataTypeAttribute.#ctor(System.ComponentModel.DataAnnotations.DataType)
+    arguments:
+    - type: System.ComponentModel.DataAnnotations.DataType
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Arrival date
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.RestApiClient.Model.Flight.ArrivalPort
+  commentId: P:TicketSystem.RestApiClient.Model.Flight.ArrivalPort
+  id: ArrivalPort
+  parent: TicketSystem.RestApiClient.Model.Flight
+  langs:
+  - csharp
+  - vb
+  name: ArrivalPort
+  nameWithType: Flight.ArrivalPort
+  fullName: TicketSystem.RestApiClient.Model.Flight.ArrivalPort
+  type: Property
+  source:
+    id: ArrivalPort
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 25
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: >-
+      [Required]
+
+      [Range(1, 2147483647)]
+
+      [Display(Name = "Arrival Airport")]
+
+      public int ArrivalPort { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      <Range(1, 2147483647)>
+
+      <Display(Name:="Arrival Airport")>
+
+      Public Property ArrivalPort As Integer
+  overload: TicketSystem.RestApiClient.Model.Flight.ArrivalPort*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.RangeAttribute
+    ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+    - type: System.Int32
+      value: 2147483647
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Arrival Airport
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.RestApiClient.Model.Flight.Seats
+  commentId: P:TicketSystem.RestApiClient.Model.Flight.Seats
+  id: Seats
+  parent: TicketSystem.RestApiClient.Model.Flight
+  langs:
+  - csharp
+  - vb
+  name: Seats
+  nameWithType: Flight.Seats
+  fullName: TicketSystem.RestApiClient.Model.Flight.Seats
+  type: Property
+  source:
+    id: Seats
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 30
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: >-
+      [Required]
+
+      [Range(1, 2147483647)]
+
+      public int Seats { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      <Range(1, 2147483647)>
+
+      Public Property Seats As Integer
+  overload: TicketSystem.RestApiClient.Model.Flight.Seats*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.RangeAttribute
+    ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+    - type: System.Int32
+      value: 2147483647
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.RestApiClient.Model.Flight.Price
+  commentId: P:TicketSystem.RestApiClient.Model.Flight.Price
+  id: Price
+  parent: TicketSystem.RestApiClient.Model.Flight
+  langs:
+  - csharp
+  - vb
+  name: Price
+  nameWithType: Flight.Price
+  fullName: TicketSystem.RestApiClient.Model.Flight.Price
+  type: Property
+  source:
+    id: Price
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 34
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: >-
+      [Required]
+
+      [Range(1, 2147483647)]
+
+      [Display(Name = "Ticket price")]
+
+      public int Price { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      <Range(1, 2147483647)>
+
+      <Display(Name:="Ticket price")>
+
+      Public Property Price As Integer
+  overload: TicketSystem.RestApiClient.Model.Flight.Price*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.RangeAttribute
+    ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+    - type: System.Int32
+      value: 2147483647
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Ticket price
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.RestApiClient.Model.Flight.#ctor
+  commentId: M:TicketSystem.RestApiClient.Model.Flight.#ctor
+  id: '#ctor'
+  parent: TicketSystem.RestApiClient.Model.Flight
+  langs:
+  - csharp
+  - vb
+  name: Flight()
+  nameWithType: Flight.Flight()
+  fullName: TicketSystem.RestApiClient.Model.Flight.Flight()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\RestApiClient\Model\Flight.cs
+    startLine: 39
+  assemblies:
+  - RestApiClient
+  namespace: TicketSystem.RestApiClient.Model
+  syntax:
+    content: public Flight()
+    content.vb: Public Sub New
+  overload: TicketSystem.RestApiClient.Model.Flight.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: TicketSystem.RestApiClient.Model
+  commentId: N:TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: TicketSystem.RestApiClient.Model
+  nameWithType: TicketSystem.RestApiClient.Model
+  fullName: TicketSystem.RestApiClient.Model
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TicketSystem.RestApiClient.Model.Flight.Id*
+  commentId: Overload:TicketSystem.RestApiClient.Model.Flight.Id
+  isExternal: false
+  name: Id
+  nameWithType: Flight.Id
+  fullName: TicketSystem.RestApiClient.Model.Flight.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketSystem.RestApiClient.Model.Flight.DepartureDate*
+  commentId: Overload:TicketSystem.RestApiClient.Model.Flight.DepartureDate
+  isExternal: false
+  name: DepartureDate
+  nameWithType: Flight.DepartureDate
+  fullName: TicketSystem.RestApiClient.Model.Flight.DepartureDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+- uid: TicketSystem.RestApiClient.Model.Flight.DeparturePort*
+  commentId: Overload:TicketSystem.RestApiClient.Model.Flight.DeparturePort
+  isExternal: false
+  name: DeparturePort
+  nameWithType: Flight.DeparturePort
+  fullName: TicketSystem.RestApiClient.Model.Flight.DeparturePort
+- uid: TicketSystem.RestApiClient.Model.Flight.ArrivalDate*
+  commentId: Overload:TicketSystem.RestApiClient.Model.Flight.ArrivalDate
+  isExternal: false
+  name: ArrivalDate
+  nameWithType: Flight.ArrivalDate
+  fullName: TicketSystem.RestApiClient.Model.Flight.ArrivalDate
+- uid: TicketSystem.RestApiClient.Model.Flight.ArrivalPort*
+  commentId: Overload:TicketSystem.RestApiClient.Model.Flight.ArrivalPort
+  isExternal: false
+  name: ArrivalPort
+  nameWithType: Flight.ArrivalPort
+  fullName: TicketSystem.RestApiClient.Model.Flight.ArrivalPort
+- uid: TicketSystem.RestApiClient.Model.Flight.Seats*
+  commentId: Overload:TicketSystem.RestApiClient.Model.Flight.Seats
+  isExternal: false
+  name: Seats
+  nameWithType: Flight.Seats
+  fullName: TicketSystem.RestApiClient.Model.Flight.Seats
+- uid: TicketSystem.RestApiClient.Model.Flight.Price*
+  commentId: Overload:TicketSystem.RestApiClient.Model.Flight.Price
+  isExternal: false
+  name: Price
+  nameWithType: Flight.Price
+  fullName: TicketSystem.RestApiClient.Model.Flight.Price
+- uid: TicketSystem.RestApiClient.Model.Flight.#ctor*
+  commentId: Overload:TicketSystem.RestApiClient.Model.Flight.#ctor
+  isExternal: false
+  name: Flight
+  nameWithType: Flight.Flight
+  fullName: TicketSystem.RestApiClient.Model.Flight.Flight

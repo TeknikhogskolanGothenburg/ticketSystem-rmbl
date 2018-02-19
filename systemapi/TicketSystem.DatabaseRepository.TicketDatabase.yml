@@ -5,16 +5,39 @@ items:
   id: TicketDatabase
   parent: TicketSystem.DatabaseRepository
   children:
+  - TicketSystem.DatabaseRepository.TicketDatabase.AirPortAdd(System.String,System.String,System.Double)
+  - TicketSystem.DatabaseRepository.TicketDatabase.AirportArrivalsFind(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.AirPortDelete(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesAtDateFind(System.Int32,System.DateTime)
+  - TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesFind(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.AirPortFind(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.AirPortFindAll
+  - TicketSystem.DatabaseRepository.TicketDatabase.AirPortModify(System.Int32,System.String,System.String,System.Double)
+  - TicketSystem.DatabaseRepository.TicketDatabase.APIKeyFind(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind(System.String)
+  - TicketSystem.DatabaseRepository.TicketDatabase.AvaliableSeatsFind(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.FlightDelete(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.FlightFind(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.FlightFindAll
+  - TicketSystem.DatabaseRepository.TicketDatabase.FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.SessionAdd(System.Int32,System.String,System.DateTime)
+  - TicketSystem.DatabaseRepository.TicketDatabase.SessionFind(System.Int32)
   - TicketSystem.DatabaseRepository.TicketDatabase.TicketAdd(System.Int32,System.Int32,System.Int32,System.Int32)
-  - TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete(System.String)
-  - TicketSystem.DatabaseRepository.TicketDatabase.TicketFind(System.String)
+  - TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.TicketFind(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.TicketFindAll
+  - TicketSystem.DatabaseRepository.TicketDatabase.TicketforUserFind(System.Int32)
   - TicketSystem.DatabaseRepository.TicketDatabase.TicketModify(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
   - TicketSystem.DatabaseRepository.TicketDatabase.TicketToTransactionAdd(System.Int32,System.Int32)
   - TicketSystem.DatabaseRepository.TicketDatabase.TransactionAdd(System.String,System.String)
+  - TicketSystem.DatabaseRepository.TicketDatabase.TransactionFind
   - TicketSystem.DatabaseRepository.TicketDatabase.UserAdd(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
-  - TicketSystem.DatabaseRepository.TicketDatabase.UserDelete(System.String)
+  - TicketSystem.DatabaseRepository.TicketDatabase.UserDelete(System.Int32)
+  - TicketSystem.DatabaseRepository.TicketDatabase.UserFind(System.Int32)
   - TicketSystem.DatabaseRepository.TicketDatabase.UserFind(System.String)
-  - TicketSystem.DatabaseRepository.TicketDatabase.UserGroupFind(System.String,System.String)
+  - TicketSystem.DatabaseRepository.TicketDatabase.UserFindAll
   - TicketSystem.DatabaseRepository.TicketDatabase.UserModify(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)
   langs:
   - csharp
@@ -24,12 +47,8 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase
   type: Class
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketDatabase
-    path: src/DatabaseRepository/TicketDatabase.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
     startLine: 10
   assemblies:
   - DatabaseRepository
@@ -38,7 +57,6 @@ items:
     content: 'public class TicketDatabase : ITicketDatabase'
     content.vb: >-
       Public Class TicketDatabase
-
           Implements ITicketDatabase
   inheritance:
   - System.Object
@@ -58,6 +76,39 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.UserFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.UserFind(System.Int32)
+  id: UserFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: UserFind(Int32)
+  nameWithType: TicketDatabase.UserFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserFind(System.Int32)
+  type: Method
+  source:
+    id: UserFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 12
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public User UserFind(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: TicketSystem.DatabaseRepository.Model.User
+    content.vb: Public Function UserFind(id As Integer) As User
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.UserFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: TicketSystem.DatabaseRepository.TicketDatabase.UserFind(System.String)
   commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.UserFind(System.String)
   id: UserFind(System.String)
@@ -70,66 +121,51 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserFind(System.String)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: UserFind
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 12
-  assemblies:
-  - DatabaseRepository
-  namespace: TicketSystem.DatabaseRepository
-  syntax:
-    content: public List<User> UserFind(string query)
-    parameters:
-    - id: query
-      type: System.String
-    return:
-      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.User}
-    content.vb: Public Function UserFind(query As String) As List(Of User)
-  overload: TicketSystem.DatabaseRepository.TicketDatabase.UserFind*
-  implements:
-  - TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: TicketSystem.DatabaseRepository.TicketDatabase.UserGroupFind(System.String,System.String)
-  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.UserGroupFind(System.String,System.String)
-  id: UserGroupFind(System.String,System.String)
-  parent: TicketSystem.DatabaseRepository.TicketDatabase
-  langs:
-  - csharp
-  - vb
-  name: UserGroupFind(String, String)
-  nameWithType: TicketDatabase.UserGroupFind(String, String)
-  fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserGroupFind(System.String, System.String)
-  type: Method
-  source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
-    id: UserGroupFind
-    path: src/DatabaseRepository/TicketDatabase.cs
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
     startLine: 22
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
   syntax:
-    content: public List<User> UserGroupFind(string query, string grade)
+    content: public User UserFind(string name)
     parameters:
-    - id: query
-      type: System.String
-    - id: grade
+    - id: name
       type: System.String
     return:
+      type: TicketSystem.DatabaseRepository.Model.User
+    content.vb: Public Function UserFind(name As String) As User
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.UserFind*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.UserFindAll
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.UserFindAll
+  id: UserFindAll
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: UserFindAll()
+  nameWithType: TicketDatabase.UserFindAll()
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserFindAll()
+  type: Method
+  source:
+    id: UserFindAll
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 32
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<User> UserFindAll()
+    return:
       type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.User}
-    content.vb: Public Function UserGroupFind(query As String, grade As String) As List(Of User)
-  overload: TicketSystem.DatabaseRepository.TicketDatabase.UserGroupFind*
+    content.vb: Public Function UserFindAll As List(Of User)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.UserFindAll*
   implements:
-  - TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String,System.String)
+  - TicketSystem.DatabaseRepository.ITicketDatabase.UserFindAll
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -146,13 +182,9 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserAdd(System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.Int32)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: UserAdd
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 32
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 42
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
@@ -199,13 +231,9 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserModify(System.Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.Int32)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: UserModify
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 45
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 55
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
@@ -242,74 +270,127 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: TicketSystem.DatabaseRepository.TicketDatabase.UserDelete(System.String)
-  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.UserDelete(System.String)
-  id: UserDelete(System.String)
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.UserDelete(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.UserDelete(System.Int32)
+  id: UserDelete(System.Int32)
   parent: TicketSystem.DatabaseRepository.TicketDatabase
   langs:
   - csharp
   - vb
-  name: UserDelete(String)
-  nameWithType: TicketDatabase.UserDelete(String)
-  fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserDelete(System.String)
+  name: UserDelete(Int32)
+  nameWithType: TicketDatabase.UserDelete(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserDelete(System.Int32)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: UserDelete
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 66
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 75
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
   syntax:
-    content: public bool UserDelete(string id)
+    content: public bool UserDelete(int id)
     parameters:
     - id: id
-      type: System.String
+      type: System.Int32
     return:
       type: System.Boolean
-    content.vb: Public Function UserDelete(id As String) As Boolean
+    content.vb: Public Function UserDelete(id As Integer) As Boolean
   overload: TicketSystem.DatabaseRepository.TicketDatabase.UserDelete*
   implements:
-  - TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+  - TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.Int32)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketFind(System.String)
-  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.TicketFind(System.String)
-  id: TicketFind(System.String)
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.TicketFind(System.Int32)
+  id: TicketFind(System.Int32)
   parent: TicketSystem.DatabaseRepository.TicketDatabase
   langs:
   - csharp
   - vb
-  name: TicketFind(String)
-  nameWithType: TicketDatabase.TicketFind(String)
-  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketFind(System.String)
+  name: TicketFind(Int32)
+  nameWithType: TicketDatabase.TicketFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketFind(System.Int32)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketFind
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 77
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 88
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
   syntax:
-    content: public List<Ticket> TicketFind(string id)
+    content: public Ticket TicketFind(int id)
     parameters:
     - id: id
-      type: System.String
+      type: System.Int32
+    return:
+      type: TicketSystem.DatabaseRepository.Model.Ticket
+    content.vb: Public Function TicketFind(id As Integer) As Ticket
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.TicketFind*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketFindAll
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.TicketFindAll
+  id: TicketFindAll
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: TicketFindAll()
+  nameWithType: TicketDatabase.TicketFindAll()
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketFindAll()
+  type: Method
+  source:
+    id: TicketFindAll
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 98
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<Ticket> TicketFindAll()
     return:
       type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Ticket}
-    content.vb: Public Function TicketFind(id As String) As List(Of Ticket)
-  overload: TicketSystem.DatabaseRepository.TicketDatabase.TicketFind*
+    content.vb: Public Function TicketFindAll As List(Of Ticket)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.TicketFindAll*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketforUserFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.TicketforUserFind(System.Int32)
+  id: TicketforUserFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: TicketforUserFind(Int32)
+  nameWithType: TicketDatabase.TicketforUserFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketforUserFind(System.Int32)
+  type: Method
+  source:
+    id: TicketforUserFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 108
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<Ticket> TicketforUserFind(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Ticket}
+    content.vb: Public Function TicketforUserFind(id As Integer) As List(Of Ticket)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.TicketforUserFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.TicketforUserFind(System.Int32)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -326,13 +407,9 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketAdd(System.Int32, System.Int32, System.Int32, System.Int32)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketAdd
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 87
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 118
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
@@ -351,6 +428,8 @@ items:
       type: TicketSystem.DatabaseRepository.Model.Ticket
     content.vb: Public Function TicketAdd(userId As Integer, flightId As Integer, seatNumber As Integer, bookAt As Integer) As Ticket
   overload: TicketSystem.DatabaseRepository.TicketDatabase.TicketAdd*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.TicketAdd(System.Int32,System.Int32,System.Int32,System.Int32)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -367,13 +446,9 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketModify(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketModify
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 99
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 130
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
@@ -394,41 +469,41 @@ items:
       type: TicketSystem.DatabaseRepository.Model.Ticket
     content.vb: Public Function TicketModify(id As Integer, userId As Integer, flightId As Integer, seatNumber As Integer, bookAt As Integer) As Ticket
   overload: TicketSystem.DatabaseRepository.TicketDatabase.TicketModify*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.TicketModify(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete(System.String)
-  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete(System.String)
-  id: TicketDelete(System.String)
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete(System.Int32)
+  id: TicketDelete(System.Int32)
   parent: TicketSystem.DatabaseRepository.TicketDatabase
   langs:
   - csharp
   - vb
-  name: TicketDelete(String)
-  nameWithType: TicketDatabase.TicketDelete(String)
-  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete(System.String)
+  name: TicketDelete(Int32)
+  nameWithType: TicketDatabase.TicketDelete(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete(System.Int32)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketDelete
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 111
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 142
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
   syntax:
-    content: public bool TicketDelete(string id)
+    content: public bool TicketDelete(int id)
     parameters:
     - id: id
-      type: System.String
+      type: System.Int32
     return:
       type: System.Boolean
-    content.vb: Public Function TicketDelete(id As String) As Boolean
+    content.vb: Public Function TicketDelete(id As Integer) As Boolean
   overload: TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.TicketDelete(System.Int32)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -445,13 +520,9 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TransactionAdd(System.String, System.String)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TransactionAdd
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 122
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 159
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
@@ -466,6 +537,8 @@ items:
       type: TicketSystem.DatabaseRepository.Model.Transaction
     content.vb: Public Function TransactionAdd(paymentStatus As String, paymentReferenceId As String) As Transaction
   overload: TicketSystem.DatabaseRepository.TicketDatabase.TransactionAdd*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.TransactionAdd(System.String,System.String)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -482,13 +555,9 @@ items:
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketToTransactionAdd(System.Int32, System.Int32)
   type: Method
   source:
-    remote:
-      path: src/DatabaseRepository/TicketDatabase.cs
-      branch: mattias
-      repo: https://github.com/TeknikhogskolanGothenburg/ticketSystem-rmbl.git
     id: TicketToTransactionAdd
-    path: src/DatabaseRepository/TicketDatabase.cs
-    startLine: 134
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 171
   assemblies:
   - DatabaseRepository
   namespace: TicketSystem.DatabaseRepository
@@ -503,6 +572,693 @@ items:
       type: System.Boolean
     content.vb: Public Function TicketToTransactionAdd(ticketId As Integer, transactionId As Integer) As Boolean
   overload: TicketSystem.DatabaseRepository.TicketDatabase.TicketToTransactionAdd*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.TicketToTransactionAdd(System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.FlightFind(System.Int32)
+  id: FlightFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: FlightFind(Int32)
+  nameWithType: TicketDatabase.FlightFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightFind(System.Int32)
+  type: Method
+  source:
+    id: FlightFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 186
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public Flight FlightFind(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: TicketSystem.DatabaseRepository.Model.Flight
+    content.vb: Public Function FlightFind(id As Integer) As Flight
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.FlightFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.FlightFind(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightFindAll
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.FlightFindAll
+  id: FlightFindAll
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: FlightFindAll()
+  nameWithType: TicketDatabase.FlightFindAll()
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightFindAll()
+  type: Method
+  source:
+    id: FlightFindAll
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 196
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<Flight> FlightFindAll()
+    return:
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Flight}
+    content.vb: Public Function FlightFindAll As List(Of Flight)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.FlightFindAll*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.FlightFindAll
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  id: FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: FlightAdd(DateTime, Int32, DateTime, Int32, Int32, Int32)
+  nameWithType: TicketDatabase.FlightAdd(DateTime, Int32, DateTime, Int32, Int32, Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightAdd(System.DateTime, System.Int32, System.DateTime, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    id: FlightAdd
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 206
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public Flight FlightAdd(DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats, int price)
+    parameters:
+    - id: departureDate
+      type: System.DateTime
+    - id: departurePort
+      type: System.Int32
+    - id: arrivalDate
+      type: System.DateTime
+    - id: arrivalPort
+      type: System.Int32
+    - id: seats
+      type: System.Int32
+    - id: price
+      type: System.Int32
+    return:
+      type: TicketSystem.DatabaseRepository.Model.Flight
+    content.vb: Public Function FlightAdd(departureDate As Date, departurePort As Integer, arrivalDate As Date, arrivalPort As Integer, seats As Integer, price As Integer) As Flight
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.FlightAdd*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  id: FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: FlightModify(Int32, DateTime, Int32, DateTime, Int32, Int32, Int32)
+  nameWithType: TicketDatabase.FlightModify(Int32, DateTime, Int32, DateTime, Int32, Int32, Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightModify(System.Int32, System.DateTime, System.Int32, System.DateTime, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    id: FlightModify
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 219
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public Flight FlightModify(int id, DateTime departureDate, int departurePort, DateTime arrivalDate, int arrivalPort, int seats, int price)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: departureDate
+      type: System.DateTime
+    - id: departurePort
+      type: System.Int32
+    - id: arrivalDate
+      type: System.DateTime
+    - id: arrivalPort
+      type: System.Int32
+    - id: seats
+      type: System.Int32
+    - id: price
+      type: System.Int32
+    return:
+      type: TicketSystem.DatabaseRepository.Model.Flight
+    content.vb: Public Function FlightModify(id As Integer, departureDate As Date, departurePort As Integer, arrivalDate As Date, arrivalPort As Integer, seats As Integer, price As Integer) As Flight
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.FlightModify*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightDelete(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.FlightDelete(System.Int32)
+  id: FlightDelete(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: FlightDelete(Int32)
+  nameWithType: TicketDatabase.FlightDelete(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightDelete(System.Int32)
+  type: Method
+  source:
+    id: FlightDelete
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 231
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public bool FlightDelete(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function FlightDelete(id As Integer) As Boolean
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.FlightDelete*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.FlightDelete(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AirPortFind(System.Int32)
+  id: AirPortFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AirPortFind(Int32)
+  nameWithType: TicketDatabase.AirPortFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFind(System.Int32)
+  type: Method
+  source:
+    id: AirPortFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 244
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public AirPort AirPortFind(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: TicketSystem.DatabaseRepository.Model.AirPort
+    content.vb: Public Function AirPortFind(id As Integer) As AirPort
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFind(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFindAll
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AirPortFindAll
+  id: AirPortFindAll
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AirPortFindAll()
+  nameWithType: TicketDatabase.AirPortFindAll()
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFindAll()
+  type: Method
+  source:
+    id: AirPortFindAll
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 254
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<AirPort> AirPortFindAll()
+    return:
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.AirPort}
+    content.vb: Public Function AirPortFindAll As List(Of AirPort)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFindAll*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFindAll
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortAdd(System.String,System.String,System.Double)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AirPortAdd(System.String,System.String,System.Double)
+  id: AirPortAdd(System.String,System.String,System.Double)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AirPortAdd(String, String, Double)
+  nameWithType: TicketDatabase.AirPortAdd(String, String, Double)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortAdd(System.String, System.String, System.Double)
+  type: Method
+  source:
+    id: AirPortAdd
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 264
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public AirPort AirPortAdd(string name, string country, double utcOffset)
+    parameters:
+    - id: name
+      type: System.String
+    - id: country
+      type: System.String
+    - id: utcOffset
+      type: System.Double
+    return:
+      type: TicketSystem.DatabaseRepository.Model.AirPort
+    content.vb: Public Function AirPortAdd(name As String, country As String, utcOffset As Double) As AirPort
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AirPortAdd*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.AirPortAdd(System.String,System.String,System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortModify(System.Int32,System.String,System.String,System.Double)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AirPortModify(System.Int32,System.String,System.String,System.Double)
+  id: AirPortModify(System.Int32,System.String,System.String,System.Double)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AirPortModify(Int32, String, String, Double)
+  nameWithType: TicketDatabase.AirPortModify(Int32, String, String, Double)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortModify(System.Int32, System.String, System.String, System.Double)
+  type: Method
+  source:
+    id: AirPortModify
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 277
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public AirPort AirPortModify(int id, string name, string country, double utcOffset)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: name
+      type: System.String
+    - id: country
+      type: System.String
+    - id: utcOffset
+      type: System.Double
+    return:
+      type: TicketSystem.DatabaseRepository.Model.AirPort
+    content.vb: Public Function AirPortModify(id As Integer, name As String, country As String, utcOffset As Double) As AirPort
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AirPortModify*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.AirPortModify(System.Int32,System.String,System.String,System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortDelete(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AirPortDelete(System.Int32)
+  id: AirPortDelete(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AirPortDelete(Int32)
+  nameWithType: TicketDatabase.AirPortDelete(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortDelete(System.Int32)
+  type: Method
+  source:
+    id: AirPortDelete
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 289
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public bool AirPortDelete(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function AirPortDelete(id As Integer) As Boolean
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AirPortDelete*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.AirPortDelete(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesFind(System.Int32)
+  id: AirportDeparturesFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AirportDeparturesFind(Int32)
+  nameWithType: TicketDatabase.AirportDeparturesFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesFind(System.Int32)
+  type: Method
+  source:
+    id: AirportDeparturesFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 302
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<Flight> AirportDeparturesFind(int portId)
+    parameters:
+    - id: portId
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Flight}
+    content.vb: Public Function AirportDeparturesFind(portId As Integer) As List(Of Flight)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.AirportDeparturesFind(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesAtDateFind(System.Int32,System.DateTime)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesAtDateFind(System.Int32,System.DateTime)
+  id: AirportDeparturesAtDateFind(System.Int32,System.DateTime)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AirportDeparturesAtDateFind(Int32, DateTime)
+  nameWithType: TicketDatabase.AirportDeparturesAtDateFind(Int32, DateTime)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesAtDateFind(System.Int32, System.DateTime)
+  type: Method
+  source:
+    id: AirportDeparturesAtDateFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 312
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<Flight> AirportDeparturesAtDateFind(int portId, DateTime date)
+    parameters:
+    - id: portId
+      type: System.Int32
+    - id: date
+      type: System.DateTime
+    return:
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Flight}
+    content.vb: Public Function AirportDeparturesAtDateFind(portId As Integer, date As Date) As List(Of Flight)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesAtDateFind*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirportArrivalsFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AirportArrivalsFind(System.Int32)
+  id: AirportArrivalsFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AirportArrivalsFind(Int32)
+  nameWithType: TicketDatabase.AirportArrivalsFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirportArrivalsFind(System.Int32)
+  type: Method
+  source:
+    id: AirportArrivalsFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 323
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<Flight> AirportArrivalsFind(int portId)
+    parameters:
+    - id: portId
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Flight}
+    content.vb: Public Function AirportArrivalsFind(portId As Integer) As List(Of Flight)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AirportArrivalsFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.AirportArrivalsFind(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AvaliableSeatsFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.AvaliableSeatsFind(System.Int32)
+  id: AvaliableSeatsFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: AvaliableSeatsFind(Int32)
+  nameWithType: TicketDatabase.AvaliableSeatsFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AvaliableSeatsFind(System.Int32)
+  type: Method
+  source:
+    id: AvaliableSeatsFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 333
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<int> AvaliableSeatsFind(int flightId)
+    parameters:
+    - id: flightId
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Function AvaliableSeatsFind(flightId As Integer) As List(Of Integer)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.AvaliableSeatsFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.AvaliableSeatsFind(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.APIKeyFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.APIKeyFind(System.Int32)
+  id: APIKeyFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: APIKeyFind(Int32)
+  nameWithType: TicketDatabase.APIKeyFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.APIKeyFind(System.Int32)
+  type: Method
+  source:
+    id: APIKeyFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 354
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public string APIKeyFind(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Function APIKeyFind(id As Integer) As String
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.APIKeyFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.APIKeyFind(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind(System.Int32)
+  id: APISecretFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: APISecretFind(Int32)
+  nameWithType: TicketDatabase.APISecretFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind(System.Int32)
+  type: Method
+  source:
+    id: APISecretFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 364
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public string APISecretFind(int franchiseId)
+    parameters:
+    - id: franchiseId
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Function APISecretFind(franchiseId As Integer) As String
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind(System.String)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind(System.String)
+  id: APISecretFind(System.String)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: APISecretFind(String)
+  nameWithType: TicketDatabase.APISecretFind(String)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind(System.String)
+  type: Method
+  source:
+    id: APISecretFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 374
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public string APISecretFind(string apiKey)
+    parameters:
+    - id: apiKey
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function APISecretFind(apiKey As String) As String
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.TransactionFind
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.TransactionFind
+  id: TransactionFind
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: TransactionFind()
+  nameWithType: TicketDatabase.TransactionFind()
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TransactionFind()
+  type: Method
+  source:
+    id: TransactionFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 384
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public List<Transaction> TransactionFind()
+    return:
+      type: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Transaction}
+    content.vb: Public Function TransactionFind As List(Of Transaction)
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.TransactionFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.TransactionFind
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.SessionAdd(System.Int32,System.String,System.DateTime)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.SessionAdd(System.Int32,System.String,System.DateTime)
+  id: SessionAdd(System.Int32,System.String,System.DateTime)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: SessionAdd(Int32, String, DateTime)
+  nameWithType: TicketDatabase.SessionAdd(Int32, String, DateTime)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.SessionAdd(System.Int32, System.String, System.DateTime)
+  type: Method
+  source:
+    id: SessionAdd
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 394
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public Session SessionAdd(int userId, string secret, DateTime created)
+    parameters:
+    - id: userId
+      type: System.Int32
+    - id: secret
+      type: System.String
+    - id: created
+      type: System.DateTime
+    return:
+      type: TicketSystem.DatabaseRepository.Model.Session
+    content.vb: Public Function SessionAdd(userId As Integer, secret As String, created As Date) As Session
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.SessionAdd*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.SessionFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.TicketDatabase.SessionFind(System.Int32)
+  id: SessionFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.TicketDatabase
+  langs:
+  - csharp
+  - vb
+  name: SessionFind(Int32)
+  nameWithType: TicketDatabase.SessionFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.SessionFind(System.Int32)
+  type: Method
+  source:
+    id: SessionFind
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\DatabaseRepository\TicketDatabase.cs
+    startLine: 407
+  assemblies:
+  - DatabaseRepository
+  namespace: TicketSystem.DatabaseRepository
+  syntax:
+    content: public Session SessionFind(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: TicketSystem.DatabaseRepository.Model.Session
+    content.vb: Public Function SessionFind(id As Integer) As Session
+  overload: TicketSystem.DatabaseRepository.TicketDatabase.SessionFind*
+  implements:
+  - TicketSystem.DatabaseRepository.ITicketDatabase.SessionFind(System.Int32)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -819,45 +1575,65 @@ references:
   name: UserFind
   nameWithType: TicketDatabase.UserFind
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserFind
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
-  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.Int32)
   parent: TicketSystem.DatabaseRepository.ITicketDatabase
   isExternal: true
-  name: UserFind(String)
-  nameWithType: ITicketDatabase.UserFind(String)
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
+  name: UserFind(Int32)
+  nameWithType: ITicketDatabase.UserFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.Int32)
   spec.csharp:
-  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.Int32)
     name: UserFind
     nameWithType: ITicketDatabase.UserFind
     fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.String)
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind(System.Int32)
     name: UserFind
     nameWithType: ITicketDatabase.UserFind
     fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFind
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: TicketSystem.DatabaseRepository.Model.User
+  commentId: T:TicketSystem.DatabaseRepository.Model.User
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: User
+  nameWithType: User
+  fullName: TicketSystem.DatabaseRepository.Model.User
+- uid: TicketSystem.DatabaseRepository.Model
+  commentId: N:TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: TicketSystem.DatabaseRepository.Model
+  nameWithType: TicketSystem.DatabaseRepository.Model
+  fullName: TicketSystem.DatabaseRepository.Model
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -865,6 +1641,41 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.UserFindAll*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.UserFindAll
+  isExternal: false
+  name: UserFindAll
+  nameWithType: TicketDatabase.UserFindAll
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserFindAll
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFindAll
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserFindAll
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: false
+  name: UserFindAll()
+  nameWithType: ITicketDatabase.UserFindAll()
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFindAll()
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFindAll
+    name: UserFindAll
+    nameWithType: ITicketDatabase.UserFindAll
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFindAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserFindAll
+    name: UserFindAll
+    nameWithType: ITicketDatabase.UserFindAll
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserFindAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.User}
   commentId: T:System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.User}
   parent: System.Collections.Generic
@@ -952,67 +1763,6 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
-- uid: TicketSystem.DatabaseRepository.TicketDatabase.UserGroupFind*
-  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.UserGroupFind
-  isExternal: false
-  name: UserGroupFind
-  nameWithType: TicketDatabase.UserGroupFind
-  fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserGroupFind
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String,System.String)
-  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String,System.String)
-  parent: TicketSystem.DatabaseRepository.ITicketDatabase
-  isExternal: true
-  name: UserGroupFind(String, String)
-  nameWithType: ITicketDatabase.UserGroupFind(String, String)
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String, System.String)
-  spec.csharp:
-  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String,System.String)
-    name: UserGroupFind
-    nameWithType: ITicketDatabase.UserGroupFind
-    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind(System.String,System.String)
-    name: UserGroupFind
-    nameWithType: ITicketDatabase.UserGroupFind
-    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserGroupFind
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: TicketSystem.DatabaseRepository.TicketDatabase.UserAdd*
   commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.UserAdd
   isExternal: false
@@ -1186,26 +1936,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
-- uid: TicketSystem.DatabaseRepository.Model.User
-  commentId: T:TicketSystem.DatabaseRepository.Model.User
-  parent: TicketSystem.DatabaseRepository.Model
-  isExternal: false
-  name: User
-  nameWithType: User
-  fullName: TicketSystem.DatabaseRepository.Model.User
-- uid: TicketSystem.DatabaseRepository.Model
-  commentId: N:TicketSystem.DatabaseRepository.Model
-  isExternal: false
-  name: TicketSystem.DatabaseRepository.Model
-  nameWithType: TicketSystem.DatabaseRepository.Model
-  fullName: TicketSystem.DatabaseRepository.Model
 - uid: TicketSystem.DatabaseRepository.TicketDatabase.UserModify*
   commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.UserModify
   isExternal: false
@@ -1401,41 +2131,41 @@ references:
   name: UserDelete
   nameWithType: TicketDatabase.UserDelete
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.UserDelete
-- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
-  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.Int32)
   parent: TicketSystem.DatabaseRepository.ITicketDatabase
   isExternal: true
-  name: UserDelete(String)
-  nameWithType: ITicketDatabase.UserDelete(String)
-  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+  name: UserDelete(Int32)
+  nameWithType: ITicketDatabase.UserDelete(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.Int32)
   spec.csharp:
-  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.Int32)
     name: UserDelete
     nameWithType: ITicketDatabase.UserDelete
     fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.String)
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete(System.Int32)
     name: UserDelete
     nameWithType: ITicketDatabase.UserDelete
     fullName: TicketSystem.DatabaseRepository.ITicketDatabase.UserDelete
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
     isExternal: true
   - name: )
     nameWithType: )
@@ -1453,6 +2183,19 @@ references:
   name: TicketFind
   nameWithType: TicketDatabase.TicketFind
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketFind
+- uid: TicketSystem.DatabaseRepository.Model.Ticket
+  commentId: T:TicketSystem.DatabaseRepository.Model.Ticket
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: Ticket
+  nameWithType: Ticket
+  fullName: TicketSystem.DatabaseRepository.Model.Ticket
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketFindAll*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.TicketFindAll
+  isExternal: false
+  name: TicketFindAll
+  nameWithType: TicketDatabase.TicketFindAll
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketFindAll
 - uid: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Ticket}
   commentId: T:System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Ticket}
   parent: System.Collections.Generic
@@ -1495,37 +2238,359 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketforUserFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.TicketforUserFind
+  isExternal: false
+  name: TicketforUserFind
+  nameWithType: TicketDatabase.TicketforUserFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketforUserFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketforUserFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.TicketforUserFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: TicketforUserFind(Int32)
+  nameWithType: ITicketDatabase.TicketforUserFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketforUserFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketforUserFind(System.Int32)
+    name: TicketforUserFind
+    nameWithType: ITicketDatabase.TicketforUserFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketforUserFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketforUserFind(System.Int32)
+    name: TicketforUserFind
+    nameWithType: ITicketDatabase.TicketforUserFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketforUserFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketAdd*
   commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.TicketAdd
   isExternal: false
   name: TicketAdd
   nameWithType: TicketDatabase.TicketAdd
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketAdd
-- uid: TicketSystem.DatabaseRepository.Model.Ticket
-  commentId: T:TicketSystem.DatabaseRepository.Model.Ticket
-  parent: TicketSystem.DatabaseRepository.Model
-  isExternal: false
-  name: Ticket
-  nameWithType: Ticket
-  fullName: TicketSystem.DatabaseRepository.Model.Ticket
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketAdd(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.TicketAdd(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: TicketAdd(Int32, Int32, Int32, Int32)
+  nameWithType: ITicketDatabase.TicketAdd(Int32, Int32, Int32, Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketAdd(System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketAdd(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: TicketAdd
+    nameWithType: ITicketDatabase.TicketAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketAdd(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: TicketAdd
+    nameWithType: ITicketDatabase.TicketAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketModify*
   commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.TicketModify
   isExternal: false
   name: TicketModify
   nameWithType: TicketDatabase.TicketModify
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketModify
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketModify(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.TicketModify(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: TicketModify(Int32, Int32, Int32, Int32, Int32)
+  nameWithType: ITicketDatabase.TicketModify(Int32, Int32, Int32, Int32, Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketModify(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketModify(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+    name: TicketModify
+    nameWithType: ITicketDatabase.TicketModify
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketModify
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketModify(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+    name: TicketModify
+    nameWithType: ITicketDatabase.TicketModify
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketModify
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete*
   commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete
   isExternal: false
   name: TicketDelete
   nameWithType: TicketDatabase.TicketDelete
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketDelete
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketDelete(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.TicketDelete(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: TicketDelete(Int32)
+  nameWithType: ITicketDatabase.TicketDelete(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketDelete(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketDelete(System.Int32)
+    name: TicketDelete
+    nameWithType: ITicketDatabase.TicketDelete
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketDelete
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketDelete(System.Int32)
+    name: TicketDelete
+    nameWithType: ITicketDatabase.TicketDelete
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketDelete
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: TicketSystem.DatabaseRepository.TicketDatabase.TransactionAdd*
   commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.TransactionAdd
   isExternal: false
   name: TransactionAdd
   nameWithType: TicketDatabase.TransactionAdd
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TransactionAdd
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionAdd(System.String,System.String)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.TransactionAdd(System.String,System.String)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: TransactionAdd(String, String)
+  nameWithType: ITicketDatabase.TransactionAdd(String, String)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionAdd(System.String, System.String)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionAdd(System.String,System.String)
+    name: TransactionAdd
+    nameWithType: ITicketDatabase.TransactionAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionAdd(System.String,System.String)
+    name: TransactionAdd
+    nameWithType: ITicketDatabase.TransactionAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: TicketSystem.DatabaseRepository.Model.Transaction
   commentId: T:TicketSystem.DatabaseRepository.Model.Transaction
   parent: TicketSystem.DatabaseRepository.Model
@@ -1539,3 +2604,1305 @@ references:
   name: TicketToTransactionAdd
   nameWithType: TicketDatabase.TicketToTransactionAdd
   fullName: TicketSystem.DatabaseRepository.TicketDatabase.TicketToTransactionAdd
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketToTransactionAdd(System.Int32,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.TicketToTransactionAdd(System.Int32,System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: TicketToTransactionAdd(Int32, Int32)
+  nameWithType: ITicketDatabase.TicketToTransactionAdd(Int32, Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketToTransactionAdd(System.Int32, System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketToTransactionAdd(System.Int32,System.Int32)
+    name: TicketToTransactionAdd
+    nameWithType: ITicketDatabase.TicketToTransactionAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketToTransactionAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TicketToTransactionAdd(System.Int32,System.Int32)
+    name: TicketToTransactionAdd
+    nameWithType: ITicketDatabase.TicketToTransactionAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TicketToTransactionAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.FlightFind
+  isExternal: false
+  name: FlightFind
+  nameWithType: TicketDatabase.FlightFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.FlightFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: FlightFind(Int32)
+  nameWithType: ITicketDatabase.FlightFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFind(System.Int32)
+    name: FlightFind
+    nameWithType: ITicketDatabase.FlightFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFind(System.Int32)
+    name: FlightFind
+    nameWithType: ITicketDatabase.FlightFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.Model.Flight
+  commentId: T:TicketSystem.DatabaseRepository.Model.Flight
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: Flight
+  nameWithType: Flight
+  fullName: TicketSystem.DatabaseRepository.Model.Flight
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightFindAll*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.FlightFindAll
+  isExternal: false
+  name: FlightFindAll
+  nameWithType: TicketDatabase.FlightFindAll
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightFindAll
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFindAll
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.FlightFindAll
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: false
+  name: FlightFindAll()
+  nameWithType: ITicketDatabase.FlightFindAll()
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFindAll()
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFindAll
+    name: FlightFindAll
+    nameWithType: ITicketDatabase.FlightFindAll
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFindAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFindAll
+    name: FlightFindAll
+    nameWithType: ITicketDatabase.FlightFindAll
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightFindAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Flight}
+  commentId: T:System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Flight}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Flight>
+  nameWithType: List<Flight>
+  fullName: System.Collections.Generic.List<TicketSystem.DatabaseRepository.Model.Flight>
+  nameWithType.vb: List(Of Flight)
+  fullName.vb: System.Collections.Generic.List(Of TicketSystem.DatabaseRepository.Model.Flight)
+  name.vb: List(Of Flight)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: TicketSystem.DatabaseRepository.Model.Flight
+    name: Flight
+    nameWithType: Flight
+    fullName: TicketSystem.DatabaseRepository.Model.Flight
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: TicketSystem.DatabaseRepository.Model.Flight
+    name: Flight
+    nameWithType: Flight
+    fullName: TicketSystem.DatabaseRepository.Model.Flight
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightAdd*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.FlightAdd
+  isExternal: false
+  name: FlightAdd
+  nameWithType: TicketDatabase.FlightAdd
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightAdd
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: FlightAdd(DateTime, Int32, DateTime, Int32, Int32, Int32)
+  nameWithType: ITicketDatabase.FlightAdd(DateTime, Int32, DateTime, Int32, Int32, Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightAdd(System.DateTime, System.Int32, System.DateTime, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+    name: FlightAdd
+    nameWithType: ITicketDatabase.FlightAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: System.DateTime
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: System.DateTime
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightAdd(System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+    name: FlightAdd
+    nameWithType: ITicketDatabase.FlightAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: System.DateTime
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: System.DateTime
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightModify*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.FlightModify
+  isExternal: false
+  name: FlightModify
+  nameWithType: TicketDatabase.FlightModify
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightModify
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: FlightModify(Int32, DateTime, Int32, DateTime, Int32, Int32, Int32)
+  nameWithType: ITicketDatabase.FlightModify(Int32, DateTime, Int32, DateTime, Int32, Int32, Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightModify(System.Int32, System.DateTime, System.Int32, System.DateTime, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+    name: FlightModify
+    nameWithType: ITicketDatabase.FlightModify
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightModify
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: System.DateTime
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: System.DateTime
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightModify(System.Int32,System.DateTime,System.Int32,System.DateTime,System.Int32,System.Int32,System.Int32)
+    name: FlightModify
+    nameWithType: ITicketDatabase.FlightModify
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightModify
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: System.DateTime
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.DateTime
+    name: DateTime
+    nameWithType: DateTime
+    fullName: System.DateTime
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.FlightDelete*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.FlightDelete
+  isExternal: false
+  name: FlightDelete
+  nameWithType: TicketDatabase.FlightDelete
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.FlightDelete
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightDelete(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.FlightDelete(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: FlightDelete(Int32)
+  nameWithType: ITicketDatabase.FlightDelete(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightDelete(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightDelete(System.Int32)
+    name: FlightDelete
+    nameWithType: ITicketDatabase.FlightDelete
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightDelete
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.FlightDelete(System.Int32)
+    name: FlightDelete
+    nameWithType: ITicketDatabase.FlightDelete
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.FlightDelete
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AirPortFind
+  isExternal: false
+  name: AirPortFind
+  nameWithType: TicketDatabase.AirPortFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: AirPortFind(Int32)
+  nameWithType: ITicketDatabase.AirPortFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFind(System.Int32)
+    name: AirPortFind
+    nameWithType: ITicketDatabase.AirPortFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFind(System.Int32)
+    name: AirPortFind
+    nameWithType: ITicketDatabase.AirPortFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.Model.AirPort
+  commentId: T:TicketSystem.DatabaseRepository.Model.AirPort
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: AirPort
+  nameWithType: AirPort
+  fullName: TicketSystem.DatabaseRepository.Model.AirPort
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFindAll*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AirPortFindAll
+  isExternal: false
+  name: AirPortFindAll
+  nameWithType: TicketDatabase.AirPortFindAll
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortFindAll
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFindAll
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFindAll
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: false
+  name: AirPortFindAll()
+  nameWithType: ITicketDatabase.AirPortFindAll()
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFindAll()
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFindAll
+    name: AirPortFindAll
+    nameWithType: ITicketDatabase.AirPortFindAll
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFindAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFindAll
+    name: AirPortFindAll
+    nameWithType: ITicketDatabase.AirPortFindAll
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortFindAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.AirPort}
+  commentId: T:System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.AirPort}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<AirPort>
+  nameWithType: List<AirPort>
+  fullName: System.Collections.Generic.List<TicketSystem.DatabaseRepository.Model.AirPort>
+  nameWithType.vb: List(Of AirPort)
+  fullName.vb: System.Collections.Generic.List(Of TicketSystem.DatabaseRepository.Model.AirPort)
+  name.vb: List(Of AirPort)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: TicketSystem.DatabaseRepository.Model.AirPort
+    name: AirPort
+    nameWithType: AirPort
+    fullName: TicketSystem.DatabaseRepository.Model.AirPort
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: TicketSystem.DatabaseRepository.Model.AirPort
+    name: AirPort
+    nameWithType: AirPort
+    fullName: TicketSystem.DatabaseRepository.Model.AirPort
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortAdd*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AirPortAdd
+  isExternal: false
+  name: AirPortAdd
+  nameWithType: TicketDatabase.AirPortAdd
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortAdd
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortAdd(System.String,System.String,System.Double)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.AirPortAdd(System.String,System.String,System.Double)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: AirPortAdd(String, String, Double)
+  nameWithType: ITicketDatabase.AirPortAdd(String, String, Double)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortAdd(System.String, System.String, System.Double)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortAdd(System.String,System.String,System.Double)
+    name: AirPortAdd
+    nameWithType: ITicketDatabase.AirPortAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortAdd(System.String,System.String,System.Double)
+    name: AirPortAdd
+    nameWithType: ITicketDatabase.AirPortAdd
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortAdd
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortModify*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AirPortModify
+  isExternal: false
+  name: AirPortModify
+  nameWithType: TicketDatabase.AirPortModify
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortModify
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortModify(System.Int32,System.String,System.String,System.Double)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.AirPortModify(System.Int32,System.String,System.String,System.Double)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: AirPortModify(Int32, String, String, Double)
+  nameWithType: ITicketDatabase.AirPortModify(Int32, String, String, Double)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortModify(System.Int32, System.String, System.String, System.Double)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortModify(System.Int32,System.String,System.String,System.Double)
+    name: AirPortModify
+    nameWithType: ITicketDatabase.AirPortModify
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortModify
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortModify(System.Int32,System.String,System.String,System.Double)
+    name: AirPortModify
+    nameWithType: ITicketDatabase.AirPortModify
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortModify
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirPortDelete*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AirPortDelete
+  isExternal: false
+  name: AirPortDelete
+  nameWithType: TicketDatabase.AirPortDelete
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirPortDelete
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortDelete(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.AirPortDelete(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: AirPortDelete(Int32)
+  nameWithType: ITicketDatabase.AirPortDelete(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortDelete(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortDelete(System.Int32)
+    name: AirPortDelete
+    nameWithType: ITicketDatabase.AirPortDelete
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortDelete
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortDelete(System.Int32)
+    name: AirPortDelete
+    nameWithType: ITicketDatabase.AirPortDelete
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirPortDelete
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesFind
+  isExternal: false
+  name: AirportDeparturesFind
+  nameWithType: TicketDatabase.AirportDeparturesFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirportDeparturesFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.AirportDeparturesFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: AirportDeparturesFind(Int32)
+  nameWithType: ITicketDatabase.AirportDeparturesFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirportDeparturesFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirportDeparturesFind(System.Int32)
+    name: AirportDeparturesFind
+    nameWithType: ITicketDatabase.AirportDeparturesFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirportDeparturesFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirportDeparturesFind(System.Int32)
+    name: AirportDeparturesFind
+    nameWithType: ITicketDatabase.AirportDeparturesFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirportDeparturesFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesAtDateFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesAtDateFind
+  isExternal: false
+  name: AirportDeparturesAtDateFind
+  nameWithType: TicketDatabase.AirportDeparturesAtDateFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirportDeparturesAtDateFind
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AirportArrivalsFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AirportArrivalsFind
+  isExternal: false
+  name: AirportArrivalsFind
+  nameWithType: TicketDatabase.AirportArrivalsFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AirportArrivalsFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirportArrivalsFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.AirportArrivalsFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: AirportArrivalsFind(Int32)
+  nameWithType: ITicketDatabase.AirportArrivalsFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirportArrivalsFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirportArrivalsFind(System.Int32)
+    name: AirportArrivalsFind
+    nameWithType: ITicketDatabase.AirportArrivalsFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirportArrivalsFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AirportArrivalsFind(System.Int32)
+    name: AirportArrivalsFind
+    nameWithType: ITicketDatabase.AirportArrivalsFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AirportArrivalsFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.AvaliableSeatsFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.AvaliableSeatsFind
+  isExternal: false
+  name: AvaliableSeatsFind
+  nameWithType: TicketDatabase.AvaliableSeatsFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.AvaliableSeatsFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.AvaliableSeatsFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.AvaliableSeatsFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: AvaliableSeatsFind(Int32)
+  nameWithType: ITicketDatabase.AvaliableSeatsFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AvaliableSeatsFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AvaliableSeatsFind(System.Int32)
+    name: AvaliableSeatsFind
+    nameWithType: ITicketDatabase.AvaliableSeatsFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AvaliableSeatsFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.AvaliableSeatsFind(System.Int32)
+    name: AvaliableSeatsFind
+    nameWithType: ITicketDatabase.AvaliableSeatsFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.AvaliableSeatsFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.APIKeyFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.APIKeyFind
+  isExternal: false
+  name: APIKeyFind
+  nameWithType: TicketDatabase.APIKeyFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.APIKeyFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.APIKeyFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.APIKeyFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: APIKeyFind(Int32)
+  nameWithType: ITicketDatabase.APIKeyFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APIKeyFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.APIKeyFind(System.Int32)
+    name: APIKeyFind
+    nameWithType: ITicketDatabase.APIKeyFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APIKeyFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.APIKeyFind(System.Int32)
+    name: APIKeyFind
+    nameWithType: ITicketDatabase.APIKeyFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APIKeyFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind
+  isExternal: false
+  name: APISecretFind
+  nameWithType: TicketDatabase.APISecretFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.APISecretFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: APISecretFind(Int32)
+  nameWithType: ITicketDatabase.APISecretFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.Int32)
+    name: APISecretFind
+    nameWithType: ITicketDatabase.APISecretFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.Int32)
+    name: APISecretFind
+    nameWithType: ITicketDatabase.APISecretFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.String)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.String)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: APISecretFind(String)
+  nameWithType: ITicketDatabase.APISecretFind(String)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.String)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.String)
+    name: APISecretFind
+    nameWithType: ITicketDatabase.APISecretFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind(System.String)
+    name: APISecretFind
+    nameWithType: ITicketDatabase.APISecretFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.APISecretFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.TransactionFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.TransactionFind
+  isExternal: false
+  name: TransactionFind
+  nameWithType: TicketDatabase.TransactionFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.TransactionFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionFind
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.TransactionFind
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: false
+  name: TransactionFind()
+  nameWithType: ITicketDatabase.TransactionFind()
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionFind()
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionFind
+    name: TransactionFind
+    nameWithType: ITicketDatabase.TransactionFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionFind
+    name: TransactionFind
+    nameWithType: ITicketDatabase.TransactionFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.TransactionFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Transaction}
+  commentId: T:System.Collections.Generic.List{TicketSystem.DatabaseRepository.Model.Transaction}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Transaction>
+  nameWithType: List<Transaction>
+  fullName: System.Collections.Generic.List<TicketSystem.DatabaseRepository.Model.Transaction>
+  nameWithType.vb: List(Of Transaction)
+  fullName.vb: System.Collections.Generic.List(Of TicketSystem.DatabaseRepository.Model.Transaction)
+  name.vb: List(Of Transaction)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: TicketSystem.DatabaseRepository.Model.Transaction
+    name: Transaction
+    nameWithType: Transaction
+    fullName: TicketSystem.DatabaseRepository.Model.Transaction
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: TicketSystem.DatabaseRepository.Model.Transaction
+    name: Transaction
+    nameWithType: Transaction
+    fullName: TicketSystem.DatabaseRepository.Model.Transaction
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.SessionAdd*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.SessionAdd
+  isExternal: false
+  name: SessionAdd
+  nameWithType: TicketDatabase.SessionAdd
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.SessionAdd
+- uid: TicketSystem.DatabaseRepository.Model.Session
+  commentId: T:TicketSystem.DatabaseRepository.Model.Session
+  parent: TicketSystem.DatabaseRepository.Model
+  isExternal: false
+  name: Session
+  nameWithType: Session
+  fullName: TicketSystem.DatabaseRepository.Model.Session
+- uid: TicketSystem.DatabaseRepository.TicketDatabase.SessionFind*
+  commentId: Overload:TicketSystem.DatabaseRepository.TicketDatabase.SessionFind
+  isExternal: false
+  name: SessionFind
+  nameWithType: TicketDatabase.SessionFind
+  fullName: TicketSystem.DatabaseRepository.TicketDatabase.SessionFind
+- uid: TicketSystem.DatabaseRepository.ITicketDatabase.SessionFind(System.Int32)
+  commentId: M:TicketSystem.DatabaseRepository.ITicketDatabase.SessionFind(System.Int32)
+  parent: TicketSystem.DatabaseRepository.ITicketDatabase
+  isExternal: true
+  name: SessionFind(Int32)
+  nameWithType: ITicketDatabase.SessionFind(Int32)
+  fullName: TicketSystem.DatabaseRepository.ITicketDatabase.SessionFind(System.Int32)
+  spec.csharp:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.SessionFind(System.Int32)
+    name: SessionFind
+    nameWithType: ITicketDatabase.SessionFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.SessionFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: TicketSystem.DatabaseRepository.ITicketDatabase.SessionFind(System.Int32)
+    name: SessionFind
+    nameWithType: ITicketDatabase.SessionFind
+    fullName: TicketSystem.DatabaseRepository.ITicketDatabase.SessionFind
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
