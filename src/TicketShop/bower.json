@@ -2,7 +2,8 @@
   "name": "asp.net",
   "private": true,
   "dependencies": {
-    "bootstrap": "v4.0.0",
-    "popper.js": "1.12.9"
+    "bootstrap": "4.0.0",
+    "popper.js": "1.12.9",
+    "font-awesome-5": "5.0.6"
   }
 }
