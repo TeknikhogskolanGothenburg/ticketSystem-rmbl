@@ -5,6 +5,8 @@ using System.Net;
 using System.Text;
 using TicketSystem.RestApiClient.Model;
 using AuthenticationLibrary;
+using Newtonsoft.Json;
+using RestSharp.Deserializers;
 
 namespace TicketSystem.RestApiClient
 {
@@ -32,16 +34,21 @@ namespace TicketSystem.RestApiClient
             sessionSecret = newSessionSecret;
         }
 
+        /// <summary>
+        /// gets all Airports from api
+        /// </summary>
         public List<AirPort> GetAirPorts()
         {
             RestRequest request = new RestRequest("api/AirPort/", Method.GET);
             RestClient client = PrepareRequest(ref request);
 
-            IRestResponse<List<AirPort>> response = client.Execute<List<AirPort>>(request);
+            IRestResponse<List<string>> response = client.Execute<List<string>>(request);
+            List<AirPort> airPorts = new List<AirPort>();
+            response.Data.ForEach(a => airPorts.Add(JsonConvert.DeserializeObject<AirPort>(a)));
 
             AnalysResponse(response, "Get", "AirPort");
 
-            return response.Data;
+            return airPorts;
         }
 
         /// <summary>
@@ -80,11 +87,29 @@ namespace TicketSystem.RestApiClient
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", userId);
 
-            IRestResponse<List<Ticket>> response = client.Execute<List<Ticket>>(request);
+            IRestResponse<List<string>> response = client.Execute<List<string>>(request);
+            List<Ticket> tickets = new List<Ticket>();
+            response.Data.ForEach(t => tickets.Add(JsonConvert.DeserializeObject<Ticket>(t)));
 
             AnalysResponse(response, "Get", "Tickets", "from user id " + userId);
 
-            return response.Data;
+            return tickets;
+        }
+
+        public List<Flight> GetFlightsByAirportDate(int airport, string date)
+        {
+            RestRequest request = new RestRequest("api/AirPort/{id}/DepartureFlight/{day}", Method.GET);
+            RestClient client = PrepareRequest(ref request);
+            request.AddUrlSegment("id", airport);
+            request.AddUrlSegment("day", date);
+
+            IRestResponse<List<string>> response = client.Execute<List<string>>(request);
+            List<Flight> fligths = new List<Flight>();
+            response.Data.ForEach(f => fligths.Add(JsonConvert.DeserializeObject<Flight>(f)));
+
+            AnalysResponse(response, "Get", "Flights", "from airport id" + airport + " and date " + date);
+
+            return fligths;
         }
 
         /// <summary>
@@ -97,11 +122,13 @@ namespace TicketSystem.RestApiClient
             RestRequest request = new RestRequest("api/Ticket/{id}", Method.GET);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", ticketId);
-            IRestResponse<Ticket> response = client.Execute<Ticket>(request);
-
+            client.ClearHandlers();
+            client.AddHandler("application/json", new JsonDeserializer());
+            IRestResponse response = client.Execute(request);
+            
             AnalysResponse(response, "Get", "Ticket", "with id " + ticketId);
 
-            return response.Data;
+            return JsonConvert.DeserializeObject<Ticket>(response.Content);
         }
 
         /// <summary>
@@ -118,11 +145,11 @@ namespace TicketSystem.RestApiClient
 
             AnalysResponse(response, "Buy", "new ticket");
 
-            if(response.StatusCode == HttpStatusCode.Conflict)
+            if (response.StatusCode == HttpStatusCode.Conflict)
             {
                 throw new FormatException(string.Format("A ticket are already booked with this seat ({0})", booking.Ticket.SeatNumber));
             }
-            else if(response.StatusCode == HttpStatusCode.PaymentRequired)
+            else if (response.StatusCode == HttpStatusCode.PaymentRequired)
             {
                 throw new Exception(string.Format("Payment fail, recheck your payment details!"));
             }
@@ -155,11 +182,13 @@ namespace TicketSystem.RestApiClient
             RestRequest request = new RestRequest("api/User/", Method.GET);
             RestClient client = PrepareRequest(ref request);
 
-            IRestResponse<List<User>> response = client.Execute<List<User>>(request);
+            IRestResponse<List<string>> response = client.Execute<List<string>>(request);
+            List<User> users = new List<User>();
+            response.Data.ForEach(u => users.Add(JsonConvert.DeserializeObject<User>(u)));
 
             AnalysResponse(response, "Get", "users");
 
-            return response.Data;
+            return users;
         }
 
         /// <summary>

@@ -80,13 +80,16 @@ namespace TicketShop.Controllers
             }*/
 
             ViewBag.AirPorts = airports;
-
             return View(new FlightSearch());
         }
 
         
         public ActionResult Booking(FlightSearch flightSearch)
         {
+
+            TicketVariables ticket = new TicketVariables();
+
+
             //var model = new TicketVariables();
 
             //try
@@ -128,9 +131,9 @@ namespace TicketShop.Controllers
             //}
             //catch (SqlException e)
             //{
-               
+
             //}
-            
+
 
             return View("Booking", tickets);
         }
