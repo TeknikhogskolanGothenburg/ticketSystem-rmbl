@@ -137,8 +137,10 @@ namespace TicketShopAPI.Controllers
         /// <returns> List of flights as json | StatusCode: 200 OK</returns>
         /// <returns> | StatusCode: 401 Unauthorized</returns>
         // GET: api/AirPort/5/DepartureFlight/1
-        [HttpGet("{id}/DepartureFlight/{day}")]
-        public IEnumerable<string> GetDepartureFlightOn(int id, string day)
+
+        [HttpGet("{id}/DepartureFlight/{date}")]
+        public IEnumerable<string> GetDepartureFlightOn(int id, string date)
+
         {
             string apiKeyData = Request.Headers["Authorization"];
             string sessionData = Request.Headers["User-Authentication"];

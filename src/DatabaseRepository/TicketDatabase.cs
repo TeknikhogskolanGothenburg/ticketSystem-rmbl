@@ -317,7 +317,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Flight>("SELECT Flights.ID, DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats FROM AirPorts JOIN Flights ON Airports.ID=Flights.Departureport WHERE AirPorts.ID=@portId AND Flighs.DepatureDate > @date AND Flighs.DepatureDate < @dateEnd", new { portId, date, dateEnd }).ToList();
+                return connection.Query<Flight>("SELECT Flights.ID, DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats, Price FROM AirPorts JOIN Flights ON Airports.ID=Flights.Departureport WHERE AirPorts.ID=@portId AND Flights.DepartureDate >= @date AND Flights.DepartureDate < @dateEnd", new { portId, date, dateEnd }).ToList();
             }
         }
 
@@ -327,7 +327,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                return connection.Query<Flight>("SELECT Flights.ID, DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats FROM AirPorts JOIN Flights ON Airports.ID=Flights.ArrivalPort WHERE AirPorts.ID=@portId", new { portId }).ToList();
+                return connection.Query<Flight>("SELECT Flights.ID, DepartureDate, DeparturePort, ArrivalDate, ArrivalPort, Seats, Price FROM AirPorts JOIN Flights ON Airports.ID=Flights.ArrivalPort WHERE AirPorts.ID=@portId", new { portId }).ToList();
             }
         }
 
