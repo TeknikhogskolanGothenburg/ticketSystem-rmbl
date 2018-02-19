@@ -55,10 +55,12 @@ body {
 
 
 form {
-    grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    margin: auto;
+    max-width: 500px;
 }
 
 .booking-form {
@@ -167,11 +169,12 @@ form {
         grid-template-rows: 300px 300px;
     }
 
-    .booking-form {
+    form {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 2;
         grid-row-end: 2;
+        margin: initial!important;
     }
 
     .TitleC {
@@ -233,7 +236,7 @@ form {
         grid-template-rows: 300px 300px;
     }
 
-    .booking-form {
+    form {
         grid-column-start: 3;
         grid-column-end: 3;
         grid-row-start: 1;

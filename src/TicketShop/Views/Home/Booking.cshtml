@@ -9,7 +9,7 @@
             var counter = 1;
             foreach (var ticket in Model)
             {
-                <a class="list-group-item list-group-item-action" data-toggle="list" href="#flight-@counter" role="tab">@ticket.From - @ticket.Departure.Date</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#flight-@counter" role="tab">@ticket.From - @ticket.To <br /> @ticket.Departure.Day / @ticket.Departure.Month / @ticket.Departure.Year</a>
                 counter++;
             }
         }

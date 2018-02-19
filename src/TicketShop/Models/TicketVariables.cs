@@ -15,7 +15,7 @@ namespace TicketShop.Models
         public DateTime Arrival { get; set; }
         public int Price { get; set; }
 
-        public Dictionary<int, string> Response = new Dictionary<int, string>();
+        //public Dictionary<int, string> Response = new Dictionary<int, string>();
 
 
         /*public IEnumerable<Ticket> Tickets
