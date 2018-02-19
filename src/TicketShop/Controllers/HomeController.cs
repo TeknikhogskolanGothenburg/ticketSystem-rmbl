@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -65,38 +65,51 @@ namespace TicketShop.Controllers
             return View(new FlightSearch());
         }
 
-        
+
         public ActionResult Booking(FlightSearch flightSearch)
         {
+            List<Flight> flightsAirportDate = ticketApi.GetFlightsByAirportDate(flightSearch.From, flightSearch.DepartureDay.ToString("yyyyMMdd"));
+            List<Flight> customersChoice = new List<Flight>();
 
-            List<AirPort> airports = ticketApi.GetAirPorts();
-            List<Flight> flights = ticketApi.GetFlights(); 
-            List<TicketVariables> tickets = new List<TicketVariables>();
+            string airPortFromName = "";
+            string airPortDestinationName = "";
 
-            foreach (Flight x in flights)
+            foreach (AirPort airport in ticketApi.GetAirPorts())
             {
-                if(x.DeparturePort == flightSearch.From)
+                if (airport.ID == flightSearch.From)
                 {
-                    if(x.ArrivalPort == flightSearch.Destination)
-                    {
-                        if(x.DepartureDate == flightSearch.DepartureDay)
-                        {
-                            tickets.Add(
-                            new TicketVariables
-                            {
-                                From = airports.ElementAt(x.DeparturePort-1).Name,
-                                To = airports.ElementAt(x.ArrivalPort-1).Name,
-                                SeatNum = 16,
-                                Departure = x.DepartureDate,
-                                Arrival = x.ArrivalDate,
-                                Price = x.Price,
-                            }   
-                            );
-                        }
-                    }
+                    airPortFromName = airport.Name;
+                }
+                if(airport.ID == flightSearch.Destination)
+                {
+                    airPortDestinationName = airport.Name;
                 }
             }
 
+            int seatNumber = 0;
+            
+
+            foreach (Flight flight in flightsAirportDate)
+            {
+                if(flight.ArrivalPort == flightSearch.Destination)
+                {
+                    customersChoice.Add(flight);
+                }
+            }
+
+            List<TicketVariables> tickets = new List<TicketVariables>();
+            foreach (Flight flight in customersChoice)
+            {
+                seatNumber = ticketApi.GetFlightSeats(flight.Id)[0];
+                tickets.Add(new TicketVariables {
+                    From = airPortFromName,
+                    To = airPortDestinationName,
+                    SeatNum = seatNumber,
+                    Departure = flight.DepartureDate,
+                    Arrival = flight.ArrivalDate,
+                    Price = flight.Price
+                });
+            }
 
             if (tickets.Count > 0)
             {

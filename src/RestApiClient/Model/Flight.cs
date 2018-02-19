@@ -7,6 +7,8 @@ namespace TicketSystem.RestApiClient.Model
 {
     public class Flight
     {
+        public int Id { get; set; }
+
         [DataType(DataType.Date)]
         [Display(Name = "Departure date")]
         public DateTime DepartureDate { get; set; }

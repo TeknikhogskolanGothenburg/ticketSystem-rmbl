@@ -42,6 +42,7 @@ namespace TicketShopAPI.Controllers
                 allusers = TicketDb.UserFindAll();
                 if (allusers.Count != 0)
                 {
+                    allusers.Select(u => u.Password = null);
                     return allusers.Select(u => JsonConvert.SerializeObject(u));
                 }
                 else
@@ -78,7 +79,8 @@ namespace TicketShopAPI.Controllers
                 User user = new User();
                 user = TicketDb.UserFind(id);
                 if (user != null)
-                {                    
+                {
+                    user.Password = null;
                     return JsonConvert.SerializeObject(user);
                 }
                 else
