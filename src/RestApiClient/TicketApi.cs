@@ -325,7 +325,7 @@ namespace TicketSystem.RestApiClient
         /// <returns>RestClient</returns>
         private RestClient PrepareRequest(ref RestRequest request)
         {
-            RestClient client = new RestClient("http://localhost:63285/");
+            RestClient client = new RestClient("https://rmbl-flightticketapi.azurewebsites.net");
 
             string timestamp = DateTime.Now.ToString("r");
             request.AddHeader("Timestamp", timestamp);
