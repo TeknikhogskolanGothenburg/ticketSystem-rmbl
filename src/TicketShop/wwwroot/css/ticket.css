@@ -23,6 +23,10 @@
     margin-top: 20px
 }
 
+form{
+    min-width: 100%;
+}
+
 .ticket {
     margin: auto;
     margin-top: 20px;

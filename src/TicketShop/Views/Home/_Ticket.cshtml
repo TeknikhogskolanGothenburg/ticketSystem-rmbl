@@ -3,77 +3,79 @@
     ViewData["Title"] = "Ze ticket";
 }
 
-
-<div class="ticket">
-    <div class="right-side">
-        <p id="FlightService">RMBL FlightServices</p>
-        <br>
-        <div class="row">
-            <div class="col">
-                <h5>Abbriviation</h5>
-                <p>King</p>
+@using (Html.BeginForm("Checkout", "Home", FormMethod.Post))
+{
+    <div class="ticket">
+        <div class="right-side">
+            <p id="FlightService">RMBL FlightServices</p>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h5>Abbriviation</h5>
+                    <p>King</p>
+                </div>
+                <div class="col">
+                    <h5>First Name</h5>
+                    <p>Michael</p>
+                </div>
+                <div class="col">
+                    <h5>Last Name</h5>
+                    <p>Jackson</p>
+                </div>
             </div>
-            <div class="col">
-                <h5>First Name</h5>
-                <p>Michael</p>
+            <div class="row">
+                <div class="col">
+                    <h5>From</h5>
+                    <p>@Model.From</p>
+                </div>
+                <div class="col">
+                    <h5>To</h5>
+                    <p>@Model.To</p>
+                </div>
+                <div class="col">
+                    <h5>Seat Number</h5>
+                    <p>16C</p>
+                </div>
             </div>
-            <div class="col">
-                <h5>Last Name</h5>
-                <p>Jackson</p>
+            <br>
+            <div class="row" id="DepartureTimeSection">
+                <div class="col">
+                    <h5>Departure</h5>
+                    <!--<p>13/5/2018 - <span>18:05</span></p>-->
+                    <p>@Model.Departure.Day / @Model.Departure.Month / @Model.Departure.Year</p>
+                </div>
+                <div class="col">
+                    <h5>Arrival</h5>
+                    <p>@Model.Arrival.Day / @Model.Arrival.Month / @Model.Arrival.Year</p>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h5>From</h5>
-                <p>@Model.From</p>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <p class="BarCode">HUEMASTER EYYY</p>
+                </div>
+                <div class="col">
+                    <p class="text-right" id="Price">@Model.Price</p>
+                </div>
             </div>
-            <div class="col">
-                <h5>To</h5>
-                <p>@Model.To</p>
+        </div><!--Right side End-->
+        <div class="left-side">
+            <img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-621248.jpg" alt="" width="210px" height="400px">
+            <div class="stampOfApproval text-center">
+                <p>
+                    RMBL <br>FlightService
+                    <br> Have a nice flight!
+                    <br>Transaction ID: #33567
+                </p>
             </div>
-            <div class="col">
-                <h5>Seat Number</h5>
-                <p>16C</p>
-            </div>
-        </div>
-        <br>
-        <div class="row" id="DepartureTimeSection">
-            <div class="col">
-                <h5>Departure</h5>
-                <!--<p>13/5/2018 - <span>18:05</span></p>-->
-                <p>@Model.Departure.Day / @Model.Departure.Month / @Model.Departure.Year</p>
-            </div>
-            <div class="col">
-                <h5>Arrival</h5>
-                <p>@Model.Arrival.Day / @Model.Arrival.Month / @Model.Arrival.Year</p>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <p class="BarCode">HUEMASTER EYYY</p>
-            </div>
-            <div class="col">
-                <p class="text-right" id="Price">@Model.Price</p>
-            </div>
-        </div>
-    </div><!--Right side End-->
-    <div class="left-side">
-        <img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-621248.jpg" alt="" width="210px" height="400px">
-        <div class="stampOfApproval text-center">
-            <p>
-                RMBL <br>FlightService
-                <br> Have a nice flight!
-                <br>Transaction ID: #33567
-            </p>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p class="BarCode" id="TwistedBarCode">THIS IS ANOTHER</p>
+            <div class="row">
+                <div class="col">
+                    <p class="BarCode" id="TwistedBarCode">THIS IS ANOTHER</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div id="buyButton" class="text-right">
-    <a href="#" class="btn btn-success">Buy Ticket</a>
-</div>
+    <div id="buyButton" class="text-right">
+        <input type="submit" class="btn btn-success" value="Buy Ticket"/>
+    </div>
+}
