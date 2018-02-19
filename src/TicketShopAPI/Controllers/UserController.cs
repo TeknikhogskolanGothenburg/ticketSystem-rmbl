@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using TicketShopAPI.APISecurity;
 using AuthenticationLibrary;
+using Microsoft.Extensions.Logging;
 
 namespace TicketShopAPI.Controllers
 {
@@ -20,6 +21,12 @@ namespace TicketShopAPI.Controllers
     {
         private Security security = new Security();
         private TicketDatabase TicketDb = new TicketDatabase();
+        private ILogger<UserController> logger;
+
+        public UserController(ILogger<UserController> newLogger)
+        {
+            logger = newLogger;
+        }
 
         /// <summary>
         /// querries database for all users
@@ -225,13 +232,16 @@ namespace TicketShopAPI.Controllers
             int gradeRestriction = 1;
             if (security.IsAuthorised(timeStamp, apiKeyData, sessionData, gradeRestriction))
             {
-				//Response.Headers.Add("Authorization", Authentication.AuthenticationHeader(security.ApiKey,security.ApiSecret,security.Timestamp));																																	
+                //Response.Headers.Add("Authorization", Authentication.AuthenticationHeader(security.ApiKey,security.ApiSecret,security.Timestamp));																																	
+
                 User user;
+
                 //if (!(security.User.Grade > 1) && security.UserId != id)
                 //{
                 //    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 //    return;
-                //}																	  
+                //}
+                
                 try
                 {
                     user = data.ToObject<User>();

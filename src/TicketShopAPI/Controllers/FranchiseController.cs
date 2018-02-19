@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using TicketSystem.PaymentProvider;
 using Newtonsoft.Json.Linq;
 using TicketShopAPI.APISecurity;
+using Microsoft.Extensions.Logging;
 
 namespace TicketShopAPI.Controllers
 {
@@ -20,6 +21,12 @@ namespace TicketShopAPI.Controllers
     {
         private Security security = new Security();
         private TicketDatabase TicketDb = new TicketDatabase();
+        private ILogger<FranchiseController> logger;
+
+        public FranchiseController(ILogger<FranchiseController> newLogger)
+        {
+            logger = newLogger;
+        }
 
         //// GET: api/Franchise
         //[HttpGet]
