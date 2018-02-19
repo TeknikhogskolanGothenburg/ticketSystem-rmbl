@@ -115,10 +115,10 @@ namespace TicketSystem.RestApiClient
 
         public List<Flight> GetFlightsByAirportDate(int airport, string date)
         {
-            RestRequest request = new RestRequest("api/AirPort/{id}/DepartureFlight/{date}", Method.GET);
+            RestRequest request = new RestRequest("api/AirPort/{id}/DepartureFlight/{day}", Method.GET);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", airport);
-            request.AddUrlSegment("date", date);
+            request.AddUrlSegment("day", date);
 
             IRestResponse<List<string>> response = client.Execute<List<string>>(request);
 			
@@ -325,7 +325,7 @@ namespace TicketSystem.RestApiClient
         /// <returns>RestClient</returns>
         private RestClient PrepareRequest(ref RestRequest request)
         {
-            RestClient client = new RestClient("http://localhost:58364/");
+            RestClient client = new RestClient("https://rmbl-flightticketapi.azurewebsites.net/");
 
             string timestamp = DateTime.Now.ToString("r");
             request.AddHeader("Timestamp", timestamp);
