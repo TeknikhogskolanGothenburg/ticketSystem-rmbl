@@ -132,7 +132,7 @@ namespace TicketSystem.RestApiClient
 
         public List<int> GetFlightSeats(int flight)
         {
-            RestRequest request = new RestRequest("api/flights/{id}/AvaliableSeats", Method.GET);
+            RestRequest request = new RestRequest("api/Flight/{id}/AvaliableSeats", Method.GET);
             RestClient client = PrepareRequest(ref request);
             request.AddUrlSegment("id", flight);
 
