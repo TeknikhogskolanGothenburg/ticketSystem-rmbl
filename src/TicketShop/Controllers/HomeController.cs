@@ -62,15 +62,13 @@ namespace TicketShop.Controllers
         {
             List<AirPort> airports = ticketApi.GetAirPorts();
             ViewBag.AirPorts = airports;
-
-            var temp = ticketApi.GetTicketById(1);
-
             return View(new FlightSearch());
         }
 
         
         public ActionResult Booking(FlightSearch flightSearch)
         {
+
             List<AirPort> airports = ticketApi.GetAirPorts();
             List<Flight> flights = ticketApi.GetFlights(); 
             List<TicketVariables> tickets = new List<TicketVariables>();
@@ -98,6 +96,7 @@ namespace TicketShop.Controllers
                     }
                 }
             }
+
 
             if (tickets.Count > 0)
             {

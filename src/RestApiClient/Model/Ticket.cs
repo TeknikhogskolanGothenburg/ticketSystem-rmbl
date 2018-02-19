@@ -17,7 +17,7 @@ namespace TicketSystem.RestApiClient.Model
         [Required]
         [Range(1, int.MaxValue)]
         public int SeatNumber { get; set; }
-
+      
         public int BookAt { get; set; }
     }
 }

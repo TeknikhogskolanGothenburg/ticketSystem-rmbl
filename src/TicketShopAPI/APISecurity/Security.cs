@@ -69,7 +69,6 @@ namespace TicketShopAPI.APISecurity
                 return false;
             }
         }
-
         private bool VerifySession()
         {
             if (Authentication.VerifyHashMessageByKey(Session.Secret, Timestamp, SessionHashTimestamp))
