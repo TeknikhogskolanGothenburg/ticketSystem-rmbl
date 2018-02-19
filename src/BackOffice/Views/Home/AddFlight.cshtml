@@ -1,7 +1,10 @@
 ﻿@model TicketSystem.RestApiClient.Model.Flight;
+@using TicketSystem.RestApiClient.Model;
 
 @{
     ViewData["Title"] = "Add Flight";
+
+    List<AirPort> airports = ((List<AirPort>)ViewBag.AirPorts);
 }
 
 @using (Html.BeginForm())
@@ -27,7 +30,16 @@
                     <div class="col">
                         <label>
                             Depture Airport:
-                            @Html.EditorFor(m => m.DeparturePort)
+
+                            <select asp-for="@Model.DeparturePort">
+                                @{
+                                    foreach (AirPort airport in airports)
+                                    {
+                                        <option value="@airport.ID">@airport.Name</option>
+
+                                    }
+                                }
+                            </select>
                         </label>
                     </div>
 
@@ -41,7 +53,15 @@
                     <div class="col">
                         <label>
                             Arrival Airport:
-                            @Html.EditorFor(m => m.ArrivalPort)
+                            <select asp-for="@Model.ArrivalPort">
+                                @{
+                                    foreach (AirPort airport in airports)
+                                    {
+                                        <option value="@airport.ID">@airport.Name</option>
+
+                                    }
+                                }
+                            </select>
                         </label>
                     </div>
 
