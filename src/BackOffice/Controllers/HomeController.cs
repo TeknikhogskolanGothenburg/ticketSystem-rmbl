@@ -66,14 +66,14 @@ namespace BackOffice.Controllers
         /// <returns>Login view</returns>
         public IActionResult Index()
         {
-            /*if(!sessions.Exist("UserId"))
-            {*/
+            if(!sessions.Exist("UserId"))
+            {
                 return View(new Login());
-            /*}
+            }
             
             messagesHandler.Add("warning", "You are already login!");
 
-            return RedirectToAction("Index", "Users");*/
+            return RedirectToAction("Index", "Users");
         }
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace BackOffice.Controllers
         [HttpPost]
         public IActionResult Index(Login login)
         {
-            /*if (!sessions.Exist("UserId"))
-            {*/
+            if (!sessions.Exist("UserId"))
+            {
                 if (login == null)
                 {
                     return View(new Login());
@@ -97,6 +97,8 @@ namespace BackOffice.Controllers
                     sessions.Add("Username", login.Username);
                     sessions.Add("SessionId", 1);
                     sessions.Add("SessionSecret", Guid.NewGuid().ToString());
+
+                    return RedirectToAction("Index", "Users");
 
                     /*try
                     {
@@ -118,11 +120,11 @@ namespace BackOffice.Controllers
                 }
 
                 return View(login);
-            /*}
+            }
 
             messagesHandler.Add("warning", "You are already login!");
 
-            return RedirectToAction("Index", "Users");*/
+            return RedirectToAction("Index", "Users");
         }
 
         /// <summary>
