@@ -65,6 +65,12 @@ namespace TicketShop.Controllers
             return View(new FlightSearch());
         }
 
+        public IActionResult RegisterUser(User user)
+        {
+
+            return View();
+        }
+
 
         public ActionResult Booking(FlightSearch flightSearch)
         {
