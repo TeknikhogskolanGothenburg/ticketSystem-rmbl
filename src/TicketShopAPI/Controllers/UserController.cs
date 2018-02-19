@@ -225,6 +225,13 @@ namespace TicketShopAPI.Controllers
             {
                 //Response.Headers.Add("Authorization", Authentication.AuthenticationHeader(security.ApiKey,security.ApiSecret,security.Timestamp));
                 User user;
+
+                //if (!(security.User.Grade > 1) && security.UserId != id)
+                //{
+                //    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                //    return;
+                //}
+
                 try
                 {
                     user = data["User"].ToObject<User>();

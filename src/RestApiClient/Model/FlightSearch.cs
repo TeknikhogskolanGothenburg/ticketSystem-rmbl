@@ -19,5 +19,10 @@ namespace TicketSystem.RestApiClient.Model
         [DataType(DataType.Date)]
         [Display(Name = "Departure day")]
         public DateTime DepartureDay { get; set; }
+
+        public FlightSearch()
+        {
+            DepartureDay = DateTime.Now;
+        }
     }
 }

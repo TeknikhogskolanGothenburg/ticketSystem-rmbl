@@ -128,6 +128,9 @@ namespace BackOffice.Controllers
         {
             if (sessions.Exist("UserId"))
             {
+                List<AirPort> airports = ticketApi.GetAirPorts();
+                ViewBag.AirPorts = airports;
+
                 return View(new Flight());
             }
 

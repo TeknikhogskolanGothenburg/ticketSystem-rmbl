@@ -8,6 +8,11 @@
 {
     foreach (User user in ViewBag.Users)
     {
-        <p>@user.Username</p>
+        <p>
+            @user.Username 
+            [@Html.ActionLink("Tickets", "Tickets", "Users", new { id = user.ID }) |
+            @Html.ActionLink("Edit", "Edit", "Users", new { id = user.ID }) |
+            @Html.ActionLink("Remove", "Remove", "Users", new { id = user.ID })]
+        </p>
     }
 }

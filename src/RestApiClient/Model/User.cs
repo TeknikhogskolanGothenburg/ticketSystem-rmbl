@@ -7,17 +7,20 @@ namespace TicketSystem.RestApiClient.Model
 {
     public class User
     {
+        public int Id { get; set; }
+
         [Required]
         [StringLength(50, MinimumLength = 2)]
         [RegularExpression("^[A-Za-z0-9]+$", ErrorMessage = "Only allowed username with A-Z, a-z and 0-9")]
         public string Username { get; set; }
 
         [StringLength(50, MinimumLength = 5)]
-        [RegularExpression("(?=.*[A-Z])(?=.*[^\\w\\d])(?=.*[\\d])(?=.*[a-z])", ErrorMessage = "A password need minimum one of each A-Z, a-z, 0-9 and special character")]
+        //[RegularExpression("(?=.*[A-Z])(?=.*[^\\w\\d])(?=.*[\\d])(?=.*[a-z])", ErrorMessage = "A password need minimum one of each A-Z, a-z, 0-9 and special character")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [StringLength(50, MinimumLength = 5)]
-        public string PasswordAgian { get; set; }
+        //[StringLength(50, MinimumLength = 5)]
+        //public string PasswordAgian { get; set; }
 
         [Required]
         [StringLength(255, MinimumLength = 5)]
@@ -44,5 +47,7 @@ namespace TicketSystem.RestApiClient.Model
         [Required]
         [StringLength(50, MinimumLength = 1)]
         public string City { get; set; }
+
+        public bool DeletedUser { get; set; }
     }
 }
