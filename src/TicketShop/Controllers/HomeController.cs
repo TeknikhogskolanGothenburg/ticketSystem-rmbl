@@ -71,6 +71,11 @@ namespace TicketShop.Controllers
             return View();
         }
 
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
 
         public ActionResult Booking(FlightSearch flightSearch)
         {
