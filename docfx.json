@@ -3,9 +3,12 @@
     {
       "src": [
         {
-          "files": [ "*.sln" ],
+          "files": [ "**.sln" ],
           "exclude": [ "**/bin/**", "**/obj/**" ],
-          "src": "src"
+          "src": "src",
+          "properties": {
+            "TargetFramework": "netstandard2.0"
+          }
         }
       ],
       "dest": "systemapi"

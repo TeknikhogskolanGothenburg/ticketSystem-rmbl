@@ -53,6 +53,7 @@ references:
   fullName: TicketShop.Models.Sessions
 - uid: TicketShop.Models.TicketVariables
   commentId: T:TicketShop.Models.TicketVariables
+  parent: TicketShop.Models
   isExternal: false
   name: TicketVariables
   nameWithType: TicketVariables

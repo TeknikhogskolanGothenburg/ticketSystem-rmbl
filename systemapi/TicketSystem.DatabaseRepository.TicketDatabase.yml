@@ -57,6 +57,7 @@ items:
     content: 'public class TicketDatabase : ITicketDatabase'
     content.vb: >-
       Public Class TicketDatabase
+
           Implements ITicketDatabase
   inheritance:
   - System.Object

@@ -24,6 +24,7 @@ items:
     content: 'public class PaymentProvider : IPaymentProvider'
     content.vb: >-
       Public Class PaymentProvider
+
           Implements IPaymentProvider
   inheritance:
   - System.Object

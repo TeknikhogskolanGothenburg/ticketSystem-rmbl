@@ -7,10 +7,12 @@ items:
   children:
   - TicketShop.Controllers.HomeController.#ctor(Microsoft.Extensions.Configuration.IConfigurationRoot,TicketShop.Models.Sessions)
   - TicketShop.Controllers.HomeController.Booking(TicketSystem.RestApiClient.Model.FlightSearch)
+  - TicketShop.Controllers.HomeController.Checkout(TicketShop.Models.TicketVariables)
   - TicketShop.Controllers.HomeController.Error
   - TicketShop.Controllers.HomeController.Index
   - TicketShop.Controllers.HomeController.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)
   - TicketShop.Controllers.HomeController.RegisterUser(TicketSystem.RestApiClient.Model.User)
+  - TicketShop.Controllers.HomeController.TicketPurchase(TicketShop.Models.TicketVariables,TicketSystem.RestApiClient.Model.Payment)
   - TicketShop.Controllers.HomeController.tickets
   langs:
   - csharp
@@ -367,6 +369,70 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: TicketShop.Controllers.HomeController.Checkout(TicketShop.Models.TicketVariables)
+  commentId: M:TicketShop.Controllers.HomeController.Checkout(TicketShop.Models.TicketVariables)
+  id: Checkout(TicketShop.Models.TicketVariables)
+  parent: TicketShop.Controllers.HomeController
+  langs:
+  - csharp
+  - vb
+  name: Checkout(TicketVariables)
+  nameWithType: HomeController.Checkout(TicketVariables)
+  fullName: TicketShop.Controllers.HomeController.Checkout(TicketShop.Models.TicketVariables)
+  type: Method
+  source:
+    id: Checkout
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Controllers\HomeController.cs
+    startLine: 73
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Controllers
+  syntax:
+    content: public IActionResult Checkout(TicketVariables ticket)
+    parameters:
+    - id: ticket
+      type: TicketShop.Models.TicketVariables
+    return:
+      type: Microsoft.AspNetCore.Mvc.IActionResult
+    content.vb: Public Function Checkout(ticket As TicketVariables) As IActionResult
+  overload: TicketShop.Controllers.HomeController.Checkout*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TicketShop.Controllers.HomeController.TicketPurchase(TicketShop.Models.TicketVariables,TicketSystem.RestApiClient.Model.Payment)
+  commentId: M:TicketShop.Controllers.HomeController.TicketPurchase(TicketShop.Models.TicketVariables,TicketSystem.RestApiClient.Model.Payment)
+  id: TicketPurchase(TicketShop.Models.TicketVariables,TicketSystem.RestApiClient.Model.Payment)
+  parent: TicketShop.Controllers.HomeController
+  langs:
+  - csharp
+  - vb
+  name: TicketPurchase(TicketVariables, Payment)
+  nameWithType: HomeController.TicketPurchase(TicketVariables, Payment)
+  fullName: TicketShop.Controllers.HomeController.TicketPurchase(TicketShop.Models.TicketVariables, TicketSystem.RestApiClient.Model.Payment)
+  type: Method
+  source:
+    id: TicketPurchase
+    path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Controllers\HomeController.cs
+    startLine: 79
+  assemblies:
+  - TicketShop
+  namespace: TicketShop.Controllers
+  syntax:
+    content: public IActionResult TicketPurchase(TicketVariables ticket, Payment payment)
+    parameters:
+    - id: ticket
+      type: TicketShop.Models.TicketVariables
+    - id: payment
+      type: TicketSystem.RestApiClient.Model.Payment
+    return:
+      type: Microsoft.AspNetCore.Mvc.IActionResult
+    content.vb: Public Function TicketPurchase(ticket As TicketVariables, payment As Payment) As IActionResult
+  overload: TicketShop.Controllers.HomeController.TicketPurchase*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: TicketShop.Controllers.HomeController.Booking(TicketSystem.RestApiClient.Model.FlightSearch)
   commentId: M:TicketShop.Controllers.HomeController.Booking(TicketSystem.RestApiClient.Model.FlightSearch)
   id: Booking(TicketSystem.RestApiClient.Model.FlightSearch)
@@ -381,7 +447,7 @@ items:
   source:
     id: Booking
     path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Controllers\HomeController.cs
-    startLine: 74
+    startLine: 96
   assemblies:
   - TicketShop
   namespace: TicketShop.Controllers
@@ -412,7 +478,7 @@ items:
   source:
     id: Error
     path: C:\Users\rober\Documents\GitHub\ticketSystem-rmbl\src\TicketShop\Controllers\HomeController.cs
-    startLine: 137
+    startLine: 162
   assemblies:
   - TicketShop
   namespace: TicketShop.Controllers
@@ -10667,6 +10733,32 @@ references:
   name: TicketSystem.RestApiClient.Model
   nameWithType: TicketSystem.RestApiClient.Model
   fullName: TicketSystem.RestApiClient.Model
+- uid: TicketShop.Controllers.HomeController.Checkout*
+  commentId: Overload:TicketShop.Controllers.HomeController.Checkout
+  isExternal: false
+  name: Checkout
+  nameWithType: HomeController.Checkout
+  fullName: TicketShop.Controllers.HomeController.Checkout
+- uid: TicketShop.Models.TicketVariables
+  commentId: T:TicketShop.Models.TicketVariables
+  parent: TicketShop.Models
+  isExternal: false
+  name: TicketVariables
+  nameWithType: TicketVariables
+  fullName: TicketShop.Models.TicketVariables
+- uid: TicketShop.Controllers.HomeController.TicketPurchase*
+  commentId: Overload:TicketShop.Controllers.HomeController.TicketPurchase
+  isExternal: false
+  name: TicketPurchase
+  nameWithType: HomeController.TicketPurchase
+  fullName: TicketShop.Controllers.HomeController.TicketPurchase
+- uid: TicketSystem.RestApiClient.Model.Payment
+  commentId: T:TicketSystem.RestApiClient.Model.Payment
+  parent: TicketSystem.RestApiClient.Model
+  isExternal: false
+  name: Payment
+  nameWithType: Payment
+  fullName: TicketSystem.RestApiClient.Model.Payment
 - uid: TicketShop.Controllers.HomeController.Booking*
   commentId: Overload:TicketShop.Controllers.HomeController.Booking
   isExternal: false
